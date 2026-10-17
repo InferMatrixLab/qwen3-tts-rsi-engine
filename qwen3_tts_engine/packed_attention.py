@@ -9,7 +9,7 @@ from qwen_tts.core.models.modeling_qwen3_tts import (
 
 
 class PackedAttention(torch.nn.Module):
-    def __init__(self, reference, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False):
+    def __init__(self, reference, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False, native_rope_scope="all"):
         super().__init__()
         self.reference = reference
         projections = [reference.q_proj, reference.k_proj, reference.v_proj]
@@ -22,7 +22,10 @@ class PackedAttention(torch.nn.Module):
                                            requires_grad=False)
         self.multimodal = reference.__class__.__name__ == 'Qwen3TTSTalkerAttention'
         self.native_gqa = native_gqa
-        self.native_rope = native_rope
+        if native_rope_scope not in ('all', 'talker', 'predictor'):
+            raise ValueError('Native rotary scope must be all, talker or predictor')
+        self.native_rope = native_rope and (native_rope_scope == 'all' or
+                                          (native_rope_scope == 'talker') == self.multimodal)
         if native_rope and self.multimodal and not text_only_rope:
             raise ValueError("Native rotary requires identical CustomVoice position axes")
         self.reference_single = reference_single
@@ -71,11 +74,11 @@ class PackedAttention(torch.nn.Module):
         return reference.o_proj(output.reshape(*shape, -1).contiguous()), weights
 
 
-def install_packed_attention(model, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False):
+def install_packed_attention(model, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False, native_rope_scope="all"):
     replacements = []
     for parent in list(model.modules()):
         for name, child in list(parent.named_children()):
             if child.__class__.__name__ in ('Qwen3TTSTalkerAttention', 'Qwen3TTSAttention'):
                 replacements.append((parent, name, child))
-                setattr(parent, name, PackedAttention(child, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope))
+                setattr(parent, name, PackedAttention(child, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope, native_rope_scope=native_rope_scope))
     return replacements

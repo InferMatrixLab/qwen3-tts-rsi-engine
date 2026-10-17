@@ -11,7 +11,7 @@ from qwen3_tts_engine.predictor import PredictorGraph
 class CustomVoiceModel:
     def __init__(self, model_path, device, predictor_graph=False, talker_graph=False,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=1,
-                 pack_mlp=False, fused_swiglu=False, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False, fused_residual=False):
+                 pack_mlp=False, fused_swiglu=False, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False, fused_residual=False, native_rope_scope="all"):
         torch.npu.set_device(device)
         torch.set_num_threads(4)
         self.device = device
@@ -25,7 +25,7 @@ class CustomVoiceModel:
             install_rms_norms(self.wrapper.model.talker, rms_norm, reference_single=reference_single)
         if pack_qkv or native_gqa or text_only_rope or native_rope:
             from qwen3_tts_engine.packed_attention import install_packed_attention
-            install_packed_attention(self.wrapper.model.talker, native_gqa=native_gqa, text_only_rope=text_only_rope or native_rope, reference_single=reference_single, native_rope=native_rope)
+            install_packed_attention(self.wrapper.model.talker, native_gqa=native_gqa, text_only_rope=text_only_rope or native_rope, reference_single=reference_single, native_rope=native_rope, native_rope_scope=native_rope_scope)
         if pack_mlp or fused_swiglu:
             from qwen3_tts_engine.packed_mlp import install_packed_mlp
             install_packed_mlp(self.wrapper.model.talker, fused=fused_swiglu, reference_single=reference_single)

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "Cancellation after frame 3, surviving request PCM equality; not throughput or full quality",
+  "requests": [
+    {
+      "index": 1,
+      "equal": true,
+      "control_sha256": "a437b35c0bde5198c8c51a98aae6e50f92f0e9736b075819d91abb42209db020",
+      "buffer_sha256": "a437b35c0bde5198c8c51a98aae6e50f92f0e9736b075819d91abb42209db020"
+    },
+    {
+      "index": 65,
+      "equal": true,
+      "control_sha256": "84edeb20a9450ef102cacc82e096b1e5b6e843ce5543eb83d827ca595d731ead",
+      "buffer_sha256": "84edeb20a9450ef102cacc82e096b1e5b6e843ce5543eb83d827ca595d731ead"
+    },
+    {
+      "index": 64,
+      "equal": true,
+      "control_sha256": "eeb5628824835a8f77648c663dae149c400f35de4f9e85b7bb95e5e15d2f428c",
+      "buffer_sha256": "eeb5628824835a8f77648c663dae149c400f35de4f9e85b7bb95e5e15d2f428c"
+    }
+  ]
+}

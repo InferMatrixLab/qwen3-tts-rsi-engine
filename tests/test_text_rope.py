@@ -20,3 +20,17 @@ def test_equal_text_axes_match_multimodal_rope(interleaved, dtype):
         actual = apply_rotary_pos_emb(q, k, cos[0], sin[0])
         for left, right in zip(actual, expected):
             torch.testing.assert_close(left, right, atol=0, rtol=0)
+
+
+@pytest.mark.parametrize('scope,expected', [('all', [True, True]), ('talker', [True, False]), ('predictor', [False, True])])
+def test_native_rotary_scope_selects_model_component(scope, expected):
+    from qwen3_tts_engine.packed_attention import PackedAttention
+    selected = []
+    for name in ['Qwen3TTSTalkerAttention', 'Qwen3TTSAttention']:
+        reference = type(name, (torch.nn.Module,), {})()
+        reference.q_proj = torch.nn.Linear(8, 8, bias=False)
+        reference.k_proj = torch.nn.Linear(8, 4, bias=False)
+        reference.v_proj = torch.nn.Linear(8, 4, bias=False)
+        candidate = PackedAttention(reference, native_rope=True, text_only_rope=True, native_rope_scope=scope)
+        selected.append(candidate.native_rope)
+    assert selected == expected

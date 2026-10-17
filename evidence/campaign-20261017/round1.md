@@ -254,3 +254,8 @@ Triton Ascend 3.2.0 is available. A vector-only SnakeBeta prototype preserves ex
 
 
 Native-RoPE/sampling full-sweep quality is now complete: all 896 clips have ASR and speaker scores. C1/C2/C4/C8/C32/C64 pass the frozen ASR and speaker gates. C16 fails Chinese CER (0.03807947 versus maximum 0.03566225); all speaker gates pass. C32 EN WER/ZH CER: 0.00853485 / 0.03062914; C64: 0.00995733 / 0.02649007. This is a rejected all-concurrency candidate, not a quality-qualified 2x result.
+
+
+The codec code-buffer cancellation control passed: cancelling request 0 after frame 3 left requests 1/64/65 with identical complete PCM hashes. The 101-frame real decoder test with Triton SnakeBeta also passed exact graph-control equality across interleaved groups, slot move and reset; BF16 graph-versus-eager differences remain unchanged and are not described as eager parity. Service throughput is the next gate.
+
+Added default-all `--native-rope-scope {all,talker,predictor}` for component attribution of the C16 ASR regression. It changes no sampling parameters or quality thresholds. The predictor-only C16 control is prepared; it is not an accepted numerical policy.
