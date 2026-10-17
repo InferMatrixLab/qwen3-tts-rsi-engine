@@ -221,3 +221,8 @@ Fixed predictor rotary hoisting probe on physical NPU 6 uses synthetic hidden in
 | 64 | 21.6366 | 21.4195 |
 
 This saves only approximately 0.06–0.23 ms per predictor call. It remains a probe, not integrated into serving; no service-speedup claim follows from these component timings.
+
+
+### Optional residual-add RMSNorm fusion
+
+Added a default-off `--fused-residual` experiment requiring native RMSNorm. It fuses the post-attention residual add and normalization in both talker and predictor decoder layers. Attention/cache arguments and optional attention outputs are preserved; single-reference mode bypasses the fused decoder. The operator probe covers hidden widths 1024/2048 and decode/prefill shapes. All retained residuals are bit-identical; normalization differs by up to 0.03125 in BF16. B64 width2048 replay approximately 0.0241 ms separate versus 0.0181 ms fused. CPU FP32 errors and ABBA samples are retained. These are component diagnostics, not audio-quality acceptance. All 35 unit tests passed; full service measurement and speech quality remain pending.

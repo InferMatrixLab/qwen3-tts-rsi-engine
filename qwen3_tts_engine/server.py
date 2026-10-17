@@ -275,6 +275,7 @@ def main():
     parser.add_argument("--reference-single", action="store_true")
     parser.add_argument("--graph-sampling", action="store_true")
     parser.add_argument("--native-rope", action="store_true")
+    parser.add_argument("--fused-residual", action="store_true")
     parser.add_argument("--pack-mlp", action="store_true")
     parser.add_argument("--fused-swiglu", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
@@ -287,6 +288,8 @@ def main():
     parser.add_argument("--native-kv-update", action="store_true")
     parser.add_argument("--prefill-per-tick", type=int, default=4)
     options = parser.parse_args()
+    if options.fused_residual and options.rms_norm != "native":
+        parser.error("--fused-residual requires --rms-norm native")
     if options.incremental_codec and not options.continuous:
         parser.error('--incremental-codec requires --continuous')
     if options.batch_prefill and not options.continuous:
@@ -324,7 +327,7 @@ def main():
                                              talker_graph=options.talker_graph,
                                              rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
                                              pack_mlp=options.pack_mlp, fused_swiglu=options.fused_swiglu,
-                                             native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, reference_single=options.reference_single, native_rope=options.native_rope,
+                                             native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, reference_single=options.reference_single, native_rope=options.native_rope, fused_residual=options.fused_residual,
                                              codec_left_context=options.codec_left_context,
                                              codec_batch_size=options.codec_batch_size)
     if options.continuous:
@@ -332,7 +335,7 @@ def main():
         factory = partial(ContinuousModel, max_slots=options.max_batch_size,
                           rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
                           pack_mlp=options.pack_mlp, fused_swiglu=options.fused_swiglu,
-                          native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, reference_single=options.reference_single, native_rope=options.native_rope, graph_prefill=options.graph_prefill,
+                          native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, reference_single=options.reference_single, native_rope=options.native_rope, fused_residual=options.fused_residual, graph_prefill=options.graph_prefill,
                           codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
                           incremental_codec=options.incremental_codec, batch_prefill=options.batch_prefill,
                           native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec, bucket_kv=options.bucket_kv, graph_embeddings=options.graph_embeddings, bucket_prefill=options.bucket_prefill, decode_bucket_step=options.decode_bucket_step, batch_audio_transfer=options.batch_audio_transfer, graph_sampling=options.graph_sampling)
