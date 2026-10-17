@@ -1,0 +1,338 @@
+{
+  "metrics": {
+    "requests": 8,
+    "successful_requests": 8,
+    "failed_requests": 0,
+    "wall_seconds": 33.04819448385388,
+    "throughput_frames_s": 13.04155965950184,
+    "ttfa_p50_ms": 255.0098462961614,
+    "ttfa_p95_ms": 265.97784142941236,
+    "rtf_mean": 0.9662081858968227,
+    "request_completion_pass": true,
+    "quality": "NOT_EVALUATED",
+    "server_lifecycle": "NOT_EVALUATED",
+    "status": "INCONCLUSIVE"
+  },
+  "requests": [
+    {
+      "index": 0,
+      "input": "Get the trust fund to the bank early.",
+      "success": true,
+      "audio_seconds": 1.68,
+      "ttfa_seconds": 0.247364922426641,
+      "chunks": [
+        {
+          "seconds": 0.247364922426641,
+          "bytes": 3840
+        },
+        {
+          "seconds": 1.6738848118111491,
+          "bytes": 76800
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 22,
+          "total_tokens": 31,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19072,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 1.6747038625180721,
+      "pcm_sha256": "a180760ac0cb12c25869322d80b8f5848de3a27707c086c636db1855f517c10b",
+      "pcm_bytes": 80640
+    },
+    {
+      "index": 1,
+      "input": "The stained glass offered a hypnotic atmosphere.",
+      "success": true,
+      "audio_seconds": 3.04,
+      "ttfa_seconds": 0.2523892540484667,
+      "chunks": [
+        {
+          "seconds": 0.2523892540484667,
+          "bytes": 3840
+        },
+        {
+          "seconds": 2.0671520438045263,
+          "bytes": 96000
+        },
+        {
+          "seconds": 2.9439044296741486,
+          "bytes": 46080
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 39,
+          "total_tokens": 48,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 11840,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 2.9452142231166363,
+      "pcm_sha256": "691af3a4cb96121b7efdccd11e9bb82f800cde36ae29f4dc58ca2d62fddc6e9e",
+      "pcm_bytes": 145920
+    },
+    {
+      "index": 2,
+      "input": "One by one, the campfires were extinguished, and the oasis fell as quiet as the desert.",
+      "success": true,
+      "audio_seconds": 7.68,
+      "ttfa_seconds": 0.2603722205385566,
+      "chunks": [
+        {
+          "seconds": 0.2603722205385566,
+          "bytes": 3840
+        },
+        {
+          "seconds": 2.10825929697603,
+          "bytes": 96000
+        },
+        {
+          "seconds": 3.9641017792746425,
+          "bytes": 96000
+        },
+        {
+          "seconds": 5.822998900897801,
+          "bytes": 96000
+        },
+        {
+          "seconds": 7.285283074714243,
+          "bytes": 76800
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 21,
+          "output_tokens": 97,
+          "total_tokens": 118,
+          "input_token_details": {
+            "text_tokens": 21,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 14208,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.287567604333162,
+      "pcm_sha256": "25c4adf18d0d91b3758f1b7c64b7e3cd36c40d2f103422d442ad700e915d4573",
+      "pcm_bytes": 368640
+    },
+    {
+      "index": 3,
+      "input": "The boy knew the desert sensed his fear.",
+      "success": true,
+      "audio_seconds": 2.8,
+      "ttfa_seconds": 0.25310950353741646,
+      "chunks": [
+        {
+          "seconds": 0.25310950353741646,
+          "bytes": 3840
+        },
+        {
+          "seconds": 2.0620063906535506,
+          "bytes": 96000
+        },
+        {
+          "seconds": 2.7161020627245307,
+          "bytes": 34560
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 36,
+          "total_tokens": 45,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15296,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 2.717893999069929,
+      "pcm_sha256": "13670a0f30996f115a93b5b614d4e2e1e453b02315e76099d498f312252e2ee6",
+      "pcm_bytes": 134400
+    },
+    {
+      "index": 4,
+      "input": "When it comes to the crunch, our company will become insolvent.",
+      "success": true,
+      "audio_seconds": 4.24,
+      "ttfa_seconds": 0.2565349107608199,
+      "chunks": [
+        {
+          "seconds": 0.2565349107608199,
+          "bytes": 3840
+        },
+        {
+          "seconds": 2.0996221341192722,
+          "bytes": 96000
+        },
+        {
+          "seconds": 3.992392672225833,
+          "bytes": 96000
+        },
+        {
+          "seconds": 4.139377987012267,
+          "bytes": 7680
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 54,
+          "total_tokens": 68,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19712,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 4.1418974017724395,
+      "pcm_sha256": "9252fefb832c6d7f6747f6d3cff87be2031a9a276eee24ae1c0eab6700c55a5c",
+      "pcm_bytes": 203520
+    },
+    {
+      "index": 5,
+      "input": "The primary coil has fifty turns.",
+      "success": true,
+      "audio_seconds": 3.52,
+      "ttfa_seconds": 0.2689962526783347,
+      "chunks": [
+        {
+          "seconds": 0.2689962526783347,
+          "bytes": 3840
+        },
+        {
+          "seconds": 2.105941316112876,
+          "bytes": 96000
+        },
+        {
+          "seconds": 3.419130020774901,
+          "bytes": 69120
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 7,
+          "output_tokens": 45,
+          "total_tokens": 52,
+          "input_token_details": {
+            "text_tokens": 7,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 13120,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 3.4203519327566028,
+      "pcm_sha256": "6be148b56cbc86d39c9b807bc26572ea231363986355d1dc9427d94d98ce2af6",
+      "pcm_bytes": 168960
+    },
+    {
+      "index": 6,
+      "input": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing.",
+      "success": true,
+      "audio_seconds": 7.68,
+      "ttfa_seconds": 0.2534847818315029,
+      "chunks": [
+        {
+          "seconds": 0.2534847818315029,
+          "bytes": 3840
+        },
+        {
+          "seconds": 2.0366188529878855,
+          "bytes": 96000
+        },
+        {
+          "seconds": 3.8341485261917114,
+          "bytes": 96000
+        },
+        {
+          "seconds": 5.6798000037670135,
+          "bytes": 96000
+        },
+        {
+          "seconds": 7.14211199991405,
+          "bytes": 76800
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 28,
+          "output_tokens": 97,
+          "total_tokens": 125,
+          "input_token_details": {
+            "text_tokens": 28,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15744,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.144432449713349,
+      "pcm_sha256": "61b6d7a2f5e00335a1a61b550ae8c96d9be8f7fdf6700d11ee1652c76ada19a1",
+      "pcm_bytes": 368640
+    },
+    {
+      "index": 7,
+      "input": "The only shadow was that of the few scattered pine trees.",
+      "success": true,
+      "audio_seconds": 3.84,
+      "ttfa_seconds": 0.25738326273858547,
+      "chunks": [
+        {
+          "seconds": 0.25738326273858547,
+          "bytes": 3840
+        },
+        {
+          "seconds": 2.0901736384257674,
+          "bytes": 96000
+        },
+        {
+          "seconds": 3.7065106816589832,
+          "bytes": 84480
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 49,
+          "total_tokens": 61,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 9664,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 3.7079074373468757,
+      "pcm_sha256": "db6eaff75bb45ba87ab36b5a1aa32774cc63a9d6c060dbfa6338920f9ea4967c",
+      "pcm_bytes": 184320
+    }
+  ]
+}

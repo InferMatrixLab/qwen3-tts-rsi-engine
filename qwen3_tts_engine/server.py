@@ -4,6 +4,7 @@ import argparse
 import asyncio
 import base64
 from concurrent.futures import ThreadPoolExecutor
+from functools import partial
 import json
 import logging
 from pathlib import Path
@@ -136,11 +137,12 @@ def main():
     parser.add_argument("--max-batch-size", type=int, default=1)
     parser.add_argument("--queue-size", type=int, default=128)
     parser.add_argument("--batch-wait-ms", type=float, default=0)
+    parser.add_argument("--predictor-graph", action="store_true")
     options = parser.parse_args()
     if min(options.max_batch_size, options.queue_size) <= 0 or options.batch_wait_ms < 0:
         parser.error("Invalid batch or queue settings")
     logging.basicConfig(level=logging.INFO)
-    service = SpeechService(options, CustomVoiceModel)
+    service = SpeechService(options, partial(CustomVoiceModel, predictor_graph=options.predictor_graph))
     app = web.Application(client_max_size=1024 * 1024)
     app.router.add_get("/health", service.health)
     app.router.add_post("/v1/audio/speech", service.speech)

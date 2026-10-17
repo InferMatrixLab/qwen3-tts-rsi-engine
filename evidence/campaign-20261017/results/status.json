@@ -13,12 +13,34 @@
     "error": "corrupted size vs. prev_size"
   },
   "model_audit": "model-audit.json",
-  "baseline_sweep": "NOT_RUN",
-  "quality": "NOT_RUN",
+  "baseline_sweep": "VLLM_ROUND1_RUNNING",
+  "quality": "REFERENCE_2_ENGLISH_WER_ZERO_ONLY",
   "two_times_target": "NOT_ESTABLISHED",
   "qualification_devices": {
     "vllm": 0,
     "standalone_reference": 6
   },
-  "note": "Independent startup qualification only; concurrent smoke runs are not matched performance trials."
+  "note": "Independent startup qualification only; concurrent smoke runs are not matched performance trials.",
+  "reference_model": {
+    "requests": 2,
+    "server_exit": 0
+  },
+  "baselines_qualification": {
+    "vllm": {
+      "requests": 8,
+      "server_exit": 0,
+      "allocator": "jemalloc"
+    },
+    "sglang": {
+      "requests": 8,
+      "server_exit": 0,
+      "allocator": "jemalloc",
+      "patch": "torch210-xpu-type-fallback"
+    }
+  },
+  "predictor_graph": {
+    "greedy_exact_inputs": 3,
+    "exit": 0,
+    "sampled_service": "NOT_VALIDATED"
+  }
 }

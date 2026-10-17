@@ -1,0 +1,18 @@
+{
+  "status": "INCONCLUSIVE",
+  "scored": 2,
+  "expected": 2,
+  "metrics": {
+    "en": {
+      "metric": "WER",
+      "samples": 2,
+      "error_rate": 0.0
+    }
+  },
+  "asr_model": "/dataset/models/whisper-large-v3",
+  "asr_device": "cpu",
+  "precision": "float32",
+  "speaker_similarity": "NOT_RUN",
+  "workload_sha256": "ba7b6454d41f8cc7f3330cd0b4b8b132db5244ec758681726fe17319657eaa2b",
+  "notes": "Observed ASR quality; matched baseline quality and preset speaker similarity required."
+}

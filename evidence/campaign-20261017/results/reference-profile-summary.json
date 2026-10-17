@@ -1,0 +1,121 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "trace_directory": "/home/why/qwen3-tts-engine/runs/reference-profile/liteserver-c010-4_1202011_20261017142955258_ascend_pt/ASCEND_PROFILER_OUTPUT",
+  "cpu_api_inclusive_top": [
+    {
+      "name": "reference_custom_voice",
+      "calls": 1,
+      "inclusive_ms": 14005.30608
+    },
+    {
+      "name": "aten::to",
+      "calls": 31213,
+      "inclusive_ms": 1469.85446
+    },
+    {
+      "name": "aten::copy_",
+      "calls": 42017,
+      "inclusive_ms": 1337.75621
+    },
+    {
+      "name": "aten::_to_copy",
+      "calls": 28719,
+      "inclusive_ms": 1301.22047
+    },
+    {
+      "name": "empty_tensor",
+      "calls": 219707,
+      "inclusive_ms": 1222.50486
+    },
+    {
+      "name": "aten::linear",
+      "calls": 22827,
+      "inclusive_ms": 1180.03598
+    },
+    {
+      "name": "aten::mul",
+      "calls": 42733,
+      "inclusive_ms": 1143.61188
+    },
+    {
+      "name": "aten::add",
+      "calls": 26169,
+      "inclusive_ms": 844.3379
+    },
+    {
+      "name": "Dequeue@aclnnInplaceCopy",
+      "calls": 41618,
+      "inclusive_ms": 760.93797
+    },
+    {
+      "name": "aten::matmul",
+      "calls": 22846,
+      "inclusive_ms": 688.2846
+    },
+    {
+      "name": "aten::scaled_dot_product_attention",
+      "calls": 3126,
+      "inclusive_ms": 538.96311
+    },
+    {
+      "name": "Dequeue@aclnnMul",
+      "calls": 41708,
+      "inclusive_ms": 524.19242
+    },
+    {
+      "name": "aten::as_strided",
+      "calls": 88052,
+      "inclusive_ms": 493.49065
+    },
+    {
+      "name": "aten::cat",
+      "calls": 15800,
+      "inclusive_ms": 488.97551
+    },
+    {
+      "name": "aten::clone",
+      "calls": 9636,
+      "inclusive_ms": 485.46028
+    },
+    {
+      "name": "npu::npu_fusion_attention_v3",
+      "calls": 3126,
+      "inclusive_ms": 480.57876
+    },
+    {
+      "name": "aten::pow",
+      "calls": 12999,
+      "inclusive_ms": 465.13907
+    },
+    {
+      "name": "aten::mean",
+      "calls": 12970,
+      "inclusive_ms": 413.61959
+    },
+    {
+      "name": "aclnnInplaceCopy",
+      "calls": 41618,
+      "inclusive_ms": 409.62962
+    },
+    {
+      "name": "aten::empty_strided",
+      "calls": 30610,
+      "inclusive_ms": 401.67082
+    }
+  ],
+  "device_step_us": {
+    "Device_id": "6",
+    "Step": "",
+    "Computing": "1286758.1999999988",
+    "Communication(Not Overlapped)": "0",
+    "Overlapped": "0",
+    "Communication": "0",
+    "Free": "12712816.519996002",
+    "Stage": "13999574.75",
+    "Bubble": "0",
+    "Communication(Not Overlapped and Exclude Receive)": "0",
+    "Preparing": "4610.0"
+  },
+  "hypothesis": "Host launch overhead dominates the reference. Prototype a whole-depth-code-predictor graph, with exact greedy codes on changed input replays before sampled model validation.",
+  "timing_warning": "Profiler adds overhead; these values are not service performance. Inclusive API times overlap."
+}

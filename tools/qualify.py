@@ -20,6 +20,7 @@ parser.add_argument("--source-revision", required=True)
 parser.add_argument("--port", type=int, required=True)
 parser.add_argument("--requests", type=int, default=8)
 parser.add_argument("--concurrency", type=int, default=1)
+parser.add_argument("--concurrency-list", type=int, nargs="+")
 parser.add_argument("--startup-timeout", type=float, default=900)
 options = parser.parse_args()
 command = json.loads(options.command_json.read_text())
@@ -56,22 +57,28 @@ with (options.output / "server.log").open("w") as log:
             if time.monotonic() >= deadline:
                 raise TimeoutError("Server readiness timeout")
             time.sleep(2)
-        status["phase"] = "requests"
-        save()
-        benchmark = [sys.executable, "-m", "qwen3_tts_engine.benchmark",
-                     "--endpoint", f"http://127.0.0.1:{options.port}/v1/audio/speech",
-                     "--model", options.model, "--engine", options.engine,
-                     "--source-revision", options.source_revision,
-                     "--workload", str(options.workload), "--output", str(options.output / "requests"),
-                     "--requests", str(options.requests), "--concurrency", str(options.concurrency),
-                     "--frame-rate", "12.5", "--warmup", "2"]
-        status["benchmark_command"] = benchmark
-        save()
-        with (options.output / "benchmark.log").open("w") as benchmark_log:
-            result = subprocess.run(benchmark, stdout=benchmark_log, stderr=subprocess.STDOUT, timeout=7200)
-        status["benchmark_exit"] = result.returncode
-        if result.returncode:
-            raise RuntimeError(f"Benchmark failed: {result.returncode}")
+        status["cohorts"] = []
+        for concurrency in options.concurrency_list or [options.concurrency]:
+            status["phase"] = f"requests-c{concurrency}"
+            destination = options.output / (f"requests-c{concurrency}" if options.concurrency_list else "requests")
+            benchmark = [sys.executable, "-m", "qwen3_tts_engine.benchmark",
+                         "--endpoint", f"http://127.0.0.1:{options.port}/v1/audio/speech",
+                         "--model", options.model, "--engine", options.engine,
+                         "--source-revision", options.source_revision,
+                         "--workload", str(options.workload), "--output", str(destination),
+                         "--requests", str(options.requests), "--concurrency", str(concurrency),
+                         "--frame-rate", "12.5", "--warmup", str(max(2, concurrency))]
+            status["benchmark_command"] = benchmark
+            save()
+            log_name = f"benchmark-c{concurrency}.log" if options.concurrency_list else "benchmark.log"
+            with (options.output / log_name).open("w") as benchmark_log:
+                result = subprocess.run(benchmark, stdout=benchmark_log, stderr=subprocess.STDOUT, timeout=7200)
+            status["benchmark_exit"] = result.returncode
+            if result.returncode:
+                raise RuntimeError(f"Benchmark c{concurrency} failed: {result.returncode}")
+            metrics = json.loads((destination / "results.json").read_text())["metrics"]
+            status["cohorts"].append({"concurrency": concurrency, "metrics": metrics})
+            save()
     except Exception as error:
         status["status"] = "FAIL"
         status["error"] = f"{type(error).__name__}: {error}"

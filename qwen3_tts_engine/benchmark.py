@@ -114,11 +114,16 @@ async def run(options):
     async with aiohttp.ClientSession(timeout=timeout, connector=connector) as session:
         warmup_dir = options.output / "warmup"
         warmup_dir.mkdir()
-        for index in range(options.warmup):
-            result = await request(session, options.endpoint, payloads[index % len(payloads)], warmup_dir, index, options.sample_rate)
+        semaphore = asyncio.Semaphore(options.concurrency)
+
+        async def warmup(index):
+            async with semaphore:
+                return await request(session, options.endpoint, payloads[index % len(payloads)], warmup_dir, index, options.sample_rate)
+
+        warmup_results = await asyncio.gather(*(warmup(i) for i in range(options.warmup)))
+        for result in warmup_results:
             if not result["success"]:
                 raise RuntimeError(f"Warmup failed: {result}")
-        semaphore = asyncio.Semaphore(options.concurrency)
 
         async def limited(index):
             async with semaphore:

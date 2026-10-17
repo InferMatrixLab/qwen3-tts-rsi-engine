@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "scope": "predictor component; not service performance",
+  "sampling": {
+    "do_sample": true,
+    "top_k": 50,
+    "top_p": 1.0,
+    "temperature": 0.9
+  },
+  "batch_size": 1,
+  "parity": [
+    {
+      "input": 0,
+      "exact": true
+    },
+    {
+      "input": 1,
+      "exact": true
+    },
+    {
+      "input": 2,
+      "exact": true
+    }
+  ],
+  "eager_exact": true,
+  "component_timings": {
+    "manual_eager_ms": 202.75258300825953,
+    "graph_ms": 18.051086319610476
+  }
+}
