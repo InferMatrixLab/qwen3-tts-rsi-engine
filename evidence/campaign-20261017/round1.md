@@ -382,3 +382,8 @@ Valid-length C32/C64 completed 256 requests with clean server exit 0: 346.3942 /
 
 
 The adjacent valid-length flag-off control completed all 256 requests and exited 0: C32 369.5605 frames/s, C64 490.8549 frames/s. Candidate/control ratios are 0.93731 and 0.95685, respectively. This one adjacent pair does not establish repeated causal attribution, but provides no reason to select the option; it remains off. The exact-transform combination (paired KV writes, exact talker rotary, prefill prewarming) is now measured directly in `runs/continuous-exact-combined-c32-c64`, with no addition or multiplication of isolated gains.
+
+
+### Direct exact-transform combination
+
+Paired KV writes + exact talker rotary + prefill prewarming completed 256 service requests on physical NPU 6 with server exit 0. C32: 418.04745 frames/s; C64: 526.22459 frames/s. All 128 WAV files at each concurrency are byte-identical to the full-quality combined candidate. This supports explicitly identified quality transfer, not an independent scoring rerun. These are direct combination measurements, not compounded isolated gains. The adjacent flag-off control was 369.56054 / 490.85491 frames/s. No repeated-trial 2x claim is made; C32 still falls short of twice vLLM round 2, and physical-card/repetition matching remains outstanding.
