@@ -387,3 +387,10 @@ The adjacent valid-length flag-off control completed all 256 requests and exited
 ### Direct exact-transform combination
 
 Paired KV writes + exact talker rotary + prefill prewarming completed 256 service requests on physical NPU 6 with server exit 0. C32: 418.04745 frames/s; C64: 526.22459 frames/s. All 128 WAV files at each concurrency are byte-identical to the full-quality combined candidate. This supports explicitly identified quality transfer, not an independent scoring rerun. These are direct combination measurements, not compounded isolated gains. The adjacent flag-off control was 369.56054 / 490.85491 frames/s. No repeated-trial 2x claim is made; C32 still falls short of twice vLLM round 2, and physical-card/repetition matching remains outstanding.
+
+
+### Second-repeat quality and next full candidate
+
+SGLang round 2 completed full ASR and speaker evaluation of all 896 retained waveforms, quality loop exit 0; all seven cohort integrity audits passed. The previous full combined candidate passes EN WER, ZH CER and speaker margins against both round-2 baselines at every concurrency (summary-level gate, not repeated performance acceptance). vLLM round-3 C2 also passed its integrity audit.
+
+The output-head/sampling diagnostic completed with exact sampled tokens and seen masks for four changed-input replays at B1/17/32/64, real output-head weights and synthetic hidden states. ABBA timings showed no stable B32 benefit, so no runtime integration was selected. See results/sampling-head.json. The exact-transform combination is now running a complete C1–C64 trial in runs/continuous-exact-combined-full-round1, with separate ASR and speaker scoring scheduled on physical NPU 4.

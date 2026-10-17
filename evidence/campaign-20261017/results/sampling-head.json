@@ -1,0 +1,98 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "Real output-head weights and synthetic hidden states; not service throughput or audio quality",
+  "cases": [
+    {
+      "batch": 1,
+      "exact_tokens_and_seen": true,
+      "replays": 4,
+      "measurements": [
+        {
+          "arm": "external_head",
+          "mean_ms": 0.3119802474975586
+        },
+        {
+          "arm": "captured_head",
+          "mean_ms": 0.20736364647746086
+        },
+        {
+          "arm": "captured_head",
+          "mean_ms": 0.207716953009367
+        },
+        {
+          "arm": "external_head",
+          "mean_ms": 0.3093008790165186
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "exact_tokens_and_seen": true,
+      "replays": 4,
+      "measurements": [
+        {
+          "arm": "external_head",
+          "mean_ms": 0.4355248250067234
+        },
+        {
+          "arm": "captured_head",
+          "mean_ms": 0.44409395195543766
+        },
+        {
+          "arm": "captured_head",
+          "mean_ms": 0.4431051202118397
+        },
+        {
+          "arm": "external_head",
+          "mean_ms": 0.43671355582773685
+        }
+      ]
+    },
+    {
+      "batch": 32,
+      "exact_tokens_and_seen": true,
+      "replays": 4,
+      "measurements": [
+        {
+          "arm": "external_head",
+          "mean_ms": 0.31850090250372887
+        },
+        {
+          "arm": "captured_head",
+          "mean_ms": 0.31568754464387894
+        },
+        {
+          "arm": "captured_head",
+          "mean_ms": 0.34497599117457867
+        },
+        {
+          "arm": "external_head",
+          "mean_ms": 0.32146789133548737
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "exact_tokens_and_seen": true,
+      "replays": 4,
+      "measurements": [
+        {
+          "arm": "external_head",
+          "mean_ms": 0.31889332458376884
+        },
+        {
+          "arm": "captured_head",
+          "mean_ms": 0.2902388758957386
+        },
+        {
+          "arm": "captured_head",
+          "mean_ms": 0.2901805844157934
+        },
+        {
+          "arm": "external_head",
+          "mean_ms": 0.3224190045148134
+        }
+      ]
+    }
+  ]
+}
