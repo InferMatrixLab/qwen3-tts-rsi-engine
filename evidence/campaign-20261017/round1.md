@@ -394,3 +394,10 @@ Paired KV writes + exact talker rotary + prefill prewarming completed 256 servic
 SGLang round 2 completed full ASR and speaker evaluation of all 896 retained waveforms, quality loop exit 0; all seven cohort integrity audits passed. The previous full combined candidate passes EN WER, ZH CER and speaker margins against both round-2 baselines at every concurrency (summary-level gate, not repeated performance acceptance). vLLM round-3 C2 also passed its integrity audit.
 
 The output-head/sampling diagnostic completed with exact sampled tokens and seen masks for four changed-input replays at B1/17/32/64, real output-head weights and synthetic hidden states. ABBA timings showed no stable B32 benefit, so no runtime integration was selected. See results/sampling-head.json. The exact-transform combination is now running a complete C1–C64 trial in runs/continuous-exact-combined-full-round1, with separate ASR and speaker scoring scheduled on physical NPU 4.
+
+
+### Full combined trial progress and prefill follow-up
+
+The full exact-combination trial completed C1 at 59.71978 frames/s; all 128 WAV files match the previous full-quality combined candidate byte-for-byte. The server is still running later cohorts and independent audio scoring is in progress, so this is not a completed trial.
+
+Review of retained shutdown graph-shape logs found no prefill batches 5–8 in either the preceding combination or adjacent control. A proposed larger prewarm limit was therefore reverted before measurement. Actual additional shapes were (28,64), (31,64), and (63,64). The next prepared experiment uses the existing power-of-two prefill bucketing option with the directly measured combination; it may change BF16 outputs and requires independent full quality. No gain is inferred from the graph-shape observation.

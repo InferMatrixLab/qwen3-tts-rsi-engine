@@ -1,0 +1,18 @@
+{
+  "scope": "Observed completed-run graph shapes; no new timing measurement",
+  "decision": "Do not run prewarm batch 5-8 hypothesis: neither observed run captured those shapes. Prepare existing power-of-two prefill bucketing with exact combination for direct measurement instead. Numerical differences require full quality validation.",
+  "runs": [
+    {
+      "run": "continuous-exact-combined-c32-c64",
+      "shutdown_graph_shapes": [
+        "INFO:qwen3_tts_engine.continuous:Captured graph shapes: prefill=[(1, 32), (1, 64), (1, 128), (2, 32), (2, 64), (2, 128), (3, 32), (3, 64), (3, 128), (4, 32), (4, 64), (4, 128), (28, 64), (31, 64), (63, 64)] talker=[(1, 512), (2, 512), (4, 512), (8, 512), (16, 512), (32, 512), (64, 512)] codec=[(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6), (3, 7), (3, 8), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (4, 7), (4, 8)]"
+      ]
+    },
+    {
+      "run": "continuous-valid-length-control-c32-c64-retry",
+      "shutdown_graph_shapes": [
+        "INFO:qwen3_tts_engine.continuous:Captured graph shapes: prefill=[(1, 32), (1, 64), (2, 32), (3, 32), (4, 32), (4, 64), (28, 64), (31, 64), (63, 64)] talker=[(1, 512), (2, 512), (4, 512), (8, 512), (16, 512), (32, 512), (64, 512)] codec=[(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6), (3, 7), (3, 8), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (4, 7), (4, 8)]"
+      ]
+    }
+  ]
+}

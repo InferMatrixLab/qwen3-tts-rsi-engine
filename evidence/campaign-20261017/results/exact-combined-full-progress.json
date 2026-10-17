@@ -1,0 +1,27 @@
+{
+  "status": "INCONCLUSIVE",
+  "scope": "Partial full-trial progress; server still live; independent audio scoring and remaining cohorts pending",
+  "candidate": "runs/continuous-exact-combined-full-round1",
+  "waveform_reference": "runs/continuous-codec-fused-predictor-rope-full",
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "exact_wav_count": 128,
+      "requests": 128,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 127.29451217781752,
+        "throughput_frames_s": 59.719777938115485,
+        "ttfa_p50_ms": 56.53870292007923,
+        "ttfa_p95_ms": 58.084598230198026,
+        "rtf_mean": 0.21078965769610225,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    }
+  ]
+}
