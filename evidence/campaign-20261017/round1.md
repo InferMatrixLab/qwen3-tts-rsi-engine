@@ -203,3 +203,21 @@ Exploratory single repeat: all 896 requests succeeded; benchmark and server exit
 | 64 | 473.183 | 861.812 | 1259.486 | 1.39269 |
 
 C32 (386.540 frames/s) and C64 (473.183 frames/s) remain below their matched target thresholds (approximately 400.53 and 484.15). C1 full ASR: EN WER 0.0142247511, ZH CER 0.0331125828, within the frozen ASR gates. Speaker similarity remains pending; other concurrency ASR assessments continue. A separate same-device codec-batch-8 control is running; its results cannot be presumed from previous codec experiments.
+
+
+### Codec batch 8 and fixed predictor rotary follow-up
+
+Same physical NPU 0 codec-batch-8 control (source b73c8ea): C32 353.970987 frames/s, C64 486.154755 frames/s, 256/256 requests, server exit 0. C64 exceeds the exploratory 2x threshold by less than 0.5%; C32 regresses. Full quality and independent repeats are absent, so this is not an accepted all-concurrency configuration.
+
+Native rotary full-sweep C2 ASR completed: EN WER 0.0142247511 and ZH CER 0.0331125828, within frozen ASR gates. Speaker scoring is running separately.
+
+Fixed predictor rotary hoisting probe on physical NPU 6 uses synthetic hidden inputs and identical per-step uniforms; it is not an end-to-end quality test. All four batches preserve both subcodes and combined embeddings exactly. Synchronized ABBA means:
+
+| Batch | Original ms | Cached ms |
+|---|---|---|
+| 1 | 9.1576 | 8.9261 |
+| 8 | 13.3747 | 13.3092 |
+| 32 | 17.5587 | 17.4093 |
+| 64 | 21.6366 | 21.4195 |
+
+This saves only approximately 0.06–0.23 ms per predictor call. It remains a probe, not integrated into serving; no service-speedup claim follows from these component timings.
