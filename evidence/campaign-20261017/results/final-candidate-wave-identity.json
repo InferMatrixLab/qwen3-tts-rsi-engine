@@ -1,0 +1,153 @@
+{
+  "scope": "Diagnostic WAV byte identity only; never a substitute for independent scoring of each final trial",
+  "reference": "runs/continuous-direct-prompt-full-round1",
+  "cohorts": [
+    {
+      "trial": 1,
+      "concurrency": 1,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 1,
+      "concurrency": 2,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 1,
+      "concurrency": 4,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 1,
+      "concurrency": 8,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 1,
+      "concurrency": 16,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 1,
+      "concurrency": 32,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 1,
+      "concurrency": 64,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 2,
+      "concurrency": 1,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 2,
+      "concurrency": 2,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 2,
+      "concurrency": 4,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 2,
+      "concurrency": 8,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 2,
+      "concurrency": 16,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 2,
+      "concurrency": 32,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 2,
+      "concurrency": 64,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 3,
+      "concurrency": 1,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 3,
+      "concurrency": 2,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 3,
+      "concurrency": 4,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 3,
+      "concurrency": 8,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 3,
+      "concurrency": 16,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 3,
+      "concurrency": 32,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    },
+    {
+      "trial": 3,
+      "concurrency": 64,
+      "files": 128,
+      "byte_identical": 128,
+      "mismatches": []
+    }
+  ]
+}
