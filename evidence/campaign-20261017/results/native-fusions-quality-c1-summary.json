@@ -1,0 +1,23 @@
+{
+  "status": "INCONCLUSIVE",
+  "scored": 128,
+  "expected": 128,
+  "metrics": {
+    "en": {
+      "metric": "WER",
+      "samples": 64,
+      "error_rate": 0.008534850640113799
+    },
+    "zh": {
+      "metric": "CER",
+      "samples": 64,
+      "error_rate": 0.04552980132450331
+    }
+  },
+  "asr_model": "/dataset/models/whisper-large-v3",
+  "asr_device": "npu:0",
+  "precision": "float32",
+  "speaker_similarity": "NOT_RUN",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "notes": "Observed ASR quality; matched baseline quality and preset speaker similarity required."
+}

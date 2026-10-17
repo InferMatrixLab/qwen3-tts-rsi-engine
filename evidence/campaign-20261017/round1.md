@@ -154,3 +154,19 @@ Native-fusion C64 ASR completed: EN WER 0.008535 and ZH CER 0.032285, both withi
 Adding prefill batch bucketing to native fusion (`ac82d89`, physical NPU 1) measured C16 272.217 and C64 434.461 frames/s, with all requests and clean lifecycle passing. It provides no clear speed benefit over the prior exploratory cohort. All 128 C64 PCM hashes match that prior candidate; only 9 of 128 C16 hashes match, so C16 quality cannot be inherited. It is not selected on the available performance evidence.
 
 Native-fusion speaker scoring completed: mean cosine C16 0.781158 and C64 0.779979, both within the frozen margins. These two exploratory cohorts now pass ASR, speaker, request-completion and clean-lifecycle gates. They do not establish all-concurrency quality or a formal 2x result; C64 throughput remains below target.
+
+## Remaining native-fusion concurrency sweep
+
+Revision `ac82d89`, physical NPU 7, 128 requests per concurrency, all successful and server exit 0. This is another exploratory card/cohort, not a combined formal seven-concurrency result.
+
+| Concurrency | Throughput (frames/s) | TTFA p50 (ms) | TTFA p95 (ms) | Mean RTF |
+|---:|---:|---:|---:|---:|
+| 1 | 49.874 | 64.58 | 66.33 | 0.2522 |
+| 2 | 79.163 | 87.23 | 99.01 | 0.3162 |
+| 4 | 122.737 | 110.28 | 151.87 | 0.4046 |
+| 8 | 187.095 | 142.98 | 214.46 | 0.5194 |
+| 32 | 357.207 | 284.03 | 1111.34 | 1.0462 |
+
+C1 ASR EN WER 0.008535 passes, but ZH CER 0.045530 exceeds its 0.036490 gate. Thus the globally fused configuration is rejected as an all-concurrency solution despite its low-concurrency speed. Other cohorts' ASR scoring is running.
+
+Decode bucket step 8 (`5887ab7`, physical NPU 1) measured C32 336.511 / C64 467.910 frames/s. Prewarmed codec batch 8 (`47a0ad0`, physical NPU 6) measured C32 320.247 / C64 476.856 frames/s. Both completed all requests and clean server exits. Their quality is unverified, and neither meets both high-concurrency throughput targets. Gains from these separate experiments must not be multiplied or combined as measured evidence.

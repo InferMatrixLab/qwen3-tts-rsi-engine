@@ -217,9 +217,10 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False):
         decode_batch_size(1, max_slots, decode_bucket_step)
         self.decode_bucket_step = decode_bucket_step
+        self.batch_audio_transfer = batch_audio_transfer
         if bucket_prefill and not graph_prefill:
             raise ValueError('Prefill batch bucketing requires graph prefill')
         if prewarm_codec and not incremental_codec:
@@ -373,6 +374,7 @@ class ContinuousModel:
             start = state.emitted if self.incremental_codec else max(0, state.emitted - self.context)
             codes = torch.stack(state.codes[start:]).transpose(0, 1)
             groups.setdefault(codes.shape[-1], []).append((state, codes, (state.emitted - start) * 1920))
+        pending = []
         for entries in groups.values():
             for offset in range(0, len(entries), self.codec_batch_size):
                 group = entries[offset:offset + self.codec_batch_size]
@@ -383,16 +385,31 @@ class ContinuousModel:
                 else:
                     codes += [codes[-1]] * (batch - len(codes))
                     waves = self.codec.decode(torch.stack(codes))
-                waves = waves[:, 0].float().cpu().numpy()
-                for i, (state, _, skip) in enumerate(group):
-                    waveform = waves[i, skip:]
-                    if not np.isfinite(waveform).all():
-                        raise ValueError('Native codec emitted nonfinite audio')
-                    pcm = (np.clip(waveform, -1, 1) * 32767).astype('<i2').tobytes()
-                    state.audio.append(pcm)
-                    state.emitted = state.frames
-                    if emit is not None:
-                        emit(state.identifier, pcm, 24000)
+                if self.batch_audio_transfer:
+                    # Each decoder returns an owned clone, so subsequent replays
+                    # cannot overwrite queued waveforms before the single transfer.
+                    pending.append((group, waves[:len(group), 0]))
+                else:
+                    self.deliver_audio(group, waves[:, 0].float().cpu().numpy(), emit)
+        if pending:
+            lengths = [waves.numel() for _, waves in pending]
+            audio = torch.cat([waves.reshape(-1) for _, waves in pending]).float().cpu().numpy()
+            offset = 0
+            for (group, waves), length in zip(pending, lengths):
+                self.deliver_audio(group, audio[offset:offset + length].reshape(waves.shape), emit)
+                offset += length
+
+    @staticmethod
+    def deliver_audio(group, waves, emit):
+        for i, (state, _, skip) in enumerate(group):
+            waveform = waves[i, skip:]
+            if not np.isfinite(waveform).all():
+                raise ValueError('Native codec emitted nonfinite audio')
+            pcm = (np.clip(waveform, -1, 1) * 32767).astype('<i2').tobytes()
+            state.audio.append(pcm)
+            state.emitted = state.frames
+            if emit is not None:
+                emit(state.identifier, pcm, 24000)
 
     @torch.inference_mode()
     def tick(self, submissions=(), emit=None, cancelled=()):
