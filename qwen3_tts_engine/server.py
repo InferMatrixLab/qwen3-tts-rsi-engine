@@ -275,7 +275,7 @@ def main():
     parser.add_argument("--fused-swiglu", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
     parser.add_argument("--codec-left-context", type=int, default=72)
-    parser.add_argument("--codec-batch-size", type=int, choices=[1, 2, 4], default=1)
+    parser.add_argument("--codec-batch-size", type=int, choices=[1, 2, 4, 8], default=1)
     parser.add_argument("--continuous", action="store_true")
     parser.add_argument("--incremental-codec", action="store_true")
     parser.add_argument("--batch-prefill", action="store_true")

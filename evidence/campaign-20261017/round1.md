@@ -152,3 +152,5 @@ Power-of-two prefill batch padding additionally passed a complete BF16 continuou
 Native-fusion C64 ASR completed: EN WER 0.008535 and ZH CER 0.032285, both within the frozen C64 margins. Its speaker evaluation is running. The reference-rounding control also passes C64 ASR (EN 0.009957, ZH 0.029801), but retains its C16 quality failure.
 
 Adding prefill batch bucketing to native fusion (`ac82d89`, physical NPU 1) measured C16 272.217 and C64 434.461 frames/s, with all requests and clean lifecycle passing. It provides no clear speed benefit over the prior exploratory cohort. All 128 C64 PCM hashes match that prior candidate; only 9 of 128 C16 hashes match, so C16 quality cannot be inherited. It is not selected on the available performance evidence.
+
+Native-fusion speaker scoring completed: mean cosine C16 0.781158 and C64 0.779979, both within the frozen margins. These two exploratory cohorts now pass ASR, speaker, request-completion and clean-lifecycle gates. They do not establish all-concurrency quality or a formal 2x result; C64 throughput remains below target.
