@@ -20,6 +20,8 @@ parser.add_argument('--batch-size', type=int, default=1)
 parser.add_argument('--rms-norm', choices=['native', 'reference-rounding'])
 parser.add_argument('--pack-qkv', action='store_true')
 parser.add_argument('--native-gqa', action='store_true')
+parser.add_argument('--pack-mlp', action='store_true')
+parser.add_argument('--fused-swiglu', action='store_true')
 args = parser.parse_args()
 if args.batch_size <= 0:
     parser.error('Batch size must be positive')
@@ -33,7 +35,9 @@ if args.whole:
     from qwen3_tts_engine.whole_predictor import WholePredictorGraph
     graph = WholePredictorGraph(reference)
 result = {'status': 'INCONCLUSIVE', 'scope': 'complete waveform parity; diagnostic timings only',
-          'workload_sha256': hashlib.sha256(data).hexdigest(), 'arms': {}}
+          'workload_sha256': hashlib.sha256(data).hexdigest(), 'arms': {},
+          'source_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                            for p in sorted((Path(__file__).absolute().parent.parent / 'qwen3_tts_engine').glob('*.py'))}}
 result['implementation'] = type(graph).__name__
 talker_reference = model.wrapper.model.talker.model
 talker_graph = None
@@ -45,6 +49,8 @@ result['batch_size'] = args.batch_size
 result['rms_norm'] = args.rms_norm
 result['pack_qkv'] = args.pack_qkv
 result['native_gqa'] = args.native_gqa
+result['pack_mlp'] = args.pack_mlp
+result['fused_swiglu'] = args.fused_swiglu
 replacements = []
 try:
     for name, predictor in [('reference', reference), ('graph', graph)]:
@@ -55,6 +61,9 @@ try:
         if name == 'graph' and (args.pack_qkv or args.native_gqa):
             from qwen3_tts_engine.packed_attention import install_packed_attention
             replacements.extend(install_packed_attention(model.wrapper.model.talker, native_gqa=args.native_gqa))
+        if name == 'graph' and (args.pack_mlp or args.fused_swiglu):
+            from qwen3_tts_engine.packed_mlp import install_packed_mlp
+            replacements.extend(install_packed_mlp(model.wrapper.model.talker, fused=args.fused_swiglu))
         if name == 'graph' and talker_graph is not None:
             model.wrapper.model.talker.model = talker_graph
         rows = []

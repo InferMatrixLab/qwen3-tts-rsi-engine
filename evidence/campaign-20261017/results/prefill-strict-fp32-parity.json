@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "scope": "strict FP32 prefill hidden/KV invariants, not service performance",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "rows": [],
+  "error": "Tensor-likes are not close!\n\nMismatched elements: 1 / 20480 (0.0%)\nGreatest absolute difference: 0.0001493692398071289 at index (5, 15, 49) (up to 0.0001 allowed)\nGreatest relative difference: 0.0008068746537901461 at index (5, 15, 49) (up to 0.0001 allowed)"
+}

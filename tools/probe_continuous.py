@@ -16,14 +16,20 @@ parser.add_argument('--capacity', type=int, default=64)
 parser.add_argument('--indices', type=int, nargs='+', default=[0, 1, 64, 65])
 parser.add_argument('--cancel-first-at', type=int)
 parser.add_argument('--incremental-codec', action='store_true')
+parser.add_argument('--batch-prefill', action='store_true')
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 data = args.workload.read_bytes()
 payloads = [dict(json.loads(line), instructions='') for line in data.splitlines()]
 model = ContinuousModel(args.model, 'npu:0', max_slots=args.slots, initial_capacity=args.capacity,
-                        incremental_codec=args.incremental_codec)
+                        incremental_codec=args.incremental_codec, batch_prefill=args.batch_prefill)
 result = {'status': 'INCONCLUSIVE', 'scope': 'native scheduling correctness probe; not service performance',
-          'requests': [], 'events': []}
+          'requests': [], 'events': [],
+          'configuration': {'slots': args.slots, 'capacity': args.capacity,
+                            'incremental_codec': args.incremental_codec, 'batch_prefill': args.batch_prefill,
+                            'cancel_first_at': args.cancel_first_at},
+          'source_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                            for p in sorted((Path(__file__).absolute().parent.parent / 'qwen3_tts_engine').glob('*.py'))}}
 (args.output / 'runspec.json').write_text(json.dumps({'workload': str(args.workload),
     'workload_sha256': hashlib.sha256(data).hexdigest(), 'sample_rate': 24000, 'frame_rate': 12.5}, indent=2)+'\n')
 starts, pieces, chunks = {}, {}, {}

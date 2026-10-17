@@ -55,3 +55,31 @@ Pinned main plus the recorded torch type compatibility patch and jemalloc workar
 | 16 | 38.304 | 762.42 | 1739.05 | 4.7895 |
 | 32 | 57.102 | 811.75 | 2462.35 | 6.2362 |
 | 64 | 66.607 | 3451.91 | 7305.23 | 10.1708 |
+
+## Baseline speaker similarity
+
+All 128 retained clips at every concurrency were scored with the same pinned WavLM verifier and independent same-preset anchors. Values below are raw mean cosine similarity, not percentages. ASR scoring of the remaining SGLang cohorts is still in progress. This is not a subjective naturalness evaluation.
+
+| Concurrency | vLLM mean cosine | SGLang mean cosine |
+|---:|---:|---:|
+| 1 | 0.770878 | 0.771980 |
+| 2 | 0.768591 | 0.765452 |
+| 4 | 0.771503 | 0.767026 |
+| 8 | 0.775485 | 0.766908 |
+| 16 | 0.771416 | 0.769462 |
+| 32 | 0.768243 | 0.777898 |
+| 64 | 0.772615 | 0.771402 |
+
+## Incremental codec candidate
+
+Commit `2eeddd4db6e662def610143ac2a1b6dd43d606a5`, physical NPU 1, one exploratory repetition of 128 requests per concurrency. All 896 timed requests completed; server exit 0. Full-corpus candidate quality has not yet been evaluated. The all-concurrency 2x objective is not achieved.
+
+| Concurrency | Throughput (frames/s) | TTFA p50 (ms) | TTFA p95 (ms) | Mean RTF |
+|---:|---:|---:|---:|---:|
+| 1 | 29.493 | 153.36 | 165.50 | 0.4274 |
+| 2 | 48.771 | 190.04 | 215.26 | 0.5167 |
+| 4 | 77.129 | 218.73 | 348.53 | 0.6420 |
+| 8 | 110.056 | 265.05 | 685.88 | 0.8838 |
+| 16 | 154.755 | 386.26 | 1474.12 | 1.2271 |
+| 32 | 198.679 | 548.60 | 3177.24 | 1.8526 |
+| 64 | 231.937 | 1059.13 | 6859.43 | 3.1055 |

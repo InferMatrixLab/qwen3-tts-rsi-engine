@@ -74,6 +74,13 @@ streams are active, slot movement and reset. BF16 real-prompt output remains
 numerically approximate and requires independent full-corpus audio scoring.
 See [the codec investigation](evidence/campaign-20261017/plan/incremental-codec.md).
 
+`--continuous --batch-prefill` experimentally groups new admissions into a padded
+prefill batch, crops KV storage back to each prompt's length and projects logits
+only for each prompt's final token. The four-request BF16 scheduling probe
+retained identical PCM to individual prefill; the stricter FP32 per-layer KV
+comparison exceeded its 1e-4 tolerance on one observed element. That counterexample
+is retained, and this option still requires full-corpus quality and speed checks.
+
 `tools/profile_continuous.py` collects a separate CPU/NPU trace with ranges for
 prefill, the predictor, talker, semantic sampling and codec. It warms the engine
 before tracing and records admissions, completions and KV capacity per tick.

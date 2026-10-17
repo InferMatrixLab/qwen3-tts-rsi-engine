@@ -1,0 +1,22 @@
+{
+  "scope": "four mixed-corpus BF16 requests; only initially admitted pair is batched; not full-corpus proof",
+  "rows": [
+    {
+      "index": 0,
+      "pcm_identical": true
+    },
+    {
+      "index": 1,
+      "pcm_identical": true
+    },
+    {
+      "index": 64,
+      "pcm_identical": true
+    },
+    {
+      "index": 65,
+      "pcm_identical": true
+    }
+  ],
+  "status": "PASS"
+}

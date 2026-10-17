@@ -81,11 +81,11 @@ class SlotArena:
         self.keys = [torch.zeros(shape, device=weight.device, dtype=weight.dtype) for _ in reference.layers]
         self.values = [torch.zeros_like(key) for key in self.keys]
 
-    def load(self, slot, cache):
-        length = cache.get_seq_length()
+    def load(self, slot, cache, row=0, length=None):
+        length = cache.get_seq_length() if length is None else length
         for i, layer in enumerate(cache.layers):
-            self.keys[i][slot, :, :length].copy_(layer.keys[0])
-            self.values[i][slot, :, :length].copy_(layer.values[0])
+            self.keys[i][slot, :, :length].copy_(layer.keys[row, :, :length])
+            self.values[i][slot, :, :length].copy_(layer.values[row, :, :length])
 
     def move(self, source, destination):
         if source != destination:
@@ -187,13 +187,14 @@ class RequestState:
 class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
-                 incremental_codec=False):
+                 incremental_codec=False, batch_prefill=False):
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv)
         self.device = device
         self.speakers = self.model.speakers
         self.languages = self.model.languages
         self.talker = self.model.wrapper.model.talker
         self.max_slots = max_slots
+        self.batch_prefill = batch_prefill
         if max_slots < 1 or max_slots & (max_slots - 1):
             raise ValueError('Continuous slot count must be a positive power of two')
         self.arena = SlotArena(self.talker.model, max_slots, initial_capacity)
@@ -232,10 +233,7 @@ class ContinuousModel:
         logits[:, self.eos] = torch.where(steps < 2, -float('inf'), logits[:, self.eos])
         return categorical(logits, uniforms)
 
-    @torch.inference_mode()
-    def admit(self, identifier, payload):
-        if len(self.states) >= self.max_slots:
-            raise ValueError('No free continuous request slot')
+    def prepare_prompt(self, payload):
         original = self.talker.generate
         def capture(**kwargs):
             raise PromptReady(kwargs)
@@ -254,21 +252,59 @@ class ContinuousModel:
         for key, value in supported.items():
             if prompt.get(key) != value:
                 raise ValueError(f'Unsupported native sampling setting: {key}={prompt.get(key)}')
+        return prompt
+
+    @torch.inference_mode()
+    def admit(self, identifier, payload):
+        if len(self.states) >= self.max_slots:
+            raise ValueError('No free continuous request slot')
+        prompt = self.prepare_prompt(payload)
         prepared = {key: prompt[key] for key in ('inputs_embeds', 'attention_mask', 'trailing_text_hidden', 'tts_pad_embed')}
         output = self.talker(**prepared, use_cache=True, output_hidden_states=True, return_dict=True)
         position = output.past_key_values.get_seq_length()
         self.ensure_capacity(position)
         self.arena.load(len(self.states), output.past_key_values)
+        self.add_state(identifier, payload, prompt, output.past_hidden, output.logits[:, -1],
+                       position, int(self.talker.rope_deltas[0, 0].item()))
+
+    def add_state(self, identifier, payload, prompt, hidden, logits, position, rope_delta):
         uniforms = random_table(payload['seed'], payload['max_new_tokens']).to(self.device)
         seen = torch.zeros(1, self.talker.config.vocab_size, device=self.device, dtype=torch.bool)
-        token = self.semantic(output.logits[:, -1], uniforms[0, 0:1], seen,
+        token = self.semantic(logits, uniforms[0, 0:1], seen,
                               torch.zeros(1, device=self.device, dtype=torch.long))
         seen.scatter_(1, token, True)
         if self.incremental_codec:
             self.codec.reset(len(self.states))
-        self.states.append(RequestState(identifier, payload, output.past_hidden, token,
+        self.states.append(RequestState(identifier, payload, hidden, token,
                                         prompt['trailing_text_hidden'], prompt['tts_pad_embed'], uniforms, seen,
-                                        position, int(self.talker.rope_deltas[0, 0].item())))
+                                        position, rope_delta))
+
+    @torch.inference_mode()
+    def admit_batch(self, submissions):
+        if len(self.states) + len(submissions) > self.max_slots:
+            raise ValueError('Insufficient continuous request slots')
+        prompts = [self.prepare_prompt(payload) for _, payload in submissions]
+        lengths = [prompt['inputs_embeds'].shape[1] for prompt in prompts]
+        longest = max(lengths)
+        if not all(bool(prompt['attention_mask'].all()) for prompt in prompts):
+            raise ValueError('Batched prefill requires individually unpadded prompts')
+        embeddings = torch.cat([torch.nn.functional.pad(prompt['inputs_embeds'], (0, 0, 0, longest - length))
+                                for prompt, length in zip(prompts, lengths)])
+        mask = torch.cat([torch.nn.functional.pad(prompt['attention_mask'], (0, longest - length))
+                          for prompt, length in zip(prompts, lengths)])
+        positions, _ = self.talker.get_rope_index(mask)
+        output = self.talker.model(inputs_embeds=embeddings, attention_mask=mask, position_ids=positions,
+                                   use_cache=True, output_hidden_states=False, return_dict=True)
+        rows = torch.arange(len(submissions), device=self.device)
+        ends = torch.tensor(lengths, device=self.device) - 1
+        hidden = output.last_hidden_state[rows, ends].unsqueeze(1)
+        logits = self.talker.codec_head(hidden)[:, -1]
+        self.ensure_capacity(longest)
+        for row, ((identifier, payload), prompt, length) in enumerate(zip(submissions, prompts, lengths)):
+            # Crop padded KV entries; subsequent decode uses each original length
+            # and the unpadded rotary origin, rather than the padded batch width.
+            self.arena.load(len(self.states), output.past_key_values, row=row, length=length)
+            self.add_state(identifier, payload, prompt, hidden[row:row + 1], logits[row:row + 1], length, 0)
 
     def emit_audio(self, selected, emit):
         groups = {}
@@ -313,8 +349,11 @@ class ContinuousModel:
                 if index != last:
                     self.states[index] = self.states[last]
                 self.states.pop()
-        for identifier, payload in submissions:
-            self.admit(identifier, payload)
+        if self.batch_prefill and submissions:
+            self.admit_batch(submissions)
+        else:
+            for identifier, payload in submissions:
+                self.admit(identifier, payload)
         if not self.states:
             return []
         count = len(self.states)

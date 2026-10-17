@@ -30,6 +30,8 @@ parser.add_argument('--output', type=Path, required=True)
 parser.add_argument('--slots', type=int, default=32)
 parser.add_argument('--warmup', type=int, default=32)
 parser.add_argument('--steps', type=int, default=16)
+parser.add_argument('--incremental-codec', action='store_true')
+parser.add_argument('--batch-prefill', action='store_true')
 args = parser.parse_args()
 if args.slots < 1 or args.slots & (args.slots - 1) or args.steps < 1 or args.warmup < 1:
     parser.error('slots must be a positive power of two; warmup and steps must be positive')
@@ -43,7 +45,8 @@ payloads = [dict(json.loads(line), instructions='') for line in data.splitlines(
 if len(payloads) < args.slots + args.warmup + args.steps:
     parser.error('Use a corpus large enough to avoid recycling requests within the trace')
 model = ContinuousModel(args.model, 'npu:0', max_slots=args.slots,
-                        rms_norm='native', pack_qkv=True, codec_left_context=72, codec_batch_size=4)
+                        rms_norm='native', pack_qkv=True, codec_left_context=72, codec_batch_size=4,
+                        incremental_codec=args.incremental_codec, batch_prefill=args.batch_prefill)
 for owner, name, label in [(model, 'admit', 'continuous_prefill'),
                             (model.predictor, 'run', 'continuous_predictor'),
                             (model, 'semantic', 'continuous_sampling'),
@@ -73,7 +76,8 @@ def tick(phase, step):
 summary = {'status': 'INCONCLUSIVE', 'scope': 'diagnostic trace, not throughput or quality evidence',
            'revision': revision,
            'workload_sha256': hashlib.sha256(data).hexdigest(), 'slots': args.slots,
-           'warmup': args.warmup, 'steps': args.steps, 'events': events}
+           'warmup': args.warmup, 'steps': args.steps, 'events': events,
+           'incremental_codec': args.incremental_codec, 'batch_prefill': args.batch_prefill}
 try:
     for step in range(args.warmup):
         tick('warmup', step)
