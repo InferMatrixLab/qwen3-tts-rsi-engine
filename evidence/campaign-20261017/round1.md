@@ -530,3 +530,20 @@ All 896 requests completed and server exited 0 on physical NPU 6. Source e783a64
 | 64 | 551.4108 | 584.0810 | 919.3482 | 1.205983 |
 
 Trial 3 has started from the same frozen source/configuration on physical NPU 6. These repeats still do not replace the planned baseline/candidate comparison on physical NPU 0. A vLLM same-card repeat is queued after SGLang round 3; it requires complete successful cohorts, server exit 0, released process group and port, and a clean pinned vLLM worktree before startup. Candidate trial-1 C2 independent integrity audit now passes.
+
+
+### Direct prompt full trial 3 and repeat dispersion
+
+All 896 requests completed and server exited 0 on physical NPU 6 from frozen source e783a64. All WAVs match full trial 1 exactly. Across three independent performance trials, C32 throughput is 444.31355 / 439.38179 / 439.27051 frames/s (mean 440.98862, sample SD 2.88001). All four metrics and raw trial values are retained in results/direct-prompt-three-repeat-descriptive.json.
+
+| Concurrency | frames/s | TTFA p50 ms | TTFA p95 ms | mean RTF |
+|---:|---:|---:|---:|---:|
+| 1 | 60.8949 | 50.4475 | 51.9887 | 0.206687 |
+| 2 | 95.1741 | 67.9339 | 78.8987 | 0.262893 |
+| 4 | 153.1385 | 90.0440 | 107.0721 | 0.323919 |
+| 8 | 232.2169 | 112.4203 | 162.9806 | 0.422851 |
+| 16 | 346.8488 | 147.8408 | 272.8198 | 0.562713 |
+| 32 | 439.2705 | 214.7243 | 494.8853 | 0.814251 |
+| 64 | 549.9856 | 586.3654 | 924.1383 | 1.209592 |
+
+Exploratory three-trial charts versus vLLM are in direct-prompt-three-trial-charts/README.md. They explicitly retain mixed-card and incomplete independent-quality limitations, sample SD rather than confidence intervals, and per-trial rather than pooled percentile semantics. Final same-card acceptance remains pending. Independent scoring of candidate trial 2 has started on released physical NPU 6. All 13 model/tokenizer/config files were rehashed and match the original pinned-model audit. Candidate trial-1 C4/C8 and SGLang trial-3 C4 integrity audits pass.

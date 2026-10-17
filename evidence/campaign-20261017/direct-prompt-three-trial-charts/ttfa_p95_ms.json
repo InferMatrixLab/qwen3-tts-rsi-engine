@@ -1,0 +1,163 @@
+{
+  "title": "Before: vLLM | After: direct-prompt engine (mixed-card exploration)\nttfa_p95_ms",
+  "synthetic": false,
+  "context": {
+    "hardware": "Ascend 910B1; candidate physical NPU 6; vLLM trials 1/2 NPU 0, trial 3 NPU 1; shared host",
+    "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice BF16, pinned weights",
+    "workload": "128 fixed requests at each C1/2/4/8/16/32/64",
+    "baseline_revision": [
+      "b164fea797531c1fa10f8b87829632cad006b9fc",
+      "b164fea797531c1fa10f8b87829632cad006b9fc",
+      "b164fea797531c1fa10f8b87829632cad006b9fc"
+    ],
+    "candidate_revision": [
+      "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+      "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+      "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a"
+    ],
+    "source_logs": [
+      "runs/vllm-sweep-round1-full128/status.json",
+      "runs/vllm-sweep-round2-full128/status.json",
+      "runs/vllm-sweep-round3-full128/status.json",
+      "runs/continuous-direct-prompt-full-round1/status.json",
+      "runs/continuous-direct-prompt-full-round2/status.json",
+      "runs/continuous-direct-prompt-full-round3/status.json"
+    ]
+  },
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "runs": {
+    "before": {
+      "completed": 2688,
+      "failed": 0
+    },
+    "after": {
+      "completed": 2688,
+      "failed": 0
+    }
+  },
+  "notes": [
+    "Three independent processes per arm; bars are means and error bars sample standard deviations, not confidence intervals.",
+    "Mixed physical cards and shared-host conditions prevent final acceptance from this figure.",
+    "Candidate independent scoring is incomplete; all candidate repeat WAVs match trial 1, recorded separately.",
+    "TTFA p50/p95 bars summarize per-trial percentile statistics; they are not pooled-request percentiles.",
+    "This is a vLLM comparison only; final same-card three-framework validation remains pending."
+  ],
+  "metrics": [
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C1",
+      "before": [
+        284.75743043236434,
+        270.6865864805877,
+        261.0186230391264
+      ],
+      "after": [
+        51.747119752690196,
+        53.205310879275196,
+        51.9887107424438
+      ]
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C2",
+      "before": [
+        374.9993046745658,
+        340.47881476581097,
+        331.9365553557873
+      ],
+      "after": [
+        79.45326869376002,
+        80.22640072740612,
+        78.89870097860694
+      ]
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C4",
+      "before": [
+        430.1252225879579,
+        387.02510218136007,
+        387.86559542641044
+      ],
+      "after": [
+        107.42662353441118,
+        107.77967860922216,
+        107.0720737800002
+      ]
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C8",
+      "before": [
+        520.5294966232032,
+        487.53843032754946,
+        464.1299081966281
+      ],
+      "after": [
+        161.19668721221382,
+        163.08691632002586,
+        162.98056524246923
+      ]
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C16",
+      "before": [
+        661.1373523715883,
+        634.7947570495307,
+        606.981008220464
+      ],
+      "after": [
+        272.2349009942263,
+        272.58418533019716,
+        272.8197579272091
+      ]
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C32",
+      "before": [
+        1016.5279964916408,
+        1019.0857470035553,
+        926.5770651400089
+      ],
+      "after": [
+        484.0298501774668,
+        489.726719725877,
+        494.8853021021932
+      ]
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C64",
+      "before": [
+        1793.4304440394044,
+        1688.375543570146,
+        1633.6938893888146
+      ],
+      "after": [
+        916.3593053352087,
+        919.3482013884931,
+        924.1383427288382
+      ]
+    }
+  ]
+}

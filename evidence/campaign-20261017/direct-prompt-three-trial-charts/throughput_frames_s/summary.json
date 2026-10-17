@@ -1,0 +1,136 @@
+{
+  "status": "INCONCLUSIVE",
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "metrics": [
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C1",
+      "before": {
+        "mean": 12.763104819373012,
+        "std": 0.45292407649344846,
+        "n": 3
+      },
+      "after": {
+        "mean": 61.168287526093195,
+        "std": 0.46748594063356136,
+        "n": 3
+      },
+      "improvement_pct": 379.2586787600957,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C2",
+      "before": {
+        "mean": 24.38122204914545,
+        "std": 1.3043900244695998,
+        "n": 3
+      },
+      "after": {
+        "mean": 95.68754384799084,
+        "std": 0.6180870559236789,
+        "n": 3
+      },
+      "improvement_pct": 292.46410067187196,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C4",
+      "before": {
+        "mean": 46.65008418679867,
+        "std": 2.590454529874301,
+        "n": 3
+      },
+      "after": {
+        "mean": 153.53226600541794,
+        "std": 0.5345931220388355,
+        "n": 3
+      },
+      "improvement_pct": 229.1146600950089,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C8",
+      "before": {
+        "mean": 83.73174305907064,
+        "std": 4.921701087848626,
+        "n": 3
+      },
+      "after": {
+        "mean": 231.8268049079559,
+        "std": 1.2461682714978748,
+        "n": 3
+      },
+      "improvement_pct": 176.86848074380578,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C16",
+      "before": {
+        "mean": 136.01801671618614,
+        "std": 10.7410899349484,
+        "n": 3
+      },
+      "after": {
+        "mean": 348.5048224703735,
+        "std": 1.4437572924704098,
+        "n": 3
+      },
+      "improvement_pct": 156.2196030232967,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C32",
+      "before": {
+        "mean": 208.42765261776736,
+        "std": 7.290764514497443,
+        "n": 3
+      },
+      "after": {
+        "mean": 440.98861748309315,
+        "std": 2.8800142054747866,
+        "n": 3
+      },
+      "improvement_pct": 111.57874780263259,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C64",
+      "before": {
+        "mean": 242.10606126988168,
+        "std": 9.520765327660872,
+        "n": 3
+      },
+      "after": {
+        "mean": 551.9393448275841,
+        "std": 2.264748745336458,
+        "n": 3
+      },
+      "improvement_pct": 127.9741952483889,
+      "observation": "repeated trials"
+    }
+  ]
+}
