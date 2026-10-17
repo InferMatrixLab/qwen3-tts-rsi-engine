@@ -301,3 +301,7 @@ Source `4613082`, physical NPU 6, one exploratory trial: C32 369.961 and C64 493
 ### Fixed-capacity predictor attention diagnostic
 
 Sixteen synthetic BF16 cases (B1/8/32/64, valid KV length 2/3/8/16, head dimension 64) passed with exact output equality across three graph replays, including poisoned unused KV positions. Process exited 0. Explicit valid lengths avoided prefix contiguous copies; B32 attention measured approximately 0.056–0.057 ms versus 0.057–0.064 ms for sliced KV. This is only an operator diagnostic: DynamicCache updates, model subcodes, audio quality and service speed remain untested.
+
+### Fixed-capacity predictor KV: model diagnostic rejected
+
+Real weights with synthetic embeddings and identical random draws: B1/8/32/64 produced exactly equal subcodes and combined embeddings, including three changed-input graph replays. ABBA mean times (dynamic / fixed, ms): approximately 9.36 / 10.54, 13.60 / 14.82, 17.65 / 18.65, 21.56 / 22.46. Process exit 0. The fixed buffer implementation is slower at every batch and is not integrated into serving. Attention-only savings did not survive the full cache-update path.
