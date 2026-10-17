@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scope": "Request 0 cancelled after frame 3; all three survivor WAVs identical, not full corpus quality",
+  "process_exit": 0,
+  "samples": {
+    "00001.wav": "5fb0faf60daa4788469f0bb7dd57fba0c2166251867b18acbb2329414c628a25",
+    "00064.wav": "002bf64925514d9a56eddc8553878d4f447c0d30c2a62c6ad60e3e47105adced",
+    "00065.wav": "8dcfe64af6442fd79e6d050f7e7abe16fd60e6bd031f1c2c47960b46be53876e"
+  }
+}

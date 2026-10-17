@@ -1,0 +1,16 @@
+[
+  {
+    "concurrency": 32,
+    "reference_count": 128,
+    "candidate_count": 128,
+    "matching": 128,
+    "exact": true
+  },
+  {
+    "concurrency": 64,
+    "reference_count": 128,
+    "candidate_count": 128,
+    "matching": 128,
+    "exact": true
+  }
+]
