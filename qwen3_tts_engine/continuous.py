@@ -217,7 +217,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False):
         decode_batch_size(1, max_slots, decode_bucket_step)
         self.decode_bucket_step = decode_bucket_step
         self.batch_audio_transfer = batch_audio_transfer
@@ -229,6 +229,10 @@ class ContinuousModel:
         self.samplers = {}
         if bucket_prefill and not graph_prefill:
             raise ValueError('Prefill batch bucketing requires graph prefill')
+        if prewarm_prefill and not graph_prefill:
+            raise ValueError('Prefill prewarming requires graph prefill')
+        if prewarm_prefill and reference_single:
+            raise ValueError('Prefill prewarming does not support reference-single dispatch')
         if prewarm_codec and not incremental_codec:
             raise ValueError('Codec prewarming requires the incremental codec')
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
@@ -274,6 +278,17 @@ class ContinuousModel:
                 graph = SamplingGraph(self.semantic, batch, self.talker.config.vocab_size, device)
                 graph.capture()
                 self.samplers[batch] = graph
+        if prewarm_prefill:
+            from qwen3_tts_engine.prefill_graph import PrefillGraph
+            # Bound startup memory. These generic short-prompt shapes cover
+            # small replacement batches; all other shapes retain lazy capture.
+            for batch in range(1, min(max_slots, 4) + 1):
+                if bucket_prefill and batch & (batch - 1):
+                    continue
+                for length in (32, 64, 128):
+                    graph = PrefillGraph(self.talker, batch, length)
+                    graph.capture()
+                    self.prefills[batch, length] = graph
 
     def ensure_capacity(self, required):
         if required < self.arena.capacity:
