@@ -461,3 +461,15 @@ Default-off --triton-cdf now applies the tail kernel to predictor and semantic s
 All 896 third-repeat vLLM waveforms now have ASR and speaker scores; the scoring loop exited 0 and all seven retained-cohort integrity audits pass. Performance for this repeat was on physical NPU 1, unlike the first two on NPU 0; it remains exploratory under the prospective same-card final-validation plan. The previously scored full combined candidate passes all seven frozen quality margins against vLLM round 3 and SGLang round 2 (an explicitly mixed-repeat quality check, not final acceptance).
 
 Exact-combination full-trial C8 independent scores and integrity audit are also complete. The changed prefill-bucket C8/C16 outputs are being independently scored on physical NPU 1. The CDF service process remains in initial graph/kernel prewarming; no restart or throughput claim has been made.
+
+
+### CDF service evidence
+
+The CDF-tail service experiment completed all 256 requests and server exit 0. Initial sampler compilation was allowed to finish in the original process. All WAV files at C32 and C64 match the exact-combination full trial byte-for-byte. Isolated operator savings did not establish a stable end-to-end 2x result.
+
+| Concurrency | frames/s | TTFA p50 ms | TTFA p95 ms | mean RTF |
+|---:|---:|---:|---:|---:|
+| 32 | 412.1818 | 226.5083 | 1104.2413 | 0.883748 |
+| 64 | 519.6544 | 776.2377 | 1281.0302 | 1.304500 |
+
+The next direct experiment combines this option with existing prefill bucketing. Prefill-bucket C8 independent ASR/speaker evidence and integrity audit are complete; C16 remains pending. Exact-combination C16 independent quality integrity audit also passed.
