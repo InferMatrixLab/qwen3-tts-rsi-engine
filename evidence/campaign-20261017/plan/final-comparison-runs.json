@@ -1,0 +1,61 @@
+{
+  "status": "PENDING",
+  "scope": "Explicit run selection for the frozen final same-card comparison; not an acceptance result",
+  "contract": "contract.json",
+  "quality_gates": "quality-gates.json",
+  "physical_npu": 0,
+  "candidate_source_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+  "arms": {
+    "vllm": [
+      {
+        "run": "runs/vllm-sweep-round1-full128",
+        "asr_suffix": "-npu"
+      },
+      {
+        "run": "runs/vllm-sweep-round2-full128",
+        "asr_suffix": ""
+      },
+      {
+        "run": "runs/vllm-sweep-round3-card0-full128",
+        "asr_suffix": ""
+      }
+    ],
+    "sglang": [
+      {
+        "run": "runs/sglang-sweep-round1-full128",
+        "asr_suffix": ""
+      },
+      {
+        "run": "runs/sglang-sweep-round2-full128",
+        "asr_suffix": ""
+      },
+      {
+        "run": "runs/sglang-sweep-round3-full128",
+        "asr_suffix": ""
+      }
+    ],
+    "candidate": [
+      {
+        "run": "runs/continuous-direct-prompt-card0-round1",
+        "asr_suffix": ""
+      },
+      {
+        "run": "runs/continuous-direct-prompt-card0-round2",
+        "asr_suffix": ""
+      },
+      {
+        "run": "runs/continuous-direct-prompt-card0-round3",
+        "asr_suffix": ""
+      }
+    ]
+  },
+  "reporting": [
+    "Retain all three raw values per metric and concurrency, plus arithmetic mean and sample standard deviation.",
+    "Mean per-trial TTFA percentiles are not pooled request percentiles.",
+    "Report candidate/better-baseline throughput for every concurrency, including each trial and repeat summaries.",
+    "Score every retained waveform independently; exact WAV identity is separate evidence.",
+    "Check pinned source, model and workload identity, hardware budget, complete requests, clean exits and full quality before acceptance.",
+    "Physical NPU 6 candidate optimization trials and physical NPU 1 vLLM third trial remain exploratory and are excluded from this final run selection.",
+    "Shared-host interference remains disclosed."
+  ]
+}
