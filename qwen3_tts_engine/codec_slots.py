@@ -124,6 +124,19 @@ class CodecSlots:
         self.graphs = {}
 
     @torch.inference_mode()
+    def prewarm(self, max_batch):
+        """Capture all streaming shapes before readiness without advancing slots."""
+        if not 1 <= max_batch <= self.slots:
+            raise ValueError('Codec warmup batch must fit the slot arena')
+        for batch in range(1, max_batch + 1):
+            for length in range(1, 9):
+                key = (batch, length)
+                if key not in self.graphs:
+                    graph = CodecSlotGraph(self, batch, length)
+                    graph.capture()  # capture snapshots and restores every touched state buffer
+                    self.graphs[key] = graph
+
+    @torch.inference_mode()
     def decode(self, indices, codes):
         if (not indices or len(set(indices)) != len(indices)
                 or min(indices) < 0 or max(indices) >= self.slots

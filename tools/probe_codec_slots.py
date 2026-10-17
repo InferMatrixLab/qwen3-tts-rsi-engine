@@ -12,6 +12,7 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--model', required=True)
 parser.add_argument('--output', type=Path, required=True)
 parser.add_argument('--strict-fp32', action='store_true')
+parser.add_argument('--prewarm', action='store_true')
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 if args.strict_fp32:
@@ -24,7 +25,7 @@ if args.strict_fp32:
 engine = CodecSlots(decoder, 4)
 eager = IncrementalCodec(decoder)
 result = {'status': 'INCONCLUSIVE', 'scope': 'synthetic slot graph diagnostic, not speech quality or speed',
-          'strict_fp32': args.strict_fp32, 'cases': []}
+          'strict_fp32': args.strict_fp32, 'prewarm': args.prewarm, 'cases': []}
 try:
     with torch.inference_mode():
         codes = torch.randint(0, 2048, (3, 16, 101), generator=torch.Generator().manual_seed(42)).to('npu:0')
@@ -40,6 +41,13 @@ try:
             actual[1].append(engine.decode([2], chunk[2:]))
             start += length
             if start == 8:
+                if args.prewarm:
+                    saved = [buffer.clone() for buffer in engine.buffers]
+                    engine.prewarm(4)
+                    assert len(engine.graphs) == 32
+                    for buffer, original in zip(engine.buffers, saved):
+                        torch.testing.assert_close(buffer, original, atol=0, rtol=0)
+                    result['prewarm_live_state_exact'] = True
                 engine.move(3, 0)
                 engine.reset(3)
                 slots[0] = 0

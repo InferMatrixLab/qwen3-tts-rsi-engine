@@ -266,6 +266,7 @@ def main():
     parser.add_argument("--pack-qkv", action="store_true")
     parser.add_argument("--native-gqa", action="store_true")
     parser.add_argument("--text-only-rope", action="store_true")
+    parser.add_argument("--prewarm-codec", action="store_true")
     parser.add_argument("--pack-mlp", action="store_true")
     parser.add_argument("--fused-swiglu", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
@@ -290,6 +291,8 @@ def main():
         parser.error("Invalid batch or queue settings")
     if options.prefill_per_tick < 1 or (options.continuous and options.max_batch_size & (options.max_batch_size - 1)):
         parser.error('Continuous slots must be a power of two and prefill budget must be positive')
+    if options.prewarm_codec and not (options.continuous and options.incremental_codec):
+        parser.error('--prewarm-codec requires --continuous --incremental-codec')
     logging.basicConfig(level=logging.INFO)
     factory = partial(CustomVoiceModel, predictor_graph=options.predictor_graph,
                                              talker_graph=options.talker_graph,
@@ -306,7 +309,7 @@ def main():
                           native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, graph_prefill=options.graph_prefill,
                           codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
                           incremental_codec=options.incremental_codec, batch_prefill=options.batch_prefill,
-                          native_kv_update=options.native_kv_update)
+                          native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec)
     service = SpeechService(options, factory)
     app = web.Application(client_max_size=1024 * 1024)
     app.router.add_get("/health", service.health)
