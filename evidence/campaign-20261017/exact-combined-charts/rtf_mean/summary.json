@@ -1,0 +1,46 @@
+{
+  "status": "INCONCLUSIVE",
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "pass",
+    "lifecycle": "pass"
+  },
+  "metrics": [
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C32",
+      "before": {
+        "mean": 0.9969489647679338,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 0.868030238326315,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 12.93132657714611,
+      "observation": "single trial"
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C64",
+      "before": {
+        "mean": 1.372160679251504,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 1.2820338539856255,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 6.568241360409881,
+      "observation": "single trial"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "status": "INCONCLUSIVE",
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "pass",
+    "lifecycle": "pass"
+  },
+  "metrics": [
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C32",
+      "before": {
+        "mean": 369.5605350035445,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 418.04745299545476,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 13.120155806529837,
+      "observation": "single trial"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C64",
+      "before": {
+        "mean": 490.854909446518,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 526.2245949851465,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 7.205731237059632,
+      "observation": "single trial"
+    }
+  ]
+}

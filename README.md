@@ -3,12 +3,21 @@
 Independent inference work for `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` on Ascend 910B1.
 
 **Status: INCONCLUSIVE — full repeated, quality-qualified 2x acceptance is pending.**
-Both baseline exploratory sweeps are complete. The independent streaming engine
-has completed all seven concurrency levels; high-concurrency optimization and
-candidate quality fixes continue. The native-RoPE/sampling candidate has complete
-ASR and speaker scores: all concurrency gates pass except C16 Chinese CER
-(0.03808 versus the frozen maximum 0.03566), so that configuration is rejected
-for all-concurrency acceptance.
+Two complete baseline repeats have performance and full ASR/speaker evidence.
+The third vLLM performance repeat is complete with audio scoring in progress;
+the third SGLang repeat is running. SGLang uses the recorded import-only
+compatibility patch on its pinned main revision.
+
+The full predictor-only-RoPE/Triton-codec candidate passes all seven audio-quality
+gates against both round-2 baselines. Its throughput remains below 2x at C32.
+A directly measured combination of paired KV writes, exact talker rotary and
+prefill prewarming reached **418.05 / 526.22 frames/s at C32 / C64**, with all
+256 WAV files byte-identical to that quality-validated candidate and server exit 0.
+Its complete C1–C64 trial and independent quality scoring are now running.
+These single-run results on a shared host are not final repeated 2x acceptance.
+
+See the [four-metric adjacent-control charts](evidence/campaign-20261017/exact-combined-charts/README.md)
+for raw values, timing scope, quality-transfer evidence and limitations.
 
 The acceptance target is at least 2x the better of pinned vLLM-Omni and
 SGLang-Omni main throughput at each concurrency: 1, 2, 4, 8, 16, 32, 64.
@@ -26,7 +35,8 @@ repeated comparison.
 See [candidate charts](evidence/campaign-20261017/native-rope-charts/README.md)
 for the four metrics with explicit single-repeat and quality-failure labels.
 
-The native-RoPE/sampling-graph candidate (`3ef961a`, physical NPU 0) measured
+Historical rejected candidate: the all-native-RoPE/sampling-graph configuration
+(`3ef961a`, physical NPU 0) measured
 56.61 / 85.70 / 135.00 / 207.88 / 295.96 / 386.54 / 473.18 frames/s at
 C1 / C2 / C4 / C8 / C16 / C32 / C64, with 896 successful requests and clean
 server exit. C32 and C64 remain below their respective approximately 400.53

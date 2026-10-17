@@ -1,0 +1,46 @@
+{
+  "status": "INCONCLUSIVE",
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "pass",
+    "lifecycle": "pass"
+  },
+  "metrics": [
+    {
+      "name": "ttfa_p50_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C32",
+      "before": {
+        "mean": 245.18938222900033,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 224.5564153417945,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 8.415114349419586,
+      "observation": "single trial"
+    },
+    {
+      "name": "ttfa_p50_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C64",
+      "before": {
+        "mean": 932.4207478202879,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 741.7559074237943,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 20.44836956301211,
+      "observation": "single trial"
+    }
+  ]
+}

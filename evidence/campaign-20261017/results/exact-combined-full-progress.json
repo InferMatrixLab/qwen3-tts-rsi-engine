@@ -22,6 +22,44 @@
         "server_lifecycle": "NOT_EVALUATED",
         "status": "INCONCLUSIVE"
       }
+    },
+    {
+      "concurrency": 2,
+      "exact_wav_count": 128,
+      "requests": 128,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 82.60049358382821,
+        "throughput_frames_s": 92.00913542104973,
+        "ttfa_p50_ms": 74.5824184268713,
+        "ttfa_p95_ms": 87.10755063220856,
+        "rtf_mean": 0.2720864233938479,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 4,
+      "exact_wav_count": 128,
+      "requests": 128,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 51.887137056328356,
+        "throughput_frames_s": 146.39466409090616,
+        "ttfa_p50_ms": 99.05612422153354,
+        "ttfa_p95_ms": 120.72241157293318,
+        "rtf_mean": 0.3390736783488949,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
     }
   ]
 }
