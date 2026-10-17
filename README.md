@@ -2,6 +2,8 @@
 
 Independent inference work for `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` on Ascend 910B1.
 
+[Reproduce the measured configuration](REPRODUCE.md).
+
 **Status: INCONCLUSIVE — full repeated, quality-qualified 2x acceptance is pending.**
 All three final candidate trials on physical NPU 0 completed 896 requests each
 with exit 0. All 21 throughput observations exceed twice the highest selected
