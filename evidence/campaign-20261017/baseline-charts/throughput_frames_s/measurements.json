@@ -1,0 +1,112 @@
+{
+  "title": "Exploratory Throughput: before=SGLang compat, after=vLLM main",
+  "synthetic": false,
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "runs": {
+    "before": {
+      "completed": 896,
+      "failed": 0
+    },
+    "after": {
+      "completed": 896,
+      "failed": 0
+    }
+  },
+  "provenance": {
+    "before_revision": "6bdd47967caa55c38430d18175b750008aecab61",
+    "after_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+    "device": "physical NPU 0 in separate sessions",
+    "scope": "One exploratory trial per concurrency; shared host and different framework startup workarounds; no significance or 2x acceptance claim",
+    "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7"
+  },
+  "metrics": [
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C1",
+      "before": [
+        4.274688133704026
+      ],
+      "after": [
+        12.296847685489093
+      ]
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C2",
+      "before": [
+        7.916893521882779
+      ],
+      "after": [
+        22.943153962655607
+      ]
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C4",
+      "before": [
+        14.116271131187982
+      ],
+      "after": [
+        43.83126223034298
+      ]
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C8",
+      "before": [
+        25.02642936804738
+      ],
+      "after": [
+        79.49077891672454
+      ]
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C16",
+      "before": [
+        38.30413736825286
+      ],
+      "after": [
+        124.59641583494476
+      ]
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C32",
+      "before": [
+        57.10208034098629
+      ],
+      "after": [
+        200.26527505533156
+      ]
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C64",
+      "before": [
+        66.60674902518353
+      ],
+      "after": [
+        242.0768702666381
+      ]
+    }
+  ]
+}

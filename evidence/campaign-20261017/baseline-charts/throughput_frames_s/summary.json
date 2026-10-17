@@ -1,0 +1,136 @@
+{
+  "status": "INCONCLUSIVE",
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "metrics": [
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C1",
+      "before": {
+        "mean": 4.274688133704026,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 12.296847685489093,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 187.66654550852223,
+      "observation": "single trial"
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C2",
+      "before": {
+        "mean": 7.916893521882779,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 22.943153962655607,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 189.79995624848715,
+      "observation": "single trial"
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C4",
+      "before": {
+        "mean": 14.116271131187982,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 43.83126223034298,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 210.50170277265195,
+      "observation": "single trial"
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C8",
+      "before": {
+        "mean": 25.02642936804738,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 79.49077891672454,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 217.6273280846639,
+      "observation": "single trial"
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C16",
+      "before": {
+        "mean": 38.30413736825286,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 124.59641583494476,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 225.2818739581183,
+      "observation": "single trial"
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C32",
+      "before": {
+        "mean": 57.10208034098629,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 200.26527505533156,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 250.71449912059802,
+      "observation": "single trial"
+    },
+    {
+      "name": "Throughput",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C64",
+      "before": {
+        "mean": 66.60674902518353,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 242.0768702666381,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 263.44195417060604,
+      "observation": "single trial"
+    }
+  ]
+}

@@ -2,6 +2,10 @@
 
 Status: INCONCLUSIVE. This is one repetition, with independent quality scoring still running.
 
+The [baseline charts](baseline-charts/README.md) provide PNG/SVG comparisons and
+machine-readable inputs for all four metrics. They compare the two upstream
+baselines only; they are not a standalone-engine speedup claim.
+
 vLLM-Omni main `b164fea797531c1fa10f8b87829632cad006b9fc`, jemalloc environment workaround, one physical NPU 0, 128 fixed requests per concurrency. All 896 timed requests completed; benchmark and server exited 0.
 
 | Concurrency | Throughput (frames/s) | TTFA p50 (ms) | TTFA p95 (ms) | Mean RTF |

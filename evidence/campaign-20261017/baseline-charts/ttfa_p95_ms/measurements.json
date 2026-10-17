@@ -1,0 +1,112 @@
+{
+  "title": "Exploratory TTFA p95: before=SGLang compat, after=vLLM main",
+  "synthetic": false,
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "runs": {
+    "before": {
+      "completed": 896,
+      "failed": 0
+    },
+    "after": {
+      "completed": 896,
+      "failed": 0
+    }
+  },
+  "provenance": {
+    "before_revision": "6bdd47967caa55c38430d18175b750008aecab61",
+    "after_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+    "device": "physical NPU 0 in separate sessions",
+    "scope": "One exploratory trial per concurrency; shared host and different framework startup workarounds; no significance or 2x acceptance claim",
+    "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7"
+  },
+  "metrics": [
+    {
+      "name": "TTFA p95",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C1",
+      "before": [
+        565.9927828237414
+      ],
+      "after": [
+        284.75743043236434
+      ]
+    },
+    {
+      "name": "TTFA p95",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C2",
+      "before": [
+        793.1363265495747
+      ],
+      "after": [
+        374.9993046745658
+      ]
+    },
+    {
+      "name": "TTFA p95",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C4",
+      "before": [
+        986.2919033970683
+      ],
+      "after": [
+        430.1252225879579
+      ]
+    },
+    {
+      "name": "TTFA p95",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C8",
+      "before": [
+        1267.3496592789882
+      ],
+      "after": [
+        520.5294966232032
+      ]
+    },
+    {
+      "name": "TTFA p95",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C16",
+      "before": [
+        1739.0456179156897
+      ],
+      "after": [
+        661.1373523715883
+      ]
+    },
+    {
+      "name": "TTFA p95",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C32",
+      "before": [
+        2462.347258720547
+      ],
+      "after": [
+        1016.5279964916408
+      ]
+    },
+    {
+      "name": "TTFA p95",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C64",
+      "before": [
+        7305.230406951158
+      ],
+      "after": [
+        1793.4304440394044
+      ]
+    }
+  ]
+}
