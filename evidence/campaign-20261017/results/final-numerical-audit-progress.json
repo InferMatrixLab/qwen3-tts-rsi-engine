@@ -1,0 +1,1782 @@
+{
+  "status": "PENDING",
+  "scope": "Audit the numerical contract and retained cohorts; provenance/publication are separate.",
+  "comparison": "Each candidate repetition versus the strongest observed throughput and quality references across both baseline frameworks and all three repeats; descriptive, not statistical confidence.",
+  "issues": [],
+  "missing": [
+    "runs/continuous-direct-prompt-card0-round3/quality-c64/summary.json",
+    "runs/continuous-direct-prompt-card0-round3/quality-c64/samples.jsonl",
+    "runs/continuous-direct-prompt-card0-round3/speaker-c64/summary.json",
+    "runs/continuous-direct-prompt-card0-round3/speaker-c64/samples.jsonl"
+  ],
+  "cohorts": [
+    {
+      "arm": "vllm",
+      "trial": 1,
+      "run": "runs/vllm-sweep-round1-full128",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 12.296847685489093,
+          "ttfa_p50_ms": 270.9299558773637,
+          "ttfa_p95_ms": 284.75743043236434,
+          "rtf_mean": 1.0210431795370278
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.037251655629139076,
+      "speaker_mean": 0.7708775931969285,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 1,
+      "run": "runs/vllm-sweep-round1-full128",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 22.9431539626556,
+          "ttfa_p50_ms": 324.36227006837726,
+          "ttfa_p95_ms": 374.9993046745658,
+          "rtf_mean": 1.0921106427737466
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.0347682119205298,
+      "speaker_mean": 0.7685906940605491,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 1,
+      "run": "runs/vllm-sweep-round1-full128",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 43.83126223034301,
+          "ttfa_p50_ms": 344.9574699625373,
+          "ttfa_p95_ms": 430.1252225879579,
+          "rtf_mean": 1.1361252515339013
+        },
+        "issues": []
+      },
+      "en_wer": 0.005689900426742532,
+      "zh_cer": 0.030629139072847682,
+      "speaker_mean": 0.7715028736274689,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 1,
+      "run": "runs/vllm-sweep-round1-full128",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 79.4907789167245,
+          "ttfa_p50_ms": 391.4935803040862,
+          "ttfa_p95_ms": 520.5294966232032,
+          "rtf_mean": 1.2216941816145934
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.027317880794701987,
+      "speaker_mean": 0.7754849083721638,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 1,
+      "run": "runs/vllm-sweep-round1-full128",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 124.59641583494474,
+          "ttfa_p50_ms": 498.53252014145255,
+          "ttfa_p95_ms": 661.1373523715883,
+          "rtf_mean": 1.3815607495303415
+        },
+        "issues": []
+      },
+      "en_wer": 0.03698435277382646,
+      "zh_cer": 0.02566225165562914,
+      "speaker_mean": 0.7714163074269891,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 1,
+      "run": "runs/vllm-sweep-round1-full128",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 200.26527505533156,
+          "ttfa_p50_ms": 709.2177751474082,
+          "ttfa_p95_ms": 1016.5279964916408,
+          "rtf_mean": 1.7184953824042832
+        },
+        "issues": []
+      },
+      "en_wer": 0.00995732574679943,
+      "zh_cer": 0.03642384105960265,
+      "speaker_mean": 0.7682430793065578,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 1,
+      "run": "runs/vllm-sweep-round1-full128",
+      "concurrency": 64,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 242.0768702666381,
+          "ttfa_p50_ms": 1395.918546244502,
+          "ttfa_p95_ms": 1793.4304440394044,
+          "rtf_mean": 2.614835011977095
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.03559602649006623,
+      "speaker_mean": 0.7726154122501612,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 2,
+      "run": "runs/vllm-sweep-round2-full128",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 12.791066544709883,
+          "ttfa_p50_ms": 262.4301319010556,
+          "ttfa_p95_ms": 270.6865864805877,
+          "rtf_mean": 0.982175721115547
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.037251655629139076,
+      "speaker_mean": 0.7708775931969285,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 2,
+      "run": "runs/vllm-sweep-round2-full128",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 24.712437230161637,
+          "ttfa_p50_ms": 298.85789612308145,
+          "ttfa_p95_ms": 340.47881476581097,
+          "rtf_mean": 1.0149255174912346
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.0347682119205298,
+      "speaker_mean": 0.7678729363251477,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 2,
+      "run": "runs/vllm-sweep-round2-full128",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 47.19281370410862,
+          "ttfa_p50_ms": 310.1064171642065,
+          "ttfa_p95_ms": 387.02510218136007,
+          "rtf_mean": 1.0519599005503668
+        },
+        "issues": []
+      },
+      "en_wer": 0.005689900426742532,
+      "zh_cer": 0.042218543046357616,
+      "speaker_mean": 0.7730617390479892,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 2,
+      "run": "runs/vllm-sweep-round2-full128",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 82.57597590962088,
+          "ttfa_p50_ms": 377.03682528808713,
+          "ttfa_p95_ms": 487.53843032754946,
+          "rtf_mean": 1.1788510196547728
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.030629139072847682,
+      "speaker_mean": 0.7735184752382338,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 2,
+      "run": "runs/vllm-sweep-round2-full128",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 137.54177906611915,
+          "ttfa_p50_ms": 460.62856959179044,
+          "ttfa_p95_ms": 634.7947570495307,
+          "rtf_mean": 1.2776324467121596
+        },
+        "issues": []
+      },
+      "en_wer": 0.03698435277382646,
+      "zh_cer": 0.03228476821192053,
+      "speaker_mean": 0.7722584679722786,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 2,
+      "run": "runs/vllm-sweep-round2-full128",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 214.29404211656248,
+          "ttfa_p50_ms": 653.169259428978,
+          "ttfa_p95_ms": 1019.0857470035553,
+          "rtf_mean": 1.5888183318249476
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.041390728476821195,
+      "speaker_mean": 0.7736800154671073,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 2,
+      "run": "runs/vllm-sweep-round2-full128",
+      "concurrency": 64,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 232.59992500664492,
+          "ttfa_p50_ms": 1306.1149627901614,
+          "ttfa_p95_ms": 1688.375543570146,
+          "rtf_mean": 2.4016064005608397
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.037251655629139076,
+      "speaker_mean": 0.7725423087831587,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 3,
+      "run": "runs/vllm-sweep-round3-card0-full128",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 13.057069443918317,
+          "ttfa_p50_ms": 257.183822337538,
+          "ttfa_p95_ms": 264.1751538962126,
+          "rtf_mean": 0.9623095195383552
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.037251655629139076,
+      "speaker_mean": 0.7708775931969285,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 3,
+      "run": "runs/vllm-sweep-round3-card0-full128",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 25.31700304027436,
+          "ttfa_p50_ms": 292.230392806232,
+          "ttfa_p95_ms": 333.9035087265074,
+          "rtf_mean": 0.9897485879036045
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.0347682119205298,
+      "speaker_mean": 0.7682393330615014,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 3,
+      "run": "runs/vllm-sweep-round3-card0-full128",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 48.276666811796055,
+          "ttfa_p50_ms": 306.998401414603,
+          "ttfa_p95_ms": 390.1269230060279,
+          "rtf_mean": 1.030314649660105
+        },
+        "issues": []
+      },
+      "en_wer": 0.005689900426742532,
+      "zh_cer": 0.042218543046357616,
+      "speaker_mean": 0.7730574428569525,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 3,
+      "run": "runs/vllm-sweep-round3-card0-full128",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 88.02191876997009,
+          "ttfa_p50_ms": 358.3629769273102,
+          "ttfa_p95_ms": 469.40944171510637,
+          "rtf_mean": 1.1053427165781742
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.028973509933774833,
+      "speaker_mean": 0.7734441440552473,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 3,
+      "run": "runs/vllm-sweep-round3-card0-full128",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 141.42567172815862,
+          "ttfa_p50_ms": 441.01920863613486,
+          "ttfa_p95_ms": 633.7096572387964,
+          "rtf_mean": 1.2800632847815152
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7756396480835974,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 3,
+      "run": "runs/vllm-sweep-round3-card0-full128",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 213.78626953431623,
+          "ttfa_p50_ms": 644.9077450670302,
+          "ttfa_p95_ms": 947.6056032348424,
+          "rtf_mean": 1.5831550793945754
+        },
+        "issues": []
+      },
+      "en_wer": 0.00995732574679943,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.7755636109504849,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "vllm",
+      "trial": 3,
+      "run": "runs/vllm-sweep-round3-card0-full128",
+      "concurrency": 64,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 209.5460144105349,
+          "ttfa_p50_ms": 1299.9401721172035,
+          "ttfa_p95_ms": 1681.3864248339087,
+          "rtf_mean": 2.413214096604622
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.767752553569153,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 1,
+      "run": "runs/sglang-sweep-round1-full128",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 4.274688133704026,
+          "ttfa_p50_ms": 424.1716735996306,
+          "ttfa_p95_ms": 565.9927828237414,
+          "rtf_mean": 2.9568215378457765
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.026490066225165563,
+      "speaker_mean": 0.7719795336015522,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 1,
+      "run": "runs/sglang-sweep-round1-full128",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 7.916893521882782,
+          "ttfa_p50_ms": 601.9626688212156,
+          "ttfa_p95_ms": 793.1363265495747,
+          "rtf_mean": 3.168660684523214
+        },
+        "issues": []
+      },
+      "en_wer": 0.01422475106685633,
+      "zh_cer": 0.03890728476821192,
+      "speaker_mean": 0.7654518994968385,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 1,
+      "run": "runs/sglang-sweep-round1-full128",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 14.116271131187988,
+          "ttfa_p50_ms": 658.9919766411185,
+          "ttfa_p95_ms": 986.2919033970683,
+          "rtf_mean": 3.4984478742089373
+        },
+        "issues": []
+      },
+      "en_wer": 0.012802275960170697,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.7670257242862135,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 1,
+      "run": "runs/sglang-sweep-round1-full128",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 25.02642936804738,
+          "ttfa_p50_ms": 689.9198177270591,
+          "ttfa_p95_ms": 1267.3496592789882,
+          "rtf_mean": 3.9221544990777235
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.7669079301413149,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 1,
+      "run": "runs/sglang-sweep-round1-full128",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 38.30413736825286,
+          "ttfa_p50_ms": 762.419527862221,
+          "ttfa_p95_ms": 1739.0456179156897,
+          "rtf_mean": 4.789526350765899
+        },
+        "issues": []
+      },
+      "en_wer": 0.01422475106685633,
+      "zh_cer": 0.027317880794701987,
+      "speaker_mean": 0.7694623884744942,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 1,
+      "run": "runs/sglang-sweep-round1-full128",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 57.10208034098627,
+          "ttfa_p50_ms": 811.7464822717011,
+          "ttfa_p95_ms": 2462.347258720547,
+          "rtf_mean": 6.236175363244543
+        },
+        "issues": []
+      },
+      "en_wer": 0.00995732574679943,
+      "zh_cer": 0.028973509933774833,
+      "speaker_mean": 0.7778975653927773,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 1,
+      "run": "runs/sglang-sweep-round1-full128",
+      "concurrency": 64,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 66.60674902518357,
+          "ttfa_p50_ms": 3451.91464247182,
+          "ttfa_p95_ms": 7305.230406951158,
+          "rtf_mean": 10.170835155907064
+        },
+        "issues": []
+      },
+      "en_wer": 0.007112375533428165,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7714018621481955,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 2,
+      "run": "runs/sglang-sweep-round2-full128",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 4.302936586505516,
+          "ttfa_p50_ms": 436.97735480964184,
+          "ttfa_p95_ms": 555.4488532245159,
+          "rtf_mean": 2.9240399831467476
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.026490066225165563,
+      "speaker_mean": 0.7719795336015522,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 2,
+      "run": "runs/sglang-sweep-round2-full128",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 7.996013792621275,
+          "ttfa_p50_ms": 596.7147243209183,
+          "ttfa_p95_ms": 787.3508031480014,
+          "rtf_mean": 3.1350315170459027
+        },
+        "issues": []
+      },
+      "en_wer": 0.01422475106685633,
+      "zh_cer": 0.03890728476821192,
+      "speaker_mean": 0.7654518994968385,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 2,
+      "run": "runs/sglang-sweep-round2-full128",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 14.229748754414581,
+          "ttfa_p50_ms": 610.7174009084702,
+          "ttfa_p95_ms": 898.681511869654,
+          "rtf_mean": 3.4731869687721195
+        },
+        "issues": []
+      },
+      "en_wer": 0.012802275960170697,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.7670257242862135,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 2,
+      "run": "runs/sglang-sweep-round2-full128",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 25.759188264917594,
+          "ttfa_p50_ms": 646.1882451549172,
+          "ttfa_p95_ms": 1068.70050067082,
+          "rtf_mean": 3.8154851358013646
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.7669079301413149,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 2,
+      "run": "runs/sglang-sweep-round2-full128",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 40.68145996630012,
+          "ttfa_p50_ms": 713.8198437169194,
+          "ttfa_p95_ms": 1527.668266091495,
+          "rtf_mean": 4.625126517165078
+        },
+        "issues": []
+      },
+      "en_wer": 0.00995732574679943,
+      "zh_cer": 0.023178807947019868,
+      "speaker_mean": 0.7713345845695585,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 2,
+      "run": "runs/sglang-sweep-round2-full128",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 57.36234872351452,
+          "ttfa_p50_ms": 827.460527420044,
+          "ttfa_p95_ms": 2417.5642366986717,
+          "rtf_mean": 6.194895028613765
+        },
+        "issues": []
+      },
+      "en_wer": 0.00995732574679943,
+      "zh_cer": 0.03228476821192053,
+      "speaker_mean": 0.7771358664613217,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 2,
+      "run": "runs/sglang-sweep-round2-full128",
+      "concurrency": 64,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 73.15645962525757,
+          "ttfa_p50_ms": 2727.170815691352,
+          "ttfa_p95_ms": 7784.7506483551115,
+          "rtf_mean": 9.182993503081752
+        },
+        "issues": []
+      },
+      "en_wer": 0.007112375533428165,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.769987897016108,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 3,
+      "run": "runs/sglang-sweep-round3-full128",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 4.358298469907299,
+          "ttfa_p50_ms": 458.00133189186454,
+          "ttfa_p95_ms": 547.2201238386333,
+          "rtf_mean": 2.884123672439516
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.026490066225165563,
+      "speaker_mean": 0.7719795336015522,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 3,
+      "run": "runs/sglang-sweep-round3-full128",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 8.003296117201373,
+          "ttfa_p50_ms": 599.7777367010713,
+          "ttfa_p95_ms": 783.7653207592665,
+          "rtf_mean": 3.133234976582521
+        },
+        "issues": []
+      },
+      "en_wer": 0.01422475106685633,
+      "zh_cer": 0.03890728476821192,
+      "speaker_mean": 0.7654518994968385,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 3,
+      "run": "runs/sglang-sweep-round3-full128",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 14.70771009757007,
+          "ttfa_p50_ms": 626.6819126904011,
+          "ttfa_p95_ms": 872.7668468840419,
+          "rtf_mean": 3.357509002174903
+        },
+        "issues": []
+      },
+      "en_wer": 0.012802275960170697,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.7670257242862135,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 3,
+      "run": "runs/sglang-sweep-round3-full128",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 25.985093670147286,
+          "ttfa_p50_ms": 650.2767191268504,
+          "ttfa_p95_ms": 1035.8111752662808,
+          "rtf_mean": 3.782139754711554
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.7669079301413149,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 3,
+      "run": "runs/sglang-sweep-round3-full128",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 41.628054031002264,
+          "ttfa_p50_ms": 671.7565404251218,
+          "ttfa_p95_ms": 1550.9650668129318,
+          "rtf_mean": 4.530902662131757
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.0347682119205298,
+      "speaker_mean": 0.768689620308578,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 3,
+      "run": "runs/sglang-sweep-round3-full128",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 58.38803188600239,
+          "ttfa_p50_ms": 785.9027553349733,
+          "ttfa_p95_ms": 2426.5427926089615,
+          "rtf_mean": 5.949550304957927
+        },
+        "issues": []
+      },
+      "en_wer": 0.00995732574679943,
+      "zh_cer": 0.03394039735099338,
+      "speaker_mean": 0.7739832487422973,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "sglang",
+      "trial": 3,
+      "run": "runs/sglang-sweep-round3-full128",
+      "concurrency": 64,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 75.04746962716126,
+          "ttfa_p50_ms": 4052.1502871997654,
+          "ttfa_p95_ms": 7218.663234869018,
+          "rtf_mean": 8.802787589176743
+        },
+        "issues": []
+      },
+      "en_wer": 0.007112375533428165,
+      "zh_cer": 0.027317880794701987,
+      "speaker_mean": 0.7700438722968102,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 1,
+      "run": "runs/continuous-direct-prompt-card0-round1",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 61.722495559544505,
+          "ttfa_p50_ms": 49.981759395450354,
+          "ttfa_p95_ms": 51.344451354816556,
+          "rtf_mean": 0.20385731625171707
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7751290453597903,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 1,
+      "run": "runs/continuous-direct-prompt-card0-round1",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 96.38415045143954,
+          "ttfa_p50_ms": 67.21417512744665,
+          "ttfa_p95_ms": 80.28674144297835,
+          "rtf_mean": 0.25964807965911046
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7745600556954741,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 1,
+      "run": "runs/continuous-direct-prompt-card0-round1",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 154.82226125278518,
+          "ttfa_p50_ms": 88.75662973150611,
+          "ttfa_p95_ms": 106.65350239723921,
+          "rtf_mean": 0.32042284619447514
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.029801324503311258,
+      "speaker_mean": 0.7728091184981167,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 1,
+      "run": "runs/continuous-direct-prompt-card0-round1",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 231.8386505061736,
+          "ttfa_p50_ms": 112.47091693803668,
+          "ttfa_p95_ms": 158.84279557503757,
+          "rtf_mean": 0.4236140614507102
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.029801324503311258,
+      "speaker_mean": 0.7769090000074357,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 1,
+      "run": "runs/continuous-direct-prompt-card0-round1",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 351.5065964058389,
+          "ttfa_p50_ms": 146.03495271876454,
+          "ttfa_p95_ms": 258.12882832251483,
+          "rtf_mean": 0.5546739061574572
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.027317880794701987,
+      "speaker_mean": 0.7619745554402471,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 1,
+      "run": "runs/continuous-direct-prompt-card0-round1",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 441.4624149904622,
+          "ttfa_p50_ms": 214.0166168101132,
+          "ttfa_p95_ms": 481.8922309670597,
+          "rtf_mean": 0.8105437490946605
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7676113222260028,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 1,
+      "run": "runs/continuous-direct-prompt-card0-round1",
+      "concurrency": 64,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 558.6184803372045,
+          "ttfa_p50_ms": 560.6545764021575,
+          "ttfa_p95_ms": 876.810297416523,
+          "rtf_mean": 1.1895322156467878
+        },
+        "issues": []
+      },
+      "en_wer": 0.00995732574679943,
+      "zh_cer": 0.027317880794701987,
+      "speaker_mean": 0.7712946995161474,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 2,
+      "run": "runs/continuous-direct-prompt-card0-round2",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 60.68212050404269,
+          "ttfa_p50_ms": 50.49669835716486,
+          "ttfa_p95_ms": 52.066443115472794,
+          "rtf_mean": 0.20737589161863382
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7751290453597903,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 2,
+      "run": "runs/continuous-direct-prompt-card0-round2",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 95.19104950434105,
+          "ttfa_p50_ms": 67.8216009400785,
+          "ttfa_p95_ms": 79.77434834465383,
+          "rtf_mean": 0.26284548437526284
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7745600556954741,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 2,
+      "run": "runs/continuous-direct-prompt-card0-round2",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 154.12633452804522,
+          "ttfa_p50_ms": 89.94366694241762,
+          "ttfa_p95_ms": 107.66108031384645,
+          "rtf_mean": 0.32182772795295417
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.029801324503311258,
+      "speaker_mean": 0.7728091184981167,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 2,
+      "run": "runs/continuous-direct-prompt-card0-round2",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 233.42628233975677,
+          "ttfa_p50_ms": 112.51971498131752,
+          "ttfa_p95_ms": 162.08830885589117,
+          "rtf_mean": 0.4206635643649605
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.029801324503311258,
+      "speaker_mean": 0.7769090000074357,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 2,
+      "run": "runs/continuous-direct-prompt-card0-round2",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 348.41179923380804,
+          "ttfa_p50_ms": 146.7016930691898,
+          "ttfa_p95_ms": 272.2789238672703,
+          "rtf_mean": 0.56017036944198
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.027317880794701987,
+      "speaker_mean": 0.7619745554402471,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 2,
+      "run": "runs/continuous-direct-prompt-card0-round2",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 438.92545921476454,
+          "ttfa_p50_ms": 214.88340804353356,
+          "ttfa_p95_ms": 488.7289855163544,
+          "rtf_mean": 0.8147629363800616
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7676113222260028,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 2,
+      "run": "runs/continuous-direct-prompt-card0-round2",
+      "concurrency": 64,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 544.3214364752258,
+          "ttfa_p50_ms": 590.2568185701966,
+          "ttfa_p95_ms": 932.9840525519102,
+          "rtf_mean": 1.2240149637968836
+        },
+        "issues": []
+      },
+      "en_wer": 0.00995732574679943,
+      "zh_cer": 0.027317880794701987,
+      "speaker_mean": 0.7712946995161474,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 3,
+      "run": "runs/continuous-direct-prompt-card0-round3",
+      "concurrency": 1,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 60.96272370181914,
+          "ttfa_p50_ms": 50.75029004365206,
+          "ttfa_p95_ms": 52.49612974002957,
+          "rtf_mean": 0.2064247717897218
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7751290453597903,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 3,
+      "run": "runs/continuous-direct-prompt-card0-round3",
+      "concurrency": 2,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 95.58580404470027,
+          "ttfa_p50_ms": 67.61426059529185,
+          "ttfa_p95_ms": 79.22784341499208,
+          "rtf_mean": 0.2618254754374273
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7745600556954741,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 3,
+      "run": "runs/continuous-direct-prompt-card0-round3",
+      "concurrency": 4,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 153.7389483455853,
+          "ttfa_p50_ms": 89.97668279334903,
+          "ttfa_p95_ms": 108.45530102960764,
+          "rtf_mean": 0.3226061809567133
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.029801324503311258,
+      "speaker_mean": 0.7728091184981167,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 3,
+      "run": "runs/continuous-direct-prompt-card0-round3",
+      "concurrency": 8,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 229.6930076905481,
+          "ttfa_p50_ms": 114.68733102083206,
+          "ttfa_p95_ms": 165.8488990273326,
+          "rtf_mean": 0.4276636822266349
+        },
+        "issues": []
+      },
+      "en_wer": 0.011379800853485065,
+      "zh_cer": 0.029801324503311258,
+      "speaker_mean": 0.7769090000074357,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 3,
+      "run": "runs/continuous-direct-prompt-card0-round3",
+      "concurrency": 16,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 344.1527587348029,
+          "ttfa_p50_ms": 147.92440365999937,
+          "ttfa_p95_ms": 273.55367518030096,
+          "rtf_mean": 0.5667323121032652
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.027317880794701987,
+      "speaker_mean": 0.7619745554402471,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    },
+    {
+      "arm": "candidate",
+      "trial": 3,
+      "run": "runs/continuous-direct-prompt-card0-round3",
+      "concurrency": 32,
+      "integrity": {
+        "status": "PASS",
+        "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+        "requests": 128,
+        "recomputed_metrics": {
+          "throughput_frames_s": 438.8062627868561,
+          "ttfa_p50_ms": 215.80457082018256,
+          "ttfa_p95_ms": 497.46726634912187,
+          "rtf_mean": 0.8150318849434969
+        },
+        "issues": []
+      },
+      "en_wer": 0.008534850640113799,
+      "zh_cer": 0.03145695364238411,
+      "speaker_mean": 0.7676113222260028,
+      "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+      "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e"
+    }
+  ],
+  "comparisons": [
+    {
+      "trial": 1,
+      "concurrency": 1,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03649006622516556,
+        "speaker_mean": 0.7519795336015522
+      },
+      "ratio_to_highest_baseline_observation": 4.72713236493457
+    },
+    {
+      "trial": 2,
+      "concurrency": 1,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03649006622516556,
+        "speaker_mean": 0.7519795336015522
+      },
+      "ratio_to_highest_baseline_observation": 4.647453302188496
+    },
+    {
+      "trial": 3,
+      "concurrency": 1,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03649006622516556,
+        "speaker_mean": 0.7519795336015522
+      },
+      "ratio_to_highest_baseline_observation": 4.668943821097174
+    },
+    {
+      "trial": 1,
+      "concurrency": 2,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.021379800853485065,
+        "zh_cer": 0.0447682119205298,
+        "speaker_mean": 0.7485906940605491
+      },
+      "ratio_to_highest_baseline_observation": 3.807091633164927
+    },
+    {
+      "trial": 2,
+      "concurrency": 2,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.021379800853485065,
+        "zh_cer": 0.0447682119205298,
+        "speaker_mean": 0.7485906940605491
+      },
+      "ratio_to_highest_baseline_observation": 3.7599651646330674
+    },
+    {
+      "trial": 3,
+      "concurrency": 2,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.021379800853485065,
+        "zh_cer": 0.0447682119205298,
+        "speaker_mean": 0.7485906940605491
+      },
+      "ratio_to_highest_baseline_observation": 3.775557631866698
+    },
+    {
+      "trial": 1,
+      "concurrency": 4,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.015689900426742533,
+        "zh_cer": 0.04062913907284768,
+        "speaker_mean": 0.7530617390479892
+      },
+      "ratio_to_highest_baseline_observation": 3.2069790952294057
+    },
+    {
+      "trial": 2,
+      "concurrency": 4,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.015689900426742533,
+        "zh_cer": 0.04062913907284768,
+        "speaker_mean": 0.7530617390479892
+      },
+      "ratio_to_highest_baseline_observation": 3.192563710516683
+    },
+    {
+      "trial": 3,
+      "concurrency": 4,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.015689900426742533,
+        "zh_cer": 0.04062913907284768,
+        "speaker_mean": 0.7530617390479892
+      },
+      "ratio_to_highest_baseline_observation": 3.1845394162138034
+    },
+    {
+      "trial": 1,
+      "concurrency": 8,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03731788079470199,
+        "speaker_mean": 0.7554849083721638
+      },
+      "ratio_to_highest_baseline_observation": 2.633874082114063
+    },
+    {
+      "trial": 2,
+      "concurrency": 8,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03731788079470199,
+        "speaker_mean": 0.7554849083721638
+      },
+      "ratio_to_highest_baseline_observation": 2.651910860404845
+    },
+    {
+      "trial": 3,
+      "concurrency": 8,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03731788079470199,
+        "speaker_mean": 0.7554849083721638
+      },
+      "ratio_to_highest_baseline_observation": 2.609497848948404
+    },
+    {
+      "trial": 1,
+      "concurrency": 16,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03317880794701987,
+        "speaker_mean": 0.7556396480835974
+      },
+      "ratio_to_highest_baseline_observation": 2.4854511356430913
+    },
+    {
+      "trial": 2,
+      "concurrency": 16,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03317880794701987,
+        "speaker_mean": 0.7556396480835974
+      },
+      "ratio_to_highest_baseline_observation": 2.463568282733759
+    },
+    {
+      "trial": 3,
+      "concurrency": 16,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03317880794701987,
+        "speaker_mean": 0.7556396480835974
+      },
+      "ratio_to_highest_baseline_observation": 2.4334532375162845
+    },
+    {
+      "trial": 1,
+      "concurrency": 32,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03897350993377483,
+        "speaker_mean": 0.7578975653927773
+      },
+      "ratio_to_highest_baseline_observation": 2.0600778753817823
+    },
+    {
+      "trial": 2,
+      "concurrency": 32,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03897350993377483,
+        "speaker_mean": 0.7578975653927773
+      },
+      "ratio_to_highest_baseline_observation": 2.0482392085171304
+    },
+    {
+      "trial": 3,
+      "concurrency": 32,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.0185348506401138,
+        "zh_cer": 0.03897350993377483,
+        "speaker_mean": 0.7578975653927773
+      },
+      "ratio_to_highest_baseline_observation": 2.047682980137045
+    },
+    {
+      "trial": 1,
+      "concurrency": 64,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.017112375533428165,
+        "zh_cer": 0.03731788079470199,
+        "speaker_mean": 0.7526154122501612
+      },
+      "ratio_to_highest_baseline_observation": 2.3076078260674318
+    },
+    {
+      "trial": 2,
+      "concurrency": 64,
+      "checks": {
+        "en_wer": true,
+        "zh_cer": true,
+        "speaker_mean": true,
+        "speaker_provenance": true,
+        "throughput_2x": true
+      },
+      "quality_limits": {
+        "en_wer": 0.017112375533428165,
+        "zh_cer": 0.03731788079470199,
+        "speaker_mean": 0.7526154122501612
+      },
+      "ratio_to_highest_baseline_observation": 2.24854789255858
+    }
+  ]
+}
