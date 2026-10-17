@@ -41,8 +41,17 @@ The corrected whole-predictor path and its combination with `--talker-graph`
 also pass those four complete-waveform checks. Use `--predictor-graph whole
 --talker-graph` to select the combination. The talker graph retains eager prefill
 and uses tensor-indexed KV storage with capacity buckets during decode.
-Service throughput, batched correctness and streaming delivery remain under
-validation; these graphs are not enabled by default.
+These graphs are not enabled by default. Mixed English/Chinese batch size four
+also passed complete PCM parity. The separate 8-request streaming qualification
+completed with clean shutdown, TTFA p50/p95 208.5/215.5 ms and 21.23 frames/s;
+English WER was zero for those eight clips. This is not a matched 2x result.
+`--streaming` uses an initial short codec window followed by larger windows with
+25 frames of left context. Chunk decoding can change PCM rounding, so full
+streaming ASR and speaker quality are evaluated independently.
+`--pack-qkv` passed the four-prompt exact check. `--rms-norm` remains an
+approximate numerical experiment: its reference-rounding variant failed exact
+parity, and native fusion requires the frozen full-corpus quality gates before
+promotion. None of these options changes the default reference path.
 See the retained counterexample in `evidence/campaign-20261017/results/`.
 
 ```bash

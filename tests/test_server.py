@@ -56,3 +56,56 @@ def test_service_owns_model_thread_and_validates_requests():
         assert calls == ["test", "closed"]
 
     asyncio.run(exercise())
+
+
+def test_streaming_first_audio_precedes_model_completion_and_tail_is_not_duplicated():
+    import base64
+    import json
+
+    received_first = threading.Event()
+    prefix = b'\x01\x00' * 120
+    tail = b'\x02\x00' * 120
+
+    class Model:
+        def __init__(self, path, device):
+            self.speakers = ['ryan']
+            self.languages = ['english']
+
+        def generate(self, payloads, emit):
+            emit(0, prefix, 24000)
+            if not received_first.wait(timeout=3):
+                raise RuntimeError('Audio was buffered until model completion')
+            return [{'pcm': prefix + tail, 'sample_rate': 24000,
+                     'codec_frames': 2, 'finish_reason': 'stop'}]
+
+        def close(self):
+            pass
+
+    async def exercise():
+        options = SimpleNamespace(model=Path('unused'), device='unused', queue_size=8,
+                                  max_batch_size=1, batch_wait_ms=0, streaming=True)
+        service = SpeechService(options, Model)
+        app = web.Application()
+        app.router.add_post('/speech', service.speech)
+        app.on_startup.append(service.start)
+        app.on_cleanup.append(service.stop)
+        runner = web.AppRunner(app)
+        await runner.setup()
+        site = web.TCPSite(runner, '127.0.0.1', 0)
+        await site.start()
+        try:
+            async with ClientSession() as session:
+                async with session.post(f'http://127.0.0.1:{runner.addresses[0][1]}/speech',
+                                        json={'input': 'test'}) as response:
+                    first = json.loads((await response.content.readline()).decode()[6:])
+                    assert base64.b64decode(first['audio']) == prefix
+                    received_first.set()
+                    rest = await response.text()
+                    events = [json.loads(line[6:]) for line in rest.splitlines() if line.startswith('data: ')]
+                    assert base64.b64decode(events[0]['audio']) == tail
+                    assert events[1]['type'] == 'speech.audio.done'
+        finally:
+            received_first.set()
+            await runner.cleanup()
+
+    asyncio.run(exercise())

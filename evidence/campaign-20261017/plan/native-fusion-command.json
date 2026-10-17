@@ -1,0 +1,20 @@
+[
+  "/home/why/qwen3-tts-research/venv-engine/bin/python",
+  "-m",
+  "qwen3_tts_engine.server",
+  "--model",
+  "/home/why/qwen3-tts-research/model",
+  "--port",
+  "8097",
+  "--predictor-graph",
+  "whole",
+  "--talker-graph",
+  "--streaming",
+  "--pack-qkv",
+  "--rms-norm",
+  "native",
+  "--max-batch-size",
+  "64",
+  "--batch-wait-ms",
+  "5"
+]

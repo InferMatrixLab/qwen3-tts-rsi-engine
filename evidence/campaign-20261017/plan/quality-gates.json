@@ -1,0 +1,18 @@
+{
+  "status": "FROZEN_FOR_APPROXIMATE_CANDIDATE_EVALUATION",
+  "scope": "Each concurrency on the complete fixed 128-record corpus, with every timed repetition scored",
+  "frozen_before": "full-corpus evaluation or selection of native fused RMSNorm candidates",
+  "en_wer_absolute_margin": 0.01,
+  "zh_cer_absolute_margin": 0.01,
+  "asr_reference": "minimum measured error rate of the two matched baseline frameworks at the same concurrency",
+  "speaker_cosine_absolute_margin": 0.02,
+  "speaker_reference": "maximum baseline mean cosine similarity, with the same independently generated Ryan/Vivian anchor audio for every framework",
+  "speaker_cosine_units": "raw cosine, not percentage points on a 0-100 scale",
+  "request_failures_allowed": 0,
+  "length_truncations_allowed": 0,
+  "server_exit_required": 0,
+  "asr_backend": "Whisper-large-v3, local pinned assets, float32 NPU, English WER and Chinese CER with retained transcripts",
+  "speaker_backend": "SGLang-Omni pinned main WavLM-large speaker verifier and locally audited base/finetuned checkpoints",
+  "rationale": "Fixed noninferiority margins of one percentage point ASR error and 0.02 speaker cosine; not fitted to approximate candidate outcomes. Exact PCM checks remain a separate stricter diagnostic and are not substituted for full quality evaluation.",
+  "limitations": "Automatic ASR and speaker metrics do not establish subjective naturalness; retain generated audio and report duration/streaming continuity separately."
+}

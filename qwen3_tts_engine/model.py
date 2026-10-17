@@ -9,7 +9,8 @@ from qwen3_tts_engine.predictor import PredictorGraph
 
 
 class CustomVoiceModel:
-    def __init__(self, model_path, device, predictor_graph=False, talker_graph=False):
+    def __init__(self, model_path, device, predictor_graph=False, talker_graph=False,
+                 rms_norm=None, pack_qkv=False):
         torch.npu.set_device(device)
         torch.set_num_threads(4)
         self.device = device
@@ -18,6 +19,12 @@ class CustomVoiceModel:
             attn_implementation="sdpa", local_files_only=True,
         )
         self.wrapper.model.eval()
+        if rms_norm:
+            from qwen3_tts_engine.operators import install_rms_norms
+            install_rms_norms(self.wrapper.model.talker, rms_norm)
+        if pack_qkv:
+            from qwen3_tts_engine.packed_attention import install_packed_attention
+            install_packed_attention(self.wrapper.model.talker)
         self.predictor_graph = predictor_graph
         if predictor_graph:
             graph_type = PredictorGraph
@@ -31,9 +38,10 @@ class CustomVoiceModel:
             self.wrapper.model.talker.model = TalkerGraph(self.wrapper.model.talker.model)
         self.speakers = self.wrapper.get_supported_speakers()
         self.languages = self.wrapper.get_supported_languages()
+        self.codec_graph = None
 
     @torch.inference_mode()
-    def generate(self, payloads):
+    def generate(self, payloads, emit=None):
         torch.npu.set_device(self.device)
         seed = payloads[0]["seed"]
         torch.manual_seed(seed)
@@ -41,6 +49,11 @@ class CustomVoiceModel:
         limit = payloads[0]["max_new_tokens"]
         codec_frames = [0] * len(payloads)
         ended = [False] * len(payloads)
+        stream_codes = [[] for _ in payloads]
+        emitted_frames = [0] * len(payloads)
+        if emit is not None and self.codec_graph is None:
+            from qwen3_tts_engine.codec_graph import CodecGraph
+            self.codec_graph = CodecGraph(self.wrapper.model.speech_tokenizer.model.decoder)
         eos = self.wrapper.model.config.talker_config.codec_eos_token_id
 
         def observe(module, arguments, output):
@@ -51,6 +64,22 @@ class CustomVoiceModel:
                         ended[index] = True
                     elif not ended[index]:
                         codec_frames[index] += 1
+                        if emit is not None:
+                            stream_codes[index].append(codes[index].clone())
+                            target = (2 if emitted_frames[index] == 0 else
+                                      emitted_frames[index] * 2 if emitted_frames[index] < 8 else
+                                      emitted_frames[index] + 8)
+                            if codec_frames[index] >= target:
+                                start = max(0, emitted_frames[index] - 25)
+                                window = torch.stack(stream_codes[index][start:]).transpose(0, 1).unsqueeze(0)
+                                waveform = self.codec_graph.decode(window)[0, 0]
+                                skip = (emitted_frames[index] - start) * 1920
+                                waveform = waveform[skip:].float().cpu().numpy()
+                                if not np.isfinite(waveform).all():
+                                    raise ValueError('Codec emitted nonfinite streaming audio')
+                                pcm = (np.clip(waveform, -1, 1) * 32767).astype('<i2').tobytes()
+                                emit(index, pcm, 24000)
+                                emitted_frames[index] = codec_frames[index]
 
         hook = self.wrapper.model.talker.register_forward_hook(observe)
         try:
@@ -82,5 +111,7 @@ class CustomVoiceModel:
             self.wrapper.model.talker.code_predictor.close()
         if self.talker_graph:
             self.wrapper.model.talker.model.close()
+        if self.codec_graph is not None:
+            self.codec_graph.close()
         del self.wrapper
         torch.npu.empty_cache()

@@ -24,7 +24,7 @@
   "independent_repetitions": 3,
   "corpus": "first 64 English and 64 Chinese Seed-TTS target transcripts, CustomVoice Ryan and Vivian; no cloning references",
   "quality": "WER/CER scored on every retained waveform; speaker similarity against independent same-preset reference audio, not Seed-TTS cloning speakers",
-  "quality_gate": "pending baseline repeat distribution; freeze numeric gate before candidate optimization",
+  "quality_gate": "quality-gates.json: fixed ASR +0.01 absolute and speaker cosine -0.02 noninferiority margins; full matched baseline comparison required",
   "completion": "all requests have nonempty valid PCM and explicit successful terminal SSE event; zero request failures; clean server shutdown",
   "excluded_claims": [
     "synthetic speedup",

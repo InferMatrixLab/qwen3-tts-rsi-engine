@@ -1,0 +1,75 @@
+{
+  "status": "INCONCLUSIVE",
+  "phase": "finished",
+  "command": [
+    "/home/why/qwen3-tts-research/venv-engine/bin/python",
+    "-m",
+    "qwen3_tts_engine.server",
+    "--model",
+    "/home/why/qwen3-tts-research/model",
+    "--port",
+    "8097",
+    "--predictor-graph",
+    "whole",
+    "--talker-graph",
+    "--streaming"
+  ],
+  "engine": "standalone-streaming-experimental",
+  "source_revision": "bd6e6910aaf30d8bf475e2bc2bcea83208bcc3bc",
+  "quality": "NOT_RUN",
+  "server_exit": 0,
+  "benchmark_exit": 0,
+  "environment": {
+    "ASCEND_RT_VISIBLE_DEVICES": "1",
+    "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+    "OMP_NUM_THREADS": "4",
+    "HF_HUB_OFFLINE": "1",
+    "PYTHONPATH": "/home/why/qwen3-tts-engine:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+  },
+  "server_pid": 1214888,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "metrics": {
+        "requests": 8,
+        "successful_requests": 8,
+        "failed_requests": 0,
+        "wall_seconds": 26.6560342554003,
+        "throughput_frames_s": 21.233466110411115,
+        "ttfa_p50_ms": 208.5252539254725,
+        "ttfa_p95_ms": 215.48106954433024,
+        "rtf_mean": 0.5902400288322082,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    }
+  ],
+  "benchmark_command": [
+    "/home/why/qwen3-tts-research/venv-engine/bin/python",
+    "-m",
+    "qwen3_tts_engine.benchmark",
+    "--endpoint",
+    "http://127.0.0.1:8097/v1/audio/speech",
+    "--model",
+    "/home/why/qwen3-tts-research/model",
+    "--engine",
+    "standalone-streaming-experimental",
+    "--source-revision",
+    "bd6e6910aaf30d8bf475e2bc2bcea83208bcc3bc",
+    "--workload",
+    "evidence/campaign-20261017/plan/workload-128.jsonl",
+    "--output",
+    "runs/streaming-qualification-c1/requests",
+    "--requests",
+    "8",
+    "--concurrency",
+    "1",
+    "--frame-rate",
+    "12.5",
+    "--warmup",
+    "2"
+  ],
+  "clean_server_exit": true
+}
