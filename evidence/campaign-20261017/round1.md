@@ -323,3 +323,17 @@ All 896 waveforms now have independently computed ASR and speaker scores. Every 
 |16|0.009957|0.022351|0.764908|
 |32|0.008535|0.031457|0.767611|
 |64|0.009957|0.027318|0.771295|
+
+### vLLM baseline round 2: complete quality
+
+All 896 retained WAVs have ASR and speaker scores; all seven cohort integrity audits pass, and the evaluation loop exited 0. This is the second baseline repetition, not a completed three-repeat comparison.
+
+|Concurrency|EN WER|ZH CER|Speaker mean cosine|
+|---|---|---|---|
+|1|0.008535|0.037252|0.770878|
+|2|0.011380|0.034768|0.767873|
+|4|0.005690|0.042219|0.773062|
+|8|0.008535|0.030629|0.773518|
+|16|0.036984|0.032285|0.772258|
+|32|0.008535|0.041391|0.773680|
+|64|0.011380|0.037252|0.772542|

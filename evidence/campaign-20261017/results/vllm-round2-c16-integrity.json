@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+  "requests": 128,
+  "recomputed_metrics": {
+    "throughput_frames_s": 137.54177906611915,
+    "ttfa_p50_ms": 460.62856959179044,
+    "ttfa_p95_ms": 634.7947570495307,
+    "rtf_mean": 1.2776324467121596
+  },
+  "issues": []
+}
