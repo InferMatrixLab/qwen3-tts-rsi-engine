@@ -186,3 +186,20 @@ The earlier reference-single C2 control's ASR completed: EN WER 0.007112 passes,
 The no-reference native-RoPE/sampling control (`3ef961a`, physical NPU 1) completed C32/C64 at 352.083 / 468.490 frames/s with clean lifecycle. It still misses both throughput targets. A separate complete C1..C64 sweep on physical NPU 0 and full ASR evaluation are running.
 
 The installed TorchAir backend was discovered inside `torch_npu.dynamo.torchair` (import `torch_npu` before `torchair`); no package installation was required. A synthetic full-talker B32 decode probe compiled with `fullgraph=True`, `dynamic=False` and default configuration, taking 63.61 seconds for its first call. Steady ABBA means were approximately 9.37/39.57/39.51/9.39 ms for NPUGraph/TorchAir/TorchAir/NPUGraph. Hidden-state cosine was 0.946223 with max absolute error 28.5625. This candidate is rejected for integration on current evidence. The synthetic cache distribution is not speech-quality evidence, and this initial probe does not verify persistent KV mutation semantics; real-prefix and intermediate-state checks are required before any compiler acceptance.
+
+
+### Native rotary and sampling graph full sweep (3ef961a, physical NPU 0)
+
+Exploratory single repeat: all 896 requests succeeded; benchmark and server exited 0. Quality is still incomplete and this is not formal 2x acceptance.
+
+| Concurrency | Frames/s | TTFA p50 ms | TTFA p95 ms | Mean RTF |
+|---|---|---|---|---|
+| 1 | 56.608 | 59.365 | 63.027 | 0.22216 |
+| 2 | 85.702 | 85.842 | 90.831 | 0.29296 |
+| 4 | 135.000 | 99.936 | 140.369 | 0.36819 |
+| 8 | 207.879 | 130.526 | 199.618 | 0.47186 |
+| 16 | 295.962 | 173.535 | 360.882 | 0.64319 |
+| 32 | 386.540 | 243.571 | 1021.944 | 0.95677 |
+| 64 | 473.183 | 861.812 | 1259.486 | 1.39269 |
+
+C32 (386.540 frames/s) and C64 (473.183 frames/s) remain below their matched target thresholds (approximately 400.53 and 484.15). C1 full ASR: EN WER 0.0142247511, ZH CER 0.0331125828, within the frozen ASR gates. Speaker similarity remains pending; other concurrency ASR assessments continue. A separate same-device codec-batch-8 control is running; its results cannot be presumed from previous codec experiments.
