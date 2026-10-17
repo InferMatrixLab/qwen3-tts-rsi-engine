@@ -1,0 +1,29 @@
+{
+  "scope": "four real-model requests only, not full quality or service performance",
+  "samples": [
+    {
+      "index": 0,
+      "exact": true,
+      "candidate_sha256": "f7135d2c77cdf6fccec22a9efde6a7f31d1a2eb940fd7d726932e2fbd26189d8",
+      "control_sha256": "f7135d2c77cdf6fccec22a9efde6a7f31d1a2eb940fd7d726932e2fbd26189d8"
+    },
+    {
+      "index": 1,
+      "exact": true,
+      "candidate_sha256": "4cd786c26e2427bc5d0deb43bba27dcf1e98216645e4ba390d7151a8b66f7eb3",
+      "control_sha256": "4cd786c26e2427bc5d0deb43bba27dcf1e98216645e4ba390d7151a8b66f7eb3"
+    },
+    {
+      "index": 64,
+      "exact": true,
+      "candidate_sha256": "15eaf1e33ba2044ad3eaacb2cde37c7ccc80dc6718cd789d8eda24e16a48e13e",
+      "control_sha256": "15eaf1e33ba2044ad3eaacb2cde37c7ccc80dc6718cd789d8eda24e16a48e13e"
+    },
+    {
+      "index": 65,
+      "exact": true,
+      "candidate_sha256": "1349283858b9d9f00010a697d2b406726137581ae34b84b76f8e23ea8bc2d80f",
+      "control_sha256": "1349283858b9d9f00010a697d2b406726137581ae34b84b76f8e23ea8bc2d80f"
+    }
+  ]
+}

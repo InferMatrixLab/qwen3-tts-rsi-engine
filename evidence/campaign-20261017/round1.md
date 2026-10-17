@@ -369,3 +369,6 @@ Added default-off `--valid-length-kv`, requiring continuous native GQA without r
 The vLLM third performance repeat completed all 896 requests with server exit 0 on physical NPU 1 (earlier repeats used physical NPU 0). C1/2/4/8/16/32/64 throughput: 13.2014 / 25.4881 / 48.9262 / 89.1285 / 145.9159 / 210.7236 / 251.6414 frames/s. Full audio quality evaluation is running; hardware differences and repeat variance prevent selecting a convenient baseline for acceptance.
 
 Pointwise-convolution versus linear diagnostics completed with real weights and synthetic activations. Results vary by shape and include numerical differences; no runtime replacement is selected. See results/codec-pointwise.json.
+
+
+The valid-length KV probe and matched flag-off control both exited 0; all four retained WAV files are byte-identical (indices 0, 1, 64, 65). This narrow identity check does not replace full-cohort quality. C32/C64 service validation is now running in `runs/continuous-valid-length-kv-c32-c64-retry`; an earlier launch stopped before server startup because Git safe-directory lookup produced an empty revision, with its log retained. SGLang second performance repeat completed with exit 0; the third repeat uses the same physical NPU 0 and pinned main plus import compatibility patch.
