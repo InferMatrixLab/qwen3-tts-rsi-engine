@@ -272,3 +272,10 @@ Added default-off `--cache-codec-codebooks`: precompute the sixteen fixed embedd
 Cached normalized codebooks passed the real NPU BF16 graph control: all 101-frame chunks and reset output are bit-identical to the uncached quantizer, including interleaved streams and slot compaction. Prewarming all 32 codec shapes preserved live state exactly. This is graph parity only; service throughput remains unmeasured for this flag.
 
 Predictor-only RoPE C16 speaker scoring completed on 128 clips: mean cosine 0.7649079487, above the frozen minimum 0.751416. Thus this single C16 cohort passes ASR/speaker gates and exceeds its exploratory throughput target; no other concurrency or repeat is implied.
+
+
+### Separate codec optimization service results
+
+Triton SnakeBeta (a96f3f1, physical NPU 6): C16 303.381, C32 392.329, C64 489.908 frames/s. Cached codebooks (ac540ca, physical NPU 1): C16 286.291, C32 387.506, C64 485.374 frames/s. Each run completed 384/384 requests and server exit 0. These are separate, single-repeat exploratory configurations without their own full quality assessments; C32 still misses even the original approximately 400.53 threshold. Their gains must not be multiplied. A direct combined experiment with predictor-only RoPE is prepared for all seven concurrencies.
+
+Added `tools/audit_cohort.py` to recompute timings from retained requests, hash actual WAV PCM, check chunk totals/terminal events and match quality sample hashes to those exact waveforms. ASR edit distances and aggregate speaker/ASR scores are independently recomputed from retained records. Five corruption/regression tests pass; C16 baseline vLLM, SGLang and predictor-only candidate integrity audits all pass. This audit deliberately does not claim hardware comparability, lifecycle, repeat independence, quality noninferiority or 2x acceptance.
