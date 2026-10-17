@@ -116,3 +116,11 @@ Increasing the admission budget from 4 to 64 requests per tick produced the foll
 The C64 target is approximately 484.15 frames/s; neither control reaches it. No all-concurrency 2x result is established.
 
 Synchronized diagnostic ranges (not service benchmarks) for 16 C32 ticks with original RMSNorm attribute 1.650 seconds inclusively to audio generation, 0.563 to predictor, and 0.549 to talker, within 3.662 seconds total. Codec batching of 8 instead of 4 changed total diagnostic time to 3.717 seconds and audio to 1.638 seconds; this probe provides no convincing gain. Synchronization perturbs execution, nested ranges overlap, and these values must not be converted into service throughput.
+
+## Text rotary and codec prewarming
+
+Revision `49e46f8`, physical NPU 6, one exploratory repetition: C16 149.230 frames/s and C64 269.739 frames/s, all 256 requests successful, benchmark/server exit 0. Every retained PCM hash equals the corresponding reference-RMS admission-budget-64 control, including both concurrency cohorts. This is exact output evidence, not a formal matched performance comparison.
+
+The reference control's full ASR evaluation reports C16 EN WER 0.009957 / ZH CER 0.036424 and C64 EN WER 0.009957 / ZH CER 0.051325. Both Chinese scores fail the frozen matched-concurrency gates (0.035662 and 0.041457 respectively). The identical-output optimized candidate inherits these failures; no quality improvement is claimed. Speaker evaluation is running. The all-concurrency 2x objective remains unmet.
+
+Reference-RMS high-concurrency speaker evaluation completed: C16 mean cosine 0.771005 and C64 0.761468, each within the frozen speaker margin. The Chinese ASR failures above still reject the candidate; passing speaker similarity does not override them.

@@ -96,10 +96,11 @@ class SlotArena:
 
 
 class SlotCache(Cache):
-    def __init__(self, arena, positions):
+    def __init__(self, arena, positions, context_length=None):
         super().__init__(layers=[])
         self.arena = arena
         self.positions = positions
+        self.context_length = arena.capacity if context_length is None else context_length
         if arena.native_kv_update:
             batch, heads = positions.shape[0], arena.keys[0].shape[1]
             self.rows = torch.arange(batch, device=positions.device)[:, None].expand(batch, heads)
@@ -122,20 +123,23 @@ class SlotCache(Cache):
         else:
             target_keys.scatter_(2, index, keys)
             target_values.scatter_(2, index, values)
-        return target_keys, target_values
+        return target_keys[:, :, :self.context_length], target_values[:, :, :self.context_length]
 
 
 class SlotGraph:
-    def __init__(self, arena, batch):
+    def __init__(self, arena, batch, context_length=None):
         self.arena = arena
         self.batch = batch
+        self.context_length = arena.capacity if context_length is None else context_length
+        if not 1 <= self.context_length <= arena.capacity:
+            raise ValueError("Attention context must fit the KV arena")
         self.reference = arena.reference
         weight = next(self.reference.parameters())
         self.inputs = torch.zeros(batch, 1, self.reference.config.hidden_size, device=weight.device, dtype=weight.dtype)
         self.positions = torch.zeros(batch, device=weight.device, dtype=torch.long)
         self.rotary = torch.zeros(3, batch, 1, device=weight.device, dtype=torch.long)
-        self.indices = torch.arange(arena.capacity, device=weight.device)
-        self.cache = SlotCache(arena, self.positions)
+        self.indices = torch.arange(self.context_length, device=weight.device)
+        self.cache = SlotCache(arena, self.positions, self.context_length)
         self.graph = None
 
     def compute(self):
@@ -204,7 +208,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False):
         if prewarm_codec and not incremental_codec:
             raise ValueError('Codec prewarming requires the incremental codec')
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
@@ -214,6 +218,7 @@ class ContinuousModel:
         self.languages = self.model.languages
         self.talker = self.model.wrapper.model.talker
         self.max_slots = max_slots
+        self.bucket_kv = bucket_kv
         self.batch_prefill = batch_prefill
         self.graph_prefill = graph_prefill
         self.prefills = {}
@@ -415,11 +420,14 @@ class ContinuousModel:
         positions = torch.tensor([s.position for s in self.states] + [0] * (batch - count), device=self.device)
         rotary = torch.tensor([s.position + s.rope_delta for s in self.states] + [0] * (batch - count),
                               device=self.device).view(1, batch, 1).expand(3, -1, -1)
-        if batch not in self.graphs:
-            graph = SlotGraph(self.arena, batch)
+        required_context = max(s.position for s in self.states) + 1
+        context = min(self.arena.capacity, max(64, 1 << (required_context - 1).bit_length())) if self.bucket_kv else self.arena.capacity
+        graph_key = (batch, context)
+        if graph_key not in self.graphs:
+            graph = SlotGraph(self.arena, batch, context)
             graph.capture()
-            self.graphs[batch] = graph
-        hidden = self.graphs[batch].run(embeds, positions, rotary)[:count]
+            self.graphs[graph_key] = graph
+        hidden = self.graphs[graph_key].run(embeds, positions, rotary)[:count]
         logits = self.talker.codec_head(hidden)[:, -1]
         steps = torch.tensor([s.frames + 1 for s in self.states], device=self.device)
         uniforms = torch.stack([s.uniforms[s.frames + 1, 0] for s in self.states])
