@@ -1,0 +1,4 @@
+{"input":"The morning light reaches the quiet garden as the city begins to wake. A gentle breeze moves through the trees, and distant footsteps mark the beginning of another day.","voice":"Ryan","language":"English","instructions":"","seed":123,"max_new_tokens":2048}
+{"input":"Please place the blue notebook beside the window. We will review the travel plans after lunch and leave enough time to enjoy a relaxed walk along the river.","voice":"Ryan","language":"English","instructions":"","seed":456,"max_new_tokens":2048}
+{"input":"清晨的阳光照进安静的房间，窗外的树叶随风轻轻摇动。新的一天开始了，我们可以从容地安排今天的工作和生活。","voice":"Vivian","language":"Chinese","instructions":"","seed":123,"max_new_tokens":2048}
+{"input":"请把桌上的笔记本放到书架旁边。午饭之后，我们一起讨论周末的出行计划，也留一点时间沿着河边慢慢散步。","voice":"Vivian","language":"Chinese","instructions":"","seed":456,"max_new_tokens":2048}

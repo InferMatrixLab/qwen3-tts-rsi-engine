@@ -14,8 +14,8 @@
   },
   "model_audit": "model-audit.json",
   "baseline_sweep": "VLLM_ROUND1_COMPLETE_SGLANG_ROUND1_RUNNING",
-  "quality": "VLLM_C1_128_SCORED_OTHER_COHORTS_RUNNING",
-  "two_times_target": "NOT_ESTABLISHED",
+  "quality": "NATIVE_C1_EN_WER_0.012802_ZH_CER_0.033113_SPEAKER_COMPARISON_RUNNING",
+  "two_times_target": "NOT_ESTABLISHED_C2_C4_C8_THROUGHPUT_INSUFFICIENT",
   "qualification_devices": {
     "vllm": 0,
     "standalone_reference": 6
@@ -48,5 +48,7 @@
   "talker_graph": "SINGLE_AND_BATCH4_EXACT_PCM_PASS_HTTP_C1_8_OF_8_EXIT_ZERO",
   "streaming": "C1_8_OF_8_EXIT_ZERO_EN_WER_ZERO_NEW_INITIAL_CHUNK_SCHEDULE_PENDING",
   "packed_qkv": "FOUR_PROMPT_EXACT_PCM_PASS",
-  "fused_rms": "REFERENCE_ROUNDING_FAILED_EXACT_PARITY_NATIVE_QUALITY_TRIAL_PENDING"
+  "fused_rms": "REFERENCE_ROUNDING_FAILED_EXACT_PARITY_NATIVE_QUALITY_TRIAL_PENDING",
+  "native_fusion": "C1_TO_C8_MEASURED_C16_RUNNING",
+  "next_architecture": "plan/continuous-batching.md"
 }

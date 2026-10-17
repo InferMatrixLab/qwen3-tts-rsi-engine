@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "backend": "official qwen-tts reference; no graph or operator replacements",
+  "inputs_sha256": "ab7ca2cf6746d7992e205dd9269c19435e57653cf06b2d14d4b2846bdf3f031c",
+  "records": [
+    {
+      "input": "The morning light reaches the quiet garden as the city begins to wake. A gentle breeze moves through the trees, and distant footsteps mark the beginning of another day.",
+      "voice": "Ryan",
+      "language": "English",
+      "instructions": "",
+      "seed": 123,
+      "max_new_tokens": 2048,
+      "audio": "/home/why/qwen3-tts-engine/runs/quality-anchors/00-ryan.wav",
+      "pcm_sha256": "4e682cd11cfa0fc7ef296f8f2ed3467b6996330d48374c027ae3d4b78746bf8a",
+      "sample_rate": 24000,
+      "codec_frames": 210
+    },
+    {
+      "input": "Please place the blue notebook beside the window. We will review the travel plans after lunch and leave enough time to enjoy a relaxed walk along the river.",
+      "voice": "Ryan",
+      "language": "English",
+      "instructions": "",
+      "seed": 456,
+      "max_new_tokens": 2048,
+      "audio": "/home/why/qwen3-tts-engine/runs/quality-anchors/01-ryan.wav",
+      "pcm_sha256": "c070b861628cbca465a4429c0809c6a653baa80d040a6cc4577cde7e653aab0f",
+      "sample_rate": 24000,
+      "codec_frames": 101
+    },
+    {
+      "input": "清晨的阳光照进安静的房间，窗外的树叶随风轻轻摇动。新的一天开始了，我们可以从容地安排今天的工作和生活。",
+      "voice": "Vivian",
+      "language": "Chinese",
+      "instructions": "",
+      "seed": 123,
+      "max_new_tokens": 2048,
+      "audio": "/home/why/qwen3-tts-engine/runs/quality-anchors/02-vivian.wav",
+      "pcm_sha256": "b9a0054cb8cb44f4dc4e2b66db422a9730d62f7bb2e85dcea9ceb38eafefa76f",
+      "sample_rate": 24000,
+      "codec_frames": 183
+    },
+    {
+      "input": "请把桌上的笔记本放到书架旁边。午饭之后，我们一起讨论周末的出行计划，也留一点时间沿着河边慢慢散步。",
+      "voice": "Vivian",
+      "language": "Chinese",
+      "instructions": "",
+      "seed": 456,
+      "max_new_tokens": 2048,
+      "audio": "/home/why/qwen3-tts-engine/runs/quality-anchors/03-vivian.wav",
+      "pcm_sha256": "8761d8e805422610b0314e6933340108482962336e8e9a02bba45e8fcffc7863",
+      "sample_rate": 24000,
+      "codec_frames": 141
+    }
+  ]
+}

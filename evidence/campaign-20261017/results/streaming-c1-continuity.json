@@ -1,0 +1,55 @@
+{
+  "scope": "Diagnostic playback starts immediately at the first received PCM chunk, with no extra buffer",
+  "requests": [
+    {
+      "index": 0,
+      "chunks": 5,
+      "total_stall_seconds": 0.18715590719133612,
+      "max_stall_seconds": 0.18715590719133612
+    },
+    {
+      "index": 1,
+      "chunks": 6,
+      "total_stall_seconds": 0.18789245482534167,
+      "max_stall_seconds": 0.18789245482534167
+    },
+    {
+      "index": 2,
+      "chunks": 11,
+      "total_stall_seconds": 0.1765540215745568,
+      "max_stall_seconds": 0.1765540215745568
+    },
+    {
+      "index": 3,
+      "chunks": 11,
+      "total_stall_seconds": 0.17836411871016022,
+      "max_stall_seconds": 0.17836411871016022
+    },
+    {
+      "index": 4,
+      "chunks": 12,
+      "total_stall_seconds": 0.18041854273527858,
+      "max_stall_seconds": 0.18041854273527858
+    },
+    {
+      "index": 5,
+      "chunks": 9,
+      "total_stall_seconds": 0.18532525017857548,
+      "max_stall_seconds": 0.18532525017857548
+    },
+    {
+      "index": 6,
+      "chunks": 19,
+      "total_stall_seconds": 0.17807242196053263,
+      "max_stall_seconds": 0.17807242196053263
+    },
+    {
+      "index": 7,
+      "chunks": 8,
+      "total_stall_seconds": 0.1786047752574086,
+      "max_stall_seconds": 0.1786047752574086
+    }
+  ],
+  "mean_total_stall_seconds": 0.18154843655414876,
+  "max_stall_seconds": 0.18789245482534167
+}

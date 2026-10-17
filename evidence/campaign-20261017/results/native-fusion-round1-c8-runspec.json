@@ -1,0 +1,15 @@
+{
+  "endpoint": "http://127.0.0.1:8097/v1/audio/speech",
+  "model": "/home/why/qwen3-tts-research/model",
+  "engine": "standalone-native-fusion-experimental",
+  "source_revision": "4ce009ad4c5fca5c2958a4c016cc0bc2c292e627",
+  "workload": "evidence/campaign-20261017/plan/workload-128.jsonl",
+  "output": "runs/native-fusion-sweep-round1/requests-c8",
+  "concurrency": 8,
+  "requests": 128,
+  "warmup": 8,
+  "sample_rate": 24000,
+  "frame_rate": 12.5,
+  "timeout": 1800,
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7"
+}
