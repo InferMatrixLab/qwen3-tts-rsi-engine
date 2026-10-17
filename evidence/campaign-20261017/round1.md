@@ -128,3 +128,9 @@ Reference-RMS high-concurrency speaker evaluation completed: C16 mean cosine 0.7
 ## Attention experiments
 
 Single exploratory C16/C64 cohorts completed with 128 requests each and clean server exits. Bucketed KV (revision `f0facb9`, physical NPU 6) reached 142.434 / 270.120 frames/s. Native GQA (revision `02f100e`, physical NPU 1) reached 155.531 / 288.384 frames/s. Both retain original RMSNorm, packed QKV/MLP, incremental prewarmed codec, and text-only rotary. These are different-card exploratory results, not matched repeated attribution. Neither reaches the 2x target. Both alter numerical behavior; GQA full ASR evaluation is running and neither has accepted full quality evidence.
+
+## Predictor embedding capture and prefill graph experiment
+
+Revision `4ae4550`, physical NPU 6: C16 191.955 frames/s, C64 330.616 frames/s, 128/128 successful requests at each concurrency, benchmark/server exit 0. This combines native GQA, original RMSNorm, text rotary, packed QKV/MLP, captured subcode embeddings, graph prefill, and prewarmed incremental codec. Quality has not yet been evaluated; numerical changes from GQA and prefill padding preclude inheriting earlier quality scores. The 2x target remains unmet.
+
+A separate synchronized C32 diagnostic with GQA, captured embeddings and prewarmed codec (eager batched prefill) measured 2.098 seconds across 16 ticks: batch prefill 0.667 seconds, predictor 0.559, talker 0.253, audio 0.478 (codec nested within audio 0.446). These perturbed inclusive diagnostic ranges are not service measurements.
