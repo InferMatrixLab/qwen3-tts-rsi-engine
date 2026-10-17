@@ -349,3 +349,7 @@ Source `c8480c7`, physical NPU 6: C32/C64 373.151 / 495.822 frames/s, all 256 re
 ### Paired KV: adjacent same-device control qualifies the earlier comparison
 
 The subsequent flag-off control on physical NPU 6 produced C32/C64 364.234 / 486.940 frames/s, all 256 requests successful and server exit 0. Paired KV (373.151 / 495.822) is therefore approximately 2.45% / 1.82% faster than this adjacent control. Its lower value versus the earlier 394.717 result cannot establish a causal regression: temporal variability is material. Keep this candidate experimental pending repeated same-device attribution and full target acceptance. Do not multiply this gain with isolated operator gains.
+
+### Sixteen-frame codec state validation
+
+FP32 101-frame streams passed tolerance (maximum absolute error 1.43e-5). BF16 Triton Snake plus cached codebooks is exactly equal to the unoptimized graph control for the same chunk sequence; prewarming preserves live state, and move/reset checks pass. The probe observed 7424 actual Triton calls. BF16 graph-versus-eager batch-2 maximum error is 0.09644, so this is not an eager-parity or full-speech-quality claim. Both probes exited 0. Full service throughput and quality remain to be measured.
