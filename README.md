@@ -2,8 +2,10 @@
 
 Independent inference work for `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` on Ascend 910B1.
 
-**Status: INCONCLUSIVE — implementation and baseline qualification in progress.**
-No 2x performance or audio-quality result has been established.
+**Status: INCONCLUSIVE — full repeated, quality-qualified 2x acceptance is pending.**
+Both baseline exploratory sweeps are complete. The independent streaming engine
+has completed all seven concurrency levels; high-concurrency optimization and
+full candidate audio-quality evaluation continue.
 
 The acceptance target is at least 2x the better of pinned vLLM-Omni and
 SGLang-Omni main throughput at each concurrency: 1, 2, 4, 8, 16, 32, 64.
@@ -14,8 +16,24 @@ Full audio, request failures, terminal events and clean server exits are retaine
 See [the campaign contract](evidence/campaign-20261017/plan/contract.json)
 and [source provenance](evidence/campaign-20261017/plan/sources.md).
 The [first exploratory sweep](evidence/campaign-20261017/round1.md) contains
-all four requested metrics for vLLM C1–C64; SGLang and quality evaluation are
-still running. It is not the final repeated comparison.
+all four requested metrics and full ASR/speaker scores for both baselines at
+C1–C64. SGLang requires the documented import compatibility patch; it is not an
+untouched-main run. These are exploratory single-repeat results, not the final
+repeated comparison.
+
+The native-RoPE/sampling-graph candidate (`3ef961a`, physical NPU 0) measured
+56.61 / 85.70 / 135.00 / 207.88 / 295.96 / 386.54 / 473.18 frames/s at
+C1 / C2 / C4 / C8 / C16 / C32 / C64, with 896 successful requests and clean
+server exit. C32 and C64 remain below their respective approximately 400.53
+and 484.15 frames/s targets. Changing codec batch size to 8 yielded C64
+486.15 frames/s but regressed C32 to 353.97; it is not an accepted all-concurrency
+solution. See the campaign report for TTFA, RTF, retained quality evidence,
+and the limitations of comparing single runs on a shared host.
+
+`--fused-residual --rms-norm native` is a new default-off experiment that fuses
+the post-attention residual addition and RMSNorm. Operator validation and
+contract tests pass, but BF16 normalization changes and full speech-quality
+validation is required. No service gain is presumed from operator timings.
 
 Benchmark against an already running OpenAI speech SSE endpoint:
 

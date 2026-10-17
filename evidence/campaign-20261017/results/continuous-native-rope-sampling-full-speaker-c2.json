@@ -1,0 +1,33 @@
+{
+  "status": "INCONCLUSIVE",
+  "scored": 128,
+  "expected": 128,
+  "mean_cosine": 0.7756292629055679,
+  "by_voice": {
+    "ryan": 0.7300351755693555,
+    "vivian": 0.8212233502417803
+  },
+  "device": "npu:0",
+  "anchors_sha256": "97df59913205fb9f393b462ec1229146b5dac733dee7e42fd3d5dd4a1a1caba3",
+  "scorer_sha256": "18528106c718384e6e096b79031c78fbc90890344d80ba6ae3d4cbadc0d2545e",
+  "assets": {
+    "wavlm_large_finetune.pth": {
+      "repository": "popsoda2002/seedtts-wavlm-sim",
+      "revision": "508f5410742122c7fb0d94e288152debd92cf629",
+      "filename": "wavlm_large_finetune.pth",
+      "path": "/home/why/drama3-research/quality-assets/popsoda2002--seedtts-wavlm-sim/wavlm_large_finetune.pth",
+      "size": 1301926579,
+      "sha256": "51f07e3b94d9e0262a6a675ef5a087be3dd09e8c62e9d886827f44f82fe7f94b"
+    },
+    "wavlm_large.pt": {
+      "repository": "s3prl/converted_ckpts",
+      "revision": "8cad0b370e7e35f8d56951d95d2be036ea85510c",
+      "filename": "wavlm_large.pt",
+      "path": "/home/why/drama3-research/quality-assets/s3prl--converted_ckpts/wavlm_large.pt",
+      "size": 1261965425,
+      "sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f"
+    }
+  },
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "definition": "Cosine to normalized mean of two independently generated same-preset anchor embeddings"
+}

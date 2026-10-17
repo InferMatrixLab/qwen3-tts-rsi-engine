@@ -1,0 +1,85 @@
+{
+  "status": "INCONCLUSIVE",
+  "note": "Partial single-repeat quality assessment; no final performance or quality acceptance",
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "status": "INCONCLUSIVE",
+      "asr": {
+        "en": {
+          "error_rate": 0.01422475106685633,
+          "maximum": 0.0185348506401138,
+          "pass": true
+        },
+        "zh": {
+          "error_rate": 0.033112582781456956,
+          "maximum": 0.03649006622516556,
+          "pass": true
+        }
+      },
+      "speaker_mean": 0.775639595463872,
+      "speaker_minimum": 0.7519795336015522,
+      "speaker_pass": true
+    },
+    {
+      "concurrency": 2,
+      "status": "INCONCLUSIVE",
+      "asr": {
+        "en": {
+          "error_rate": 0.01422475106685633,
+          "maximum": 0.021379800853485065,
+          "pass": true
+        },
+        "zh": {
+          "error_rate": 0.033112582781456956,
+          "maximum": 0.0447682119205298,
+          "pass": true
+        }
+      },
+      "speaker_mean": 0.7756292629055679,
+      "speaker_minimum": 0.7485906940605491,
+      "speaker_pass": true
+    },
+    {
+      "concurrency": 4,
+      "status": "INCONCLUSIVE",
+      "asr": {
+        "en": {
+          "error_rate": 0.01422475106685633,
+          "maximum": 0.015689900426742533,
+          "pass": true
+        },
+        "zh": {
+          "error_rate": 0.03228476821192053,
+          "maximum": 0.04062913907284768,
+          "pass": true
+        }
+      },
+      "speaker_mean": 0.774229743052274,
+      "speaker_minimum": 0.7515028736274689,
+      "speaker_pass": true
+    },
+    {
+      "concurrency": 8,
+      "status": "INCONCLUSIVE",
+      "speaker_mean": 0.7779738791286945,
+      "speaker_minimum": 0.7554849083721638,
+      "speaker_pass": true
+    },
+    {
+      "concurrency": 16,
+      "status": "INCONCLUSIVE",
+      "speaker_mean": 0.7747792687732726,
+      "speaker_minimum": 0.7514163074269891,
+      "speaker_pass": true
+    },
+    {
+      "concurrency": 32,
+      "status": "INCONCLUSIVE"
+    },
+    {
+      "concurrency": 64,
+      "status": "INCONCLUSIVE"
+    }
+  ]
+}
