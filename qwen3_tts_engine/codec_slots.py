@@ -48,7 +48,7 @@ class CodecSlotGraph:
     def compute(self):
         decoder = self.arena.decoder
         run = self.arena.eager.run_module
-        hidden = decoder.quantizer.decode(self.codes)
+        hidden = self.arena.eager.quantizer.decode(self.codes)
         hidden = run(decoder.pre_conv, hidden, self.state).transpose(1, 2)
         transformer = decoder.pre_transformer
         hidden = transformer.input_proj(hidden)
@@ -98,7 +98,7 @@ class CodecSlotGraph:
 
 
 class CodecSlots:
-    def __init__(self, decoder, slots, cache_constants=False, triton_snake=False):
+    def __init__(self, decoder, slots, cache_constants=False, triton_snake=False, cache_codebooks=False):
         if slots < 1:
             raise ValueError('Codec slots must be positive')
         self.decoder, self.slots = decoder, slots
@@ -106,7 +106,7 @@ class CodecSlots:
         if self.window is None or self.window < 2:
             raise ValueError('Expected a finite sliding codec attention window')
         self.history = self.window - 1
-        self.eager = IncrementalCodec(decoder, cache_constants=cache_constants, triton_snake=triton_snake)
+        self.eager = IncrementalCodec(decoder, cache_constants=cache_constants, triton_snake=triton_snake, cache_codebooks=cache_codebooks)
         weight = next(decoder.parameters())
         self.histories = {}
         for module in decoder.modules():

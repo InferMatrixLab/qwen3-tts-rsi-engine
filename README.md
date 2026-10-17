@@ -23,6 +23,8 @@ all four requested metrics and full ASR/speaker scores for both baselines at
 C1–C64. SGLang requires the documented import compatibility patch; it is not an
 untouched-main run. These are exploratory single-repeat results, not the final
 repeated comparison.
+See [candidate charts](evidence/campaign-20261017/native-rope-charts/README.md)
+for the four metrics with explicit single-repeat and quality-failure labels.
 
 The native-RoPE/sampling-graph candidate (`3ef961a`, physical NPU 0) measured
 56.61 / 85.70 / 135.00 / 207.88 / 295.96 / 386.54 / 473.18 frames/s at

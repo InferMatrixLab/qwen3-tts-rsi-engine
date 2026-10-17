@@ -17,8 +17,12 @@ class CodecState:
 
 
 class IncrementalCodec:
-    def __init__(self, decoder, cache_constants=False, triton_snake=False):
+    def __init__(self, decoder, cache_constants=False, triton_snake=False, cache_codebooks=False):
         self.decoder = decoder
+        self.quantizer = getattr(decoder, "quantizer", None)
+        if cache_codebooks:
+            from qwen3_tts_engine.cached_quantizer import CachedQuantizer
+            self.quantizer = CachedQuantizer(decoder.quantizer)
         self.snake_constants = {}
         self.triton_snake = None
         if triton_snake:
@@ -95,7 +99,7 @@ class IncrementalCodec:
     def decode(self, codes, state):
         if codes.ndim != 3 or codes.shape[1] != self.decoder.config.num_quantizers or codes.shape[-1] < 1:
             raise ValueError('Expected nonempty [batch, codebooks, frames] input')
-        hidden = self.decoder.quantizer.decode(codes)
+        hidden = self.quantizer.decode(codes)
         hidden = self.run_module(self.decoder.pre_conv, hidden, state).transpose(1, 2)
         positions = torch.arange(state.frames, state.frames + codes.shape[-1], device=codes.device)
         result = self.decoder.pre_transformer(

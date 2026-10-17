@@ -262,3 +262,8 @@ Added default-all `--native-rope-scope {all,talker,predictor}` for component att
 
 
 Predictor-only native RoPE C16 service control (a96f3f1, physical NPU 1) completed 128 requests, 283.171092 frames/s, server exit 0. This exceeds the exploratory C16 throughput threshold but full ASR is running; no quality acceptance is claimed. Triton codec serving remains in first-time compilation/prewarming. The codec probe now records actual Triton invocation shapes/count and rejects a BF16 run that never reaches the kernel, to distinguish graph equality from an unexercised fallback.
+
+
+Predictor-only RoPE C16 full ASR completed: EN WER 0.0099573257, ZH CER 0.0223509934, both within frozen gates. Speaker scoring remains pending. The all-RoPE candidate comparison now has reproducible PNG/SVG charts and machine-readable reports for all four metrics under `native-rope-charts/`; every chart is marked FAIL because that older candidate fails C16 quality, with n=1 and shared-host limitations explicit.
+
+Added default-off `--cache-codec-codebooks`: precompute the sixteen fixed embedding_sum / clamp(cluster_usage) tables without changing codebook accumulation order or mutating the reference quantizer. CPU FP32/BF16 tests cover negative, zero and tiny usage counts and partial/full codebook inputs; all 49 tests pass. The NPU 101-frame graph-control test is running before any service claim.
