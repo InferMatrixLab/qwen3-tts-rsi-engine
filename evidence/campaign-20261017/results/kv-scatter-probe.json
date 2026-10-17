@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "scope": "KV write correctness and isolated graph replay, not service performance",
+  "cases": [
+    {
+      "batch": 1,
+      "capacity": 512,
+      "exact": true,
+      "samples": [
+        {
+          "backend": "torch",
+          "mean_replay_ms": 0.08172161877155304
+        },
+        {
+          "backend": "native",
+          "mean_replay_ms": 0.015907203778624535
+        },
+        {
+          "backend": "native",
+          "mean_replay_ms": 0.01580420881509781
+        },
+        {
+          "backend": "torch",
+          "mean_replay_ms": 0.08180633187294006
+        }
+      ]
+    },
+    {
+      "batch": 4,
+      "capacity": 512,
+      "exact": true,
+      "samples": [
+        {
+          "backend": "torch",
+          "mean_replay_ms": 0.09537326171994209
+        },
+        {
+          "backend": "native",
+          "mean_replay_ms": 0.024837041273713112
+        },
+        {
+          "backend": "native",
+          "mean_replay_ms": 0.02469053491950035
+        },
+        {
+          "backend": "torch",
+          "mean_replay_ms": 0.09535198099911213
+        }
+      ]
+    },
+    {
+      "batch": 32,
+      "capacity": 512,
+      "exact": true,
+      "samples": [
+        {
+          "backend": "torch",
+          "mean_replay_ms": 0.16519658267498016
+        },
+        {
+          "backend": "native",
+          "mean_replay_ms": 0.033051054924726486
+        },
+        {
+          "backend": "native",
+          "mean_replay_ms": 0.033029066398739815
+        },
+        {
+          "backend": "torch",
+          "mean_replay_ms": 0.16528829000890255
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "capacity": 512,
+      "exact": true,
+      "samples": [
+        {
+          "backend": "torch",
+          "mean_replay_ms": 0.26568830013275146
+        },
+        {
+          "backend": "native",
+          "mean_replay_ms": 0.050420211628079414
+        },
+        {
+          "backend": "native",
+          "mean_replay_ms": 0.05040961317718029
+        },
+        {
+          "backend": "torch",
+          "mean_replay_ms": 0.25609204545617104
+        }
+      ]
+    }
+  ]
+}

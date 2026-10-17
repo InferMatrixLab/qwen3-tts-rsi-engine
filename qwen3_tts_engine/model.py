@@ -10,7 +10,8 @@ from qwen3_tts_engine.predictor import PredictorGraph
 
 class CustomVoiceModel:
     def __init__(self, model_path, device, predictor_graph=False, talker_graph=False,
-                 rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=1):
+                 rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=1,
+                 pack_mlp=False, fused_swiglu=False):
         torch.npu.set_device(device)
         torch.set_num_threads(4)
         self.device = device
@@ -25,6 +26,9 @@ class CustomVoiceModel:
         if pack_qkv:
             from qwen3_tts_engine.packed_attention import install_packed_attention
             install_packed_attention(self.wrapper.model.talker)
+        if pack_mlp or fused_swiglu:
+            from qwen3_tts_engine.packed_mlp import install_packed_mlp
+            install_packed_mlp(self.wrapper.model.talker, fused=fused_swiglu)
         self.predictor_graph = predictor_graph
         if predictor_graph:
             graph_type = PredictorGraph

@@ -83,3 +83,19 @@ Commit `2eeddd4db6e662def610143ac2a1b6dd43d606a5`, physical NPU 1, one explorato
 | 16 | 154.755 | 386.26 | 1474.12 | 1.2271 |
 | 32 | 198.679 | 548.60 | 3177.24 | 1.8526 |
 | 64 | 231.937 | 1059.13 | 6859.43 | 3.1055 |
+
+## Baseline ASR quality
+
+All 128 retained clips at each concurrency have now been independently transcribed with the same pinned Whisper assets and float32 NPU evaluation. English uses WER; Chinese uses CER. Raw transcripts, including script and number-format mismatches, are retained without post-hoc normalization changes.
+
+| Concurrency | vLLM EN WER | vLLM ZH CER | SGLang EN WER | SGLang ZH CER |
+|---:|---:|---:|---:|---:|
+| 1 | 0.008535 | 0.037252 | 0.011380 | 0.026490 |
+| 2 | 0.011380 | 0.034768 | 0.014225 | 0.038907 |
+| 4 | 0.005690 | 0.030629 | 0.012802 | 0.033940 |
+| 8 | 0.008535 | 0.027318 | 0.008535 | 0.033940 |
+| 16 | 0.036984 | 0.025662 | 0.014225 | 0.027318 |
+| 32 | 0.009957 | 0.036424 | 0.009957 | 0.028974 |
+| 64 | 0.011380 | 0.035596 | 0.007112 | 0.031457 |
+
+Incremental candidate C1 ASR completed with EN WER 0.009957 and ZH CER 0.049669, the same aggregate errors as the previous continuous candidate. It still fails the frozen Chinese ASR noninferiority gate; the codec optimization does not resolve that quality failure.

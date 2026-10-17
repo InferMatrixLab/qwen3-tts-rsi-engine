@@ -1,0 +1,464 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "diagnostic trace, not throughput or quality evidence",
+  "revision": "888332c29301aa737f287e23d3c76c5a194e4abb",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "slots": 32,
+  "warmup": 32,
+  "steps": 16,
+  "events": [
+    {
+      "phase": "warmup",
+      "step": 0,
+      "active_before": 0,
+      "admitted": 4,
+      "active_after": 4,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 1,
+      "active_before": 4,
+      "admitted": 4,
+      "active_after": 8,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 2,
+      "active_before": 8,
+      "admitted": 4,
+      "active_after": 12,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 3,
+      "active_before": 12,
+      "admitted": 4,
+      "active_after": 16,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 4,
+      "active_before": 16,
+      "admitted": 4,
+      "active_after": 20,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 5,
+      "active_before": 20,
+      "admitted": 4,
+      "active_after": 24,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 6,
+      "active_before": 24,
+      "admitted": 4,
+      "active_after": 28,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 7,
+      "active_before": 28,
+      "admitted": 4,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 8,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 9,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 10,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 11,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 12,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 13,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 14,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 15,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 16,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 17,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 18,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 19,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 20,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 21,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 22,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 23,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 24,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        24
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 25,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 26,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 27,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 28,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        0
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 29,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 30,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 31,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 0,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 1,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 2,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 30,
+      "completed": [
+        9,
+        5
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 3,
+      "active_before": 30,
+      "admitted": 2,
+      "active_after": 31,
+      "completed": [
+        3
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 4,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 5,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 6,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 7,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 8,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 9,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        23
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 10,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 30,
+      "completed": [
+        29,
+        8
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 11,
+      "active_before": 30,
+      "admitted": 2,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 12,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 13,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 14,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 28,
+      "completed": [
+        26,
+        14,
+        7,
+        1
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 15,
+      "active_before": 28,
+      "admitted": 4,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    }
+  ],
+  "incremental_codec": true,
+  "batch_prefill": false
+}

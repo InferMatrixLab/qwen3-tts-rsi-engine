@@ -71,10 +71,11 @@ class UniformPredictor:
 
 
 class SlotArena:
-    def __init__(self, reference, slots, capacity):
+    def __init__(self, reference, slots, capacity, native_kv_update=False):
         self.reference = reference
         self.slots = slots
         self.capacity = capacity
+        self.native_kv_update = native_kv_update
         weight = next(reference.parameters())
         c = reference.config
         shape = (slots, c.num_key_value_heads, capacity, c.head_dim)
@@ -99,14 +100,28 @@ class SlotCache(Cache):
         super().__init__(layers=[])
         self.arena = arena
         self.positions = positions
+        if arena.native_kv_update:
+            batch, heads = positions.shape[0], arena.keys[0].shape[1]
+            self.rows = torch.arange(batch, device=positions.device)[:, None].expand(batch, heads)
+            self.columns = torch.arange(heads, device=positions.device)[None, :].expand(batch, heads)
+
+    def prepare(self):
+        if self.arena.native_kv_update:
+            self.indices = torch.stack((self.rows, self.columns,
+                                        self.positions[:, None].expand_as(self.rows)), -1).reshape(-1, 3)
 
     def update(self, keys, values, layer_idx, cache_kwargs):
         batch, heads, _, width = keys.shape
         index = self.positions.view(batch, 1, 1, 1).expand(batch, heads, 1, width)
         target_keys = self.arena.keys[layer_idx][:batch]
         target_values = self.arena.values[layer_idx][:batch]
-        target_keys.scatter_(2, index, keys)
-        target_values.scatter_(2, index, values)
+        if self.arena.native_kv_update:
+            import torch_npu
+            torch_npu.npu_scatter_nd_update_(target_keys, self.indices, keys.reshape(-1, width))
+            torch_npu.npu_scatter_nd_update_(target_values, self.indices, values.reshape(-1, width))
+        else:
+            target_keys.scatter_(2, index, keys)
+            target_values.scatter_(2, index, values)
         return target_keys, target_values
 
 
@@ -124,6 +139,7 @@ class SlotGraph:
         self.graph = None
 
     def compute(self):
+        self.cache.prepare()
         hidden = self.inputs
         allowed = self.indices.view(1, -1) <= self.positions.view(-1, 1)
         mask = torch.where(allowed, 0.0, torch.finfo(hidden.dtype).min).to(hidden.dtype)[:, None, None, :]
@@ -187,8 +203,10 @@ class RequestState:
 class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
-                 incremental_codec=False, batch_prefill=False):
-        self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv)
+                 incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
+                 native_kv_update=False):
+        self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
+                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu)
         self.device = device
         self.speakers = self.model.speakers
         self.languages = self.model.languages
@@ -197,7 +215,7 @@ class ContinuousModel:
         self.batch_prefill = batch_prefill
         if max_slots < 1 or max_slots & (max_slots - 1):
             raise ValueError('Continuous slot count must be a positive power of two')
-        self.arena = SlotArena(self.talker.model, max_slots, initial_capacity)
+        self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update)
         self.graphs = {}
         self.predictor = UniformPredictor(self.talker.code_predictor)
         decoder = self.model.wrapper.model.speech_tokenizer.model.decoder
@@ -222,7 +240,8 @@ class ContinuousModel:
             graph.close()
         self.graphs.clear()
         old = self.arena
-        self.arena = SlotArena(self.talker.model, self.max_slots, max(old.capacity * 2, 1 << required.bit_length()))
+        self.arena = SlotArena(self.talker.model, self.max_slots, max(old.capacity * 2, 1 << required.bit_length()),
+                               old.native_kv_update)
         for target, source in zip(self.arena.keys + self.arena.values, old.keys + old.values):
             target[:, :, :old.capacity].copy_(source)
 

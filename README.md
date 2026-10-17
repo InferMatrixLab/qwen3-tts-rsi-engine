@@ -81,6 +81,16 @@ retained identical PCM to individual prefill; the stricter FP32 per-layer KV
 comparison exceeded its 1e-4 tolerance on one observed element. That counterexample
 is retained, and this option still requires full-corpus quality and speed checks.
 
+`--pack-mlp` combines the gate and up projections and passed the four-prompt
+complete-waveform comparison. `--fused-swiglu` additionally replaces SiLU and
+multiply with Ascend SwiGLU; it is a separate numerical experiment and is not
+covered by the packed-projection parity result.
+
+`--continuous --native-kv-update` uses Ascend ScatterND for per-request KV writes.
+Exact graph-write tests cover batches 1, 4, 32 and 64; a four-request scheduling
+probe retained identical PCM across slot reuse and capacity growth. Its operator
+timing improvement is not an end-to-end throughput claim.
+
 `tools/profile_continuous.py` collects a separate CPU/NPU trace with ranges for
 prefill, the predictor, talker, semantic sampling and codec. It warms the engine
 before tracing and records admissions, completions and KV capacity per tick.

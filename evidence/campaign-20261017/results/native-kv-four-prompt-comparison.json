@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Four full-waveform scheduling cases including slot reuse and KV growth; not full-corpus proof",
+  "rows": [
+    {
+      "index": 0,
+      "pcm_identical": true
+    },
+    {
+      "index": 1,
+      "pcm_identical": true
+    },
+    {
+      "index": 64,
+      "pcm_identical": true
+    },
+    {
+      "index": 65,
+      "pcm_identical": true
+    }
+  ]
+}
