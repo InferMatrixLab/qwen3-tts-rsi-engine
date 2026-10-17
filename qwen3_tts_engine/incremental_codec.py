@@ -1,7 +1,8 @@
 """Experimental causal codec with per-stream convolution and attention state.
 
-This eager correctness implementation is not enabled by the serving path.
-It preserves the pretrained modules and never mutates their forward methods.
+The slot-graph serving path captures these operations with per-request state.
+It preserves pretrained modules and never mutates their forward methods.
+Optional constant caching assumes fixed evaluation weights and device/dtype.
 """
 from dataclasses import dataclass, field
 
@@ -16,8 +17,25 @@ class CodecState:
 
 
 class IncrementalCodec:
-    def __init__(self, decoder):
+    def __init__(self, decoder, cache_constants=False):
         self.decoder = decoder
+        self.snake_constants = {}
+        if cache_constants:
+            if decoder is None or decoder.training:
+                raise ValueError('Codec constant caching requires an evaluation decoder')
+            with torch.inference_mode():
+                for module in decoder.modules():
+                    if type(module).__name__ == 'SnakeBeta':
+                        alpha = torch.exp(module.alpha.unsqueeze(0).unsqueeze(-1))
+                        beta = torch.exp(module.beta.unsqueeze(0).unsqueeze(-1))
+                        self.snake_constants[module] = (alpha, 1.0 / (beta + module.no_div_by_zero))
+
+    def activation(self, module, hidden):
+        constants = self.snake_constants.get(module)
+        if constants is None:
+            return module(hidden)
+        alpha, inverse_beta = constants
+        return hidden + inverse_beta * torch.pow(torch.sin(hidden * alpha), 2)
 
     def run_module(self, module, hidden, state):
         kind = type(module).__name__
@@ -55,15 +73,15 @@ class IncrementalCodec:
             return residual + (module.gamma * hidden).permute(0, 2, 1)
         if kind == 'Qwen3TTSTokenizerV2DecoderDecoderResidualUnit':
             residual = hidden
-            hidden = self.run_module(module.conv1, module.act1(hidden), state)
-            hidden = self.run_module(module.conv2, module.act2(hidden), state)
+            hidden = self.run_module(module.conv1, self.activation(module.act1, hidden), state)
+            hidden = self.run_module(module.conv2, self.activation(module.act2, hidden), state)
             return residual + hidden
         if kind == 'Qwen3TTSTokenizerV2DecoderDecoderBlock':
             for child in module.block:
                 hidden = self.run_module(child, hidden, state)
             return hidden
         if kind == 'SnakeBeta':
-            return module(hidden)
+            return self.activation(module, hidden)
         raise TypeError(f'Unsupported incremental codec module: {kind}')
 
     @torch.inference_mode()

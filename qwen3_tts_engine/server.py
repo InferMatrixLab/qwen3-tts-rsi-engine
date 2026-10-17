@@ -276,6 +276,7 @@ def main():
     parser.add_argument("--graph-sampling", action="store_true")
     parser.add_argument("--native-rope", action="store_true")
     parser.add_argument("--fused-residual", action="store_true")
+    parser.add_argument("--cache-codec-constants", action="store_true")
     parser.add_argument("--pack-mlp", action="store_true")
     parser.add_argument("--fused-swiglu", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
@@ -288,6 +289,8 @@ def main():
     parser.add_argument("--native-kv-update", action="store_true")
     parser.add_argument("--prefill-per-tick", type=int, default=4)
     options = parser.parse_args()
+    if options.cache_codec_constants and not (options.continuous and options.incremental_codec):
+        parser.error("--cache-codec-constants requires --continuous --incremental-codec")
     if options.fused_residual and options.rms_norm != "native":
         parser.error("--fused-residual requires --rms-norm native")
     if options.incremental_codec and not options.continuous:
@@ -338,7 +341,7 @@ def main():
                           native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, reference_single=options.reference_single, native_rope=options.native_rope, fused_residual=options.fused_residual, graph_prefill=options.graph_prefill,
                           codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
                           incremental_codec=options.incremental_codec, batch_prefill=options.batch_prefill,
-                          native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec, bucket_kv=options.bucket_kv, graph_embeddings=options.graph_embeddings, bucket_prefill=options.bucket_prefill, decode_bucket_step=options.decode_bucket_step, batch_audio_transfer=options.batch_audio_transfer, graph_sampling=options.graph_sampling)
+                          native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec, bucket_kv=options.bucket_kv, graph_embeddings=options.graph_embeddings, bucket_prefill=options.bucket_prefill, decode_bucket_step=options.decode_bucket_step, batch_audio_transfer=options.batch_audio_transfer, graph_sampling=options.graph_sampling, cache_codec_constants=options.cache_codec_constants)
     service = SpeechService(options, factory)
     app = web.Application(client_max_size=1024 * 1024)
     app.router.add_get("/health", service.health)

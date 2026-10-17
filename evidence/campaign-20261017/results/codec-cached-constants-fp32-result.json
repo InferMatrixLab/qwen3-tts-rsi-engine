@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "synthetic slot graph diagnostic, not speech quality or speed",
+  "strict_fp32": true,
+  "cache_constants": true,
+  "prewarm": true,
+  "cases": [
+    {
+      "batch": 2,
+      "frames": 101,
+      "max_abs_error": 9.5367431640625e-06,
+      "rms_error": 2.4638370632601436e-07,
+      "finite": true
+    },
+    {
+      "batch": 1,
+      "frames": 101,
+      "max_abs_error": 7.62939453125e-06,
+      "rms_error": 2.594028956082184e-07,
+      "finite": true
+    }
+  ],
+  "prewarm_live_state_exact": true,
+  "reset_max_abs_error": 2.5704503059387207e-07
+}

@@ -229,3 +229,8 @@ Added a default-off `--fused-residual` experiment requiring native RMSNorm. It f
 
 
 Residual-fusion service probe (72176a0, physical NPU 6) completed C32/C64 with 256/256 successful requests and server exit 0: 342.220967 / 469.690772 frames/s. It remains below both 2x targets. A same-device, same-runtime-code control with fusion disabled is running to distinguish component attribution from shared-host/device variation; audio quality for the fused variant is not yet evaluated.
+
+
+The residual-fusion same-device control completed: C32 352.082548 and C64 457.430306 frames/s, 256 successful requests, server exit 0. The fused arm was approximately 2.8% slower at C32 and 2.7% faster at C64 in this single sequential comparison. It is not promoted.
+
+A new default-off `--cache-codec-constants` experiment hoists SnakeBeta alpha exponentials and beta inverse scales out of graph replay. It preserves operation ordering and requires fixed evaluation weights/device/dtype. All 38 unit tests passed. The strict-FP32 101-frame codec test passed across two interleaved groups, live-state prewarming, move and reset (maximum error versus eager 9.54e-6); direct BF16 graph-control equality and service throughput are being measured separately.
