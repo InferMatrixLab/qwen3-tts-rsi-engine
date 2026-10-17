@@ -1,0 +1,285 @@
+{
+  "status": "PASS",
+  "scope": "12 synthetic shape cases, each with three changed-input graph replays; not full-model or service evidence",
+  "layout": "bsnd",
+  "cases": [
+    {
+      "batch": 1,
+      "length": 1,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.04249409772455692
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.011026188731193542
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.010715369135141373
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.042349798604846
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.07574115879833698
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.014850283041596413
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.01119169406592846
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.07560384459793568
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "length": 16,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.1015265192836523
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.012231515720486641
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.012250719591975212
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.10141431353986263
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "length": 64,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.1368929259479046
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.02359931357204914
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.023679910227656364
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.1369228307157755
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "length": 1,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.06486348807811737
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.012354208156466484
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.012549711391329765
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.06479697301983833
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "length": 2,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.13524658977985382
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.017053140327334404
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.016922634094953537
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.13545149937272072
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "length": 16,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.12881461530923843
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.024736933410167694
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.024691633880138397
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.12869421392679214
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "length": 64,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.1718380395323038
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.03995773382484913
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.0399189256131649
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.17162521369755268
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "length": 1,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.08343745023012161
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.023612510412931442
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.023609809577465057
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.08339744992554188
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "length": 2,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.19404430873692036
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.02417122945189476
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.024182116612792015
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.19403139129281044
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "length": 16,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.17605813220143318
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.039009712636470795
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.03901571035385132
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.17611595802009106
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "length": 64,
+      "max_abs_error": 0.0,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.28625608421862125
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.09057474322617054
+        },
+        {
+          "arm": "triton_exact",
+          "mean_ms": 0.09055434726178646
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.28640358708798885
+        }
+      ]
+    }
+  ],
+  "process_exit": 0,
+  "device": "Ascend 910B1 physical NPU 1"
+}
