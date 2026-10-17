@@ -3,11 +3,20 @@
 Independent inference work for `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` on Ascend 910B1.
 
 **Status: INCONCLUSIVE — full repeated, quality-qualified 2x acceptance is pending.**
+The first final candidate trial on physical NPU 0 completed all 896 requests
+with exit 0. C1–C64 throughput was 61.72 / 96.38 / 154.82 / 231.84 /
+351.51 / 441.46 / 558.62 frames/s. Against the highest observed value across
+the six selected baseline trials at each concurrency, its ratios are
+4.73 / 3.81 / 3.21 / 2.63 / 2.49 / 2.06 / 2.31. These are first-trial
+descriptive ratios; two more same-card trials and full independent audio
+quality validation remain required. The second trial is running.
+
 Two complete baseline repeats have performance and full ASR/speaker evidence.
 The third vLLM exploratory repeat has complete performance and audio scoring;
 the third SGLang repeat has completed all 896 requests with clean shutdown,
-full independent ASR/speaker scoring and all seven integrity audits. A replacement third vLLM repeat on physical
-NPU 0 is running to keep the final comparison on the same card. SGLang uses
+full independent ASR/speaker scoring and all seven integrity audits. The replacement third vLLM repeat on physical
+NPU 0 has finished with 896 successful requests and exit 0; its independent
+audio scoring is still running. SGLang uses
 the recorded import-only compatibility patch on its pinned main revision.
 
 The full predictor-only-RoPE/Triton-codec candidate passes all seven audio-quality
@@ -33,8 +42,8 @@ The second trial from frozen source completed with exit 0 and identical WAVs:
 C32 439.38 and C64 551.41 frames/s. The third trial also completed with exit 0 and identical WAVs: C32 439.27 and
 C64 549.99 frames/s. The first trial now has complete independent ASR and speaker scoring and seven
 passing integrity audits; all frozen quality margins pass against both round-2
-baselines. Independent scoring of repeats 2 and 3 and final same-card validation
-remain pending.
+baselines. All three exploratory trials now have complete independent scoring and
+passing cohort integrity audits. Final same-card validation remains pending.
 [Three-trial exploratory charts](evidence/campaign-20261017/direct-prompt-three-trial-charts/README.md)
 retain all four metrics and sample-SD error bars.
 The C32 exploratory ratio to vLLM round 2 is 2.063x; different physical cards and
