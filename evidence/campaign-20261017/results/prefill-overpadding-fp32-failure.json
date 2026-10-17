@@ -1,0 +1,40 @@
+{
+  "status": "FAIL",
+  "scope": "strict FP32 same-shape prefill graph correctness, not BF16 quality or speed",
+  "dummy_rows": true,
+  "rounds": [
+    {
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "max_kv_error": 0.0,
+      "max_hidden_error": 0.0,
+      "max_logit_error": 0.0
+    },
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "max_kv_error": 0.0,
+      "max_hidden_error": 0.0,
+      "max_logit_error": 0.0
+    },
+    {
+      "order": [
+        3,
+        1,
+        0
+      ],
+      "max_kv_error": 0.0,
+      "max_hidden_error": 0.0,
+      "max_logit_error": 0.0
+    }
+  ],
+  "error": "Tensor-likes are not close!\n\nMismatched elements: 11 / 2048 (0.5%)\nGreatest absolute difference: 2.002716064453125e-05 at index (0, 0, 640) (up to 1e-05 allowed)\nGreatest relative difference: 0.00019587627321016043 at index (0, 0, 14) (up to 1e-05 allowed)"
+}

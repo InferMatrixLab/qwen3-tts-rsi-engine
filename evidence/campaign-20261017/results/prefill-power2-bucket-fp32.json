@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "scope": "strict FP32 prefill replay and optional dummy-row isolation, not BF16 quality or speed",
+  "dummy_rows": true,
+  "rounds": [
+    {
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "graph_batch": 4,
+      "max_kv_error": 0.0,
+      "max_hidden_error": 0.0,
+      "max_logit_error": 0.0
+    },
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "graph_batch": 4,
+      "max_kv_error": 0.0,
+      "max_hidden_error": 0.0,
+      "max_logit_error": 0.0
+    },
+    {
+      "order": [
+        3,
+        1,
+        0
+      ],
+      "graph_batch": 4,
+      "max_kv_error": 0.0,
+      "max_hidden_error": 0.0,
+      "max_logit_error": 0.0
+    },
+    {
+      "order": [
+        2
+      ],
+      "graph_batch": 1,
+      "max_kv_error": 0.0,
+      "max_hidden_error": 0.0,
+      "max_logit_error": 0.0
+    }
+  ]
+}

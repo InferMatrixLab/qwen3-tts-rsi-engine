@@ -1,5 +1,6 @@
 """Experimental iteration-level CustomVoice execution with reusable request slots."""
 from dataclasses import dataclass, field
+import logging
 import numpy as np
 import torch
 from transformers.cache_utils import Cache, DynamicCache
@@ -215,7 +216,9 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False):
+        if bucket_prefill and not graph_prefill:
+            raise ValueError('Prefill batch bucketing requires graph prefill')
         if prewarm_codec and not incremental_codec:
             raise ValueError('Codec prewarming requires the incremental codec')
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
@@ -228,6 +231,7 @@ class ContinuousModel:
         self.bucket_kv = bucket_kv
         self.batch_prefill = batch_prefill
         self.graph_prefill = graph_prefill
+        self.bucket_prefill = bucket_prefill
         self.prefills = {}
         if max_slots < 1 or max_slots & (max_slots - 1):
             raise ValueError('Continuous slot count must be a positive power of two')
@@ -332,8 +336,10 @@ class ContinuousModel:
         mask = torch.cat([torch.nn.functional.pad(prompt['attention_mask'], (0, padded_length - length))
                           for prompt, length in zip(prompts, lengths)])
         if self.graph_prefill:
-            from qwen3_tts_engine.prefill_graph import PrefillGraph
-            key = (len(submissions), padded_length)
+            from qwen3_tts_engine.prefill_graph import PrefillGraph, pad_prefill_batch
+            graph_batch = 1 << (len(submissions) - 1).bit_length() if self.bucket_prefill else len(submissions)
+            embeddings, mask = pad_prefill_batch(embeddings, mask, graph_batch)
+            key = (graph_batch, padded_length)
             if key not in self.prefills:
                 graph = PrefillGraph(self.talker, *key)
                 graph.capture()
@@ -476,6 +482,8 @@ class ContinuousModel:
         return results
 
     def close(self):
+        logging.getLogger(__name__).info("Captured graph shapes: prefill=%s talker=%s codec=%s",
+                                         sorted(self.prefills), sorted(self.graphs), sorted(self.codec.graphs) if self.incremental_codec else list(self.codec.captures))
         for graph in self.prefills.values():
             graph.close()
         self.prefills.clear()

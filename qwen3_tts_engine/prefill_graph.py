@@ -3,6 +3,18 @@ import torch
 from transformers.cache_utils import DynamicCache
 
 
+def pad_prefill_batch(embeddings, mask, batch):
+    """Append independent dummy rows; their outputs are never admitted as requests."""
+    extra = batch - embeddings.shape[0]
+    if extra < 0 or mask.shape != embeddings.shape[:2]:
+        raise ValueError('Prefill batch or attention-mask shape is invalid')
+    if not extra:
+        return embeddings, mask
+    embeddings = torch.cat((embeddings, embeddings.new_zeros(extra, *embeddings.shape[1:])))
+    mask = torch.cat((mask, mask.new_ones(extra, mask.shape[1])))
+    return embeddings, mask
+
+
 class PrefillGraph:
     def __init__(self, talker, batch, length):
         self.talker = talker

@@ -134,3 +134,11 @@ Single exploratory C16/C64 cohorts completed with 128 requests each and clean se
 Revision `4ae4550`, physical NPU 6: C16 191.955 frames/s, C64 330.616 frames/s, 128/128 successful requests at each concurrency, benchmark/server exit 0. This combines native GQA, original RMSNorm, text rotary, packed QKV/MLP, captured subcode embeddings, graph prefill, and prewarmed incremental codec. Quality has not yet been evaluated; numerical changes from GQA and prefill padding preclude inheriting earlier quality scores. The 2x target remains unmet.
 
 A separate synchronized C32 diagnostic with GQA, captured embeddings and prewarmed codec (eager batched prefill) measured 2.098 seconds across 16 ticks: batch prefill 0.667 seconds, predictor 0.559, talker 0.253, audio 0.478 (codec nested within audio 0.446). These perturbed inclusive diagnostic ranges are not service measurements.
+
+## Native fusion candidate and reference-rounding normalization control
+
+Single exploratory C16/C64 cohorts, each 128 requests and clean server exit: the graph-prefill candidate with native RMSNorm and fused SwiGLU (`b18450b`, physical NPU 6) reached **271.774 / 444.433 frames/s**. C16 exceeds the numerical 2x throughput target in this single cohort; C64 does not, and no quality or formal repeated comparison is yet accepted.
+
+The separate native-GQA/eager-prefill control with FP32 fused normalization followed by BF16 rounding and weight multiplication (`acd2685`, physical NPU 0) reached 187.962 / 328.034 frames/s. Its ASR evaluation is running. This is not an isolated ablation against the preceding graph-prefill candidate.
+
+The earlier original-RMS native-GQA candidate completed ASR: C16 EN WER 0.007112, ZH CER 0.023179; C64 EN WER 0.011380, ZH CER 0.031457. Both cohorts meet the frozen ASR margins. Speaker similarity is still pending, and its throughput remains below 2x.
