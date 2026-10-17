@@ -56,7 +56,11 @@
           "status": "PASS"
         }
       },
-      "speaker": "PENDING",
+      "speaker": {
+        "candidate": 0.7745600556954741,
+        "minimum": 0.7485906940605491,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-codec-fused-predictor-rope-full/speaker-c2/summary.json",
         "runs/vllm-sweep-round1-full128/speaker-c2/summary.json",
@@ -82,7 +86,11 @@
           "status": "PASS"
         }
       },
-      "speaker": "PENDING",
+      "speaker": {
+        "candidate": 0.7728091184981167,
+        "minimum": 0.7515028736274689,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-codec-fused-predictor-rope-full/speaker-c4/summary.json",
         "runs/vllm-sweep-round1-full128/speaker-c4/summary.json",
@@ -108,7 +116,11 @@
           "status": "PASS"
         }
       },
-      "speaker": "PENDING",
+      "speaker": {
+        "candidate": 0.7753899306990206,
+        "minimum": 0.7554849083721638,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-codec-fused-predictor-rope-full/speaker-c8/summary.json",
         "runs/vllm-sweep-round1-full128/speaker-c8/summary.json",
@@ -134,7 +146,11 @@
           "status": "PASS"
         }
       },
-      "speaker": "PENDING",
+      "speaker": {
+        "candidate": 0.7649079486727715,
+        "minimum": 0.7514163074269891,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-codec-fused-predictor-rope-full/speaker-c16/summary.json",
         "runs/vllm-sweep-round1-full128/speaker-c16/summary.json",
@@ -160,7 +176,11 @@
           "status": "PASS"
         }
       },
-      "speaker": "PENDING",
+      "speaker": {
+        "candidate": 0.7676113222260028,
+        "minimum": 0.7578975653927773,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-codec-fused-predictor-rope-full/speaker-c32/summary.json",
         "runs/vllm-sweep-round1-full128/speaker-c32/summary.json",
@@ -186,7 +206,11 @@
           "status": "PASS"
         }
       },
-      "speaker": "PENDING",
+      "speaker": {
+        "candidate": 0.7712946995161474,
+        "minimum": 0.7526154122501612,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-codec-fused-predictor-rope-full/speaker-c64/summary.json",
         "runs/vllm-sweep-round1-full128/speaker-c64/summary.json",

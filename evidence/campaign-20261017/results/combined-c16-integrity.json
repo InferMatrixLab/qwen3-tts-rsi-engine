@@ -8,6 +8,5 @@
     "ttfa_p95_ms": 370.12574193067843,
     "rtf_mean": 0.6204907456079376
   },
-  "issues": [],
-  "speaker_evidence_note": "Speaker samples reused from continuous-predictor-rope-c16 only after all 128 WAVs proved byte-identical; not an independent speaker evaluation."
+  "issues": []
 }

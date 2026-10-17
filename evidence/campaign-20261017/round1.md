@@ -309,3 +309,17 @@ Real weights with synthetic embeddings and identical random draws: B1/8/32/64 pr
 ### Bounded prefill prewarming
 
 Source `5dd348a`, physical NPU 6, one trial. C32/C64: 392.226 / 500.101 frames/s; TTFA p95 1068.516 / 1269.826 ms. All 256 requests completed and server exited 0. All 256 WAVs are byte-identical to the combined candidate without prewarming. C32 did not improve; C64 showed a modest exploratory increase. This does not establish an all-concurrency or repeated-trial gain.
+
+### Combined candidate: complete first-trial quality
+
+All 896 waveforms now have independently computed ASR and speaker scores. Every C1/2/4/8/16/32/64 cohort passes the frozen ASR and speaker noninferiority gates against both round-1 baselines. Every cohort also passes retained waveform/hash/timing/quality consistency audit. C16 speaker scoring was rerun independently in this complete sweep; it agrees with the earlier identity-linked evidence. Both evaluation loops exited 0. This establishes first-trial quality only: the C32 throughput shortfall, matched repeated trials, and shared-host comparability remain unresolved.
+
+|Concurrency|EN WER|ZH CER|Speaker mean cosine|
+|---|---|---|---|
+|1|0.011380|0.031457|0.775129|
+|2|0.011380|0.031457|0.774560|
+|4|0.011380|0.029801|0.772809|
+|8|0.012802|0.031457|0.775390|
+|16|0.009957|0.022351|0.764908|
+|32|0.008535|0.031457|0.767611|
+|64|0.009957|0.027318|0.771295|
