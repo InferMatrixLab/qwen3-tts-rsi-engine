@@ -26,7 +26,11 @@
           "status": "PASS"
         }
       },
-      "speaker": "PENDING",
+      "speaker": {
+        "candidate": 0.7751290453597903,
+        "minimum": 0.7519795336015522,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-codec-fused-predictor-rope-full/speaker-c1/summary.json",
         "runs/vllm-sweep-round1-full128/speaker-c1/summary.json",
