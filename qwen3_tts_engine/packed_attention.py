@@ -9,7 +9,7 @@ from qwen_tts.core.models.modeling_qwen3_tts import (
 
 
 class PackedAttention(torch.nn.Module):
-    def __init__(self, reference, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False, native_rope_scope="all"):
+    def __init__(self, reference, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False, native_rope_scope="all", triton_talker_rope=False):
         super().__init__()
         self.reference = reference
         projections = [reference.q_proj, reference.k_proj, reference.v_proj]
@@ -28,6 +28,9 @@ class PackedAttention(torch.nn.Module):
                                           (native_rope_scope == 'talker') == self.multimodal)
         if native_rope and self.multimodal and not text_only_rope:
             raise ValueError("Native rotary requires identical CustomVoice position axes")
+        self.triton_talker_rope = triton_talker_rope and self.multimodal
+        if self.triton_talker_rope and not text_only_rope:
+            raise ValueError("Triton talker rotary requires identical CustomVoice position axes")
         self.reference_single = reference_single
         self.text_only_rope = text_only_rope
 
@@ -41,7 +44,12 @@ class PackedAttention(torch.nn.Module):
         key = reference.k_norm(key.reshape(heads))
         value = value.reshape(heads).transpose(1, 2)
         cos, sin = position_embeddings
-        if self.native_rope and not (self.reference_single and hidden_states.shape[0] == 1):
+        if self.triton_talker_rope and not (self.reference_single and hidden_states.shape[0] == 1):
+            from qwen3_tts_engine.rotary_triton_ascend import rotary
+            c, s = cos[0].contiguous(), sin[0].contiguous()
+            query = rotary(query, c, s).transpose(1, 2)
+            key = rotary(key, c, s).transpose(1, 2)
+        elif self.native_rope and not (self.reference_single and hidden_states.shape[0] == 1):
             import torch_npu
             rotary_cos, rotary_sin = (cos[0], sin[0]) if self.multimodal else (cos, sin)
             # Norm outputs are contiguous BSND. Preserve that layout for the
@@ -74,11 +82,11 @@ class PackedAttention(torch.nn.Module):
         return reference.o_proj(output.reshape(*shape, -1).contiguous()), weights
 
 
-def install_packed_attention(model, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False, native_rope_scope="all"):
+def install_packed_attention(model, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False, native_rope_scope="all", triton_talker_rope=False):
     replacements = []
     for parent in list(model.modules()):
         for name, child in list(parent.named_children()):
             if child.__class__.__name__ in ('Qwen3TTSTalkerAttention', 'Qwen3TTSAttention'):
                 replacements.append((parent, name, child))
-                setattr(parent, name, PackedAttention(child, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope, native_rope_scope=native_rope_scope))
+                setattr(parent, name, PackedAttention(child, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope, native_rope_scope=native_rope_scope, triton_talker_rope=triton_talker_rope))
     return replacements

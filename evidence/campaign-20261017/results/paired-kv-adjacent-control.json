@@ -1,0 +1,18 @@
+{
+  "status": "INCONCLUSIVE",
+  "scope": "One adjacent same-device candidate/control pair; not repeated ABBA or final acceptance",
+  "cohorts": [
+    {
+      "concurrency": 32,
+      "paired": 373.1505979751672,
+      "control": 364.2341953820035,
+      "gain_percent": 2.447986132606883
+    },
+    {
+      "concurrency": 64,
+      "paired": 495.8218671634423,
+      "control": 486.9397759336685,
+      "gain_percent": 1.8240636047328618
+    }
+  ]
+}

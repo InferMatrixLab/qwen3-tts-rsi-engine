@@ -221,7 +221,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False):
         if triton_kv_update and not native_kv_update:
             raise ValueError("Triton KV update requires native KV update")
         decode_batch_size(1, max_slots, decode_bucket_step)
@@ -242,7 +242,7 @@ class ContinuousModel:
         if prewarm_codec and not incremental_codec:
             raise ValueError('Codec prewarming requires the incremental codec')
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
-                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope, fused_residual=fused_residual, native_rope_scope=native_rope_scope)
+                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope, fused_residual=fused_residual, native_rope_scope=native_rope_scope, triton_talker_rope=triton_talker_rope)
         self.device = device
         self.speakers = self.model.speakers
         self.languages = self.model.languages

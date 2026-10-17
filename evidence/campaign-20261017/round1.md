@@ -345,3 +345,7 @@ Codec batch 8 (source `08f29a0`, physical NPU 6): C32/C64 364.465 / 504.726 fram
 ### Paired KV service control
 
 Source `c8480c7`, physical NPU 6: C32/C64 373.151 / 495.822 frames/s, all 256 requests completed, server exit 0. C32 regresses relative to the combined candidate (394.717), so this configuration is not selected. Operator speedup does not establish service speedup. Separate cancellation control produced exactly identical survivor audio after cancelling request 0 at frame 3.
+
+### Paired KV: adjacent same-device control qualifies the earlier comparison
+
+The subsequent flag-off control on physical NPU 6 produced C32/C64 364.234 / 486.940 frames/s, all 256 requests successful and server exit 0. Paired KV (373.151 / 495.822) is therefore approximately 2.45% / 1.82% faster than this adjacent control. Its lower value versus the earlier 394.717 result cannot establish a causal regression: temporal variability is material. Keep this candidate experimental pending repeated same-device attribution and full target acceptance. Do not multiply this gain with isolated operator gains.
