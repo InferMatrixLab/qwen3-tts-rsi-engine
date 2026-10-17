@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "scope": "synthetic slot graph diagnostic, not speech quality or speed",
+  "max_chunk_frames": 16,
+  "cache_codebooks": false,
+  "triton_snake": false,
+  "graph_control": true,
+  "strict_fp32": true,
+  "cache_constants": false,
+  "prewarm": true,
+  "cases": [
+    {
+      "batch": 2,
+      "frames": 101,
+      "max_abs_error": 1.430511474609375e-05,
+      "rms_error": 2.528812785840273e-07,
+      "finite": true
+    },
+    {
+      "batch": 1,
+      "frames": 101,
+      "max_abs_error": 7.029622793197632e-06,
+      "rms_error": 2.558606695401977e-07,
+      "finite": true
+    }
+  ],
+  "prewarm_live_state_exact": true,
+  "graph_control_exact": true,
+  "reset_max_abs_error": 2.5704503059387207e-07,
+  "triton_capture_calls": 0,
+  "triton_shapes": [],
+  "process_exit": 0
+}
