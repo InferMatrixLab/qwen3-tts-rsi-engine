@@ -18,18 +18,23 @@ parser.add_argument('--cancel-first-at', type=int)
 parser.add_argument('--incremental-codec', action='store_true')
 parser.add_argument('--batch-prefill', action='store_true')
 parser.add_argument('--native-kv-update', action='store_true')
+parser.add_argument('--native-gqa', action='store_true')
+parser.add_argument('--graph-prefill', action='store_true')
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 data = args.workload.read_bytes()
 payloads = [dict(json.loads(line), instructions='') for line in data.splitlines()]
 model = ContinuousModel(args.model, 'npu:0', max_slots=args.slots, initial_capacity=args.capacity,
                         incremental_codec=args.incremental_codec, batch_prefill=args.batch_prefill,
-                        native_kv_update=args.native_kv_update)
+                        native_kv_update=args.native_kv_update, native_gqa=args.native_gqa,
+                        graph_prefill=args.graph_prefill)
 result = {'status': 'INCONCLUSIVE', 'scope': 'native scheduling correctness probe; not service performance',
           'requests': [], 'events': [],
           'configuration': {'slots': args.slots, 'capacity': args.capacity,
                             'incremental_codec': args.incremental_codec, 'batch_prefill': args.batch_prefill,
                             'native_kv_update': args.native_kv_update,
+                            'native_gqa': args.native_gqa,
+                            'graph_prefill': args.graph_prefill,
                             'cancel_first_at': args.cancel_first_at},
           'source_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                             for p in sorted((Path(__file__).absolute().parent.parent / 'qwen3_tts_engine').glob('*.py'))}}

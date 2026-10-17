@@ -204,15 +204,17 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False):
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
-                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu)
+                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa)
         self.device = device
         self.speakers = self.model.speakers
         self.languages = self.model.languages
         self.talker = self.model.wrapper.model.talker
         self.max_slots = max_slots
         self.batch_prefill = batch_prefill
+        self.graph_prefill = graph_prefill
+        self.prefills = {}
         if max_slots < 1 or max_slots & (max_slots - 1):
             raise ValueError('Continuous slot count must be a positive power of two')
         self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update)
@@ -305,24 +307,35 @@ class ContinuousModel:
         prompts = [self.prepare_prompt(payload) for _, payload in submissions]
         lengths = [prompt['inputs_embeds'].shape[1] for prompt in prompts]
         longest = max(lengths)
+        padded_length = 1 << (longest - 1).bit_length() if self.graph_prefill else longest
         if not all(bool(prompt['attention_mask'].all()) for prompt in prompts):
             raise ValueError('Batched prefill requires individually unpadded prompts')
-        embeddings = torch.cat([torch.nn.functional.pad(prompt['inputs_embeds'], (0, 0, 0, longest - length))
+        embeddings = torch.cat([torch.nn.functional.pad(prompt['inputs_embeds'], (0, 0, 0, padded_length - length))
                                 for prompt, length in zip(prompts, lengths)])
-        mask = torch.cat([torch.nn.functional.pad(prompt['attention_mask'], (0, longest - length))
+        mask = torch.cat([torch.nn.functional.pad(prompt['attention_mask'], (0, padded_length - length))
                           for prompt, length in zip(prompts, lengths)])
-        positions, _ = self.talker.get_rope_index(mask)
-        output = self.talker.model(inputs_embeds=embeddings, attention_mask=mask, position_ids=positions,
-                                   use_cache=True, output_hidden_states=False, return_dict=True)
-        rows = torch.arange(len(submissions), device=self.device)
-        ends = torch.tensor(lengths, device=self.device) - 1
-        hidden = output.last_hidden_state[rows, ends].unsqueeze(1)
-        logits = self.talker.codec_head(hidden)[:, -1]
+        if self.graph_prefill:
+            from qwen3_tts_engine.prefill_graph import PrefillGraph
+            key = (len(submissions), padded_length)
+            if key not in self.prefills:
+                graph = PrefillGraph(self.talker, *key)
+                graph.capture()
+                self.prefills[key] = graph
+            hidden, logits, cache = self.prefills[key].run(embeddings, mask)
+        else:
+            positions, _ = self.talker.get_rope_index(mask)
+            output = self.talker.model(inputs_embeds=embeddings, attention_mask=mask, position_ids=positions,
+                                       use_cache=True, output_hidden_states=False, return_dict=True)
+            rows = torch.arange(len(submissions), device=self.device)
+            ends = torch.tensor(lengths, device=self.device) - 1
+            hidden = output.last_hidden_state[rows, ends].unsqueeze(1)
+            logits = self.talker.codec_head(hidden)[:, -1]
+            cache = output.past_key_values
         self.ensure_capacity(longest)
         for row, ((identifier, payload), prompt, length) in enumerate(zip(submissions, prompts, lengths)):
             # Crop padded KV entries; subsequent decode uses each original length
             # and the unpadded rotary origin, rather than the padded batch width.
-            self.arena.load(len(self.states), output.past_key_values, row=row, length=length)
+            self.arena.load(len(self.states), cache, row=row, length=length)
             self.add_state(identifier, payload, prompt, hidden[row:row + 1], logits[row:row + 1], length, 0)
 
     def emit_audio(self, selected, emit):
@@ -368,7 +381,7 @@ class ContinuousModel:
                 if index != last:
                     self.states[index] = self.states[last]
                 self.states.pop()
-        if self.batch_prefill and submissions:
+        if (self.batch_prefill or self.graph_prefill) and submissions:
             self.admit_batch(submissions)
         else:
             for identifier, payload in submissions:
@@ -439,6 +452,9 @@ class ContinuousModel:
         return results
 
     def close(self):
+        for graph in self.prefills.values():
+            graph.close()
+        self.prefills.clear()
         for graph in self.graphs.values():
             graph.close()
         self.predictor.close()

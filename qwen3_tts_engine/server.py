@@ -264,6 +264,7 @@ def main():
     parser.add_argument("--talker-graph", action="store_true")
     parser.add_argument("--streaming", action="store_true")
     parser.add_argument("--pack-qkv", action="store_true")
+    parser.add_argument("--native-gqa", action="store_true")
     parser.add_argument("--pack-mlp", action="store_true")
     parser.add_argument("--fused-swiglu", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
@@ -272,6 +273,7 @@ def main():
     parser.add_argument("--continuous", action="store_true")
     parser.add_argument("--incremental-codec", action="store_true")
     parser.add_argument("--batch-prefill", action="store_true")
+    parser.add_argument("--graph-prefill", action="store_true")
     parser.add_argument("--native-kv-update", action="store_true")
     parser.add_argument("--prefill-per-tick", type=int, default=4)
     options = parser.parse_args()
@@ -279,6 +281,8 @@ def main():
         parser.error('--incremental-codec requires --continuous')
     if options.batch_prefill and not options.continuous:
         parser.error('--batch-prefill requires --continuous')
+    if options.graph_prefill and not options.continuous:
+        parser.error('--graph-prefill requires --continuous')
     if options.native_kv_update and not options.continuous:
         parser.error('--native-kv-update requires --continuous')
     if min(options.max_batch_size, options.queue_size) <= 0 or options.batch_wait_ms < 0 or options.codec_left_context < 0:
@@ -290,6 +294,7 @@ def main():
                                              talker_graph=options.talker_graph,
                                              rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
                                              pack_mlp=options.pack_mlp, fused_swiglu=options.fused_swiglu,
+                                             native_gqa=options.native_gqa,
                                              codec_left_context=options.codec_left_context,
                                              codec_batch_size=options.codec_batch_size)
     if options.continuous:
@@ -297,6 +302,7 @@ def main():
         factory = partial(ContinuousModel, max_slots=options.max_batch_size,
                           rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
                           pack_mlp=options.pack_mlp, fused_swiglu=options.fused_swiglu,
+                          native_gqa=options.native_gqa, graph_prefill=options.graph_prefill,
                           codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
                           incremental_codec=options.incremental_codec, batch_prefill=options.batch_prefill,
                           native_kv_update=options.native_kv_update)

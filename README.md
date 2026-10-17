@@ -76,10 +76,18 @@ See [the codec investigation](evidence/campaign-20261017/plan/incremental-codec.
 
 `--continuous --batch-prefill` experimentally groups new admissions into a padded
 prefill batch, crops KV storage back to each prompt's length and projects logits
-only for each prompt's final token. The four-request BF16 scheduling probe
-retained identical PCM to individual prefill; the stricter FP32 per-layer KV
+only for each prompt's final token. The initial two-admission BF16 scheduling probe
+retained identical PCM to individual prefill, but a mixed four-admission batch
+changed generated tokens and PCM. The stricter FP32 per-layer KV
 comparison exceeded its 1e-4 tolerance on one observed element. That counterexample
 is retained, and this option still requires full-corpus quality and speed checks.
+
+`--continuous --graph-prefill` captures padded prefill computation. Same-shape
+FP32 eager/graph checks produced identical hidden states, logits and all KV layers
+under two request permutations. Padding buckets still change BF16 generation,
+so this does not establish complete-waveform parity or quality acceptance.
+`--native-gqa` uses the inference-specific Ascend grouped attention operator;
+its full-waveform checks changed generated output and it remains approximate.
 
 `--pack-mlp` combines the gate and up projections and passed the four-prompt
 complete-waveform comparison. `--fused-swiglu` additionally replaces SiLU and
