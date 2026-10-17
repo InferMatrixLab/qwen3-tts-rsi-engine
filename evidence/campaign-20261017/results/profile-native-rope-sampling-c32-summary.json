@@ -1,0 +1,1282 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "diagnostic trace, not throughput or quality evidence",
+  "revision": "e7091fc93e1123ceb38f4b3c22ef5fcdf9b99a87",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "slots": 32,
+  "warmup": 32,
+  "steps": 16,
+  "events": [
+    {
+      "phase": "warmup",
+      "step": 0,
+      "active_before": 0,
+      "admitted": 32,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 1,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 2,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 3,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 4,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 5,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 6,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 7,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 8,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 9,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 10,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 11,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 12,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 13,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 14,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 15,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 16,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 17,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        24
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 18,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 19,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 20,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 21,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        0
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 22,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 23,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 24,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 25,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 26,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 27,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 28,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 29,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 30,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        9
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 31,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 31,
+      "completed": [
+        29
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 0,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 1,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 2,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 3,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        18
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 4,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 5,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 6,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 29,
+      "completed": [
+        20,
+        5,
+        1
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 7,
+      "active_before": 29,
+      "admitted": 3,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 8,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        23
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 9,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 10,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 11,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        14
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 12,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 31,
+      "completed": [
+        7
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 13,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 31,
+      "completed": [
+        31
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 14,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 31,
+      "completed": [
+        15
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 15,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 31,
+      "completed": [
+        12
+      ],
+      "capacity": 512
+    }
+  ],
+  "incremental_codec": true,
+  "batch_prefill": true,
+  "native_kv_update": true,
+  "configuration": {
+    "model": "/home/why/qwen3-tts-research/model",
+    "workload": "evidence/campaign-20261017/plan/workload-128.jsonl",
+    "output": "runs/profile-native-rope-sampling-c32",
+    "slots": 32,
+    "warmup": 32,
+    "steps": 16,
+    "incremental_codec": true,
+    "batch_prefill": true,
+    "native_kv_update": true,
+    "synchronized_timings": true,
+    "rms_norm": "native",
+    "pack_mlp": true,
+    "fused_swiglu": true,
+    "text_only_rope": false,
+    "prewarm_codec": true,
+    "bucket_kv": false,
+    "graph_embeddings": true,
+    "bucket_prefill": false,
+    "decode_bucket_step": 0,
+    "batch_audio_transfer": false,
+    "reference_single": false,
+    "graph_sampling": true,
+    "native_rope": true,
+    "native_gqa": true,
+    "codec_batch_size": 4,
+    "graph_prefill": true,
+    "prefill_per_tick": 64
+  },
+  "source_sha256": {
+    "qwen3_tts_engine/__init__.py": "9f7e7ecc1e417db1eda84a8904ef82621444b63a60cc35c14a4121609c11f5a3",
+    "qwen3_tts_engine/batching.py": "08a390970af85286f3e85d37619c01fa414d58c760551544182c87fbd4d5bef0",
+    "qwen3_tts_engine/benchmark.py": "0cf57d578b49aeccd0d00a3da77258b12c16ac56a001dbf7ff807c85f47c9b66",
+    "qwen3_tts_engine/codec_graph.py": "1ff053ffc0db1f0d55c98ec065aa70eec0580368e685dd53f598042b8c08e8ff",
+    "qwen3_tts_engine/codec_slots.py": "b073f06630d97f0bb15e79ef5a72adfada1624f010b156adc3f3024a9f7a9251",
+    "qwen3_tts_engine/continuous.py": "458fdf24be80a6e83db67cbdbde54fdab102b82d89c284a52d4f045e640104af",
+    "qwen3_tts_engine/fused_decoder.py": "0fe34c764c553f0c6d2424b99db913d74a7ae4aee66fcfef568ab378b11afe13",
+    "qwen3_tts_engine/incremental_codec.py": "8c53a8ee295af4b346543d6c929799d94fdee5b80fea294e290b2d19367402c9",
+    "qwen3_tts_engine/model.py": "4116c4d282a56b21a2eaabd3ca8f3dd603d941f9dbf0a2c4924f2157b73aac31",
+    "qwen3_tts_engine/npu_attention.py": "a18cfbe7432cd7e19c0a8767e4a406e8c1c62d2898c5d3f9206d939356a29b3c",
+    "qwen3_tts_engine/operators.py": "48879874201b7717324effda1a3ad808f173b7b25cb6b407e58952b0de121aee",
+    "qwen3_tts_engine/packed_attention.py": "92b46a8b9e773d01ea0aa07605834605942865c58106c63e9b42a7bba7dbed32",
+    "qwen3_tts_engine/packed_mlp.py": "f46cfbaae4ca78b81052b223a17b052cda56949b28c52dd305229a4561ca53da",
+    "qwen3_tts_engine/predictor.py": "90f8fd7a4ff5e97c1740052ad262a83aa99bd824f535e730a4f887849819dd06",
+    "qwen3_tts_engine/prefill_graph.py": "7d2941dcf74e73168b3f6d4ecbda913532572a2b710c65053d08f1a32304fd2e",
+    "qwen3_tts_engine/sampling.py": "fd1f4fc63c3f1edb60e5d5e16d7531c7e04a9e5aa4369132afffb8091398fa7f",
+    "qwen3_tts_engine/sampling_graph.py": "8bf562ac5da6fdfe75640aaf9a7d97a18deb14b699dd0f260b955c56baf9e3cc",
+    "qwen3_tts_engine/server.py": "9a2c9b4cab3d794eb2644eb62bd25ed8624a237c8e7bdab386c98cdfe0cc897b",
+    "qwen3_tts_engine/talker_graph.py": "e86ca92452290fda310ca1398ffffb44cf289c30450ce21929c49703b71844dd",
+    "qwen3_tts_engine/whole_predictor.py": "54380d4c16201671aff6913985e9e6689af2306692aa9d830c21392dd94d3d6a"
+  },
+  "timings": [
+    {
+      "label": "continuous_sampling",
+      "step": 0,
+      "seconds": 0.000964445061981678
+    },
+    {
+      "label": "continuous_batch_prefill",
+      "step": 0,
+      "seconds": 0.0223205778747797
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 0,
+      "seconds": 0.017949184402823448
+    },
+    {
+      "label": "continuous_talker",
+      "step": 0,
+      "seconds": 0.009609567932784557
+    },
+    {
+      "label": "continuous_codec",
+      "step": 0,
+      "seconds": 0.008576192893087864
+    },
+    {
+      "label": "continuous_audio",
+      "step": 0,
+      "seconds": 0.009382323361933231
+    },
+    {
+      "label": "continuous_tick",
+      "step": 0,
+      "seconds": 0.06290305778384209
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 1,
+      "seconds": 0.018081477843225002
+    },
+    {
+      "label": "continuous_talker",
+      "step": 1,
+      "seconds": 0.009636959061026573
+    },
+    {
+      "label": "continuous_codec",
+      "step": 1,
+      "seconds": 0.009829794056713581
+    },
+    {
+      "label": "continuous_codec",
+      "step": 1,
+      "seconds": 0.008606483228504658
+    },
+    {
+      "label": "continuous_audio",
+      "step": 1,
+      "seconds": 0.020669564604759216
+    },
+    {
+      "label": "continuous_tick",
+      "step": 1,
+      "seconds": 0.05152730364352465
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 2,
+      "seconds": 0.018094178289175034
+    },
+    {
+      "label": "continuous_talker",
+      "step": 2,
+      "seconds": 0.009673339314758778
+    },
+    {
+      "label": "continuous_codec",
+      "step": 2,
+      "seconds": 0.008561631664633751
+    },
+    {
+      "label": "continuous_audio",
+      "step": 2,
+      "seconds": 0.009235149249434471
+    },
+    {
+      "label": "continuous_tick",
+      "step": 2,
+      "seconds": 0.04098900128155947
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 3,
+      "seconds": 0.018057717941701412
+    },
+    {
+      "label": "continuous_talker",
+      "step": 3,
+      "seconds": 0.009614288806915283
+    },
+    {
+      "label": "continuous_codec",
+      "step": 3,
+      "seconds": 0.008722076192498207
+    },
+    {
+      "label": "continuous_codec",
+      "step": 3,
+      "seconds": 0.008589541539549828
+    },
+    {
+      "label": "continuous_audio",
+      "step": 3,
+      "seconds": 0.018775995820760727
+    },
+    {
+      "label": "continuous_tick",
+      "step": 3,
+      "seconds": 0.052680942229926586
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 4,
+      "seconds": 0.0015142885968089104
+    },
+    {
+      "label": "continuous_batch_prefill",
+      "step": 4,
+      "seconds": 0.02002948895096779
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 4,
+      "seconds": 0.017962943762540817
+    },
+    {
+      "label": "continuous_talker",
+      "step": 4,
+      "seconds": 0.009658010676503181
+    },
+    {
+      "label": "continuous_audio",
+      "step": 4,
+      "seconds": 5.219224840402603e-05
+    },
+    {
+      "label": "continuous_tick",
+      "step": 4,
+      "seconds": 0.051260015927255154
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 5,
+      "seconds": 0.01789167243987322
+    },
+    {
+      "label": "continuous_talker",
+      "step": 5,
+      "seconds": 0.00963708944618702
+    },
+    {
+      "label": "continuous_codec",
+      "step": 5,
+      "seconds": 0.009779322892427444
+    },
+    {
+      "label": "continuous_codec",
+      "step": 5,
+      "seconds": 0.008576562628149986
+    },
+    {
+      "label": "continuous_audio",
+      "step": 5,
+      "seconds": 0.019710310734808445
+    },
+    {
+      "label": "continuous_tick",
+      "step": 5,
+      "seconds": 0.05025620013475418
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 6,
+      "seconds": 0.018062698654830456
+    },
+    {
+      "label": "continuous_talker",
+      "step": 6,
+      "seconds": 0.009590008296072483
+    },
+    {
+      "label": "continuous_codec",
+      "step": 6,
+      "seconds": 0.019056164659559727
+    },
+    {
+      "label": "continuous_codec",
+      "step": 6,
+      "seconds": 0.00875844620168209
+    },
+    {
+      "label": "continuous_audio",
+      "step": 6,
+      "seconds": 0.02985166199505329
+    },
+    {
+      "label": "continuous_tick",
+      "step": 6,
+      "seconds": 0.06922680232673883
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 7,
+      "seconds": 0.001102488487958908
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 7,
+      "seconds": 0.0008353209123015404
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 7,
+      "seconds": 0.0008475221693515778
+    },
+    {
+      "label": "continuous_batch_prefill",
+      "step": 7,
+      "seconds": 0.22472812607884407
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 7,
+      "seconds": 0.017964295111596584
+    },
+    {
+      "label": "continuous_talker",
+      "step": 7,
+      "seconds": 0.009568977169692516
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.014249039813876152
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.014261519536376
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.01429281011223793
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.01428311038762331
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.014297939836978912
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.01427845936268568
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.008721104823052883
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.008542980998754501
+    },
+    {
+      "label": "continuous_audio",
+      "step": 7,
+      "seconds": 0.11006456799805164
+    },
+    {
+      "label": "continuous_tick",
+      "step": 7,
+      "seconds": 0.36588569823652506
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 8,
+      "seconds": 0.018043466843664646
+    },
+    {
+      "label": "continuous_talker",
+      "step": 8,
+      "seconds": 0.009615839459002018
+    },
+    {
+      "label": "continuous_codec",
+      "step": 8,
+      "seconds": 0.008964010514318943
+    },
+    {
+      "label": "continuous_codec",
+      "step": 8,
+      "seconds": 0.013983892276883125
+    },
+    {
+      "label": "continuous_audio",
+      "step": 8,
+      "seconds": 0.024624116718769073
+    },
+    {
+      "label": "continuous_tick",
+      "step": 8,
+      "seconds": 0.05810726433992386
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 9,
+      "seconds": 0.000823531299829483
+    },
+    {
+      "label": "continuous_batch_prefill",
+      "step": 9,
+      "seconds": 0.018762155435979366
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 9,
+      "seconds": 0.017919303849339485
+    },
+    {
+      "label": "continuous_talker",
+      "step": 9,
+      "seconds": 0.009589217603206635
+    },
+    {
+      "label": "continuous_codec",
+      "step": 9,
+      "seconds": 0.009725570678710938
+    },
+    {
+      "label": "continuous_audio",
+      "step": 9,
+      "seconds": 0.010333978570997715
+    },
+    {
+      "label": "continuous_tick",
+      "step": 9,
+      "seconds": 0.05976377706974745
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 10,
+      "seconds": 0.018062318675220013
+    },
+    {
+      "label": "continuous_talker",
+      "step": 10,
+      "seconds": 0.009559347294270992
+    },
+    {
+      "label": "continuous_codec",
+      "step": 10,
+      "seconds": 0.010405699722468853
+    },
+    {
+      "label": "continuous_audio",
+      "step": 10,
+      "seconds": 0.011988329701125622
+    },
+    {
+      "label": "continuous_tick",
+      "step": 10,
+      "seconds": 0.04240599647164345
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 11,
+      "seconds": 0.01804683730006218
+    },
+    {
+      "label": "continuous_talker",
+      "step": 11,
+      "seconds": 0.00956345722079277
+    },
+    {
+      "label": "continuous_codec",
+      "step": 11,
+      "seconds": 0.015461419709026814
+    },
+    {
+      "label": "continuous_audio",
+      "step": 11,
+      "seconds": 0.016428375616669655
+    },
+    {
+      "label": "continuous_tick",
+      "step": 11,
+      "seconds": 0.049817198887467384
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 12,
+      "seconds": 0.0008250121027231216
+    },
+    {
+      "label": "continuous_batch_prefill",
+      "step": 12,
+      "seconds": 0.019230508245527744
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 12,
+      "seconds": 0.01792113296687603
+    },
+    {
+      "label": "continuous_talker",
+      "step": 12,
+      "seconds": 0.009617287665605545
+    },
+    {
+      "label": "continuous_codec",
+      "step": 12,
+      "seconds": 0.01181577518582344
+    },
+    {
+      "label": "continuous_codec",
+      "step": 12,
+      "seconds": 0.008597861975431442
+    },
+    {
+      "label": "continuous_audio",
+      "step": 12,
+      "seconds": 0.02320014126598835
+    },
+    {
+      "label": "continuous_tick",
+      "step": 12,
+      "seconds": 0.0760795185342431
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 13,
+      "seconds": 0.0008282512426376343
+    },
+    {
+      "label": "continuous_batch_prefill",
+      "step": 13,
+      "seconds": 0.01975954044610262
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 13,
+      "seconds": 0.017939383164048195
+    },
+    {
+      "label": "continuous_talker",
+      "step": 13,
+      "seconds": 0.009604508988559246
+    },
+    {
+      "label": "continuous_codec",
+      "step": 13,
+      "seconds": 0.00852414034307003
+    },
+    {
+      "label": "continuous_codec",
+      "step": 13,
+      "seconds": 0.009768173098564148
+    },
+    {
+      "label": "continuous_codec",
+      "step": 13,
+      "seconds": 0.009512575343251228
+    },
+    {
+      "label": "continuous_audio",
+      "step": 13,
+      "seconds": 0.029514703899621964
+    },
+    {
+      "label": "continuous_tick",
+      "step": 13,
+      "seconds": 0.08287125453352928
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 14,
+      "seconds": 0.0008159708231687546
+    },
+    {
+      "label": "continuous_batch_prefill",
+      "step": 14,
+      "seconds": 0.018072066828608513
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 14,
+      "seconds": 0.0179555956274271
+    },
+    {
+      "label": "continuous_talker",
+      "step": 14,
+      "seconds": 0.00952207576483488
+    },
+    {
+      "label": "continuous_codec",
+      "step": 14,
+      "seconds": 0.009722392074763775
+    },
+    {
+      "label": "continuous_codec",
+      "step": 14,
+      "seconds": 0.009665890596807003
+    },
+    {
+      "label": "continuous_codec",
+      "step": 14,
+      "seconds": 0.01631396170705557
+    },
+    {
+      "label": "continuous_codec",
+      "step": 14,
+      "seconds": 0.008554440923035145
+    },
+    {
+      "label": "continuous_audio",
+      "step": 14,
+      "seconds": 0.04720199201256037
+    },
+    {
+      "label": "continuous_tick",
+      "step": 14,
+      "seconds": 0.09865354280918837
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 15,
+      "seconds": 0.0008953223004937172
+    },
+    {
+      "label": "continuous_batch_prefill",
+      "step": 15,
+      "seconds": 0.019182946532964706
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 15,
+      "seconds": 0.017917083576321602
+    },
+    {
+      "label": "continuous_talker",
+      "step": 15,
+      "seconds": 0.009570727124810219
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014227988198399544
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014290818944573402
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014291228726506233
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014317740686237812
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014344991184771061
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.013530749827623367
+    },
+    {
+      "label": "continuous_audio",
+      "step": 15,
+      "seconds": 0.09210443403571844
+    },
+    {
+      "label": "continuous_tick",
+      "step": 15,
+      "seconds": 0.14504592400044203
+    }
+  ],
+  "timing_caveat": "Synchronized inclusive ranges overlap and perturb execution; do not add nested ranges or interpret as service throughput.",
+  "captured_shapes": {
+    "prefill": [
+      [
+        1,
+        32
+      ],
+      [
+        1,
+        64
+      ],
+      [
+        3,
+        64
+      ],
+      [
+        32,
+        64
+      ]
+    ],
+    "talker": [
+      [
+        32,
+        512
+      ]
+    ],
+    "codec": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        8
+      ]
+    ]
+  }
+}

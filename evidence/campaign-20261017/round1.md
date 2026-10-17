@@ -242,3 +242,12 @@ Native-RoPE full-sweep quality update: C8 passes both ASR and speaker gates; all
 
 
 Codec-constant service measurement (d769981, physical NPU 0): C32 361.892265 and C64 469.078374 frames/s, 256/256 successful requests, clean server exit. This does not demonstrate a gain against the earlier same-device native-RoPE sweep and remains below both target thresholds. The flag stays default-off. A second full 128-request-per-concurrency vLLM-Omni baseline repeat has started on physical NPU 0 with the same pinned clean main and allocator workaround, to extend repeat evidence and check temporal variability; it is not yet complete.
+
+
+### Bounded codec code history and new component profiling
+
+Added default-off `--codec-code-buffer`: one batched write per tick retains the last eight code frames per slot; grouped audio decode gathers the required interval directly. Slot moves accompany cancellation/completion compaction. All 43 tests passed; four complete mixed-language requests matched the list-based control PCM hashes exactly, including normal slot compaction. Explicit cancellation parity and full service measurement remain pending.
+
+The latest synchronized C32 diagnostic measured 16 ticks: 1.3575 s total, 0.3621 s batch prefill, 0.2879 s predictor, 0.1536 s talker, 0.4731 s audio (including 0.4380 s codec). Inclusive ranges overlap, synchronization perturbs execution, and the workspace was under development; these are bottleneck clues, not throughput or attribution evidence.
+
+Triton Ascend 3.2.0 is available. A vector-only SnakeBeta prototype preserves explicit BF16 rounding and successfully captures into NPUGraph. The first 1D logical-grid implementation was slower than separate native operators; raw errors and timings are retained. A physical-core-capped, channel/time-tiled follow-up is running before any serving integration.

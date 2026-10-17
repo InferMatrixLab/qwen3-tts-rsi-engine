@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "scope": "Four complete waveform diagnostics only; not corpus quality or throughput",
+  "requests": [
+    {
+      "index": 0,
+      "equal": true,
+      "control_sha256": "9dc4eea4d6fa230cef26486e5d9b004e85179f136e6c295872feaf667ef18bfc",
+      "buffer_sha256": "9dc4eea4d6fa230cef26486e5d9b004e85179f136e6c295872feaf667ef18bfc"
+    },
+    {
+      "index": 1,
+      "equal": true,
+      "control_sha256": "fef5faa675f3c600ec4fa70791331cddee12c52a2b651f94ee9089d5f1e23bac",
+      "buffer_sha256": "fef5faa675f3c600ec4fa70791331cddee12c52a2b651f94ee9089d5f1e23bac"
+    },
+    {
+      "index": 65,
+      "equal": true,
+      "control_sha256": "efdb9aae9e29ed2dd40ad2ee1b3b1e4a035275346cc4b0f7a3faabb739fbd29f",
+      "buffer_sha256": "efdb9aae9e29ed2dd40ad2ee1b3b1e4a035275346cc4b0f7a3faabb739fbd29f"
+    },
+    {
+      "index": 64,
+      "equal": true,
+      "control_sha256": "eeb5628824835a8f77648c663dae149c400f35de4f9e85b7bb95e5e15d2f428c",
+      "buffer_sha256": "eeb5628824835a8f77648c663dae149c400f35de4f9e85b7bb95e5e15d2f428c"
+    }
+  ]
+}

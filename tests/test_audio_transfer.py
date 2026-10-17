@@ -18,6 +18,7 @@ class Codec:
 def exercise(batched):
     model = object.__new__(ContinuousModel)
     model.batch_audio_transfer = batched
+    model.codec_codes = None
     model.incremental_codec = True
     model.codec_batch_size = 2
     model.codec = Codec()

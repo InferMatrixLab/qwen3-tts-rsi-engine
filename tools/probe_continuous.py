@@ -30,6 +30,7 @@ parser.add_argument('--batch-audio-transfer', action='store_true')
 parser.add_argument('--reference-single', action='store_true')
 parser.add_argument('--graph-sampling', action='store_true')
 parser.add_argument('--native-rope', action='store_true')
+parser.add_argument('--codec-code-buffer', action='store_true')
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 data = args.workload.read_bytes()
@@ -38,7 +39,7 @@ model = ContinuousModel(args.model, 'npu:0', max_slots=args.slots, initial_capac
                         incremental_codec=args.incremental_codec, batch_prefill=args.batch_prefill,
                         native_kv_update=args.native_kv_update, native_gqa=args.native_gqa,
                         graph_prefill=args.graph_prefill, text_only_rope=args.text_only_rope,
-                        prewarm_codec=args.prewarm_codec, bucket_kv=args.bucket_kv, graph_embeddings=args.graph_embeddings, bucket_prefill=args.bucket_prefill, decode_bucket_step=args.decode_bucket_step, batch_audio_transfer=args.batch_audio_transfer, reference_single=args.reference_single, graph_sampling=args.graph_sampling, native_rope=args.native_rope)
+                        prewarm_codec=args.prewarm_codec, bucket_kv=args.bucket_kv, graph_embeddings=args.graph_embeddings, bucket_prefill=args.bucket_prefill, decode_bucket_step=args.decode_bucket_step, batch_audio_transfer=args.batch_audio_transfer, reference_single=args.reference_single, graph_sampling=args.graph_sampling, native_rope=args.native_rope, codec_code_buffer=args.codec_code_buffer)
 result = {'status': 'INCONCLUSIVE', 'scope': 'native scheduling correctness probe; not service performance',
           'requests': [], 'events': [],
           'configuration': {'slots': args.slots, 'capacity': args.capacity,
@@ -46,7 +47,7 @@ result = {'status': 'INCONCLUSIVE', 'scope': 'native scheduling correctness prob
                             'native_kv_update': args.native_kv_update,
                             'native_gqa': args.native_gqa,
                             'graph_prefill': args.graph_prefill,
-                            'text_only_rope': args.text_only_rope, 'prewarm_codec': args.prewarm_codec, 'bucket_kv': args.bucket_kv, 'graph_embeddings': args.graph_embeddings, 'bucket_prefill': args.bucket_prefill, 'decode_bucket_step': args.decode_bucket_step, 'batch_audio_transfer': args.batch_audio_transfer, 'reference_single': args.reference_single, 'graph_sampling': args.graph_sampling, 'native_rope': args.native_rope,
+                            'text_only_rope': args.text_only_rope, 'prewarm_codec': args.prewarm_codec, 'bucket_kv': args.bucket_kv, 'graph_embeddings': args.graph_embeddings, 'bucket_prefill': args.bucket_prefill, 'decode_bucket_step': args.decode_bucket_step, 'batch_audio_transfer': args.batch_audio_transfer, 'reference_single': args.reference_single, 'graph_sampling': args.graph_sampling, 'native_rope': args.native_rope, 'codec_code_buffer': args.codec_code_buffer,
                             'cancel_first_at': args.cancel_first_at},
           'source_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                             for p in sorted((Path(__file__).absolute().parent.parent / 'qwen3_tts_engine').glob('*.py'))}}

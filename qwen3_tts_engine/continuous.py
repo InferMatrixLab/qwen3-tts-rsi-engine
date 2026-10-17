@@ -217,10 +217,13 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False):
         decode_batch_size(1, max_slots, decode_bucket_step)
         self.decode_bucket_step = decode_bucket_step
         self.batch_audio_transfer = batch_audio_transfer
+        if codec_code_buffer and not incremental_codec:
+            raise ValueError("Codec code buffer requires incremental codec")
+        self.codec_codes = None
         self.reference_single = reference_single
         self.graph_sampling = graph_sampling
         self.samplers = {}
@@ -251,6 +254,9 @@ class ContinuousModel:
         if incremental_codec:
             from qwen3_tts_engine.codec_slots import CodecSlots
             self.codec = CodecSlots(decoder, max_slots, cache_constants=cache_codec_constants)
+            if codec_code_buffer:
+                from qwen3_tts_engine.codec_code_buffer import CodecCodeBuffer
+                self.codec_codes = CodecCodeBuffer(max_slots, decoder.config.num_quantizers, device)
             if prewarm_codec:
                 self.codec.prewarm(min(codec_batch_size, max_slots))
         else:
@@ -384,16 +390,20 @@ class ContinuousModel:
             if state.frames == state.emitted:
                 continue
             start = state.emitted if self.incremental_codec else max(0, state.emitted - self.context)
-            codes = torch.stack(state.codes[start:]).transpose(0, 1)
-            groups.setdefault(codes.shape[-1], []).append((state, codes, (state.emitted - start) * 1920))
+            length = state.frames - start
+            codes = None if self.codec_codes is not None else torch.stack(state.codes[start:]).transpose(0, 1)
+            groups.setdefault(length, []).append((state, codes, (state.emitted - start) * 1920))
         pending = []
-        for entries in groups.values():
+        for length, entries in groups.items():
             for offset in range(0, len(entries), self.codec_batch_size):
                 group = entries[offset:offset + self.codec_batch_size]
                 batch = 1 << (len(group) - 1).bit_length()
                 codes = [entry[1] for entry in group]
                 if self.incremental_codec:
-                    waves = self.codec.decode([slots[entry[0].identifier] for entry in group], torch.stack(codes))
+                    indices = [slots[entry[0].identifier] for entry in group]
+                    packed = (self.codec_codes.read(indices, [entry[0].emitted for entry in group], length)
+                              if self.codec_codes is not None else torch.stack(codes))
+                    waves = self.codec.decode(indices, packed)
                 else:
                     codes += [codes[-1]] * (batch - len(codes))
                     waves = self.codec.decode(torch.stack(codes))
@@ -431,6 +441,8 @@ class ContinuousModel:
             if self.states[index].identifier in cancelled:
                 last = len(self.states) - 1
                 self.arena.move(last, index)
+                if self.codec_codes is not None:
+                    self.codec_codes.move(last, index)
                 if self.incremental_codec:
                     self.codec.move(last, index)
                 if index != last:
@@ -493,10 +505,13 @@ class ContinuousModel:
             next_tokens, updated_seen = self.samplers[count].run(logits, uniforms, seen, steps)
         else:
             next_tokens = self.semantic(logits, uniforms, seen, steps)
+        if self.codec_codes is not None:
+            self.codec_codes.write(codes[:count], steps - 1)
         token_ids = next_tokens[:, 0].tolist()
         due, finished = [], []
         for index, state in enumerate(self.states):
-            state.codes.append(codes[index])
+            if self.codec_codes is None:
+                state.codes.append(codes[index])
             state.frames += 1
             state.position += 1
             state.hidden = hidden[index:index + 1]
@@ -519,6 +534,8 @@ class ContinuousModel:
                                                'codec_frames': state.frames, 'finish_reason': reason}))
             last = len(self.states) - 1
             self.arena.move(last, index)
+            if self.codec_codes is not None:
+                self.codec_codes.move(last, index)
             if self.incremental_codec:
                 self.codec.move(last, index)
             if index != last:
