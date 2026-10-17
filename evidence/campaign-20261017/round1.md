@@ -99,3 +99,20 @@ All 128 retained clips at each concurrency have now been independently transcrib
 | 64 | 0.011380 | 0.035596 | 0.007112 | 0.031457 |
 
 Incremental candidate C1 ASR completed with EN WER 0.009957 and ZH CER 0.049669, the same aggregate errors as the previous continuous candidate. It still fails the frozen Chinese ASR noninferiority gate; the codec optimization does not resolve that quality failure.
+
+## Reference RMSNorm and larger admission budget controls
+
+The original RMSNorm C1 control (commit `37538a4`, physical NPU 6) completed 128 requests at 27.929 frames/s, with EN WER 0.011380, ZH CER 0.028974, and speaker mean cosine 0.780207. These C1 quality values satisfy the frozen tolerances for this exploratory cohort. They do not establish quality at other concurrency levels or a formal repeated comparison.
+
+Increasing the admission budget from 4 to 64 requests per tick produced the following single-cohort results; all 128 requests in each row completed, with benchmark and server exit 0. High-concurrency quality remains pending. Native RMSNorm uses physical NPU 1, revision `4812630`; reference RMSNorm uses physical NPU 0, revision `a693aea`. The different cards and generated outputs preclude attributing the entire difference to normalization.
+
+| Normalization | Concurrency | Throughput (frames/s) | TTFA p50 (ms) | TTFA p95 (ms) | Mean RTF |
+|---|---:|---:|---:|---:|---:|
+| Native | 16 | 175.592 | 324.56 | 493.67 | 1.0839 |
+| Native | 64 | 312.458 | 1004.64 | 1275.59 | 2.2162 |
+| Reference | 16 | 141.786 | 373.01 | 683.89 | 1.3553 |
+| Reference | 64 | 250.558 | 1306.19 | 1691.99 | 2.6788 |
+
+The C64 target is approximately 484.15 frames/s; neither control reaches it. No all-concurrency 2x result is established.
+
+Synchronized diagnostic ranges (not service benchmarks) for 16 C32 ticks with original RMSNorm attribute 1.650 seconds inclusively to audio generation, 0.563 to predictor, and 0.549 to talker, within 3.662 seconds total. Codec batching of 8 instead of 4 changed total diagnostic time to 3.717 seconds and audio to 1.638 seconds; this probe provides no convincing gain. Synchronization perturbs execution, nested ranges overlap, and these values must not be converted into service throughput.

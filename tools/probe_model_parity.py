@@ -20,6 +20,7 @@ parser.add_argument('--batch-size', type=int, default=1)
 parser.add_argument('--rms-norm', choices=['native', 'reference-rounding'])
 parser.add_argument('--pack-qkv', action='store_true')
 parser.add_argument('--native-gqa', action='store_true')
+parser.add_argument('--text-only-rope', action='store_true')
 parser.add_argument('--pack-mlp', action='store_true')
 parser.add_argument('--fused-swiglu', action='store_true')
 args = parser.parse_args()
@@ -49,6 +50,7 @@ result['batch_size'] = args.batch_size
 result['rms_norm'] = args.rms_norm
 result['pack_qkv'] = args.pack_qkv
 result['native_gqa'] = args.native_gqa
+result['text_only_rope'] = args.text_only_rope
 result['pack_mlp'] = args.pack_mlp
 result['fused_swiglu'] = args.fused_swiglu
 replacements = []
@@ -58,9 +60,9 @@ try:
         if name == 'graph' and args.rms_norm:
             from qwen3_tts_engine.operators import install_rms_norms
             replacements = install_rms_norms(model.wrapper.model.talker, args.rms_norm)
-        if name == 'graph' and (args.pack_qkv or args.native_gqa):
+        if name == 'graph' and (args.pack_qkv or args.native_gqa or args.text_only_rope):
             from qwen3_tts_engine.packed_attention import install_packed_attention
-            replacements.extend(install_packed_attention(model.wrapper.model.talker, native_gqa=args.native_gqa))
+            replacements.extend(install_packed_attention(model.wrapper.model.talker, native_gqa=args.native_gqa, text_only_rope=args.text_only_rope))
         if name == 'graph' and (args.pack_mlp or args.fused_swiglu):
             from qwen3_tts_engine.packed_mlp import install_packed_mlp
             replacements.extend(install_packed_mlp(model.wrapper.model.talker, fused=args.fused_swiglu))

@@ -1,0 +1,1146 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "diagnostic trace, not throughput or quality evidence",
+  "revision": "a693aea5882e7b4e33939782e9db7d34666aa174",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "slots": 32,
+  "warmup": 32,
+  "steps": 16,
+  "events": [
+    {
+      "phase": "warmup",
+      "step": 0,
+      "active_before": 0,
+      "admitted": 32,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 1,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 2,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 3,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 4,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 5,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 6,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 7,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 8,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 9,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 10,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 11,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 12,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 13,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 14,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 15,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 16,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 17,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        24
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 18,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 19,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 20,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 21,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 22,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 23,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 24,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 25,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 26,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        5
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 27,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 28,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 29,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 30,
+      "completed": [
+        29,
+        0
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 30,
+      "active_before": 30,
+      "admitted": 2,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "warmup",
+      "step": 31,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        3
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 0,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 31,
+      "completed": [
+        9
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 1,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 2,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 3,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 4,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 5,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 6,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 7,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        20
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 8,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 31,
+      "completed": [
+        23
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 9,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 10,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        26
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 11,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 31,
+      "completed": [
+        28
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 12,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 30,
+      "completed": [
+        14,
+        1
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 13,
+      "active_before": 30,
+      "admitted": 2,
+      "active_after": 32,
+      "completed": [],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 14,
+      "active_before": 32,
+      "admitted": 0,
+      "active_after": 31,
+      "completed": [
+        13
+      ],
+      "capacity": 512
+    },
+    {
+      "phase": "profile",
+      "step": 15,
+      "active_before": 31,
+      "admitted": 1,
+      "active_after": 30,
+      "completed": [
+        27,
+        19
+      ],
+      "capacity": 512
+    }
+  ],
+  "incremental_codec": true,
+  "batch_prefill": true,
+  "native_kv_update": true,
+  "configuration": {
+    "model": "/home/why/qwen3-tts-research/model",
+    "workload": "evidence/campaign-20261017/plan/workload-128.jsonl",
+    "output": "runs/profile-sync-reference-c32",
+    "slots": 32,
+    "warmup": 32,
+    "steps": 16,
+    "incremental_codec": true,
+    "batch_prefill": true,
+    "native_kv_update": true,
+    "synchronized_timings": true,
+    "rms_norm": "reference",
+    "pack_mlp": true,
+    "graph_prefill": false,
+    "prefill_per_tick": 64
+  },
+  "source_sha256": {
+    "qwen3_tts_engine/__init__.py": "9f7e7ecc1e417db1eda84a8904ef82621444b63a60cc35c14a4121609c11f5a3",
+    "qwen3_tts_engine/benchmark.py": "0cf57d578b49aeccd0d00a3da77258b12c16ac56a001dbf7ff807c85f47c9b66",
+    "qwen3_tts_engine/codec_graph.py": "1ff053ffc0db1f0d55c98ec065aa70eec0580368e685dd53f598042b8c08e8ff",
+    "qwen3_tts_engine/codec_slots.py": "f5268a1d65a6f38d84eaad339a08188c61fbdc3c5cfc352f90b73a28e8a47643",
+    "qwen3_tts_engine/continuous.py": "39703b7164892fddae0a27b8734fda458f6ccb9d8e609d1a2a5fcb4a7a124e4b",
+    "qwen3_tts_engine/incremental_codec.py": "101490c7e001c80faa78a22409b2015aefa7c1a6a37a422ad448b98b87f0e18f",
+    "qwen3_tts_engine/model.py": "95e6edeebf7c9f78a583fe05eea46b51803fed2d243a36bd8ec51b65849f5956",
+    "qwen3_tts_engine/npu_attention.py": "a18cfbe7432cd7e19c0a8767e4a406e8c1c62d2898c5d3f9206d939356a29b3c",
+    "qwen3_tts_engine/operators.py": "b4e83826f5e6fb563fbe5397014cd5be63d8baa52652b13424a2085241e02c07",
+    "qwen3_tts_engine/packed_attention.py": "795eeeaeb3c59f9f3e93a6679c9d19bc0291f1c32cd15bc1fb6f609d17a0736e",
+    "qwen3_tts_engine/packed_mlp.py": "1de9180113ee9948928a94ffdca5a41377ce09b7f56a8315595ce118b72301c6",
+    "qwen3_tts_engine/predictor.py": "90f8fd7a4ff5e97c1740052ad262a83aa99bd824f535e730a4f887849819dd06",
+    "qwen3_tts_engine/prefill_graph.py": "d6681d7cee669f8ac3b4c396958563c85aa2e05ce80d5068b1c0063b7f8e3e55",
+    "qwen3_tts_engine/sampling.py": "fd1f4fc63c3f1edb60e5d5e16d7531c7e04a9e5aa4369132afffb8091398fa7f",
+    "qwen3_tts_engine/server.py": "2f8079ee398752007869fdd8c7a76872cfc65d7bec6a853bbcc7af188e4731dd",
+    "qwen3_tts_engine/talker_graph.py": "e86ca92452290fda310ca1398ffffb44cf289c30450ce21929c49703b71844dd",
+    "qwen3_tts_engine/whole_predictor.py": "54380d4c16201671aff6913985e9e6689af2306692aa9d830c21392dd94d3d6a"
+  },
+  "timings": [
+    {
+      "label": "continuous_sampling",
+      "step": 0,
+      "seconds": 0.0008847825229167938
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 0,
+      "seconds": 0.035161109641194344
+    },
+    {
+      "label": "continuous_talker",
+      "step": 0,
+      "seconds": 0.03438841085880995
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 0,
+      "seconds": 0.0007974002510309219
+    },
+    {
+      "label": "continuous_codec",
+      "step": 0,
+      "seconds": 0.17241237498819828
+    },
+    {
+      "label": "continuous_audio",
+      "step": 0,
+      "seconds": 0.17314888443797827
+    },
+    {
+      "label": "continuous_tick",
+      "step": 0,
+      "seconds": 0.3481338871642947
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 1,
+      "seconds": 0.0008702026680111885
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 1,
+      "seconds": 0.035194432362914085
+    },
+    {
+      "label": "continuous_talker",
+      "step": 1,
+      "seconds": 0.03424777649343014
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 1,
+      "seconds": 0.0007936097681522369
+    },
+    {
+      "label": "continuous_codec",
+      "step": 1,
+      "seconds": 0.1782892970368266
+    },
+    {
+      "label": "continuous_codec",
+      "step": 1,
+      "seconds": 0.17818429600447416
+    },
+    {
+      "label": "continuous_audio",
+      "step": 1,
+      "seconds": 0.3586154580116272
+    },
+    {
+      "label": "continuous_tick",
+      "step": 1,
+      "seconds": 0.5265311570838094
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 2,
+      "seconds": 0.03528634458780289
+    },
+    {
+      "label": "continuous_talker",
+      "step": 2,
+      "seconds": 0.0345849459990859
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 2,
+      "seconds": 0.0008492721244692802
+    },
+    {
+      "label": "continuous_codec",
+      "step": 2,
+      "seconds": 0.009128525853157043
+    },
+    {
+      "label": "continuous_codec",
+      "step": 2,
+      "seconds": 0.008640313521027565
+    },
+    {
+      "label": "continuous_audio",
+      "step": 2,
+      "seconds": 0.018857507966458797
+    },
+    {
+      "label": "continuous_tick",
+      "step": 2,
+      "seconds": 0.09613530058413744
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 3,
+      "seconds": 0.0352224325761199
+    },
+    {
+      "label": "continuous_talker",
+      "step": 3,
+      "seconds": 0.03430267795920372
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 3,
+      "seconds": 0.0008113309741020203
+    },
+    {
+      "label": "continuous_codec",
+      "step": 3,
+      "seconds": 0.008625762537121773
+    },
+    {
+      "label": "continuous_audio",
+      "step": 3,
+      "seconds": 0.009127366356551647
+    },
+    {
+      "label": "continuous_tick",
+      "step": 3,
+      "seconds": 0.08569297008216381
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 4,
+      "seconds": 0.03519467171281576
+    },
+    {
+      "label": "continuous_talker",
+      "step": 4,
+      "seconds": 0.03431168757379055
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 4,
+      "seconds": 0.000764419324696064
+    },
+    {
+      "label": "continuous_codec",
+      "step": 4,
+      "seconds": 0.008626213297247887
+    },
+    {
+      "label": "continuous_audio",
+      "step": 4,
+      "seconds": 0.009164167568087578
+    },
+    {
+      "label": "continuous_tick",
+      "step": 4,
+      "seconds": 0.08575772121548653
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 5,
+      "seconds": 0.03515658155083656
+    },
+    {
+      "label": "continuous_talker",
+      "step": 5,
+      "seconds": 0.03423538617789745
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 5,
+      "seconds": 0.0007414007559418678
+    },
+    {
+      "label": "continuous_codec",
+      "step": 5,
+      "seconds": 0.17459421139210463
+    },
+    {
+      "label": "continuous_audio",
+      "step": 5,
+      "seconds": 0.17566499020904303
+    },
+    {
+      "label": "continuous_tick",
+      "step": 5,
+      "seconds": 0.2521041100844741
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 6,
+      "seconds": 0.035234492272138596
+    },
+    {
+      "label": "continuous_talker",
+      "step": 6,
+      "seconds": 0.03432450909167528
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 6,
+      "seconds": 0.0008288612589240074
+    },
+    {
+      "label": "continuous_audio",
+      "step": 6,
+      "seconds": 5.1072798669338226e-05
+    },
+    {
+      "label": "continuous_tick",
+      "step": 6,
+      "seconds": 0.07673940807580948
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 7,
+      "seconds": 0.03516033012419939
+    },
+    {
+      "label": "continuous_talker",
+      "step": 7,
+      "seconds": 0.03424330614507198
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 7,
+      "seconds": 0.0008016610518097878
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.014377273619174957
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.014408363029360771
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.014368991367518902
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.014390812255442142
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.01438739150762558
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.014407362788915634
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.1808232245966792
+    },
+    {
+      "label": "continuous_codec",
+      "step": 7,
+      "seconds": 0.009059914387762547
+    },
+    {
+      "label": "continuous_audio",
+      "step": 7,
+      "seconds": 0.284531868994236
+    },
+    {
+      "label": "continuous_tick",
+      "step": 7,
+      "seconds": 0.3639904670417309
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 8,
+      "seconds": 0.0008297916501760483
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 8,
+      "seconds": 0.03519440069794655
+    },
+    {
+      "label": "continuous_talker",
+      "step": 8,
+      "seconds": 0.034188865683972836
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 8,
+      "seconds": 0.0008382704108953476
+    },
+    {
+      "label": "continuous_codec",
+      "step": 8,
+      "seconds": 0.00898855272680521
+    },
+    {
+      "label": "continuous_codec",
+      "step": 8,
+      "seconds": 0.006656741723418236
+    },
+    {
+      "label": "continuous_audio",
+      "step": 8,
+      "seconds": 0.01675279252231121
+    },
+    {
+      "label": "continuous_tick",
+      "step": 8,
+      "seconds": 0.1898034056648612
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 9,
+      "seconds": 0.0009123627096414566
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 9,
+      "seconds": 0.03512974921613932
+    },
+    {
+      "label": "continuous_talker",
+      "step": 9,
+      "seconds": 0.03420840576291084
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 9,
+      "seconds": 0.0007922612130641937
+    },
+    {
+      "label": "continuous_codec",
+      "step": 9,
+      "seconds": 0.01009021233767271
+    },
+    {
+      "label": "continuous_codec",
+      "step": 9,
+      "seconds": 0.008640144020318985
+    },
+    {
+      "label": "continuous_audio",
+      "step": 9,
+      "seconds": 0.01992160640656948
+    },
+    {
+      "label": "continuous_tick",
+      "step": 9,
+      "seconds": 0.18980381544679403
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 10,
+      "seconds": 0.03515622019767761
+    },
+    {
+      "label": "continuous_talker",
+      "step": 10,
+      "seconds": 0.03432226926088333
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 10,
+      "seconds": 0.0007681800052523613
+    },
+    {
+      "label": "continuous_codec",
+      "step": 10,
+      "seconds": 0.008862730115652084
+    },
+    {
+      "label": "continuous_codec",
+      "step": 10,
+      "seconds": 0.009991317987442017
+    },
+    {
+      "label": "continuous_codec",
+      "step": 10,
+      "seconds": 0.008649563416838646
+    },
+    {
+      "label": "continuous_audio",
+      "step": 10,
+      "seconds": 0.028952709399163723
+    },
+    {
+      "label": "continuous_tick",
+      "step": 10,
+      "seconds": 0.10855543240904808
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 11,
+      "seconds": 0.0008205007761716843
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 11,
+      "seconds": 0.035128659568727016
+    },
+    {
+      "label": "continuous_talker",
+      "step": 11,
+      "seconds": 0.034189785830676556
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 11,
+      "seconds": 0.0007534297183156013
+    },
+    {
+      "label": "continuous_codec",
+      "step": 11,
+      "seconds": 0.008625272661447525
+    },
+    {
+      "label": "continuous_codec",
+      "step": 11,
+      "seconds": 0.009013492614030838
+    },
+    {
+      "label": "continuous_audio",
+      "step": 11,
+      "seconds": 0.01862956304103136
+    },
+    {
+      "label": "continuous_tick",
+      "step": 11,
+      "seconds": 0.18627527449280024
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 12,
+      "seconds": 0.000796610489487648
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 12,
+      "seconds": 0.03513253014534712
+    },
+    {
+      "label": "continuous_talker",
+      "step": 12,
+      "seconds": 0.03420867584645748
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 12,
+      "seconds": 0.0008216006681323051
+    },
+    {
+      "label": "continuous_codec",
+      "step": 12,
+      "seconds": 0.17663921508938074
+    },
+    {
+      "label": "continuous_codec",
+      "step": 12,
+      "seconds": 0.009455365128815174
+    },
+    {
+      "label": "continuous_audio",
+      "step": 12,
+      "seconds": 0.18942115548998117
+    },
+    {
+      "label": "continuous_tick",
+      "step": 12,
+      "seconds": 0.36362171825021505
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 13,
+      "seconds": 0.0008819429203867912
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 13,
+      "seconds": 0.0007645394653081894
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 13,
+      "seconds": 0.03517809137701988
+    },
+    {
+      "label": "continuous_talker",
+      "step": 13,
+      "seconds": 0.03417763486504555
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 13,
+      "seconds": 0.000745479017496109
+    },
+    {
+      "label": "continuous_codec",
+      "step": 13,
+      "seconds": 0.0144170131534338
+    },
+    {
+      "label": "continuous_codec",
+      "step": 13,
+      "seconds": 0.008674204349517822
+    },
+    {
+      "label": "continuous_audio",
+      "step": 13,
+      "seconds": 0.02442691382020712
+    },
+    {
+      "label": "continuous_tick",
+      "step": 13,
+      "seconds": 0.21234099008142948
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 14,
+      "seconds": 0.035227471962571144
+    },
+    {
+      "label": "continuous_talker",
+      "step": 14,
+      "seconds": 0.03432055935263634
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 14,
+      "seconds": 0.0007507689297199249
+    },
+    {
+      "label": "continuous_codec",
+      "step": 14,
+      "seconds": 0.2140228133648634
+    },
+    {
+      "label": "continuous_codec",
+      "step": 14,
+      "seconds": 0.010229525156319141
+    },
+    {
+      "label": "continuous_audio",
+      "step": 14,
+      "seconds": 0.22740040067583323
+    },
+    {
+      "label": "continuous_tick",
+      "step": 14,
+      "seconds": 0.30697440076619387
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 15,
+      "seconds": 0.0007985597476363182
+    },
+    {
+      "label": "continuous_predictor",
+      "step": 15,
+      "seconds": 0.0351801011711359
+    },
+    {
+      "label": "continuous_talker",
+      "step": 15,
+      "seconds": 0.03428599797189236
+    },
+    {
+      "label": "continuous_sampling",
+      "step": 15,
+      "seconds": 0.0008040200918912888
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014369501732289791
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014401793479919434
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014384792186319828
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014387841336429119
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.014406024478375912
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.008657433092594147
+    },
+    {
+      "label": "continuous_codec",
+      "step": 15,
+      "seconds": 0.008984972722828388
+    },
+    {
+      "label": "continuous_audio",
+      "step": 15,
+      "seconds": 0.09566609840840101
+    },
+    {
+      "label": "continuous_tick",
+      "step": 15,
+      "seconds": 0.26980122830718756
+    }
+  ],
+  "timing_caveat": "Synchronized inclusive ranges overlap and perturb execution; do not add nested ranges or interpret as service throughput."
+}

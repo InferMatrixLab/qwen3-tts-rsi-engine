@@ -265,6 +265,7 @@ def main():
     parser.add_argument("--streaming", action="store_true")
     parser.add_argument("--pack-qkv", action="store_true")
     parser.add_argument("--native-gqa", action="store_true")
+    parser.add_argument("--text-only-rope", action="store_true")
     parser.add_argument("--pack-mlp", action="store_true")
     parser.add_argument("--fused-swiglu", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
@@ -294,7 +295,7 @@ def main():
                                              talker_graph=options.talker_graph,
                                              rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
                                              pack_mlp=options.pack_mlp, fused_swiglu=options.fused_swiglu,
-                                             native_gqa=options.native_gqa,
+                                             native_gqa=options.native_gqa, text_only_rope=options.text_only_rope,
                                              codec_left_context=options.codec_left_context,
                                              codec_batch_size=options.codec_batch_size)
     if options.continuous:
@@ -302,7 +303,7 @@ def main():
         factory = partial(ContinuousModel, max_slots=options.max_batch_size,
                           rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
                           pack_mlp=options.pack_mlp, fused_swiglu=options.fused_swiglu,
-                          native_gqa=options.native_gqa, graph_prefill=options.graph_prefill,
+                          native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, graph_prefill=options.graph_prefill,
                           codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
                           incremental_codec=options.incremental_codec, batch_prefill=options.batch_prefill,
                           native_kv_update=options.native_kv_update)

@@ -9,7 +9,7 @@ from qwen_tts.core.models.modeling_qwen3_tts import (
 
 
 class PackedAttention(torch.nn.Module):
-    def __init__(self, reference, native_gqa=False):
+    def __init__(self, reference, native_gqa=False, text_only_rope=False):
         super().__init__()
         self.reference = reference
         projections = [reference.q_proj, reference.k_proj, reference.v_proj]
@@ -22,6 +22,7 @@ class PackedAttention(torch.nn.Module):
                                            requires_grad=False)
         self.multimodal = reference.__class__.__name__ == 'Qwen3TTSTalkerAttention'
         self.native_gqa = native_gqa
+        self.text_only_rope = text_only_rope
 
     def forward(self, hidden_states, position_embeddings, attention_mask,
                 past_key_values=None, cache_position=None, **kwargs):
@@ -33,7 +34,11 @@ class PackedAttention(torch.nn.Module):
         key = reference.k_norm(key.reshape(heads)).transpose(1, 2)
         value = value.reshape(heads).transpose(1, 2)
         cos, sin = position_embeddings
-        if self.multimodal:
+        if self.multimodal and self.text_only_rope:
+            # CustomVoice supplies identical temporal/height/width positions.
+            # Keeping one axis removes per-layer interleaving copies, not arithmetic.
+            query, key = apply_rotary_pos_emb(query, key, cos[0], sin[0])
+        elif self.multimodal:
             query, key = apply_multimodal_rotary_pos_emb(query, key, cos, sin,
                                                        reference.rope_scaling['mrope_section'],
                                                        reference.rope_scaling['interleaved'])
@@ -52,11 +57,11 @@ class PackedAttention(torch.nn.Module):
         return reference.o_proj(output.reshape(*shape, -1).contiguous()), weights
 
 
-def install_packed_attention(model, native_gqa=False):
+def install_packed_attention(model, native_gqa=False, text_only_rope=False):
     replacements = []
     for parent in list(model.modules()):
         for name, child in list(parent.named_children()):
             if child.__class__.__name__ in ('Qwen3TTSTalkerAttention', 'Qwen3TTSAttention'):
                 replacements.append((parent, name, child))
-                setattr(parent, name, PackedAttention(child, native_gqa=native_gqa))
+                setattr(parent, name, PackedAttention(child, native_gqa=native_gqa, text_only_rope=text_only_rope))
     return replacements

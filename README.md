@@ -130,3 +130,7 @@ successful qualifications; untouched-main startup failures are retained too.
 Model weights and generated waveforms are kept outside Git. Compact results and
 SHA256 manifests identify retained local artifacts. CPU tests validate the
 measurement contract, not NPU execution or model quality.
+
+`--text-only-rope` is an experimental packed-attention option specific to CustomVoice's identical three position axes. It selects one rotary axis instead of repeating the multimodal interleaving copies; it must not be reused for unequal-axis multimodal input. Four mixed English/Chinese prompts at batch size 4 passed complete PCM parity against the official path with graph predictor and talker, and 18 focused tests passed. It remains opt-in pending continuous-service performance and full-corpus quality validation.
+
+For component diagnosis without shape-recording profiler overhead, `tools/profile_continuous.py --synchronized-timings` records inclusive synchronized ranges. The tool also accepts `--rms-norm reference`, `--pack-mlp`, `--prefill-per-tick`, and `--codec-batch-size`. These diagnostic times perturb execution and are not benchmark results.
