@@ -293,3 +293,11 @@ Direct combined candidate (a9fac06, physical NPU 6: predictor-only native RoPE +
 ### Combined candidate: prefill interval 4 control
 
 Source `8b8bd08`, physical NPU 6, one exploratory trial. C16/C32/C64 throughput: 310.746 / 349.326 / 506.764 frames/s; TTFA p95: 419.821 / 1024.928 / 1264.018 ms. All 384 requests completed and server exited 0. Quality was not evaluated. C32 regressed versus the interval-1 combined candidate (394.717 frames/s), so interval 4 is not selected. C64 improvement alone does not meet the all-concurrency objective.
+
+### Combined candidate: codec ring buffer control
+
+Source `4613082`, physical NPU 6, one exploratory trial: C32 369.961 and C64 493.910 frames/s; all 256 requests completed, server exit 0. Compared with the combined candidate without this buffer (394.717 / 491.399), C32 regressed and C64 was nearly unchanged. Full quality was not evaluated; this variant is not selected.
+
+### Fixed-capacity predictor attention diagnostic
+
+Sixteen synthetic BF16 cases (B1/8/32/64, valid KV length 2/3/8/16, head dimension 64) passed with exact output equality across three graph replays, including poisoned unused KV positions. Process exited 0. Explicit valid lengths avoided prefix contiguous copies; B32 attention measured approximately 0.056–0.057 ms versus 0.057–0.064 ms for sliced KV. This is only an operator diagnostic: DynamicCache updates, model subcodes, audio quality and service speed remain untested.
