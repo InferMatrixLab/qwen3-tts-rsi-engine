@@ -513,3 +513,20 @@ All 896 requests completed and server exit 0 on physical NPU 6. All 896 WAV file
 Exploratory ratios against the largest observed value among three completed vLLM and two completed SGLang sweeps are 4.674 / 3.781 / 3.150 / 2.612 / 2.393 / 2.073 / 2.203. This deliberately retains the largest listed baseline observation, but is not a new acceptance rule or proof of same-card repeatability.
 
 A detached, clean worktree at /home/why/qwen3-tts-research/engine-direct-prompt-frozen pins source e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a. Round 2 has started from it on physical NPU 6; recorded provenance has empty patch and worktree status. The import path was verified to resolve inside this worktree. Physical-NPU-0 final validation remains separately planned. SGLang third-repeat C1/C2 quality integrity audits pass.
+
+
+### Direct prompt full trial 2 from frozen source
+
+All 896 requests completed and server exited 0 on physical NPU 6. Source e783a64 was loaded from a detached clean worktree; recorded source patch is empty. All 896 WAVs match full trial 1 byte-for-byte. Independent scoring is still required for each trial.
+
+| Concurrency | frames/s | TTFA p50 ms | TTFA p95 ms | mean RTF |
+|---:|---:|---:|---:|---:|
+| 1 | 60.9019 | 50.7695 | 53.2053 | 0.206623 |
+| 2 | 95.5150 | 67.7718 | 80.2264 | 0.261964 |
+| 4 | 153.3175 | 89.4358 | 107.7797 | 0.323538 |
+| 8 | 230.4323 | 113.1518 | 163.0869 | 0.426122 |
+| 16 | 349.4994 | 145.8788 | 272.5842 | 0.558326 |
+| 32 | 439.3818 | 214.9446 | 489.7267 | 0.813848 |
+| 64 | 551.4108 | 584.0810 | 919.3482 | 1.205983 |
+
+Trial 3 has started from the same frozen source/configuration on physical NPU 6. These repeats still do not replace the planned baseline/candidate comparison on physical NPU 0. A vLLM same-card repeat is queued after SGLang round 3; it requires complete successful cohorts, server exit 0, released process group and port, and a clean pinned vLLM worktree before startup. Candidate trial-1 C2 independent integrity audit now passes.

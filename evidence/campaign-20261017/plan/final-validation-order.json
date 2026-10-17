@@ -17,5 +17,17 @@
   ],
   "candidate_source_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
   "candidate_frozen_worktree": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen",
-  "candidate_command": "continuous-direct-prompt-command.json"
+  "candidate_command": "continuous-direct-prompt-command.json",
+  "same_card_vllm_queue": {
+    "status": "WAITING_FOR_PREDECESSOR",
+    "predecessor": "runs/sglang-sweep-round3-full128",
+    "output": "runs/vllm-sweep-round3-card0-full128",
+    "log": "results/vllm-round3-card0-queue.log",
+    "guards": [
+      "seven complete successful cohorts",
+      "server and benchmark exit 0",
+      "predecessor process group absent and port released",
+      "clean pinned vLLM source"
+    ]
+  }
 }

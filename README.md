@@ -25,7 +25,8 @@ and caches only fixed model embeddings. Its C32/C64 service probe measured
 server exit 0. Its first full workload trial completed with exit 0 at
 61.71 / 96.37 / 154.14 / 232.83 / 349.17 / 444.31 / 554.42 frames/s
 (C1–C64); all 896 WAVs match the corresponding bucketed-control files.
-Independent scoring and a second trial from frozen source are running.
+The second trial from frozen source completed with exit 0 and identical WAVs:
+C32 439.38 and C64 551.41 frames/s. A third trial and independent scoring are running.
 The C32 exploratory ratio to vLLM round 2 is 2.063x; different physical cards and
 missing repeated validation mean the acceptance status remains INCONCLUSIVE.
 
