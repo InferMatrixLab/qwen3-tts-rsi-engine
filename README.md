@@ -5,7 +5,10 @@ Independent inference work for `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` on Ascend 
 **Status: INCONCLUSIVE — full repeated, quality-qualified 2x acceptance is pending.**
 Both baseline exploratory sweeps are complete. The independent streaming engine
 has completed all seven concurrency levels; high-concurrency optimization and
-full candidate audio-quality evaluation continue.
+candidate quality fixes continue. The native-RoPE/sampling candidate has complete
+ASR and speaker scores: all concurrency gates pass except C16 Chinese CER
+(0.03808 versus the frozen maximum 0.03566), so that configuration is rejected
+for all-concurrency acceptance.
 
 The acceptance target is at least 2x the better of pinned vLLM-Omni and
 SGLang-Omni main throughput at each concurrency: 1, 2, 4, 8, 16, 32, 64.
@@ -37,7 +40,13 @@ validation is required. No service gain is presumed from operator timings.
 `--cache-codec-constants` optionally precomputes fixed SnakeBeta parameters in
 the incremental codec. BF16 graph-control output equality and strict-FP32
 state tests passed; its first service probe did not establish a throughput gain.
-Both options remain experimental and disabled by default.
+These options remain experimental and disabled by default.
+`--codec-code-buffer` adds bounded, batched eight-frame code history; four complete
+waveform controls are exact, with cancellation and service qualification pending.
+`--triton-snake` enables an experimental Ascend vector kernel with explicit BF16
+rounding and automatically cached codec coefficients. Ten operator cases were
+exact and faster after physical-core tiling; actual codec and service validation
+are separate. See [the migration record](evidence/campaign-20261017/triton-snake.md).
 
 Benchmark against an already running OpenAI speech SSE endpoint:
 

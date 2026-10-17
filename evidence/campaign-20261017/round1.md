@@ -251,3 +251,6 @@ Added default-off `--codec-code-buffer`: one batched write per tick retains the 
 The latest synchronized C32 diagnostic measured 16 ticks: 1.3575 s total, 0.3621 s batch prefill, 0.2879 s predictor, 0.1536 s talker, 0.4731 s audio (including 0.4380 s codec). Inclusive ranges overlap, synchronization perturbs execution, and the workspace was under development; these are bottleneck clues, not throughput or attribution evidence.
 
 Triton Ascend 3.2.0 is available. A vector-only SnakeBeta prototype preserves explicit BF16 rounding and successfully captures into NPUGraph. The first 1D logical-grid implementation was slower than separate native operators; raw errors and timings are retained. A physical-core-capped, channel/time-tiled follow-up is running before any serving integration.
+
+
+Native-RoPE/sampling full-sweep quality is now complete: all 896 clips have ASR and speaker scores. C1/C2/C4/C8/C32/C64 pass the frozen ASR and speaker gates. C16 fails Chinese CER (0.03807947 versus maximum 0.03566225); all speaker gates pass. C32 EN WER/ZH CER: 0.00853485 / 0.03062914; C64: 0.00995733 / 0.02649007. This is a rejected all-concurrency candidate, not a quality-qualified 2x result.

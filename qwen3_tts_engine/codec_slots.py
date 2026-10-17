@@ -98,7 +98,7 @@ class CodecSlotGraph:
 
 
 class CodecSlots:
-    def __init__(self, decoder, slots, cache_constants=False):
+    def __init__(self, decoder, slots, cache_constants=False, triton_snake=False):
         if slots < 1:
             raise ValueError('Codec slots must be positive')
         self.decoder, self.slots = decoder, slots
@@ -106,7 +106,7 @@ class CodecSlots:
         if self.window is None or self.window < 2:
             raise ValueError('Expected a finite sliding codec attention window')
         self.history = self.window - 1
-        self.eager = IncrementalCodec(decoder, cache_constants=cache_constants)
+        self.eager = IncrementalCodec(decoder, cache_constants=cache_constants, triton_snake=triton_snake)
         weight = next(decoder.parameters())
         self.histories = {}
         for module in decoder.modules():

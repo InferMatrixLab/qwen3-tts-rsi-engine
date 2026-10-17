@@ -1,0 +1,306 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "cases": [
+    {
+      "shape": [
+        1,
+        7,
+        37
+      ],
+      "scale": 1.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.013759052380919456
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.011367397382855415
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.010659471154212952
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.013731447979807854
+        }
+      ]
+    },
+    {
+      "shape": [
+        1,
+        7,
+        37
+      ],
+      "scale": 16.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.01369275152683258
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.010807672515511513
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.010852385312318802
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.013764854520559311
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        1536,
+        32
+      ],
+      "scale": 1.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.05886583589017391
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.018671685829758644
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.018576979637145996
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.058720121160149574
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        1536,
+        32
+      ],
+      "scale": 16.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.05876421928405762
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.01916630193591118
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.019198283553123474
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.058663319796323776
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        768,
+        256
+      ],
+      "scale": 1.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.07984335534274578
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.033845165744423866
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.03378198482096195
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.07977616973221302
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        768,
+        256
+      ],
+      "scale": 16.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.07939845323562622
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.0337784830480814
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.033801570534706116
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.07940765470266342
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        192,
+        5120
+      ],
+      "scale": 1.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.16546808183193207
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.11491636745631695
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.11497048661112785
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.1655718870460987
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        192,
+        5120
+      ],
+      "scale": 16.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.16875176690518856
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.1149157714098692
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.11490358039736748
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.18184871412813663
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        96,
+        15360
+      ],
+      "scale": 1.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.17928693443536758
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.166243314743042
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.16627579927444458
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.17926644533872604
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        96,
+        15360
+      ],
+      "scale": 16.0,
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "exact": true,
+      "finite": true,
+      "timings": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.17891333438456059
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.16628789715468884
+        },
+        {
+          "arm": "triton",
+          "mean_ms": 0.16621661372482777
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.1789713278412819
+        }
+      ]
+    }
+  ],
+  "tiled": true
+}

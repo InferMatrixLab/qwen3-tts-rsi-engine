@@ -17,9 +17,14 @@ class CodecState:
 
 
 class IncrementalCodec:
-    def __init__(self, decoder, cache_constants=False):
+    def __init__(self, decoder, cache_constants=False, triton_snake=False):
         self.decoder = decoder
         self.snake_constants = {}
+        self.triton_snake = None
+        if triton_snake:
+            from qwen3_tts_engine.snake_triton_ascend import snake
+            self.triton_snake = snake
+            cache_constants = True
         if cache_constants:
             if decoder is None or decoder.training:
                 raise ValueError('Codec constant caching requires an evaluation decoder')
@@ -35,6 +40,8 @@ class IncrementalCodec:
         if constants is None:
             return module(hidden)
         alpha, inverse_beta = constants
+        if self.triton_snake is not None and hidden.dtype == torch.bfloat16 and hidden.is_contiguous():
+            return self.triton_snake(hidden, alpha, inverse_beta, tiled=True)
         return hidden + inverse_beta * torch.pow(torch.sin(hidden * alpha), 2)
 
     def run_module(self, module, hidden, state):

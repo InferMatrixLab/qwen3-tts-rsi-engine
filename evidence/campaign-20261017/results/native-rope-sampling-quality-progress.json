@@ -1,10 +1,10 @@
 {
-  "status": "INCONCLUSIVE",
-  "note": "Partial single-repeat quality assessment; C16 Chinese CER fails frozen gate",
+  "status": "FAIL",
+  "scope": "Complete single-repeat ASR and speaker gates only; not repeated final acceptance",
+  "note": "C16 Chinese CER fails frozen gate; all other cohort quality gates pass",
   "cohorts": [
     {
       "concurrency": 1,
-      "status": "INCONCLUSIVE",
       "asr": {
         "en": {
           "error_rate": 0.01422475106685633,
@@ -19,11 +19,11 @@
       },
       "speaker_mean": 0.775639595463872,
       "speaker_minimum": 0.7519795336015522,
-      "speaker_pass": true
+      "speaker_pass": true,
+      "status": "PASS"
     },
     {
       "concurrency": 2,
-      "status": "INCONCLUSIVE",
       "asr": {
         "en": {
           "error_rate": 0.01422475106685633,
@@ -38,11 +38,11 @@
       },
       "speaker_mean": 0.7756292629055679,
       "speaker_minimum": 0.7485906940605491,
-      "speaker_pass": true
+      "speaker_pass": true,
+      "status": "PASS"
     },
     {
       "concurrency": 4,
-      "status": "INCONCLUSIVE",
       "asr": {
         "en": {
           "error_rate": 0.01422475106685633,
@@ -57,11 +57,11 @@
       },
       "speaker_mean": 0.774229743052274,
       "speaker_minimum": 0.7515028736274689,
-      "speaker_pass": true
+      "speaker_pass": true,
+      "status": "PASS"
     },
     {
       "concurrency": 8,
-      "status": "INCONCLUSIVE",
       "asr": {
         "en": {
           "error_rate": 0.01422475106685633,
@@ -76,11 +76,11 @@
       },
       "speaker_mean": 0.7779738791286945,
       "speaker_minimum": 0.7554849083721638,
-      "speaker_pass": true
+      "speaker_pass": true,
+      "status": "PASS"
     },
     {
       "concurrency": 16,
-      "status": "INCONCLUSIVE",
       "asr": {
         "en": {
           "error_rate": 0.004267425320056899,
@@ -95,21 +95,46 @@
       },
       "speaker_mean": 0.7747792687732726,
       "speaker_minimum": 0.7514163074269891,
-      "speaker_pass": true
+      "speaker_pass": true,
+      "status": "FAIL"
     },
     {
       "concurrency": 32,
-      "status": "INCONCLUSIVE",
+      "asr": {
+        "en": {
+          "error_rate": 0.008534850640113799,
+          "maximum": 0.019957325746799433,
+          "pass": true
+        },
+        "zh": {
+          "error_rate": 0.030629139072847682,
+          "maximum": 0.03897350993377483,
+          "pass": true
+        }
+      },
       "speaker_mean": 0.771970413858071,
       "speaker_minimum": 0.7578975653927773,
-      "speaker_pass": true
+      "speaker_pass": true,
+      "status": "PASS"
     },
     {
       "concurrency": 64,
-      "status": "INCONCLUSIVE",
+      "asr": {
+        "en": {
+          "error_rate": 0.00995732574679943,
+          "maximum": 0.017112375533428165,
+          "pass": true
+        },
+        "zh": {
+          "error_rate": 0.026490066225165563,
+          "maximum": 0.04145695364238411,
+          "pass": true
+        }
+      },
       "speaker_mean": 0.7771985684521496,
       "speaker_minimum": 0.7526154122501612,
-      "speaker_pass": true
+      "speaker_pass": true,
+      "status": "PASS"
     }
   ]
 }
