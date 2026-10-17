@@ -454,3 +454,10 @@ Independent quality integrity audits now pass for exact-combination C4 and vLLM 
 The isolated CDF-tail kernel preserves the reference FP32 cumulative sum and fuses normalization, comparison and counting using round-to-nearest division. Eight NPU shape cases (B1/17/32/64, widths 2048/3072), each with 12 random/exact-boundary/neighbor replays, matched selected tokens exactly and exited 0. At B32 width 2048, ABBA reference timings were 0.04788/0.04770 ms and fused 0.01116/0.01097 ms. This is isolated operator evidence, not service gain.
 
 Default-off --triton-cdf now applies the tail kernel to predictor and semantic sampling. Six existing sampling/server tests pass. A four-request real-model probe completed with slot reuse, capacity growth 64 to 128, and exit 0; all four WAV files match the flag-off control byte-for-byte. Full cohort service/quality validation remains pending.
+
+
+### Third vLLM exploratory repeat: full quality complete
+
+All 896 third-repeat vLLM waveforms now have ASR and speaker scores; the scoring loop exited 0 and all seven retained-cohort integrity audits pass. Performance for this repeat was on physical NPU 1, unlike the first two on NPU 0; it remains exploratory under the prospective same-card final-validation plan. The previously scored full combined candidate passes all seven frozen quality margins against vLLM round 3 and SGLang round 2 (an explicitly mixed-repeat quality check, not final acceptance).
+
+Exact-combination full-trial C8 independent scores and integrity audit are also complete. The changed prefill-bucket C8/C16 outputs are being independently scored on physical NPU 1. The CDF service process remains in initial graph/kernel prewarming; no restart or throughput claim has been made.

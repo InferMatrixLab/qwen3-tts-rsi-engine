@@ -4,7 +4,7 @@ Independent inference work for `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` on Ascend 
 
 **Status: INCONCLUSIVE — full repeated, quality-qualified 2x acceptance is pending.**
 Two complete baseline repeats have performance and full ASR/speaker evidence.
-The third vLLM performance repeat is complete with audio scoring in progress;
+The third vLLM exploratory repeat has complete performance and audio scoring;
 the third SGLang repeat is running. SGLang uses the recorded import-only
 compatibility patch on its pinned main revision.
 
