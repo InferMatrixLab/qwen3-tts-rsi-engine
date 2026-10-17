@@ -1,0 +1,116 @@
+{
+  "status": "INCONCLUSIVE",
+  "phase": "finished",
+  "command": [
+    "/home/why/qwen3-tts-research/venv-engine/bin/python",
+    "-m",
+    "qwen3_tts_engine.server",
+    "--model",
+    "/home/why/qwen3-tts-research/model",
+    "--port",
+    "8097",
+    "--continuous",
+    "--streaming",
+    "--pack-qkv",
+    "--rms-norm",
+    "native",
+    "--max-batch-size",
+    "64",
+    "--codec-left-context",
+    "72",
+    "--codec-batch-size",
+    "4"
+  ],
+  "engine": "standalone-continuous-experimental",
+  "source_revision": "355f236f4a99a171f4f084ee9e49ebaf811c47bc",
+  "quality": "NOT_RUN",
+  "server_exit": 0,
+  "benchmark_exit": 0,
+  "environment": {
+    "ASCEND_RT_VISIBLE_DEVICES": "1",
+    "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+    "OMP_NUM_THREADS": "4",
+    "HF_HUB_OFFLINE": "1",
+    "PYTHONPATH": "/home/why/qwen3-tts-engine:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+  },
+  "server_pid": 1216937,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "metrics": {
+        "requests": 8,
+        "successful_requests": 8,
+        "failed_requests": 0,
+        "wall_seconds": 17.63684529811144,
+        "throughput_frames_s": 23.416886241227292,
+        "ttfa_p50_ms": 159.32435356080532,
+        "ttfa_p95_ms": 171.05262991972268,
+        "rtf_mean": 0.5170693955542474,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 2,
+      "metrics": {
+        "requests": 8,
+        "successful_requests": 8,
+        "failed_requests": 0,
+        "wall_seconds": 9.332926033064723,
+        "throughput_frames_s": 44.251931123939286,
+        "ttfa_p50_ms": 217.71726431325078,
+        "ttfa_p95_ms": 274.777923617512,
+        "rtf_mean": 0.5447565990895298,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 4,
+      "metrics": {
+        "requests": 8,
+        "successful_requests": 8,
+        "failed_requests": 0,
+        "wall_seconds": 6.002103256992996,
+        "throughput_frames_s": 68.80921275701438,
+        "ttfa_p50_ms": 304.2178242467344,
+        "ttfa_p95_ms": 434.5960625447333,
+        "rtf_mean": 0.6785044905999131,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    }
+  ],
+  "benchmark_command": [
+    "/home/why/qwen3-tts-research/venv-engine/bin/python",
+    "-m",
+    "qwen3_tts_engine.benchmark",
+    "--endpoint",
+    "http://127.0.0.1:8097/v1/audio/speech",
+    "--model",
+    "/home/why/qwen3-tts-research/model",
+    "--engine",
+    "standalone-continuous-experimental",
+    "--source-revision",
+    "355f236f4a99a171f4f084ee9e49ebaf811c47bc",
+    "--workload",
+    "evidence/campaign-20261017/plan/workload-128.jsonl",
+    "--output",
+    "runs/continuous-qualification/requests-c4",
+    "--requests",
+    "8",
+    "--concurrency",
+    "4",
+    "--frame-rate",
+    "12.5",
+    "--warmup",
+    "4"
+  ],
+  "clean_server_exit": true
+}

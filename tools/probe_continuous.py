@@ -1,0 +1,69 @@
+"""Exercise native request-slot reuse, capacity growth and complete streaming PCM."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import time
+import wave
+from qwen3_tts_engine.continuous import ContinuousModel
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--model', required=True)
+parser.add_argument('--workload', type=Path, required=True)
+parser.add_argument('--output', type=Path, required=True)
+parser.add_argument('--slots', type=int, default=2)
+parser.add_argument('--capacity', type=int, default=64)
+parser.add_argument('--indices', type=int, nargs='+', default=[0, 1, 64, 65])
+args = parser.parse_args()
+args.output.mkdir(parents=True, exist_ok=False)
+data = args.workload.read_bytes()
+payloads = [dict(json.loads(line), instructions='') for line in data.splitlines()]
+model = ContinuousModel(args.model, 'npu:0', max_slots=args.slots, initial_capacity=args.capacity)
+result = {'status': 'INCONCLUSIVE', 'scope': 'native scheduling correctness probe; not service performance',
+          'requests': [], 'events': []}
+(args.output / 'runspec.json').write_text(json.dumps({'workload': str(args.workload),
+    'workload_sha256': hashlib.sha256(data).hexdigest(), 'sample_rate': 24000, 'frame_rate': 12.5}, indent=2)+'\n')
+starts, pieces, chunks = {}, {}, {}
+def emit(identifier, pcm, rate):
+    assert rate == 24000 and len(pcm) > 0 and len(pcm) % 2 == 0
+    pieces[identifier].append(pcm)
+    chunks[identifier].append({'seconds': time.perf_counter() - starts[identifier], 'bytes': len(pcm)})
+try:
+    pending = list(args.indices)
+    completed = set()
+    while pending or model.states:
+        submissions = []
+        while pending and len(model.states) + len(submissions) < args.slots:
+            index = pending.pop(0)
+            starts[index] = time.perf_counter()
+            pieces[index], chunks[index] = [], []
+            submissions.append((index, payloads[index]))
+        outputs = model.tick(submissions, emit)
+        if submissions or outputs:
+            result['events'].append({'admitted': [i for i, _ in submissions], 'finished': [i for i, _ in outputs],
+                                     'active': [state.identifier for state in model.states], 'capacity': model.arena.capacity})
+            print(result['events'][-1], flush=True)
+        for index, output in outputs:
+            assert index not in completed
+            assert b''.join(pieces[index]) == output['pcm']
+            assert len(output['pcm']) == output['codec_frames'] * 1920 * 2
+            assert output['finish_reason'] == 'stop'
+            completed.add(index)
+            with wave.open(str(args.output / f'{index:05d}.wav'), 'wb') as audio:
+                audio.setparams((1, 2, output['sample_rate'], 0, 'NONE', 'not compressed'))
+                audio.writeframes(output['pcm'])
+            result['requests'].append({'index': index, 'success': True,
+                'pcm_sha256': hashlib.sha256(output['pcm']).hexdigest(), 'pcm_bytes': len(output['pcm']),
+                'codec_frames': output['codec_frames'], 'finish_reason': output['finish_reason'],
+                'audio_seconds': len(output['pcm']) / 48000, 'elapsed_seconds': time.perf_counter() - starts[index],
+                'chunks': chunks[index]})
+            (args.output / 'results.json').write_text(json.dumps(result, indent=2)+'\n')
+    assert completed == set(args.indices)
+    result['status'] = 'PASS'
+except Exception as error:
+    result['status'] = 'FAIL'
+    result['error'] = f'{type(error).__name__}: {error}'
+    raise
+finally:
+    (args.output / 'results.json').write_text(json.dumps(result, indent=2)+'\n')
+    model.close()

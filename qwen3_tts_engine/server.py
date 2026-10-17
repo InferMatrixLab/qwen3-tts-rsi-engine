@@ -49,11 +49,12 @@ class SpeechService:
         self.executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="model-owner")
         self.model = None
         self.worker = None
+        self.failure = None
 
     async def start(self, app):
         loop = asyncio.get_running_loop()
         self.model = await loop.run_in_executor(self.executor, self.model_factory, str(self.options.model), self.options.device)
-        self.worker = asyncio.create_task(self.run())
+        self.worker = asyncio.create_task(self.run_continuous() if getattr(self.options, 'continuous', False) else self.run())
 
     async def stop(self, app):
         if self.worker:
@@ -101,13 +102,73 @@ class SpeechService:
                 self.queue.task_done()
 
     async def health(self, incoming):
-        return web.json_response({"status": "ready" if self.model else "starting",
+        return web.json_response({"status": "failed" if self.failure else "ready" if self.model else "starting",
                                   "queued": self.queue.qsize(),
                                   "backend": "standalone",
                                   "audio_delivery": "codec-windows" if getattr(self.options, 'streaming', False)
-                                  else "complete-waveform"})
+                                  else "complete-waveform"}, status=503 if self.failure else 200)
+
+    async def run_continuous(self):
+        loop = asyncio.get_running_loop()
+        pending = {}
+        sequence = 0
+        while True:
+            submissions = []
+            cancelled = [identifier for identifier, (_, future, _) in pending.items() if future.cancelled()]
+            for identifier in cancelled:
+                pending.pop(identifier)
+                self.queue.task_done()
+            if not pending and not cancelled:
+                item = await self.queue.get()
+                if item[1].cancelled():
+                    self.queue.task_done()
+                    continue
+                pending[sequence] = item
+                submissions.append((sequence, item[0]))
+                sequence += 1
+            while (len(pending) < self.options.max_batch_size and
+                   len(submissions) < self.options.prefill_per_tick and not self.queue.empty()):
+                item = self.queue.get_nowait()
+                if item[1].cancelled():
+                    self.queue.task_done()
+                    continue
+                pending[sequence] = item
+                submissions.append((sequence, item[0]))
+                sequence += 1
+
+            def emit(identifier, pcm, rate):
+                item = pending.get(identifier)
+                if item is not None and getattr(self.options, 'streaming', False):
+                    item[2].emit(pcm, rate)
+
+            try:
+                outputs = await loop.run_in_executor(self.executor,
+                    partial(self.model.tick, submissions, emit, cancelled))
+                for identifier, output in outputs:
+                    _, future, channel = pending.pop(identifier)
+                    if not future.done():
+                        if channel.error is not None:
+                            future.set_exception(channel.error)
+                        else:
+                            future.set_result(output)
+                    self.queue.task_done()
+            except asyncio.CancelledError:
+                for _, future, channel in pending.values():
+                    channel.close()
+                    future.cancel()
+                raise
+            except Exception as error:
+                LOGGER.exception('Continuous model failed')
+                self.failure = error
+                for _, future, channel in pending.values():
+                    if not future.done():
+                        future.set_exception(error)
+                    self.queue.task_done()
+                return
 
     async def speech(self, incoming):
+        if self.failure is not None:
+            return web.json_response({'error': 'Model worker failed'}, status=503)
         try:
             payload = await incoming.json()
             if not isinstance(payload, dict):
@@ -141,8 +202,8 @@ class SpeechService:
         except asyncio.QueueFull:
             return web.json_response({"error": "Request queue full"}, status=503)
         response = web.StreamResponse(headers={"Content-Type": "text/event-stream"})
-        await response.prepare(incoming)
         try:
+            await response.prepare(incoming)
             emitted_bytes = 0
             if getattr(self.options, 'streaming', False):
                 while True:
@@ -204,13 +265,27 @@ def main():
     parser.add_argument("--streaming", action="store_true")
     parser.add_argument("--pack-qkv", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
+    parser.add_argument("--codec-left-context", type=int, default=72)
+    parser.add_argument("--codec-batch-size", type=int, choices=[1, 2, 4], default=1)
+    parser.add_argument("--continuous", action="store_true")
+    parser.add_argument("--prefill-per-tick", type=int, default=4)
     options = parser.parse_args()
-    if min(options.max_batch_size, options.queue_size) <= 0 or options.batch_wait_ms < 0:
+    if min(options.max_batch_size, options.queue_size) <= 0 or options.batch_wait_ms < 0 or options.codec_left_context < 0:
         parser.error("Invalid batch or queue settings")
+    if options.prefill_per_tick < 1 or (options.continuous and options.max_batch_size & (options.max_batch_size - 1)):
+        parser.error('Continuous slots must be a power of two and prefill budget must be positive')
     logging.basicConfig(level=logging.INFO)
-    service = SpeechService(options, partial(CustomVoiceModel, predictor_graph=options.predictor_graph,
+    factory = partial(CustomVoiceModel, predictor_graph=options.predictor_graph,
                                              talker_graph=options.talker_graph,
-                                             rms_norm=options.rms_norm, pack_qkv=options.pack_qkv))
+                                             rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
+                                             codec_left_context=options.codec_left_context,
+                                             codec_batch_size=options.codec_batch_size)
+    if options.continuous:
+        from qwen3_tts_engine.continuous import ContinuousModel
+        factory = partial(ContinuousModel, max_slots=options.max_batch_size,
+                          rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
+                          codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size)
+    service = SpeechService(options, factory)
     app = web.Application(client_max_size=1024 * 1024)
     app.router.add_get("/health", service.health)
     app.router.add_post("/v1/audio/speech", service.speech)

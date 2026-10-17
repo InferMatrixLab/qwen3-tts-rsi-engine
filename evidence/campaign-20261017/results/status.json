@@ -1,8 +1,8 @@
 {
   "status": "INCONCLUSIVE",
   "cpu_tests": {
-    "passed": 7,
-    "scope": "SSE metrics, failures, model thread ownership and first audio before generation completion"
+    "passed": 10,
+    "scope": "SSE delivery, native scheduling admission and seeded categorical sampling"
   },
   "npu_operator_probe": {
     "exit": 0,
@@ -49,6 +49,7 @@
   "streaming": "C1_8_OF_8_EXIT_ZERO_EN_WER_ZERO_NEW_INITIAL_CHUNK_SCHEDULE_PENDING",
   "packed_qkv": "FOUR_PROMPT_EXACT_PCM_PASS",
   "fused_rms": "REFERENCE_ROUNDING_FAILED_EXACT_PARITY_NATIVE_QUALITY_TRIAL_PENDING",
-  "native_fusion": "C1_TO_C8_MEASURED_C16_RUNNING",
-  "next_architecture": "plan/continuous-batching.md"
+  "native_fusion": "FULL_C1_C64_COMPLETED_TARGET_NOT_MET",
+  "next_architecture": "plan/continuous-batching.md",
+  "continuous": "C1_C2_C4_8_REQUESTS_EACH_SUCCESS_EXIT_ZERO_FULL_SWEEP_PENDING"
 }

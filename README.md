@@ -45,14 +45,26 @@ These graphs are not enabled by default. Mixed English/Chinese batch size four
 also passed complete PCM parity. The separate 8-request streaming qualification
 completed with clean shutdown, TTFA p50/p95 208.5/215.5 ms and 21.23 frames/s;
 English WER was zero for those eight clips. This is not a matched 2x result.
-`--streaming` uses an initial short codec window followed by larger windows with
-25 frames of left context. Chunk decoding can change PCM rounding, so full
+`--streaming` uses an initial short codec window followed by larger windows.
+The earlier measurements at commit `4ce009a` used 25 frames of left context;
+current experiments use 72 to match the decoder attention window and expose
+`--codec-batch-size` for bounded codec batching. Chunk decoding can change PCM rounding, so full
 streaming ASR and speaker quality are evaluated independently.
 `--pack-qkv` passed the four-prompt exact check. `--rms-norm` remains an
 approximate numerical experiment: its reference-rounding variant failed exact
 parity, and native fusion requires the frozen full-corpus quality gates before
 promotion. None of these options changes the default reference path.
 See the retained counterexample in `evidence/campaign-20261017/results/`.
+
+`--continuous --streaming --max-batch-size 64` selects the experimental native
+iteration scheduler. It owns per-request KV slots, seeded uniform sampling,
+EOS completion, slot compaction and capacity growth. It reuses official prompt
+construction and model weights but does not call Hugging Face's generation loop.
+The inverse-CDF sampler preserves the configured categorical distribution;
+its seed-to-token mapping differs from `torch.multinomial` and is checked through
+independent audio scoring. Slot reuse and capacity growth passed a four-request
+NPU probe, and C1/C2/C4 each completed eight HTTP requests with clean shutdown.
+The complete concurrency/quality acceptance run is still pending.
 
 ```bash
 python -m qwen3_tts_engine.server --model /path/to/pinned/model --device npu:0
