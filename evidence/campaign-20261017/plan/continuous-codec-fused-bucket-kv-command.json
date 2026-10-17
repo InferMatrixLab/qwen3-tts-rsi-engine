@@ -5,7 +5,7 @@
   "--model",
   "/home/why/qwen3-tts-research/model",
   "--port",
-  "8099",
+  "8097",
   "--continuous",
   "--streaming",
   "--pack-qkv",
