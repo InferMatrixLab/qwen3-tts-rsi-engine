@@ -1,0 +1,136 @@
+{
+  "status": "INCONCLUSIVE",
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "metrics": [
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C1",
+      "before": {
+        "mean": 0.9885094733969768,
+        "std": 0.02987470531539702,
+        "n": 3
+      },
+      "after": {
+        "mean": 0.20588599322002424,
+        "std": 0.0018201112365848048,
+        "n": 3
+      },
+      "improvement_pct": 79.17207687322363,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C2",
+      "before": {
+        "mean": 1.0322615827228618,
+        "std": 0.05333762215918429,
+        "n": 3
+      },
+      "after": {
+        "mean": 0.2614396798239335,
+        "std": 0.0016332415379427597,
+        "n": 3
+      },
+      "improvement_pct": 74.67311733772776,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C4",
+      "before": {
+        "mean": 1.0727999339147911,
+        "std": 0.055899026021895115,
+        "n": 3
+      },
+      "after": {
+        "mean": 0.32161891836804757,
+        "std": 0.0011065436064887312,
+        "n": 3
+      },
+      "improvement_pct": 70.02060606077623,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C8",
+      "before": {
+        "mean": 1.1686293059491801,
+        "std": 0.058845377280969134,
+        "n": 3
+      },
+      "after": {
+        "mean": 0.42398043601410185,
+        "std": 0.0035144110829353555,
+        "n": 3
+      },
+      "improvement_pct": 63.719852492511485,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C16",
+      "before": {
+        "mean": 1.313085493674672,
+        "std": 0.05931376519665912,
+        "n": 3
+      },
+      "after": {
+        "mean": 0.5605255292342342,
+        "std": 0.006037043344800541,
+        "n": 3
+      },
+      "improvement_pct": 57.31233556882862,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C32",
+      "before": {
+        "mean": 1.6301562645412688,
+        "std": 0.07655630552498083,
+        "n": 3
+      },
+      "after": {
+        "mean": 0.8134461901394063,
+        "std": 0.002517182223461808,
+        "n": 3
+      },
+      "improvement_pct": 50.10010955187093,
+      "observation": "repeated trials"
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C64",
+      "before": {
+        "mean": 2.4765518363808523,
+        "std": 0.11989729830816566,
+        "n": 3
+      },
+      "after": {
+        "mean": 1.212088648944686,
+        "std": 0.019545192340392904,
+        "n": 3
+      },
+      "improvement_pct": 51.05740848469416,
+      "observation": "repeated trials"
+    }
+  ]
+}
