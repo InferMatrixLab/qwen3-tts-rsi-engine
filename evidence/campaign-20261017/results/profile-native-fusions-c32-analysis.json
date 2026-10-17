@@ -1,0 +1,580 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "Profiler kernel accounting, not throughput; profiling overhead and capture events affect times",
+  "warnings": [
+    "Profiler warned that stopping in RECORD state may produce incomplete parsed data; retained totals are diagnostic only."
+  ],
+  "kernel_details_sha256": "0c16be7d7fd006f3348ae42a93744189cfca173d27214648ff5e525dacea3940",
+  "step_trace": [
+    {
+      "Device_id": "6",
+      "Step": "",
+      "Computing": "1118036.9799999646",
+      "Communication(Not Overlapped)": "0",
+      "Overlapped": "0",
+      "Communication": "0",
+      "Free": "915687.000001151",
+      "Stage": "2033724.0",
+      "Bubble": "0",
+      "Communication(Not Overlapped and Exclude Receive)": "0",
+      "Preparing": "701.5"
+    }
+  ],
+  "kernels": [
+    {
+      "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+      "total_us": 142119.69999999958,
+      "calls": 10992
+    },
+    {
+      "name": "FusedInferAttentionScore",
+      "total_us": 104403.7800000001,
+      "calls": 2068
+    },
+    {
+      "name": "aclnnMul_MulAiCore_Mul",
+      "total_us": 102875.79999999942,
+      "calls": 14722
+    },
+    {
+      "name": "RmsNorm",
+      "total_us": 88631.5999999997,
+      "calls": 8543
+    },
+    {
+      "name": "aclnnConvolution_TransData_TransData",
+      "total_us": 67748.07999999991,
+      "calls": 4687
+    },
+    {
+      "name": "aclnnAdd_AddAiCore_Add",
+      "total_us": 58156.32000000033,
+      "calls": 12591
+    },
+    {
+      "name": "aclnnInplaceScatterValue_ScatterElements_ScatterElements",
+      "total_us": 57406.02,
+      "calls": 524
+    },
+    {
+      "name": "aclnnCat_ConcatD_ConcatD",
+      "total_us": 39845.65999999986,
+      "calls": 9001
+    },
+    {
+      "name": "aclnnSin_SinAiCore_Sin",
+      "total_us": 28355.06000000002,
+      "calls": 1561
+    },
+    {
+      "name": "aclnnMul_TransposeAiCore_Transpose",
+      "total_us": 25712.440000000028,
+      "calls": 1656
+    },
+    {
+      "name": "SwiGlu",
+      "total_us": 24682.119999999948,
+      "calls": 2068
+    },
+    {
+      "name": "aclnnConvolution_ConvTranspose2dWithFlag_Conv2DTranspose",
+      "total_us": 23241.759999999995,
+      "calls": 258
+    },
+    {
+      "name": "aclnnPowTensorScalar_PowsAiCore_Pows",
+      "total_us": 20407.179999999968,
+      "calls": 1978
+    },
+    {
+      "name": "aclnnNeg_NegAiCore_Neg",
+      "total_us": 19014.900000000092,
+      "calls": 4824
+    },
+    {
+      "name": "aclnnConvolution_Conv2dWithFlag_Conv2D",
+      "total_us": 18567.759999999987,
+      "calls": 1333
+    },
+    {
+      "name": "aclnnFlashAttentionScore_FlashAttentionScore_FlashAttentionScore",
+      "total_us": 17673.080000000005,
+      "calls": 344
+    },
+    {
+      "name": "aclnnInplaceIndexCopy_ScatterUpdateAiCore_ScatterUpdate",
+      "total_us": 15034.819999999982,
+      "calls": 1634
+    },
+    {
+      "name": "aclnnCat_TransposeAiCore_Transpose",
+      "total_us": 14602.740000000013,
+      "calls": 1128
+    },
+    {
+      "name": "aclnnScatterNdUpdate_ScatterNdUpdateAiCore_ScatterNdUpdate",
+      "total_us": 14320.779999999993,
+      "calls": 896
+    },
+    {
+      "name": "aclnnConvolution_TransData_MemSet",
+      "total_us": 13887.420000000002,
+      "calls": 1505
+    },
+    {
+      "name": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+      "total_us": 12340.600000000013,
+      "calls": 828
+    },
+    {
+      "name": "aclnnCat_SliceAiCore_Slice",
+      "total_us": 11617.779999999973,
+      "calls": 4960
+    },
+    {
+      "name": "aclnnInplaceCopy_SliceAiCore_Slice",
+      "total_us": 11148.619999999994,
+      "calls": 2211
+    },
+    {
+      "name": "aclnnContiguous_SliceAiCore_Slice",
+      "total_us": 10438.0400000001,
+      "calls": 4136
+    },
+    {
+      "name": "aclnnAdd_TransposeAiCore_Transpose",
+      "total_us": 9996.88,
+      "calls": 742
+    },
+    {
+      "name": "aclnnDiv_RealDivAiCore_RealDiv",
+      "total_us": 9508.020000000011,
+      "calls": 956
+    },
+    {
+      "name": "aclnnNeg_SliceAiCore_Slice",
+      "total_us": 9297.919999999976,
+      "calls": 3824
+    },
+    {
+      "name": "aclnnCat_AsStridedAiCore_AsStrided",
+      "total_us": 9003.239999999987,
+      "calls": 1500
+    },
+    {
+      "name": "aclnnInplaceCopy_CastAiCore_Cast",
+      "total_us": 8880.15999999999,
+      "calls": 4096
+    },
+    {
+      "name": "aclnnNeg_TransposeAiCore_Transpose",
+      "total_us": 8488.040000000008,
+      "calls": 656
+    },
+    {
+      "name": "aclnnInplaceCopy_ViewCopyAiCore_ViewCopy",
+      "total_us": 7245.0400000000045,
+      "calls": 860
+    },
+    {
+      "name": "aclnnNeg_AsStridedAiCore_AsStrided",
+      "total_us": 6628.679999999998,
+      "calls": 1000
+    },
+    {
+      "name": "aclnnAddmm_MatMulCommon_MatMulV2",
+      "total_us": 6495.500000000002,
+      "calls": 553
+    },
+    {
+      "name": "aclnnEmbedding_GatherV2AiCore_GatherV2",
+      "total_us": 5438.739999999992,
+      "calls": 1276
+    },
+    {
+      "name": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+      "total_us": 4989.32,
+      "calls": 1634
+    },
+    {
+      "name": "aclnnInplaceCopy_TensorMoveAiCore_TensorMove",
+      "total_us": 4607.180000000004,
+      "calls": 729
+    },
+    {
+      "name": "aclnnMean_ReduceMeanAiCore_ReduceMean",
+      "total_us": 4230.019999999999,
+      "calls": 731
+    },
+    {
+      "name": "aclnnTopk_TopkV2AiCore_TopKV2",
+      "total_us": 4155.520000000001,
+      "calls": 268
+    },
+    {
+      "name": "aclnnConvolution_TransDataFzToDst_TransData",
+      "total_us": 4049.7599999999993,
+      "calls": 86
+    },
+    {
+      "name": "aclnnReduceSum_ReduceSumOpAiCore_ReduceSum",
+      "total_us": 3736.3000000000015,
+      "calls": 299
+    },
+    {
+      "name": "aclnnSoftmax_SoftmaxAiCore_SoftmaxV2",
+      "total_us": 3621.28,
+      "calls": 268
+    },
+    {
+      "name": "aclnnInplaceMaskedFillScalar_MaskedFillAiCore_MaskedFill",
+      "total_us": 3124.639999999999,
+      "calls": 311
+    },
+    {
+      "name": "aclnnFlip_ReverseV2Aicpu_ReverseV2",
+      "total_us": 3117.1600000000003,
+      "calls": 24
+    },
+    {
+      "name": "aclnnCumsum_CumsumAiCore_Cumsum",
+      "total_us": 3106.599999999998,
+      "calls": 283
+    },
+    {
+      "name": "aclnnExp_ExpAiCore_Exp",
+      "total_us": 3047.8599999999497,
+      "calls": 2494
+    },
+    {
+      "name": "aclnnLeTensor_LessEqualAiCore_LessEqual",
+      "total_us": 2822.779999999997,
+      "calls": 329
+    },
+    {
+      "name": "aclnnCumsum_CumsumAiCore_MemSet",
+      "total_us": 2690.739999999999,
+      "calls": 283
+    },
+    {
+      "name": "aclnnAdds_AddAiCore_Add",
+      "total_us": 2393.699999999974,
+      "calls": 2021
+    },
+    {
+      "name": "aclnnSub_SubAiCore_Sub",
+      "total_us": 2377.9599999999996,
+      "calls": 172
+    },
+    {
+      "name": "aclnnLtTensor_LessAiCore_Less",
+      "total_us": 2340.4000000000024,
+      "calls": 268
+    },
+    {
+      "name": "aclnnDivs_RealDivAiCore_RealDiv",
+      "total_us": 2247.9799999999973,
+      "calls": 296
+    },
+    {
+      "name": "aclnnReduceSum_CastAiCore_Cast",
+      "total_us": 2104.580000000004,
+      "calls": 536
+    },
+    {
+      "name": "aclnnAdd_ViewCopyAiCore_ViewCopy",
+      "total_us": 2093.5000000000005,
+      "calls": 172
+    },
+    {
+      "name": "aclnnClamp_ClipByValueV2AiCore_ClipByValueV2",
+      "total_us": 1799.5200000000004,
+      "calls": 731
+    },
+    {
+      "name": "aclnnConvolution_CastAiCore_Cast",
+      "total_us": 1621.1599999999833,
+      "calls": 1505
+    },
+    {
+      "name": "aclnnLayerNormWithImplMode_TransposeAiCore_Transpose",
+      "total_us": 1443.5199999999995,
+      "calls": 86
+    },
+    {
+      "name": "aclnnStack_PackAiCore_Pack",
+      "total_us": 1416.64,
+      "calls": 173
+    },
+    {
+      "name": "aclnnInplaceIndexCopy_SliceAiCore_Slice",
+      "total_us": 1366.2599999999995,
+      "calls": 688
+    },
+    {
+      "name": "aclnnAdd_SliceAiCore_Slice",
+      "total_us": 1318.5600000000006,
+      "calls": 172
+    },
+    {
+      "name": "aclnnReciprocal_ReciprocalAiCore_Reciprocal",
+      "total_us": 1272.1400000000017,
+      "calls": 1247
+    },
+    {
+      "name": "aclnnEmbedding_SliceAiCore_Slice",
+      "total_us": 1233.92,
+      "calls": 512
+    },
+    {
+      "name": "aclnnMuls_Muls_Muls",
+      "total_us": 1201.7200000000098,
+      "calls": 1247
+    },
+    {
+      "name": "aclnnStack_TransposeAiCore_Transpose",
+      "total_us": 1109.68,
+      "calls": 80
+    },
+    {
+      "name": "aclnnMatmul_MulAiCore_Mul",
+      "total_us": 1103.86,
+      "calls": 314
+    },
+    {
+      "name": "aclnnMuls_MulAiCore_Mul",
+      "total_us": 993.5599999999987,
+      "calls": 656
+    },
+    {
+      "name": "aclnnInplaceZero_ZerosLikeAiCore_ZerosLike",
+      "total_us": 984.0399999999998,
+      "calls": 568
+    },
+    {
+      "name": "aclnnConvolution_TransDataToFzWithoutGroup_TransData",
+      "total_us": 955.5799999999996,
+      "calls": 86
+    },
+    {
+      "name": "aclnnDiv_SliceAiCore_Slice",
+      "total_us": 937.7600000000001,
+      "calls": 256
+    },
+    {
+      "name": "aclnnSilu_SiluAiCore_Swish",
+      "total_us": 857.5599999999995,
+      "calls": 392
+    },
+    {
+      "name": "aclnnLtTensor_SliceAiCore_Slice",
+      "total_us": 842.8199999999999,
+      "calls": 256
+    },
+    {
+      "name": "aclnnLogicalNot_LogicalNotAiCore_LogicalNot",
+      "total_us": 764.9600000000003,
+      "calls": 688
+    },
+    {
+      "name": "aclnnLayerNormWithImplMode_LayerNormV4_LayerNormV4",
+      "total_us": 764.0000000000001,
+      "calls": 86
+    },
+    {
+      "name": "aclnnConvolution_TransDataToFzWithoutGroup_MemSet",
+      "total_us": 761.94,
+      "calls": 86
+    },
+    {
+      "name": "aclnnLeTensor_SliceAiCore_Slice",
+      "total_us": 758.8400000000004,
+      "calls": 240
+    },
+    {
+      "name": "aclnnSub_SliceAiCore_Slice",
+      "total_us": 713.5800000000003,
+      "calls": 172
+    },
+    {
+      "name": "aclnnConvolution_TransposeAiCore_Transpose",
+      "total_us": 691.9599999999999,
+      "calls": 41
+    },
+    {
+      "name": "aclnnRsqrt_RsqrtAiCore_Rsqrt",
+      "total_us": 686.6199999999995,
+      "calls": 731
+    },
+    {
+      "name": "aclnnCos_CosAiCore_Cos",
+      "total_us": 660.1999999999995,
+      "calls": 314
+    },
+    {
+      "name": "aclnnMatmul_TransposeAiCore_Transpose",
+      "total_us": 627.0799999999999,
+      "calls": 41
+    },
+    {
+      "name": "aclnnGelu_Gelu_Gelu",
+      "total_us": 621.3600000000001,
+      "calls": 86
+    },
+    {
+      "name": "aclnnAddmm_CastAiCore_Cast",
+      "total_us": 591.0599999999997,
+      "calls": 553
+    },
+    {
+      "name": "aclnnSWhere_SelectV2AiCore_SelectV2",
+      "total_us": 579.82,
+      "calls": 158
+    },
+    {
+      "name": "aclnnInplaceScatterValue_BroadcastToAiCore_BroadcastTo",
+      "total_us": 574.78,
+      "calls": 524
+    },
+    {
+      "name": "aclnnConvolution_TransDataFzToDst_MemSet",
+      "total_us": 524.38,
+      "calls": 86
+    },
+    {
+      "name": "aclnnConstantPadNd_PadV3AiCpu_PadV3",
+      "total_us": 511.74,
+      "calls": 12
+    },
+    {
+      "name": "aclnnGtTensor_GreaterAiCore_Greater",
+      "total_us": 415.8599999999999,
+      "calls": 43
+    },
+    {
+      "name": "aclnnBitwiseAndTensor_LogicalAndAiCore_LogicalAnd",
+      "total_us": 407.42,
+      "calls": 101
+    },
+    {
+      "name": "aclnnTopk_CastAiCore_Cast",
+      "total_us": 369.24,
+      "calls": 268
+    },
+    {
+      "name": "aclnnInplaceFillScalar_FillAiCore_Fill",
+      "total_us": 253.7799999999999,
+      "calls": 204
+    },
+    {
+      "name": "aclnnLtScalar_LessAiCore_Less",
+      "total_us": 236.96000000000004,
+      "calls": 56
+    },
+    {
+      "name": "aclnnMatmul_BroadcastToAiCore_BroadcastTo",
+      "total_us": 217.49999999999997,
+      "calls": 63
+    },
+    {
+      "name": "aclnnConstantPadNd_PadV3AiCore_PadV3",
+      "total_us": 216.04,
+      "calls": 12
+    },
+    {
+      "name": "aclnnInplaceOne_OnesLikeAiCPU_OnesLike",
+      "total_us": 209.4,
+      "calls": 2
+    },
+    {
+      "name": "aclnnSubs_SubAiCore_Sub",
+      "total_us": 170.70000000000007,
+      "calls": 73
+    },
+    {
+      "name": "aclnnIndex_IndexAiCore_Index",
+      "total_us": 123.83999999999999,
+      "calls": 15
+    },
+    {
+      "name": "aclnnGeScalar_GreaterEqual_GreaterEqual",
+      "total_us": 122.18000000000002,
+      "calls": 43
+    },
+    {
+      "name": "aclnnAdd_CastAiCore_Cast",
+      "total_us": 116.96000000000006,
+      "calls": 86
+    },
+    {
+      "name": "aclnnStack_BroadcastToAiCore_BroadcastTo",
+      "total_us": 115.08000000000003,
+      "calls": 48
+    },
+    {
+      "name": "aclnnNonzeroV2_NonzeroAiCore_MemSet",
+      "total_us": 113.86,
+      "calls": 12
+    },
+    {
+      "name": "aclnnArange_ArangeAiCore_Range",
+      "total_us": 101.7,
+      "calls": 16
+    },
+    {
+      "name": "aclnnSWhere_SliceAiCore_Slice",
+      "total_us": 78.3,
+      "calls": 16
+    },
+    {
+      "name": "aclnnConstantPadNd_PadV3AiCore_MemSet",
+      "total_us": 75.24000000000001,
+      "calls": 12
+    },
+    {
+      "name": "aclnnCat_BroadcastToAiCore_BroadcastTo",
+      "total_us": 64.22,
+      "calls": 12
+    },
+    {
+      "name": "aclnnIndex_IndexCheck_IndexCheck",
+      "total_us": 45.58,
+      "calls": 15
+    },
+    {
+      "name": "aclnnNonzeroV2_NonzeroAiCore_NonZero",
+      "total_us": 44.18,
+      "calls": 12
+    },
+    {
+      "name": "aclnnBitwiseNot_LogicalNotAiCore_LogicalNot",
+      "total_us": 38.300000000000004,
+      "calls": 28
+    },
+    {
+      "name": "aclnnEqScalar_EqualAiCore_Equal",
+      "total_us": 31.320000000000004,
+      "calls": 15
+    },
+    {
+      "name": "aclnnAll_ReduceAll_ReduceAll",
+      "total_us": 31.080000000000002,
+      "calls": 12
+    },
+    {
+      "name": "aclnnGeTensor_GreaterEqual_GreaterEqual",
+      "total_us": 31.020000000000007,
+      "calls": 12
+    },
+    {
+      "name": "aclnnInplaceCopy_BroadcastToAiCore_BroadcastTo",
+      "total_us": 26.880000000000003,
+      "calls": 16
+    },
+    {
+      "name": "aclnnAll_CastAiCore_Cast",
+      "total_us": 18.159999999999997,
+      "calls": 12
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "isolated rotary graph diagnostics; no service or quality claim",
+  "cases": [
+    {
+      "batch": 1,
+      "length": 1,
+      "max_abs_error": 3.703125,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.041984785348176956
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.018203668296337128
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.018115974962711334
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.04183257929980755
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "max_abs_error": 6.703125,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.042748693376779556
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.019538402557373047
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.019546113908290863
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.04262770526111126
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "length": 16,
+      "max_abs_error": 6.828125,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.05648556165397167
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.027553606778383255
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.027604419738054276
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.056184763088822365
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "length": 64,
+      "max_abs_error": 7.1875,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.07135985419154167
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.03713355399668217
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.037071555852890015
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.07134723477065563
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "length": 1,
+      "max_abs_error": 6.890625,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.06382924504578114
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.027252398431301117
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.02727479673922062
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.06378775462508202
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "length": 2,
+      "max_abs_error": 6.984375,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.06927679292857647
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.09712722152471542
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.0971314124763012
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.06921028718352318
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "length": 16,
+      "max_abs_error": 6.15625,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.08298235014081001
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.10516413487493992
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.10506122373044491
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.08288615383207798
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "length": 64,
+      "max_abs_error": 4.15625,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.12868523597717285
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.11470207013189793
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.11471686884760857
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.1281037088483572
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "length": 1,
+      "max_abs_error": 5.859375,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.0861798319965601
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.03465279005467892
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.03469409421086311
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.08617923595011234
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "length": 2,
+      "max_abs_error": 6.5625,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.08862738497555256
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.32481011003255844
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.32474469393491745
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.08867600001394749
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "length": 16,
+      "max_abs_error": 0.03125,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.1267082802951336
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.33280450850725174
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.332825006917119
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.12677128426730633
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "length": 64,
+      "max_abs_error": 6.859375,
+      "samples": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.2177104353904724
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.3423141594976187
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.34230305813252926
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.21760682575404644
+        }
+      ]
+    }
+  ]
+}

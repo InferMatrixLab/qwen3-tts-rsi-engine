@@ -62,6 +62,7 @@ parser.add_argument('--decode-bucket-step', type=int, default=0)
 parser.add_argument('--batch-audio-transfer', action='store_true')
 parser.add_argument('--reference-single', action='store_true')
 parser.add_argument('--graph-sampling', action='store_true')
+parser.add_argument('--native-rope', action='store_true')
 parser.add_argument('--native-gqa', action='store_true')
 parser.add_argument('--codec-batch-size', type=int, default=4)
 parser.add_argument('--graph-prefill', action='store_true')
@@ -85,7 +86,7 @@ model = ContinuousModel(args.model, 'npu:0', max_slots=args.slots,
                         rms_norm=None if args.rms_norm == 'reference' else args.rms_norm, pack_qkv=True, codec_left_context=72, codec_batch_size=args.codec_batch_size,
                         incremental_codec=args.incremental_codec, batch_prefill=args.batch_prefill,
                         native_kv_update=args.native_kv_update, pack_mlp=args.pack_mlp, fused_swiglu=args.fused_swiglu,
-                        graph_prefill=args.graph_prefill, text_only_rope=args.text_only_rope, prewarm_codec=args.prewarm_codec, bucket_kv=args.bucket_kv, graph_embeddings=args.graph_embeddings, native_gqa=args.native_gqa, bucket_prefill=args.bucket_prefill, decode_bucket_step=args.decode_bucket_step, batch_audio_transfer=args.batch_audio_transfer, reference_single=args.reference_single, graph_sampling=args.graph_sampling)
+                        graph_prefill=args.graph_prefill, text_only_rope=args.text_only_rope, prewarm_codec=args.prewarm_codec, bucket_kv=args.bucket_kv, graph_embeddings=args.graph_embeddings, native_gqa=args.native_gqa, bucket_prefill=args.bucket_prefill, decode_bucket_step=args.decode_bucket_step, batch_audio_transfer=args.batch_audio_transfer, reference_single=args.reference_single, graph_sampling=args.graph_sampling, native_rope=args.native_rope)
 for owner, name, label in [(model, 'admit', 'continuous_prefill'),
                             (model, 'admit_batch', 'continuous_batch_prefill'),
                             (model.predictor, 'run', 'continuous_predictor'),

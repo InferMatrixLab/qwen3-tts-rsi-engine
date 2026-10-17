@@ -40,3 +40,22 @@ def test_single_mlp_keeps_reference_rounding_but_larger_batch_uses_swiglu(monkey
     assert calls == []
     candidate(inputs.expand(2, -1, -1))
     assert calls == [2]
+
+
+@pytest.mark.parametrize('already_active,expected', [(False, []), (True, [False, True])])
+def test_prefill_override_restores_reference_dispatch_after_failure(monkeypatch, already_active, expected):
+    from qwen3_tts_engine.continuous import ContinuousModel
+    monkeypatch.setattr(torch.npu, 'set_device', lambda device: None)
+    model = object.__new__(ContinuousModel)
+    model.device = 'npu:0'
+    model.states = [SimpleNamespace(identifier=0)] if already_active else []
+    model.reference_single = True
+    model.batch_prefill = model.graph_prefill = True
+    calls = []
+    model.model = SimpleNamespace(set_single_reference=calls.append)
+    def fail(submissions):
+        raise RuntimeError('prefill failure')
+    model.admit_batch = fail
+    with pytest.raises(RuntimeError, match='prefill failure'):
+        model.tick([(1, {})])
+    assert calls == expected

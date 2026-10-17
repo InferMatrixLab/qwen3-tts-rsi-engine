@@ -172,3 +172,9 @@ C1 ASR EN WER 0.008535 passes, but ZH CER 0.045530 exceeds its 0.036490 gate. Th
 Decode bucket step 8 (`5887ab7`, physical NPU 1) measured C32 336.511 / C64 467.910 frames/s. Prewarmed codec batch 8 (`47a0ad0`, physical NPU 6) measured C32 320.247 / C64 476.856 frames/s. Both completed all requests and clean server exits. Their quality is unverified, and neither meets both high-concurrency throughput targets. Gains from these separate experiments must not be multiplied or combined as measured evidence.
 
 Batching codec host transfers (`64d8505`, physical NPU 6) completed C32/C64 at 338.107 / 463.065 frames/s, with 128 successful requests per cohort and clean server exit. Four standalone probe outputs matched PCM exactly, but this remains an exploratory service comparison; it does not establish an all-concurrency improvement or achieve the target.
+
+## Exact sampling graphs and single-request reference dispatch
+
+Sampling graphs (`51570b7`, physical NPU 1) completed C32/C64 at 344.970 / 482.417 frames/s, with 128 successful requests per cohort and clean lifecycle. Neither exceeds its 2x target.
+
+The first single-request reference-dispatch implementation (`0ecd620`, physical NPU 7) completed C1/C2/C32/C64 at 33.204 / 71.225 / 280.326 / 413.612 frames/s. All 128 C1 PCM hashes match the previously scored original-RMS C1 control, so that cohort's ASR/speaker evidence transfers by exact audio identity. Its C2 ASR is running. The implementation also routed single-arrival refills at high concurrency through slow reference prefill; the subsequent fix restricts that behavior to a genuinely solitary active request. The fixed dispatch still needs service validation.

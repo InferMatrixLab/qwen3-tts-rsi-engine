@@ -217,7 +217,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False):
         decode_batch_size(1, max_slots, decode_bucket_step)
         self.decode_bucket_step = decode_bucket_step
         self.batch_audio_transfer = batch_audio_transfer
@@ -229,7 +229,7 @@ class ContinuousModel:
         if prewarm_codec and not incremental_codec:
             raise ValueError('Codec prewarming requires the incremental codec')
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
-                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single)
+                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope)
         self.device = device
         self.speakers = self.model.speakers
         self.languages = self.model.languages
@@ -336,7 +336,7 @@ class ContinuousModel:
 
     @torch.inference_mode()
     def admit_batch(self, submissions):
-        if self.reference_single and len(submissions) == 1:
+        if self.reference_single and len(submissions) == 1 and not self.states:
             self.admit(*submissions[0])
             return
         if len(self.states) + len(submissions) > self.max_slots:
@@ -436,11 +436,18 @@ class ContinuousModel:
                 if index != last:
                     self.states[index] = self.states[last]
                 self.states.pop()
-        if (self.batch_prefill or self.graph_prefill) and submissions:
-            self.admit_batch(submissions)
-        else:
-            for identifier, payload in submissions:
-                self.admit(identifier, payload)
+        native_prefill = bool(submissions) and self.reference_single and len(self.states) + len(submissions) > 1
+        if native_prefill:
+            self.model.set_single_reference(False)
+        try:
+            if (self.batch_prefill or self.graph_prefill) and submissions:
+                self.admit_batch(submissions)
+            else:
+                for identifier, payload in submissions:
+                    self.admit(identifier, payload)
+        finally:
+            if native_prefill:
+                self.model.set_single_reference(True)
         if not self.states:
             return []
         count = len(self.states)

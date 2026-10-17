@@ -1,0 +1,351 @@
+{
+  "status": "PASS",
+  "scope": "native scheduling correctness probe; not service performance",
+  "requests": [
+    {
+      "index": 0,
+      "success": true,
+      "pcm_sha256": "9dc4eea4d6fa230cef26486e5d9b004e85179f136e6c295872feaf667ef18bfc",
+      "pcm_bytes": 111360,
+      "codec_frames": 29,
+      "finish_reason": "stop",
+      "audio_seconds": 2.32,
+      "elapsed_seconds": 3.3316865107044578,
+      "chunks": [
+        {
+          "seconds": 2.2664739033207297,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.350731904618442,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.5119341257959604,
+          "bytes": 15360
+        },
+        {
+          "seconds": 2.8232890935614705,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.1300706025213003,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.327109751291573,
+          "bytes": 19200
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "success": true,
+      "pcm_sha256": "fef5faa675f3c600ec4fa70791331cddee12c52a2b651f94ee9089d5f1e23bac",
+      "pcm_bytes": 192000,
+      "codec_frames": 50,
+      "finish_reason": "stop",
+      "audio_seconds": 4.0,
+      "elapsed_seconds": 4.426368400454521,
+      "chunks": [
+        {
+          "seconds": 2.2665493665263057,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.350784996524453,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.512013508938253,
+          "bytes": 15360
+        },
+        {
+          "seconds": 2.8234261982142925,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.1302028568461537,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.7098937993869185,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.021798651665449,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.334748659282923,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.420916799455881,
+          "bytes": 7680
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "success": true,
+      "pcm_sha256": "efdb9aae9e29ed2dd40ad2ee1b3b1e4a035275346cc4b0f7a3faabb739fbd29f",
+      "pcm_bytes": 303360,
+      "codec_frames": 79,
+      "finish_reason": "stop",
+      "audio_seconds": 6.32,
+      "elapsed_seconds": 6.309612678363919,
+      "chunks": [
+        {
+          "seconds": 2.2666481090709567,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.3508654683828354,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.512135832570493,
+          "bytes": 15360
+        },
+        {
+          "seconds": 2.823640773072839,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.1304271928966045,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.709755305200815,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.021415411494672,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.3345240242779255,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.519180252216756,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.7885347018018365,
+          "bytes": 30720
+        },
+        {
+          "seconds": 6.056175919249654,
+          "bytes": 30720
+        },
+        {
+          "seconds": 6.3048629853874445,
+          "bytes": 26880
+        }
+      ]
+    },
+    {
+      "index": 64,
+      "success": true,
+      "pcm_sha256": "eeb5628824835a8f77648c663dae149c400f35de4f9e85b7bb95e5e15d2f428c",
+      "pcm_bytes": 368640,
+      "codec_frames": 96,
+      "finish_reason": "stop",
+      "audio_seconds": 7.68,
+      "elapsed_seconds": 7.637912442907691,
+      "chunks": [
+        {
+          "seconds": 2.2666042875498533,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.3508257269859314,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.5120753794908524,
+          "bytes": 15360
+        },
+        {
+          "seconds": 2.8235329408198595,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.1303142700344324,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.7100061113014817,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.022030896507204,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.334973014891148,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.519337365403771,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.7886746460571885,
+          "bytes": 30720
+        },
+        {
+          "seconds": 6.056317321956158,
+          "bytes": 30720
+        },
+        {
+          "seconds": 7.213110028766096,
+          "bytes": 30720
+        },
+        {
+          "seconds": 7.424592041410506,
+          "bytes": 30720
+        },
+        {
+          "seconds": 7.6362611297518015,
+          "bytes": 30720
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "admitted": [
+        0,
+        1,
+        64,
+        65
+      ],
+      "finished": [],
+      "cancelled": [],
+      "active": [
+        0,
+        1,
+        64,
+        65
+      ],
+      "capacity": 64
+    },
+    {
+      "admitted": [],
+      "finished": [
+        0
+      ],
+      "cancelled": [],
+      "active": [
+        65,
+        1,
+        64
+      ],
+      "capacity": 64
+    },
+    {
+      "admitted": [],
+      "finished": [
+        1
+      ],
+      "cancelled": [],
+      "active": [
+        65,
+        64
+      ],
+      "capacity": 128
+    },
+    {
+      "admitted": [],
+      "finished": [
+        65
+      ],
+      "cancelled": [],
+      "active": [
+        64
+      ],
+      "capacity": 128
+    },
+    {
+      "admitted": [],
+      "finished": [
+        64
+      ],
+      "cancelled": [],
+      "active": [],
+      "capacity": 128
+    }
+  ],
+  "configuration": {
+    "slots": 4,
+    "capacity": 64,
+    "incremental_codec": true,
+    "batch_prefill": false,
+    "native_kv_update": false,
+    "native_gqa": true,
+    "graph_prefill": true,
+    "text_only_rope": true,
+    "prewarm_codec": true,
+    "bucket_kv": false,
+    "graph_embeddings": true,
+    "bucket_prefill": false,
+    "decode_bucket_step": 0,
+    "batch_audio_transfer": false,
+    "reference_single": false,
+    "graph_sampling": true,
+    "native_rope": true,
+    "cancel_first_at": null
+  },
+  "source_sha256": {
+    "__init__.py": "9f7e7ecc1e417db1eda84a8904ef82621444b63a60cc35c14a4121609c11f5a3",
+    "batching.py": "08a390970af85286f3e85d37619c01fa414d58c760551544182c87fbd4d5bef0",
+    "benchmark.py": "0cf57d578b49aeccd0d00a3da77258b12c16ac56a001dbf7ff807c85f47c9b66",
+    "codec_graph.py": "1ff053ffc0db1f0d55c98ec065aa70eec0580368e685dd53f598042b8c08e8ff",
+    "codec_slots.py": "be4471085d7c159aeea4e1089844cc016724b68e3a741843ab142c1a74c124fd",
+    "continuous.py": "a44af569e762bc7610884aee89b2a32dab2552cde5d1a0265cb7c7db1e1491fe",
+    "incremental_codec.py": "101490c7e001c80faa78a22409b2015aefa7c1a6a37a422ad448b98b87f0e18f",
+    "model.py": "bb5e27dedc413b1a05ec9c16d96e97ee56f306b2d7201bf97ddefb0b0807914b",
+    "npu_attention.py": "a18cfbe7432cd7e19c0a8767e4a406e8c1c62d2898c5d3f9206d939356a29b3c",
+    "operators.py": "48879874201b7717324effda1a3ad808f173b7b25cb6b407e58952b0de121aee",
+    "packed_attention.py": "a975312ce4c9b71d743c9e7942e5423e1e95d8ed13f2fd28428dd06caa067778",
+    "packed_mlp.py": "f46cfbaae4ca78b81052b223a17b052cda56949b28c52dd305229a4561ca53da",
+    "predictor.py": "90f8fd7a4ff5e97c1740052ad262a83aa99bd824f535e730a4f887849819dd06",
+    "prefill_graph.py": "7d2941dcf74e73168b3f6d4ecbda913532572a2b710c65053d08f1a32304fd2e",
+    "sampling.py": "fd1f4fc63c3f1edb60e5d5e16d7531c7e04a9e5aa4369132afffb8091398fa7f",
+    "sampling_graph.py": "8bf562ac5da6fdfe75640aaf9a7d97a18deb14b699dd0f260b955c56baf9e3cc",
+    "server.py": "0d36ab0ab11b823e29ae91b252b3af133cf8622a2d405f4d4405ed5bf19df527",
+    "talker_graph.py": "e86ca92452290fda310ca1398ffffb44cf289c30450ce21929c49703b71844dd",
+    "whole_predictor.py": "54380d4c16201671aff6913985e9e6689af2306692aa9d830c21392dd94d3d6a"
+  },
+  "cancelled": [],
+  "captured_shapes": {
+    "prefill": [
+      [
+        4,
+        64
+      ]
+    ],
+    "talker": [
+      [
+        1,
+        128
+      ],
+      [
+        2,
+        128
+      ],
+      [
+        4,
+        128
+      ]
+    ],
+    "predictor": [
+      1,
+      2,
+      4
+    ]
+  }
+}

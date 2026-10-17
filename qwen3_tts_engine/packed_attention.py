@@ -1,6 +1,6 @@
 # Adapted from Qwen3-TTS attention, Copyright 2026 The Qwen team,
 # Alibaba Group and the HuggingFace Inc. team. Licensed under Apache-2.0.
-"""Pack Q/K/V projections while retaining upstream attention and rotary math."""
+"""Pack Q/K/V with opt-in Ascend attention and rotary operators."""
 import torch
 from qwen_tts.core.models.modeling_qwen3_tts import (
     ALL_ATTENTION_FUNCTIONS, apply_multimodal_rotary_pos_emb,
@@ -9,7 +9,7 @@ from qwen_tts.core.models.modeling_qwen3_tts import (
 
 
 class PackedAttention(torch.nn.Module):
-    def __init__(self, reference, native_gqa=False, text_only_rope=False, reference_single=False):
+    def __init__(self, reference, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False):
         super().__init__()
         self.reference = reference
         projections = [reference.q_proj, reference.k_proj, reference.v_proj]
@@ -22,6 +22,9 @@ class PackedAttention(torch.nn.Module):
                                            requires_grad=False)
         self.multimodal = reference.__class__.__name__ == 'Qwen3TTSTalkerAttention'
         self.native_gqa = native_gqa
+        self.native_rope = native_rope
+        if native_rope and self.multimodal and not text_only_rope:
+            raise ValueError("Native rotary requires identical CustomVoice position axes")
         self.reference_single = reference_single
         self.text_only_rope = text_only_rope
 
@@ -31,20 +34,30 @@ class PackedAttention(torch.nn.Module):
         shape = hidden_states.shape[:-1]
         heads = (*shape, -1, reference.head_dim)
         query, key, value = torch.nn.functional.linear(hidden_states, self.weight, self.bias).split(self.sizes, dim=-1)
-        query = reference.q_norm(query.reshape(heads)).transpose(1, 2)
-        key = reference.k_norm(key.reshape(heads)).transpose(1, 2)
+        query = reference.q_norm(query.reshape(heads))
+        key = reference.k_norm(key.reshape(heads))
         value = value.reshape(heads).transpose(1, 2)
         cos, sin = position_embeddings
-        if self.multimodal and self.text_only_rope:
-            # CustomVoice supplies identical temporal/height/width positions.
-            # Keeping one axis removes per-layer interleaving copies, not arithmetic.
-            query, key = apply_rotary_pos_emb(query, key, cos[0], sin[0])
-        elif self.multimodal:
-            query, key = apply_multimodal_rotary_pos_emb(query, key, cos, sin,
-                                                       reference.rope_scaling['mrope_section'],
-                                                       reference.rope_scaling['interleaved'])
+        if self.native_rope and not (self.reference_single and hidden_states.shape[0] == 1):
+            import torch_npu
+            rotary_cos, rotary_sin = (cos[0], sin[0]) if self.multimodal else (cos, sin)
+            # Norm outputs are contiguous BSND. Preserve that layout for the
+            # native operator, then expose BNSD views to attention/cache update.
+            rotary_cos, rotary_sin = rotary_cos.unsqueeze(2), rotary_sin.unsqueeze(2)
+            query = torch_npu.npu_rotary_mul(query, rotary_cos, rotary_sin).transpose(1, 2)
+            key = torch_npu.npu_rotary_mul(key, rotary_cos, rotary_sin).transpose(1, 2)
         else:
-            query, key = apply_rotary_pos_emb(query, key, cos, sin)
+            query, key = query.transpose(1, 2), key.transpose(1, 2)
+            if self.multimodal and self.text_only_rope:
+                # CustomVoice supplies identical temporal/height/width positions.
+                # Keeping one axis removes per-layer interleaving copies, not arithmetic.
+                query, key = apply_rotary_pos_emb(query, key, cos[0], sin[0])
+            elif self.multimodal:
+                query, key = apply_multimodal_rotary_pos_emb(query, key, cos, sin,
+                                                           reference.rope_scaling['mrope_section'],
+                                                           reference.rope_scaling['interleaved'])
+            else:
+                query, key = apply_rotary_pos_emb(query, key, cos, sin)
         if past_key_values is not None:
             key, value = past_key_values.update(key, value, reference.layer_idx,
                                                {'sin': sin, 'cos': cos, 'cache_position': cache_position})
@@ -58,11 +71,11 @@ class PackedAttention(torch.nn.Module):
         return reference.o_proj(output.reshape(*shape, -1).contiguous()), weights
 
 
-def install_packed_attention(model, native_gqa=False, text_only_rope=False, reference_single=False):
+def install_packed_attention(model, native_gqa=False, text_only_rope=False, reference_single=False, native_rope=False):
     replacements = []
     for parent in list(model.modules()):
         for name, child in list(parent.named_children()):
             if child.__class__.__name__ in ('Qwen3TTSTalkerAttention', 'Qwen3TTSAttention'):
                 replacements.append((parent, name, child))
-                setattr(parent, name, PackedAttention(child, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single))
+                setattr(parent, name, PackedAttention(child, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope))
     return replacements
