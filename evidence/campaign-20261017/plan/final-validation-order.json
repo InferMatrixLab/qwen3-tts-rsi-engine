@@ -19,7 +19,7 @@
   "candidate_frozen_worktree": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen",
   "candidate_command": "continuous-direct-prompt-command.json",
   "same_card_vllm_queue": {
-    "status": "STARTED",
+    "status": "PERFORMANCE_FINISHED_QUALITY_RUNNING",
     "predecessor": "runs/sglang-sweep-round3-full128",
     "output": "runs/vllm-sweep-round3-card0-full128",
     "log": "results/vllm-round3-card0-queue.log",
@@ -38,5 +38,12 @@
       "action": "Terminated only the two owned waiting queue processes; launched unchanged benchmark command",
       "session": 41647
     }
+  },
+  "final_candidate_execution": {
+    "status": "ROUND1_STARTED",
+    "source_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+    "launcher": "run-final-candidate.py",
+    "output_pattern": "runs/continuous-direct-prompt-card0-round{1,2,3}",
+    "log": "results/final-candidate-queue.log"
   }
 }
