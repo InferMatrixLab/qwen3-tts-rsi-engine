@@ -186,7 +186,8 @@ class RequestState:
 
 class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
-                 rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4):
+                 rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
+                 incremental_codec=False):
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv)
         self.device = device
         self.speakers = self.model.speakers
@@ -198,7 +199,13 @@ class ContinuousModel:
         self.arena = SlotArena(self.talker.model, max_slots, initial_capacity)
         self.graphs = {}
         self.predictor = UniformPredictor(self.talker.code_predictor)
-        self.codec = CodecGraph(self.model.wrapper.model.speech_tokenizer.model.decoder)
+        decoder = self.model.wrapper.model.speech_tokenizer.model.decoder
+        self.incremental_codec = incremental_codec
+        if incremental_codec:
+            from qwen3_tts_engine.codec_slots import CodecSlots
+            self.codec = CodecSlots(decoder, max_slots)
+        else:
+            self.codec = CodecGraph(decoder)
         self.context = codec_left_context
         self.codec_batch_size = codec_batch_size
         self.states = []
@@ -257,16 +264,19 @@ class ContinuousModel:
         token = self.semantic(output.logits[:, -1], uniforms[0, 0:1], seen,
                               torch.zeros(1, device=self.device, dtype=torch.long))
         seen.scatter_(1, token, True)
+        if self.incremental_codec:
+            self.codec.reset(len(self.states))
         self.states.append(RequestState(identifier, payload, output.past_hidden, token,
                                         prompt['trailing_text_hidden'], prompt['tts_pad_embed'], uniforms, seen,
                                         position, int(self.talker.rope_deltas[0, 0].item())))
 
     def emit_audio(self, selected, emit):
         groups = {}
+        slots = {state.identifier: index for index, state in enumerate(self.states)}
         for state in selected:
             if state.frames == state.emitted:
                 continue
-            start = max(0, state.emitted - self.context)
+            start = state.emitted if self.incremental_codec else max(0, state.emitted - self.context)
             codes = torch.stack(state.codes[start:]).transpose(0, 1)
             groups.setdefault(codes.shape[-1], []).append((state, codes, (state.emitted - start) * 1920))
         for entries in groups.values():
@@ -274,8 +284,12 @@ class ContinuousModel:
                 group = entries[offset:offset + self.codec_batch_size]
                 batch = 1 << (len(group) - 1).bit_length()
                 codes = [entry[1] for entry in group]
-                codes += [codes[-1]] * (batch - len(codes))
-                waves = self.codec.decode(torch.stack(codes))[:, 0].float().cpu().numpy()
+                if self.incremental_codec:
+                    waves = self.codec.decode([slots[entry[0].identifier] for entry in group], torch.stack(codes))
+                else:
+                    codes += [codes[-1]] * (batch - len(codes))
+                    waves = self.codec.decode(torch.stack(codes))
+                waves = waves[:, 0].float().cpu().numpy()
                 for i, (state, _, skip) in enumerate(group):
                     waveform = waves[i, skip:]
                     if not np.isfinite(waveform).all():
@@ -294,6 +308,8 @@ class ContinuousModel:
             if self.states[index].identifier in cancelled:
                 last = len(self.states) - 1
                 self.arena.move(last, index)
+                if self.incremental_codec:
+                    self.codec.move(last, index)
                 if index != last:
                     self.states[index] = self.states[last]
                 self.states.pop()
@@ -357,6 +373,8 @@ class ContinuousModel:
                                                'codec_frames': state.frames, 'finish_reason': reason}))
             last = len(self.states) - 1
             self.arena.move(last, index)
+            if self.incremental_codec:
+                self.codec.move(last, index)
             if index != last:
                 self.states[index] = self.states[last]
             self.states.pop()

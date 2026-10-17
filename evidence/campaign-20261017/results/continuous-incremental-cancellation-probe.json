@@ -1,0 +1,261 @@
+{
+  "status": "PASS",
+  "scope": "native scheduling correctness probe; not service performance",
+  "requests": [
+    {
+      "index": 1,
+      "success": true,
+      "pcm_sha256": "caefd993b4c0fba796786539f18038acb06bea24cecd2f4141bb7156023cd54c",
+      "pcm_bytes": 192000,
+      "codec_frames": 50,
+      "finish_reason": "stop",
+      "audio_seconds": 4.0,
+      "elapsed_seconds": 6.0633005276322365,
+      "chunks": [
+        {
+          "seconds": 2.5099590085446835,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.714011697098613,
+          "bytes": 7680
+        },
+        {
+          "seconds": 3.6031479919329286,
+          "bytes": 15360
+        },
+        {
+          "seconds": 4.142705471254885,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.510275634936988,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.875841216184199,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.590985894203186,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.954288146458566,
+          "bytes": 30720
+        },
+        {
+          "seconds": 6.048635667189956,
+          "bytes": 7680
+        }
+      ]
+    },
+    {
+      "index": 64,
+      "success": true,
+      "pcm_sha256": "7ddf07aa08fef42aa0f410baa17178eef0464de200568e8af8f6c6b90eb56629",
+      "pcm_bytes": 284160,
+      "codec_frames": 74,
+      "finish_reason": "stop",
+      "audio_seconds": 5.92,
+      "elapsed_seconds": 5.020160524174571,
+      "chunks": [
+        {
+          "seconds": 0.20406757947057486,
+          "bytes": 7680
+        },
+        {
+          "seconds": 0.47637334931641817,
+          "bytes": 7680
+        },
+        {
+          "seconds": 1.1896822089329362,
+          "bytes": 15360
+        },
+        {
+          "seconds": 1.7300268691033125,
+          "bytes": 30720
+        },
+        {
+          "seconds": 2.09682678245008,
+          "bytes": 30720
+        },
+        {
+          "seconds": 2.4623422725126147,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.176545546390116,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.5488785738125443,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.021722850389779,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.563684572465718,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.920788123272359,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.015374319627881,
+          "bytes": 7680
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "success": true,
+      "pcm_sha256": "accfb31b01caea43ff15ff899ce58bf246176f2fb6a0e9cae03448e41b6f0a94",
+      "pcm_bytes": 380160,
+      "codec_frames": 99,
+      "finish_reason": "stop",
+      "audio_seconds": 7.92,
+      "elapsed_seconds": 5.965699412859976,
+      "chunks": [
+        {
+          "seconds": 0.1932400669902563,
+          "bytes": 7680
+        },
+        {
+          "seconds": 0.2874002121388912,
+          "bytes": 7680
+        },
+        {
+          "seconds": 0.47714404854923487,
+          "bytes": 15360
+        },
+        {
+          "seconds": 1.0100155640393496,
+          "bytes": 30720
+        },
+        {
+          "seconds": 1.3671368760988116,
+          "bytes": 30720
+        },
+        {
+          "seconds": 2.820242464542389,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.1251995330676436,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.4316555485129356,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.7351442584767938,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.039078241214156,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.344099340029061,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.647324772551656,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.954247991554439,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.6697045573964715,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.96381198335439,
+          "bytes": 11520
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "admitted": [
+        0,
+        1
+      ],
+      "finished": [],
+      "cancelled": [],
+      "active": [
+        0,
+        1
+      ],
+      "capacity": 32
+    },
+    {
+      "admitted": [
+        64
+      ],
+      "finished": [],
+      "cancelled": [
+        0
+      ],
+      "active": [
+        1,
+        64
+      ],
+      "capacity": 32
+    },
+    {
+      "admitted": [],
+      "finished": [
+        1
+      ],
+      "cancelled": [],
+      "active": [
+        64
+      ],
+      "capacity": 128
+    },
+    {
+      "admitted": [
+        65
+      ],
+      "finished": [],
+      "cancelled": [],
+      "active": [
+        64,
+        65
+      ],
+      "capacity": 128
+    },
+    {
+      "admitted": [],
+      "finished": [
+        64
+      ],
+      "cancelled": [],
+      "active": [
+        65
+      ],
+      "capacity": 128
+    },
+    {
+      "admitted": [],
+      "finished": [
+        65
+      ],
+      "cancelled": [],
+      "active": [],
+      "capacity": 256
+    }
+  ],
+  "cancelled": [
+    0
+  ]
+}

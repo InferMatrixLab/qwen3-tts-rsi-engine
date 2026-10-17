@@ -1,0 +1,304 @@
+{
+  "status": "PASS",
+  "scope": "native scheduling correctness probe; not service performance",
+  "requests": [
+    {
+      "index": 0,
+      "success": true,
+      "pcm_sha256": "f9ac92e4c36fb841891cee1da280e22c60f9d98de772874ea38ee47e4d327942",
+      "pcm_bytes": 96000,
+      "codec_frames": 25,
+      "finish_reason": "stop",
+      "audio_seconds": 2.0,
+      "elapsed_seconds": 3.943207412958145,
+      "chunks": [
+        {
+          "seconds": 2.3740318594500422,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.470924195833504,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.815057951025665,
+          "bytes": 15360
+        },
+        {
+          "seconds": 3.353626985102892,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.7164670657366514,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.9384058080613613,
+          "bytes": 3840
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "success": true,
+      "pcm_sha256": "4bce203edffa9d985621a8d0d15f0cf52a5666ae62e69dd6b8c7bc3407644de4",
+      "pcm_bytes": 192000,
+      "codec_frames": 50,
+      "finish_reason": "stop",
+      "audio_seconds": 4.0,
+      "elapsed_seconds": 6.051824731752276,
+      "chunks": [
+        {
+          "seconds": 2.3741015419363976,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.4709877874702215,
+          "bytes": 7680
+        },
+        {
+          "seconds": 2.8151317723095417,
+          "bytes": 15360
+        },
+        {
+          "seconds": 3.3537449277937412,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.716600578278303,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.71011914499104,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.239713725633919,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.942842281423509,
+          "bytes": 30720
+        },
+        {
+          "seconds": 6.047425867989659,
+          "bytes": 7680
+        }
+      ]
+    },
+    {
+      "index": 64,
+      "success": true,
+      "pcm_sha256": "aeb990f1b728477864bd687a8a3fefa4019410d7ed406cf8866e9c611ab4e985",
+      "pcm_bytes": 284160,
+      "codec_frames": 74,
+      "finish_reason": "stop",
+      "audio_seconds": 5.92,
+      "elapsed_seconds": 4.4637907687574625,
+      "chunks": [
+        {
+          "seconds": 0.36524399276822805,
+          "bytes": 7680
+        },
+        {
+          "seconds": 0.4623496737331152,
+          "bytes": 7680
+        },
+        {
+          "seconds": 0.9810984926298261,
+          "bytes": 15360
+        },
+        {
+          "seconds": 1.3498960891738534,
+          "bytes": 30720
+        },
+        {
+          "seconds": 2.0521418917924166,
+          "bytes": 30720
+        },
+        {
+          "seconds": 2.537007571198046,
+          "bytes": 30720
+        },
+        {
+          "seconds": 2.901141045615077,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.2671131575480103,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.6292886715382338,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.9909949526190758,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.354031109251082,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.4589933743700385,
+          "bytes": 7680
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "success": true,
+      "pcm_sha256": "cd01fed85572e8d26e5c04a1e0414d2c7110644c038ab3d3ee4ecf79258e6fe1",
+      "pcm_bytes": 380160,
+      "codec_frames": 99,
+      "finish_reason": "stop",
+      "audio_seconds": 7.92,
+      "elapsed_seconds": 5.8948255851864815,
+      "chunks": [
+        {
+          "seconds": 0.19119805470108986,
+          "bytes": 7680
+        },
+        {
+          "seconds": 0.2850667517632246,
+          "bytes": 7680
+        },
+        {
+          "seconds": 0.48202300630509853,
+          "bytes": 15360
+        },
+        {
+          "seconds": 0.8439513733610511,
+          "bytes": 30720
+        },
+        {
+          "seconds": 1.2100100768730044,
+          "bytes": 30720
+        },
+        {
+          "seconds": 1.5722968336194754,
+          "bytes": 30720
+        },
+        {
+          "seconds": 1.9339230926707387,
+          "bytes": 30720
+        },
+        {
+          "seconds": 2.29714538436383,
+          "bytes": 30720
+        },
+        {
+          "seconds": 3.7184649677947164,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.024593406356871,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.330771955661476,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.637769266963005,
+          "bytes": 30720
+        },
+        {
+          "seconds": 4.946784459985793,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.605851772241294,
+          "bytes": 30720
+        },
+        {
+          "seconds": 5.893137641251087,
+          "bytes": 11520
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "admitted": [
+        0,
+        1
+      ],
+      "finished": [],
+      "cancelled": [],
+      "active": [
+        0,
+        1
+      ],
+      "capacity": 64
+    },
+    {
+      "admitted": [],
+      "finished": [
+        0
+      ],
+      "cancelled": [],
+      "active": [
+        1
+      ],
+      "capacity": 64
+    },
+    {
+      "admitted": [
+        64
+      ],
+      "finished": [],
+      "cancelled": [],
+      "active": [
+        1,
+        64
+      ],
+      "capacity": 64
+    },
+    {
+      "admitted": [],
+      "finished": [
+        1
+      ],
+      "cancelled": [],
+      "active": [
+        64
+      ],
+      "capacity": 128
+    },
+    {
+      "admitted": [
+        65
+      ],
+      "finished": [],
+      "cancelled": [],
+      "active": [
+        64,
+        65
+      ],
+      "capacity": 128
+    },
+    {
+      "admitted": [],
+      "finished": [
+        64
+      ],
+      "cancelled": [],
+      "active": [
+        65
+      ],
+      "capacity": 128
+    },
+    {
+      "admitted": [],
+      "finished": [
+        65
+      ],
+      "cancelled": [],
+      "active": [],
+      "capacity": 256
+    }
+  ],
+  "cancelled": []
+}

@@ -15,11 +15,13 @@ parser.add_argument('--slots', type=int, default=2)
 parser.add_argument('--capacity', type=int, default=64)
 parser.add_argument('--indices', type=int, nargs='+', default=[0, 1, 64, 65])
 parser.add_argument('--cancel-first-at', type=int)
+parser.add_argument('--incremental-codec', action='store_true')
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 data = args.workload.read_bytes()
 payloads = [dict(json.loads(line), instructions='') for line in data.splitlines()]
-model = ContinuousModel(args.model, 'npu:0', max_slots=args.slots, initial_capacity=args.capacity)
+model = ContinuousModel(args.model, 'npu:0', max_slots=args.slots, initial_capacity=args.capacity,
+                        incremental_codec=args.incremental_codec)
 result = {'status': 'INCONCLUSIVE', 'scope': 'native scheduling correctness probe; not service performance',
           'requests': [], 'events': []}
 (args.output / 'runspec.json').write_text(json.dumps({'workload': str(args.workload),

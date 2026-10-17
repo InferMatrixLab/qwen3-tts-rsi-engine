@@ -66,6 +66,14 @@ independent audio scoring. Slot reuse and capacity growth passed a four-request
 NPU probe, and C1/C2/C4 each completed eight HTTP requests with clean shutdown.
 The complete concurrency/quality acceptance run is still pending.
 
+`--continuous --incremental-codec` selects the experimental stateful codec. It
+retains convolution tails and per-request sliding attention KV state, and captures
+graphs for new chunks of one to eight frames instead of decoding a full left
+context again. Strict FP32 tests cover interleaved streams, capture while other
+streams are active, slot movement and reset. BF16 real-prompt output remains
+numerically approximate and requires independent full-corpus audio scoring.
+See [the codec investigation](evidence/campaign-20261017/plan/incremental-codec.md).
+
 `tools/profile_continuous.py` collects a separate CPU/NPU trace with ranges for
 prefill, the predictor, talker, semantic sampling and codec. It warms the engine
 before tracing and records admissions, completions and KV capacity per tick.

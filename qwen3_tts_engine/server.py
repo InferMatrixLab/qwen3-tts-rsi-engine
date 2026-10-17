@@ -268,8 +268,11 @@ def main():
     parser.add_argument("--codec-left-context", type=int, default=72)
     parser.add_argument("--codec-batch-size", type=int, choices=[1, 2, 4], default=1)
     parser.add_argument("--continuous", action="store_true")
+    parser.add_argument("--incremental-codec", action="store_true")
     parser.add_argument("--prefill-per-tick", type=int, default=4)
     options = parser.parse_args()
+    if options.incremental_codec and not options.continuous:
+        parser.error('--incremental-codec requires --continuous')
     if min(options.max_batch_size, options.queue_size) <= 0 or options.batch_wait_ms < 0 or options.codec_left_context < 0:
         parser.error("Invalid batch or queue settings")
     if options.prefill_per_tick < 1 or (options.continuous and options.max_batch_size & (options.max_batch_size - 1)):
@@ -284,7 +287,8 @@ def main():
         from qwen3_tts_engine.continuous import ContinuousModel
         factory = partial(ContinuousModel, max_slots=options.max_batch_size,
                           rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
-                          codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size)
+                          codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
+                          incremental_codec=options.incremental_codec)
     service = SpeechService(options, factory)
     app = web.Application(client_max_size=1024 * 1024)
     app.router.add_get("/health", service.health)

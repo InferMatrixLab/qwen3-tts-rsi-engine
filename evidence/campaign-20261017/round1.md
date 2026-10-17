@@ -37,3 +37,17 @@ Commit `d8cb066d3812986a8e7474b71a8f86a05c935f47`, physical NPU 1, one repetitio
 The all-concurrency 2x objective remains unachieved. Full-corpus candidate quality is still being scored. SGLang C1 ASR completed with English WER 0.011380 and Chinese CER 0.026490; speaker similarity and the remaining cohorts are pending.
 
 Candidate C1 ASR is complete: English WER 0.009957 and Chinese CER 0.049669. The Chinese result exceeds the frozen minimum-baseline-plus-0.01 gate (SGLang C1: 0.026490). This candidate therefore fails the current C1 ASR gate. Traditional/simplified transcription differences contribute to the discrepancy; raw transcripts and the original scoring are retained, and no normalization change or relaxed threshold is used to claim acceptance. Speaker scoring remains pending.
+
+## SGLang full sweep
+
+Pinned main plus the recorded torch type compatibility patch and jemalloc workaround, physical NPU 0. All 896 timed requests completed; server exit 0. This remains an exploratory single repetition; quality scoring for remaining cohorts is running.
+
+| Concurrency | Throughput (frames/s) | TTFA p50 (ms) | TTFA p95 (ms) | Mean RTF |
+|---:|---:|---:|---:|---:|
+| 1 | 4.275 | 424.17 | 565.99 | 2.9568 |
+| 2 | 7.917 | 601.96 | 793.14 | 3.1687 |
+| 4 | 14.116 | 658.99 | 986.29 | 3.4984 |
+| 8 | 25.026 | 689.92 | 1267.35 | 3.9222 |
+| 16 | 38.304 | 762.42 | 1739.05 | 4.7895 |
+| 32 | 57.102 | 811.75 | 2462.35 | 6.2362 |
+| 64 | 66.607 | 3451.91 | 7305.23 | 10.1708 |
