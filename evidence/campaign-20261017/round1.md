@@ -418,3 +418,15 @@ All 896 requests completed and server exited 0 on physical NPU 6. All 896 WAV fi
 | 64 | 520.5177 | 754.4532 | 1236.8211 | 1.293950 |
 
 The prefill-bucket combination C32/C64 service experiment has started on the same physical card after the full trial exited. See runs/continuous-exact-bucket-prefill-c32-c64.
+
+
+### Exact combination with prefill bucketing
+
+All 256 requests completed with server exit 0 on physical NPU 6. Every WAV matches the corresponding exact-combination full-trial WAV byte-for-byte (128/128 at each concurrency). This supports explicit identity-based quality transfer; independent scoring and repeated full-trial acceptance remain separate.
+
+| Concurrency | frames/s | TTFA p50 ms | TTFA p95 ms | mean RTF |
+|---:|---:|---:|---:|---:|
+| 32 | 429.1365 | 224.0407 | 628.6868 | 0.837848 |
+| 64 | 530.1827 | 734.3281 | 1203.6463 | 1.272795 |
+
+Against vLLM round 2, the exploratory ratios are C32 2.00256x and C64 2.27938x. The C32 margin is only 0.128% above the 2x line and this comparison uses different physical cards; it does not establish stable final acceptance. A complete C1–C64 trial of this configuration is running in runs/continuous-exact-bucket-prefill-full-round1. The earlier exact-combination full-trial C1 independent ASR/speaker scores and retained-audio audit now pass.

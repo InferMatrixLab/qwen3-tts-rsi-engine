@@ -1,0 +1,18 @@
+{
+  "status": "PENDING",
+  "scope": "Prospective execution order preserving the frozen contract; no accepted performance claim",
+  "unchanged_contract": "contract.json",
+  "physical_device": 0,
+  "baseline_repeats": {
+    "sglang": "Retain rounds 1 and 2 and complete running round 3, all on physical NPU 0, pinned main plus documented import compatibility patch. Score and audit every cohort.",
+    "vllm": "Retain rounds 1 and 2 on physical NPU 0; run another full repeat on physical NPU 0 after SGLang releases it. Existing round 3 on physical NPU 1 remains exploratory and is not relabeled."
+  },
+  "candidate": "Select a fixed configuration only after full workload quality checks, then run three independent full C1-C64 trials on physical NPU 0; score and audit each. Physical NPU 6 optimization trials remain exploratory.",
+  "constraints": [
+    "Do not terminate other workloads or reuse occupied devices.",
+    "Preserve pinned revisions, weights, corpus, sampling, single-device BF16 budget, metric definitions and quality margins.",
+    "Report all trial values and variation; do not choose convenient baseline repeats or pool per-trial p95 values.",
+    "Shared-host interference remains a disclosed limitation; retain adjacent comparison and hardware evidence.",
+    "Full per-concurrency 2x and quality gates must be independently demonstrated before goal completion."
+  ]
+}

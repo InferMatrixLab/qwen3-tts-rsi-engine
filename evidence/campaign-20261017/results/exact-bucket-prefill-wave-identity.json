@@ -1,0 +1,17 @@
+{
+  "scope": "Byte identity comparison only, not full quality evaluation",
+  "reference": "runs/continuous-exact-combined-full-round1",
+  "candidate": "runs/continuous-exact-bucket-prefill-c32-c64",
+  "cohorts": [
+    {
+      "concurrency": 32,
+      "exact_wav_count": 128,
+      "requests": 128
+    },
+    {
+      "concurrency": 64,
+      "exact_wav_count": 128,
+      "requests": 128
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "INCONCLUSIVE",
+  "scope": "Exploratory single-run cross-card comparison, not final same-hardware three-repeat acceptance",
+  "candidate": "runs/continuous-exact-bucket-prefill-c32-c64",
+  "baseline": "runs/vllm-sweep-round2-full128",
+  "cohorts": [
+    {
+      "concurrency": 32,
+      "candidate_frames_s": 429.1364830255721,
+      "vllm_round2_frames_s": 214.29404211656257,
+      "ratio": 2.002559094910108
+    },
+    {
+      "concurrency": 64,
+      "candidate_frames_s": 530.1826764492562,
+      "vllm_round2_frames_s": 232.5999250066449,
+      "ratio": 2.2793759560933218
+    }
+  ]
+}
