@@ -124,3 +124,7 @@ Revision `49e46f8`, physical NPU 6, one exploratory repetition: C16 149.230 fram
 The reference control's full ASR evaluation reports C16 EN WER 0.009957 / ZH CER 0.036424 and C64 EN WER 0.009957 / ZH CER 0.051325. Both Chinese scores fail the frozen matched-concurrency gates (0.035662 and 0.041457 respectively). The identical-output optimized candidate inherits these failures; no quality improvement is claimed. Speaker evaluation is running. The all-concurrency 2x objective remains unmet.
 
 Reference-RMS high-concurrency speaker evaluation completed: C16 mean cosine 0.771005 and C64 0.761468, each within the frozen speaker margin. The Chinese ASR failures above still reject the candidate; passing speaker similarity does not override them.
+
+## Attention experiments
+
+Single exploratory C16/C64 cohorts completed with 128 requests each and clean server exits. Bucketed KV (revision `f0facb9`, physical NPU 6) reached 142.434 / 270.120 frames/s. Native GQA (revision `02f100e`, physical NPU 1) reached 155.531 / 288.384 frames/s. Both retain original RMSNorm, packed QKV/MLP, incremental prewarmed codec, and text-only rotary. These are different-card exploratory results, not matched repeated attribution. Neither reaches the 2x target. Both alter numerical behavior; GQA full ASR evaluation is running and neither has accepted full quality evidence.

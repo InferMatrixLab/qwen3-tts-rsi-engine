@@ -16,8 +16,9 @@ class PromptReady(Exception):
 
 
 class UniformPredictor:
-    def __init__(self, reference):
+    def __init__(self, reference, graph_embeddings=False):
         self.reference = reference
+        self.graph_embeddings = graph_embeddings
         self.captures = {}
 
     @torch.inference_mode()
@@ -44,7 +45,13 @@ class UniformPredictor:
                         output_hidden_states=False, return_dict=True)
                     token = categorical(output.logits[:, -1], draws[:, step + 1])
                     codes.append(token)
-                return torch.cat(codes, dim=-1)
+                subcodes = torch.cat(codes, dim=-1)
+                if self.graph_embeddings:
+                    combined = torch.cat([inputs[:, 1:2]] + [
+                        self.reference.get_input_embeddings()[i](subcodes[:, i:i+1])
+                        for i in range(15)], dim=1).sum(1, keepdim=True)
+                    return subcodes, combined
+                return subcodes
 
             stream = torch.npu.Stream(device=embeddings.device)
             stream.wait_stream(torch.npu.current_stream())
@@ -61,7 +68,7 @@ class UniformPredictor:
         inputs.copy_(embeddings)
         draws.copy_(uniforms)
         graph.replay()
-        return output.clone()
+        return tuple(value.clone() for value in output) if self.graph_embeddings else output.clone()
 
     def close(self):
         torch.npu.synchronize()
@@ -208,7 +215,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False):
         if prewarm_codec and not incremental_codec:
             raise ValueError('Codec prewarming requires the incremental codec')
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
@@ -226,7 +233,8 @@ class ContinuousModel:
             raise ValueError('Continuous slot count must be a positive power of two')
         self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update)
         self.graphs = {}
-        self.predictor = UniformPredictor(self.talker.code_predictor)
+        self.graph_embeddings = graph_embeddings
+        self.predictor = UniformPredictor(self.talker.code_predictor, graph_embeddings)
         decoder = self.model.wrapper.model.speech_tokenizer.model.decoder
         self.incremental_codec = incremental_codec
         if incremental_codec:
@@ -408,10 +416,14 @@ class ContinuousModel:
             hidden = torch.cat((hidden, torch.zeros(batch - count, 1, hidden.shape[-1], device=self.device, dtype=hidden.dtype)))
             draws = torch.cat((draws, torch.full((batch - count, 16), 0.5, device=self.device)))
         first = self.talker.get_input_embeddings()(tokens)
-        subcodes = self.predictor.run(torch.cat((hidden, first), dim=1), draws)
+        predicted = self.predictor.run(torch.cat((hidden, first), dim=1), draws)
+        if self.graph_embeddings:
+            subcodes, embeds = predicted
+        else:
+            subcodes = predicted
+            embeds = torch.cat([first] + [self.talker.code_predictor.get_input_embeddings()[i](subcodes[:, i:i+1])
+                                         for i in range(15)], dim=1).sum(1, keepdim=True)
         codes = torch.cat((tokens, subcodes), dim=-1)
-        embeds = torch.cat([first] + [self.talker.code_predictor.get_input_embeddings()[i](subcodes[:, i:i+1])
-                                     for i in range(15)], dim=1).sum(1, keepdim=True)
         text = [state.trailing[:, state.frames:state.frames + 1] if state.frames < state.trailing.shape[1]
                 else state.pad for state in self.states]
         if batch > count:
