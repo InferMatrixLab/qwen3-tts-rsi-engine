@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "exact synthetic sampling semantics, not quality or service throughput",
+  "cases": [
+    {
+      "batch": 1,
+      "replays": 4,
+      "exact": true
+    },
+    {
+      "batch": 17,
+      "replays": 4,
+      "exact": true
+    },
+    {
+      "batch": 64,
+      "replays": 4,
+      "exact": true
+    }
+  ]
+}

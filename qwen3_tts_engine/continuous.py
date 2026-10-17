@@ -217,11 +217,13 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False):
         decode_batch_size(1, max_slots, decode_bucket_step)
         self.decode_bucket_step = decode_bucket_step
         self.batch_audio_transfer = batch_audio_transfer
         self.reference_single = reference_single
+        self.graph_sampling = graph_sampling
+        self.samplers = {}
         if bucket_prefill and not graph_prefill:
             raise ValueError('Prefill batch bucketing requires graph prefill')
         if prewarm_codec and not incremental_codec:
@@ -260,6 +262,12 @@ class ContinuousModel:
         self.allowed = torch.ones(self.talker.config.vocab_size, device=device, dtype=torch.bool)
         self.allowed[-1024:] = False
         self.allowed[self.eos] = True
+        if graph_sampling:
+            from qwen3_tts_engine.sampling_graph import SamplingGraph
+            for batch in range(1, max_slots + 1):
+                graph = SamplingGraph(self.semantic, batch, self.talker.config.vocab_size, device)
+                graph.capture()
+                self.samplers[batch] = graph
 
     def ensure_capacity(self, required):
         if required < self.arena.capacity:
@@ -474,7 +482,10 @@ class ContinuousModel:
         steps = torch.tensor([s.frames + 1 for s in self.states], device=self.device)
         uniforms = torch.stack([s.uniforms[s.frames + 1, 0] for s in self.states])
         seen = torch.cat([s.seen for s in self.states])
-        next_tokens = self.semantic(logits, uniforms, seen, steps)
+        if self.graph_sampling:
+            next_tokens, updated_seen = self.samplers[count].run(logits, uniforms, seen, steps)
+        else:
+            next_tokens = self.semantic(logits, uniforms, seen, steps)
         token_ids = next_tokens[:, 0].tolist()
         due, finished = [], []
         for index, state in enumerate(self.states):
@@ -483,7 +494,10 @@ class ContinuousModel:
             state.position += 1
             state.hidden = hidden[index:index + 1]
             state.token = next_tokens[index:index + 1]
-            state.seen.scatter_(1, state.token, True)
+            if self.graph_sampling:
+                state.seen = updated_seen[index:index + 1]
+            else:
+                state.seen.scatter_(1, state.token, True)
             target = 2 if state.emitted == 0 else state.emitted * 2 if state.emitted < 8 else state.emitted + 8
             stopped = token_ids[index] == self.eos
             limited = state.frames >= state.payload['max_new_tokens'] - 1
@@ -506,6 +520,9 @@ class ContinuousModel:
         return results
 
     def close(self):
+        for graph in self.samplers.values():
+            graph.close()
+        self.samplers.clear()
         logging.getLogger(__name__).info("Captured graph shapes: prefill=%s talker=%s codec=%s",
                                          sorted(self.prefills), sorted(self.graphs), sorted(self.codec.graphs) if self.incremental_codec else list(self.codec.captures))
         for graph in self.prefills.values():
