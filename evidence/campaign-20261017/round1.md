@@ -170,3 +170,5 @@ Revision `ac82d89`, physical NPU 7, 128 requests per concurrency, all successful
 C1 ASR EN WER 0.008535 passes, but ZH CER 0.045530 exceeds its 0.036490 gate. Thus the globally fused configuration is rejected as an all-concurrency solution despite its low-concurrency speed. Other cohorts' ASR scoring is running.
 
 Decode bucket step 8 (`5887ab7`, physical NPU 1) measured C32 336.511 / C64 467.910 frames/s. Prewarmed codec batch 8 (`47a0ad0`, physical NPU 6) measured C32 320.247 / C64 476.856 frames/s. Both completed all requests and clean server exits. Their quality is unverified, and neither meets both high-concurrency throughput targets. Gains from these separate experiments must not be multiplied or combined as measured evidence.
+
+Batching codec host transfers (`64d8505`, physical NPU 6) completed C32/C64 at 338.107 / 463.065 frames/s, with 128 successful requests per cohort and clean server exit. Four standalone probe outputs matched PCM exactly, but this remains an exploratory service comparison; it does not establish an all-concurrency improvement or achieve the target.

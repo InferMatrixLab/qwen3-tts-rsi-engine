@@ -217,16 +217,17 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False):
         decode_batch_size(1, max_slots, decode_bucket_step)
         self.decode_bucket_step = decode_bucket_step
         self.batch_audio_transfer = batch_audio_transfer
+        self.reference_single = reference_single
         if bucket_prefill and not graph_prefill:
             raise ValueError('Prefill batch bucketing requires graph prefill')
         if prewarm_codec and not incremental_codec:
             raise ValueError('Codec prewarming requires the incremental codec')
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
-                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope)
+                                     pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single)
         self.device = device
         self.speakers = self.model.speakers
         self.languages = self.model.languages
@@ -327,6 +328,9 @@ class ContinuousModel:
 
     @torch.inference_mode()
     def admit_batch(self, submissions):
+        if self.reference_single and len(submissions) == 1:
+            self.admit(*submissions[0])
+            return
         if len(self.states) + len(submissions) > self.max_slots:
             raise ValueError('Insufficient continuous request slots')
         prompts = [self.prepare_prompt(payload) for _, payload in submissions]

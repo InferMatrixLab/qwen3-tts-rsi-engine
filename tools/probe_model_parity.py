@@ -23,6 +23,7 @@ parser.add_argument('--native-gqa', action='store_true')
 parser.add_argument('--text-only-rope', action='store_true')
 parser.add_argument('--pack-mlp', action='store_true')
 parser.add_argument('--fused-swiglu', action='store_true')
+parser.add_argument('--reference-single', action='store_true')
 args = parser.parse_args()
 if args.batch_size <= 0:
     parser.error('Batch size must be positive')
@@ -53,19 +54,20 @@ result['native_gqa'] = args.native_gqa
 result['text_only_rope'] = args.text_only_rope
 result['pack_mlp'] = args.pack_mlp
 result['fused_swiglu'] = args.fused_swiglu
+result['reference_single'] = args.reference_single
 replacements = []
 try:
     for name, predictor in [('reference', reference), ('graph', graph)]:
         model.wrapper.model.talker.code_predictor = predictor
         if name == 'graph' and args.rms_norm:
             from qwen3_tts_engine.operators import install_rms_norms
-            replacements = install_rms_norms(model.wrapper.model.talker, args.rms_norm)
+            replacements = install_rms_norms(model.wrapper.model.talker, args.rms_norm, reference_single=args.reference_single)
         if name == 'graph' and (args.pack_qkv or args.native_gqa or args.text_only_rope):
             from qwen3_tts_engine.packed_attention import install_packed_attention
-            replacements.extend(install_packed_attention(model.wrapper.model.talker, native_gqa=args.native_gqa, text_only_rope=args.text_only_rope))
+            replacements.extend(install_packed_attention(model.wrapper.model.talker, native_gqa=args.native_gqa, text_only_rope=args.text_only_rope, reference_single=args.reference_single))
         if name == 'graph' and (args.pack_mlp or args.fused_swiglu):
             from qwen3_tts_engine.packed_mlp import install_packed_mlp
-            replacements.extend(install_packed_mlp(model.wrapper.model.talker, fused=args.fused_swiglu))
+            replacements.extend(install_packed_mlp(model.wrapper.model.talker, fused=args.fused_swiglu, reference_single=args.reference_single))
         if name == 'graph' and talker_graph is not None:
             model.wrapper.model.talker.model = talker_graph
         rows = []

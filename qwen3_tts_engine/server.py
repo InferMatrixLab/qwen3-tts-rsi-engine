@@ -272,6 +272,7 @@ def main():
     parser.add_argument("--bucket-prefill", action="store_true")
     parser.add_argument("--decode-bucket-step", type=int, default=0)
     parser.add_argument("--batch-audio-transfer", action="store_true")
+    parser.add_argument("--reference-single", action="store_true")
     parser.add_argument("--pack-mlp", action="store_true")
     parser.add_argument("--fused-swiglu", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
@@ -319,7 +320,7 @@ def main():
                                              talker_graph=options.talker_graph,
                                              rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
                                              pack_mlp=options.pack_mlp, fused_swiglu=options.fused_swiglu,
-                                             native_gqa=options.native_gqa, text_only_rope=options.text_only_rope,
+                                             native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, reference_single=options.reference_single,
                                              codec_left_context=options.codec_left_context,
                                              codec_batch_size=options.codec_batch_size)
     if options.continuous:
@@ -327,7 +328,7 @@ def main():
         factory = partial(ContinuousModel, max_slots=options.max_batch_size,
                           rms_norm=options.rms_norm, pack_qkv=options.pack_qkv,
                           pack_mlp=options.pack_mlp, fused_swiglu=options.fused_swiglu,
-                          native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, graph_prefill=options.graph_prefill,
+                          native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, reference_single=options.reference_single, graph_prefill=options.graph_prefill,
                           codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
                           incremental_codec=options.incremental_codec, batch_prefill=options.batch_prefill,
                           native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec, bucket_kv=options.bucket_kv, graph_embeddings=options.graph_embeddings, bucket_prefill=options.bucket_prefill, decode_bucket_step=options.decode_bucket_step, batch_audio_transfer=options.batch_audio_transfer)
