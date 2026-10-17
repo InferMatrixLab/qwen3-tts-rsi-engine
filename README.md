@@ -34,7 +34,12 @@ preserving their lifetime fixes the observed per-step graph discrepancy.
 The per-step path now passes sequential token/RNG comparison and exact full PCM
 parity on two English and two Chinese prompts, with clean process exit. This
 limited check does not establish corpus-wide quality or service performance.
-The whole-predictor experiment remains separate and is under revalidation.
+The corrected whole-predictor path and its combination with `--talker-graph`
+also pass those four complete-waveform checks. Use `--predictor-graph whole
+--talker-graph` to select the combination. The talker graph retains eager prefill
+and uses tensor-indexed KV storage with capacity buckets during decode.
+Service throughput, batched correctness and streaming delivery remain under
+validation; these graphs are not enabled by default.
 See the retained counterexample in `evidence/campaign-20261017/results/`.
 
 ```bash

@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "scope": "talker decoder component only",
+  "batch_size": 1,
+  "capacity": 256,
+  "rows": [
+    {
+      "step": 0,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08627893589437008,
+      "graph_s": 0.026636550202965736
+    },
+    {
+      "step": 1,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08243665751069784,
+      "graph_s": 0.016921907663345337
+    },
+    {
+      "step": 2,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08220848999917507,
+      "graph_s": 0.01665827166289091
+    },
+    {
+      "step": 3,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08232879266142845,
+      "graph_s": 0.016643041744828224
+    },
+    {
+      "step": 4,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08232823386788368,
+      "graph_s": 0.01670641265809536
+    },
+    {
+      "step": 5,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08351455349475145,
+      "graph_s": 0.016649861820042133
+    },
+    {
+      "step": 6,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08395563624799252,
+      "graph_s": 0.016727262176573277
+    },
+    {
+      "step": 7,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08369391784071922,
+      "graph_s": 0.016743652522563934
+    },
+    {
+      "step": 8,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08174972794950008,
+      "graph_s": 0.01668512262403965
+    },
+    {
+      "step": 9,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.0821388978511095,
+      "graph_s": 0.0166684715077281
+    },
+    {
+      "step": 10,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08279765583574772,
+      "graph_s": 0.016757684759795666
+    },
+    {
+      "step": 11,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "eager_s": 0.08306699246168137,
+      "graph_s": 0.01673231367021799
+    }
+  ],
+  "exact": true
+}

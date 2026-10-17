@@ -1,0 +1,162 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "trace": "runs/whole-predictor-profile/liteserver-c010-4_1209927_20261017150130664_ascend_pt/ASCEND_PROFILER_OUTPUT",
+  "steps": [
+    {
+      "Device_id": "1",
+      "Step": "",
+      "Computing": "1018368.8800000971",
+      "Communication(Not Overlapped)": "0",
+      "Overlapped": "0",
+      "Communication": "0",
+      "Free": "3278220.1000026497",
+      "Stage": "4296588.75",
+      "Bubble": "0",
+      "Communication(Not Overlapped and Exclude Receive)": "0",
+      "Preparing": "5039.0"
+    }
+  ],
+  "top_host_self_us": [
+    [
+      "reference_custom_voice",
+      [
+        1,
+        1231418.05
+      ]
+    ],
+    [
+      "aten::_local_scalar_dense",
+      [
+        3905,
+        516808.31999999896
+      ]
+    ],
+    [
+      "aten::copy_",
+      [
+        14657,
+        454920.07999999705
+      ]
+    ],
+    [
+      "empty_tensor",
+      [
+        60917,
+        301697.8299999995
+      ]
+    ],
+    [
+      "aten::as_strided",
+      [
+        33962,
+        142707.47999999922
+      ]
+    ],
+    [
+      "aten::mul",
+      [
+        11683,
+        128468.44999999994
+      ]
+    ],
+    [
+      "aclnnInplaceCopy",
+      [
+        14558,
+        117499.72999999985
+      ]
+    ],
+    [
+      "aten::add",
+      [
+        7269,
+        103430.63999999972
+      ]
+    ],
+    [
+      "aten::matmul",
+      [
+        6196,
+        82046.61000000006
+      ]
+    ],
+    [
+      "aten::empty_strided",
+      [
+        9160,
+        80952.65999999986
+      ]
+    ],
+    [
+      "aten::cat",
+      [
+        5450,
+        76209.57999999989
+      ]
+    ],
+    [
+      "aclnnMul",
+      [
+        11558,
+        72406.73999999995
+      ]
+    ],
+    [
+      "aten::mean",
+      [
+        3520,
+        56752.62000000002
+      ]
+    ],
+    [
+      "aten::_to_copy",
+      [
+        7269,
+        55589.950000000055
+      ]
+    ],
+    [
+      "aten::pow",
+      [
+        3549,
+        54367.68999999994
+      ]
+    ],
+    [
+      "aten::_unique",
+      [
+        62,
+        52416.16000000001
+      ]
+    ],
+    [
+      "aten::slice",
+      [
+        12910,
+        49865.890000000145
+      ]
+    ],
+    [
+      "aclnnMatmul",
+      [
+        6196,
+        45815.639999999956
+      ]
+    ],
+    [
+      "npu::npu_fusion_attention_v3",
+      [
+        876,
+        44879.08000000003
+      ]
+    ],
+    [
+      "aten::transpose",
+      [
+        9733,
+        39635.76000000017
+      ]
+    ]
+  ],
+  "note": "Instrumented timings; not an acceptance benchmark."
+}

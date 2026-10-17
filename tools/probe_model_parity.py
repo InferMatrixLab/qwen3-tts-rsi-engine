@@ -15,6 +15,7 @@ parser.add_argument('--workload', type=Path, required=True)
 parser.add_argument('--output', type=Path, required=True)
 parser.add_argument('--indices', type=int, nargs='+', default=[0, 1, 64, 65])
 parser.add_argument('--whole', action='store_true')
+parser.add_argument('--talker-graph', action='store_true')
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 data = args.workload.read_bytes()
@@ -28,9 +29,17 @@ if args.whole:
 result = {'status': 'INCONCLUSIVE', 'scope': 'complete waveform parity; diagnostic timings only',
           'workload_sha256': hashlib.sha256(data).hexdigest(), 'arms': {}}
 result['implementation'] = type(graph).__name__
+talker_reference = model.wrapper.model.talker.model
+talker_graph = None
+if args.talker_graph:
+    from qwen3_tts_engine.talker_graph import TalkerGraph
+    talker_graph = TalkerGraph(talker_reference)
+result['talker_graph'] = args.talker_graph
 try:
     for name, predictor in [('reference', reference), ('graph', graph)]:
         model.wrapper.model.talker.code_predictor = predictor
+        if name == 'graph' and talker_graph is not None:
+            model.wrapper.model.talker.model = talker_graph
         rows = []
         for index in args.indices:
             payload = dict(payloads[index], instructions='')
@@ -59,5 +68,8 @@ except Exception as error:
 finally:
     (args.output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
     graph.close()
+    if talker_graph is not None:
+        talker_graph.close()
+        model.wrapper.model.talker.model = talker_reference
     model.wrapper.model.talker.code_predictor = reference
     model.close()

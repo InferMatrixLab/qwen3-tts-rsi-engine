@@ -9,7 +9,7 @@ from qwen3_tts_engine.predictor import PredictorGraph
 
 
 class CustomVoiceModel:
-    def __init__(self, model_path, device, predictor_graph=False):
+    def __init__(self, model_path, device, predictor_graph=False, talker_graph=False):
         torch.npu.set_device(device)
         torch.set_num_threads(4)
         self.device = device
@@ -20,7 +20,15 @@ class CustomVoiceModel:
         self.wrapper.model.eval()
         self.predictor_graph = predictor_graph
         if predictor_graph:
-            self.wrapper.model.talker.code_predictor = PredictorGraph(self.wrapper.model.talker.code_predictor)
+            graph_type = PredictorGraph
+            if predictor_graph == "whole":
+                from qwen3_tts_engine.whole_predictor import WholePredictorGraph
+                graph_type = WholePredictorGraph
+            self.wrapper.model.talker.code_predictor = graph_type(self.wrapper.model.talker.code_predictor)
+        self.talker_graph = talker_graph
+        if talker_graph:
+            from qwen3_tts_engine.talker_graph import TalkerGraph
+            self.wrapper.model.talker.model = TalkerGraph(self.wrapper.model.talker.model)
         self.speakers = self.wrapper.get_supported_speakers()
         self.languages = self.wrapper.get_supported_languages()
 
@@ -72,5 +80,7 @@ class CustomVoiceModel:
         torch.npu.synchronize()
         if self.predictor_graph:
             self.wrapper.model.talker.code_predictor.close()
+        if self.talker_graph:
+            self.wrapper.model.talker.model.close()
         del self.wrapper
         torch.npu.empty_cache()

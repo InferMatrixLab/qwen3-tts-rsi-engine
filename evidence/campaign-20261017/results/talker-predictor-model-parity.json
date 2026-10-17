@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "scope": "complete waveform parity; diagnostic timings only",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "arms": {
+    "reference": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 30,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+        "elapsed_s": 10.657117492519319
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 40,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+        "elapsed_s": 12.442611255683005
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 90,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "a703cb5d9cc4817231b2aaea8b65b8e10c9b0b683f0705b6dbc4a98c4ecb3eed",
+        "elapsed_s": 28.003544190898538
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 83,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "060258af2a1da40b81d68635d2baa67d93ec473f81f9b90a1a6a6ca172e2768a",
+        "elapsed_s": 25.931139325723052
+      }
+    ],
+    "graph": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 30,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+        "elapsed_s": 2.5798201076686382
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 40,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+        "elapsed_s": 1.8091548951342702
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 90,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "a703cb5d9cc4817231b2aaea8b65b8e10c9b0b683f0705b6dbc4a98c4ecb3eed",
+        "elapsed_s": 3.870558557100594
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 83,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "060258af2a1da40b81d68635d2baa67d93ec473f81f9b90a1a6a6ca172e2768a",
+        "elapsed_s": 3.5702318735420704
+      }
+    ]
+  },
+  "implementation": "WholePredictorGraph",
+  "talker_graph": true,
+  "exact": true
+}

@@ -1,6 +1,8 @@
 """Own one server process group, retain requests, and record its actual exit."""
 
 import argparse
+import hashlib
+import importlib.metadata
 import json
 import os
 from pathlib import Path
@@ -18,6 +20,7 @@ parser.add_argument("--workload", type=Path, required=True)
 parser.add_argument("--model", required=True)
 parser.add_argument("--engine", required=True)
 parser.add_argument("--source-revision", required=True)
+parser.add_argument("--source-directory", type=Path)
 parser.add_argument("--port", type=int, required=True)
 parser.add_argument("--requests", type=int, default=8)
 parser.add_argument("--concurrency", type=int, default=1)
@@ -36,6 +39,34 @@ with socket.socket() as probe:
     if probe.connect_ex(("127.0.0.1", options.port)) == 0:
         parser.error("Port is already in use; refusing to measure an unrelated server")
 options.output.mkdir(parents=True, exist_ok=False)
+provenance = {"python": sys.version, "cpu_affinity": sorted(os.sched_getaffinity(0)),
+              "packages": {}, "measurement_files": {}}
+for name in ("torch", "torch-npu", "transformers", "vllm", "vllm-ascend", "sglang", "qwen-tts"):
+    try:
+        provenance["packages"][name] = importlib.metadata.version(name)
+    except importlib.metadata.PackageNotFoundError:
+        pass
+for directory in (Path("qwen3_tts_engine"), Path("tools")):
+    for path in sorted(directory.glob("*.py")):
+        provenance["measurement_files"][str(path)] = hashlib.sha256(path.read_bytes()).hexdigest()
+if options.source_directory:
+    source = str(options.source_directory.resolve())
+    git = ["git", "-c", f"safe.directory={source}", "-C", source]
+    revision = subprocess.check_output(git + ["rev-parse", "HEAD"], text=True).strip()
+    if revision != options.source_revision:
+        parser.error("Source checkout does not match the requested revision")
+    patch = subprocess.check_output(git + ["diff", "--binary", "HEAD"])
+    (options.output / "source.patch").write_bytes(patch)
+    provenance["source"] = {"directory": source, "revision": revision,
+                            "patch_sha256": hashlib.sha256(patch).hexdigest(),
+                            "worktree_status": subprocess.check_output(git + ["status", "--porcelain"], text=True)}
+try:
+    hardware = subprocess.run(["npu-smi", "info"], capture_output=True, text=True, timeout=15)
+    (options.output / "hardware.txt").write_text(hardware.stdout + hardware.stderr)
+    provenance["hardware_probe_exit"] = hardware.returncode
+except (OSError, subprocess.TimeoutExpired) as error:
+    provenance["hardware_probe_error"] = str(error)
+(options.output / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
 status = {"status": "INCONCLUSIVE", "phase": "startup", "command": command,
           "engine": options.engine, "source_revision": options.source_revision,
           "quality": "NOT_RUN", "server_exit": None, "benchmark_exit": None,
