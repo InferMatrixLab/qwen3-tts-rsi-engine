@@ -98,9 +98,12 @@ class CodecSlotGraph:
 
 
 class CodecSlots:
-    def __init__(self, decoder, slots, cache_constants=False, triton_snake=False, cache_codebooks=False):
+    def __init__(self, decoder, slots, cache_constants=False, triton_snake=False, cache_codebooks=False, max_chunk_frames=8):
         if slots < 1:
             raise ValueError('Codec slots must be positive')
+        if max_chunk_frames not in (8, 16):
+            raise ValueError("Codec maximum chunk must be 8 or 16 frames")
+        self.max_chunk_frames = max_chunk_frames
         self.decoder, self.slots = decoder, slots
         self.window = decoder.config.sliding_window
         if self.window is None or self.window < 2:
@@ -129,7 +132,7 @@ class CodecSlots:
         if not 1 <= max_batch <= self.slots:
             raise ValueError('Codec warmup batch must fit the slot arena')
         for batch in range(1, max_batch + 1):
-            for length in range(1, 9):
+            for length in range(1, self.max_chunk_frames + 1):
                 key = (batch, length)
                 if key not in self.graphs:
                     graph = CodecSlotGraph(self, batch, length)
@@ -142,8 +145,8 @@ class CodecSlots:
                 or min(indices) < 0 or max(indices) >= self.slots
                 or codes.ndim != 3 or codes.shape[0] != len(indices)
                 or codes.shape[1] != self.decoder.config.num_quantizers
-                or not 1 <= codes.shape[-1] <= 8):
-            raise ValueError('Expected unique valid slots and [batch, codebooks, 1..8] codes')
+                or not 1 <= codes.shape[-1] <= self.max_chunk_frames):
+            raise ValueError(f'Expected unique valid slots and [batch, codebooks, 1..{self.max_chunk_frames}] codes')
         key = (len(indices), codes.shape[-1])
         if key not in self.graphs:
             graph = CodecSlotGraph(self, *key)

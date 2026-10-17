@@ -221,7 +221,10 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8):
+        if codec_chunk_frames not in (8, 16) or (codec_chunk_frames != 8 and (not incremental_codec or codec_code_buffer)):
+            raise ValueError("16-frame chunks require incremental codec without the 8-frame code buffer")
+        self.codec_chunk_frames = codec_chunk_frames
         if triton_kv_update and not native_kv_update:
             raise ValueError("Triton KV update requires native KV update")
         decode_batch_size(1, max_slots, decode_bucket_step)
@@ -263,7 +266,7 @@ class ContinuousModel:
         self.incremental_codec = incremental_codec
         if incremental_codec:
             from qwen3_tts_engine.codec_slots import CodecSlots
-            self.codec = CodecSlots(decoder, max_slots, cache_constants=cache_codec_constants, triton_snake=triton_snake, cache_codebooks=cache_codec_codebooks)
+            self.codec = CodecSlots(decoder, max_slots, cache_constants=cache_codec_constants, triton_snake=triton_snake, cache_codebooks=cache_codec_codebooks, max_chunk_frames=codec_chunk_frames)
             if codec_code_buffer:
                 from qwen3_tts_engine.codec_code_buffer import CodecCodeBuffer
                 self.codec_codes = CodecCodeBuffer(max_slots, decoder.config.num_quantizers, device)
@@ -541,7 +544,7 @@ class ContinuousModel:
                 state.seen = updated_seen[index:index + 1]
             else:
                 state.seen.scatter_(1, state.token, True)
-            target = 2 if state.emitted == 0 else state.emitted * 2 if state.emitted < 8 else state.emitted + 8
+            target = 2 if state.emitted == 0 else state.emitted * 2 if state.emitted < 8 else state.emitted + self.codec_chunk_frames
             stopped = token_ids[index] == self.eos
             limited = state.frames >= state.payload['max_new_tokens'] - 1
             if state.frames >= target or stopped or limited:
