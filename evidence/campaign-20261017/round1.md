@@ -289,3 +289,7 @@ Added opt-in `--prefill-interval 4` scheduling experiment: while decoding active
 
 
 Direct combined candidate (a9fac06, physical NPU 6: predictor-only native RoPE + Triton SnakeBeta + cached codebooks) completed all 896 requests with clean server exit. C1/2/4/8/16/32/64 throughput: 55.038 / 85.701 / 135.796 / 208.199 / 313.009 / 394.717 / 491.399 frames/s. C32 still misses the original 400.53 threshold, and the second vLLM repeat strengthens that concern. C1 ASR passes (EN WER 0.01137980, ZH CER 0.03145695); full remaining quality is in progress. The same-device prefill-interval-4 control is next, with TTFA tradeoffs reported rather than hidden.
+
+### Combined candidate: prefill interval 4 control
+
+Source `8b8bd08`, physical NPU 6, one exploratory trial. C16/C32/C64 throughput: 310.746 / 349.326 / 506.764 frames/s; TTFA p95: 419.821 / 1024.928 / 1264.018 ms. All 384 requests completed and server exited 0. Quality was not evaluated. C32 regressed versus the interval-1 combined candidate (394.717 frames/s), so interval 4 is not selected. C64 improvement alone does not meet the all-concurrency objective.
