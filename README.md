@@ -20,6 +20,25 @@ Benchmark against an already running OpenAI speech SSE endpoint:
 python -m qwen3_tts_engine.benchmark --help
 ```
 
+The initial standalone service owns its admission queue, batching, HTTP delivery
+and model lifecycle; it has no vLLM/SGLang runtime dependency. The reference model
+adapter uses upstream `qwen-tts==0.1.1` with `transformers==4.57.3`, BF16 and SDPA.
+This bootstrap path delivers the complete waveform in one SSE audio event;
+its TTFA therefore includes the whole synthesis. Incremental codec delivery and
+optimized decode have not yet been qualified. It is not the final performance candidate.
+
+```bash
+python -m qwen3_tts_engine.server --model /path/to/pinned/model --device npu:0
+bash tools/serve_baseline.sh vllm
+SGLANG_PYTHON=/path/to/npu/venv/bin/python bash tools/serve_baseline.sh sglang
+python tools/audit_model.py --tree /path/to/model-tree.json --model /path/to/model --output model-audit.json
+```
+
+`tools/serve_baseline.sh` uses an existing NPU container and preserves its CANN
+Python paths. Configure `NPU_CONTAINER`, `RESEARCH_ROOT`, `NPU_DEVICE` and `PORT`.
+The SGLang configuration is a concurrency qualification candidate, not a measured
+best configuration. Setup scripts do not alter either upstream main checkout.
+
 Model weights and generated waveforms are kept outside Git. Compact results and
 SHA256 manifests identify retained local artifacts. CPU tests validate the
 measurement contract, not NPU execution or model quality.

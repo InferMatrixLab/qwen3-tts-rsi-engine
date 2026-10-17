@@ -1,0 +1,14 @@
+[
+  "/home/why/drama3-research/venv-sglang/bin/python",
+  "-m",
+  "sglang_omni.cli",
+  "serve",
+  "--model-path",
+  "/home/why/qwen3-tts-research/model",
+  "--config",
+  "/home/why/qwen3-tts-engine/configs/sglang-npu.yaml",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "8098"
+]

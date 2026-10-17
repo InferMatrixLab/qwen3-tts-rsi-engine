@@ -41,7 +41,7 @@ async def request(session, endpoint, payload, output, index, sample_rate):
     pcm = bytearray()
     terminal = False
     try:
-        async with session.post(endpoint, json=payload) as response:
+        async with session.post(endpoint, json=payload, read_bufsize=16 * 1024 * 1024) as response:
             if response.status != 200:
                 raise ValueError(f"HTTP {response.status}: {(await response.text())[:1000]}")
             if "text/event-stream" not in response.headers.get("Content-Type", ""):
@@ -65,6 +65,8 @@ async def request(session, endpoint, payload, output, index, sample_rate):
                 elif kind == "speech.audio.done":
                     if terminal:
                         raise ValueError("Duplicate terminal event")
+                    if event.get("finish_reason") in ("length", "abort", "error", "cancelled"):
+                        raise ValueError(f"Unsuccessful generation stop: {event['finish_reason']}")
                     terminal = True
                     record["terminal"] = event
                 elif kind in ("speech.audio.error", "error") or "error" in event:

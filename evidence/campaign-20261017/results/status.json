@@ -1,0 +1,24 @@
+{
+  "status": "INCONCLUSIVE",
+  "cpu_tests": {
+    "passed": 6,
+    "scope": "SSE metrics, errors, admission validation and model thread ownership"
+  },
+  "npu_operator_probe": {
+    "exit": 0,
+    "scope": "BF16 RMSNorm shape [16,128]; no model performance evidence"
+  },
+  "vllm_cli_probe": {
+    "exit": 134,
+    "error": "corrupted size vs. prev_size"
+  },
+  "model_audit": "model-audit.json",
+  "baseline_sweep": "NOT_RUN",
+  "quality": "NOT_RUN",
+  "two_times_target": "NOT_ESTABLISHED",
+  "qualification_devices": {
+    "vllm": 0,
+    "standalone_reference": 6
+  },
+  "note": "Independent startup qualification only; concurrent smoke runs are not matched performance trials."
+}

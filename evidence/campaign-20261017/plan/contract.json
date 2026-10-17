@@ -5,12 +5,20 @@
   "hardware": "Ascend 910B1 64 GiB",
   "device_budget": 1,
   "precision": "bfloat16",
-  "concurrency": [1, 2, 4, 8, 16, 32, 64],
+  "concurrency": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
   "target": "candidate throughput >= 2 * max(vllm throughput, sglang throughput) at every concurrency",
   "ttfa": "client elapsed time from dispatch to first complete nonempty PCM sample; includes server queueing",
   "rtf": "arithmetic mean of per-request completion seconds divided by decoded audio seconds",
   "throughput": "sum of decoded PCM duration * verified codec frame rate / cohort wall seconds",
-  "frame_rate": "verify using downloaded codec config; do not assume literal 12 from model name",
+  "frame_rate": 12.5,
   "requests_per_concurrency": 128,
   "qualification_requests": 8,
   "independent_repetitions": 3,
@@ -18,5 +26,12 @@
   "quality": "WER/CER scored on every retained waveform; speaker similarity against independent same-preset reference audio, not Seed-TTS cloning speakers",
   "quality_gate": "pending baseline repeat distribution; freeze numeric gate before candidate optimization",
   "completion": "all requests have nonempty valid PCM and explicit successful terminal SSE event; zero request failures; clean server shutdown",
-  "excluded_claims": ["synthetic speedup", "kernel speedup as service speedup", "different device counts", "truncated generation as speedup", "quality-unchecked throughput as acceptance"]
+  "excluded_claims": [
+    "synthetic speedup",
+    "kernel speedup as service speedup",
+    "different device counts",
+    "truncated generation as speedup",
+    "quality-unchecked throughput as acceptance"
+  ],
+  "frame_rate_evidence": "speech_tokenizer/config.json output_sample_rate 24000 / decode_upsample_rate 1920"
 }
