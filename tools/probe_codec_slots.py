@@ -17,6 +17,7 @@ parser.add_argument('--cache-constants', action='store_true')
 parser.add_argument('--graph-control', action='store_true')
 parser.add_argument('--triton-snake', action='store_true')
 parser.add_argument('--cache-codebooks', action='store_true')
+parser.add_argument('--max-chunk-frames', type=int, choices=[8, 16], default=8)
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 if args.strict_fp32:
@@ -26,9 +27,9 @@ model = CustomVoiceModel(args.model, 'npu:0')
 decoder = model.wrapper.model.speech_tokenizer.model.decoder
 if args.strict_fp32:
     decoder.float()
-engine = CodecSlots(decoder, 4, cache_constants=args.cache_constants, triton_snake=args.triton_snake, cache_codebooks=args.cache_codebooks)
+engine = CodecSlots(decoder, 4, cache_constants=args.cache_constants, triton_snake=args.triton_snake, cache_codebooks=args.cache_codebooks, max_chunk_frames=args.max_chunk_frames)
 eager = IncrementalCodec(decoder)
-control = CodecSlots(decoder, 4) if args.graph_control else None
+control = CodecSlots(decoder, 4, max_chunk_frames=args.max_chunk_frames) if args.graph_control else None
 triton_calls = []
 if args.triton_snake:
     original_snake = engine.eager.triton_snake
@@ -37,7 +38,7 @@ if args.triton_snake:
         return original_snake(hidden, *arguments, **keywords)
     engine.eager.triton_snake = observed_snake
 result = {'status': 'INCONCLUSIVE', 'scope': 'synthetic slot graph diagnostic, not speech quality or speed',
-          'cache_codebooks': args.cache_codebooks, 'triton_snake': args.triton_snake, 'graph_control': args.graph_control, 'strict_fp32': args.strict_fp32, 'cache_constants': args.cache_constants, 'prewarm': args.prewarm, 'cases': []}
+          'max_chunk_frames': args.max_chunk_frames, 'cache_codebooks': args.cache_codebooks, 'triton_snake': args.triton_snake, 'graph_control': args.graph_control, 'strict_fp32': args.strict_fp32, 'cache_constants': args.cache_constants, 'prewarm': args.prewarm, 'cases': []}
 try:
     with torch.inference_mode():
         codes = torch.randint(0, 2048, (3, 16, 101), generator=torch.Generator().manual_seed(42)).to('npu:0')
@@ -45,7 +46,7 @@ try:
         expected, actual = [[], []], [[], []]
         slots = [3, 1]
         start = 0
-        for length in [2, 2, 4] + [8] * 11 + [5]:
+        for length in ([2, 2, 4] + [8] * 11 + [5] if args.max_chunk_frames == 8 else [2, 2, 4] + [16] * 5 + [13]):
             chunk = codes[..., start:start + length]
             expected[0].append(eager.decode(chunk[:2], expected_states[0]))
             expected[1].append(eager.decode(chunk[2:], expected_states[1]))
@@ -59,7 +60,7 @@ try:
                 if args.prewarm:
                     saved = [buffer.clone() for buffer in engine.buffers]
                     engine.prewarm(4)
-                    assert len(engine.graphs) == 32
+                    assert len(engine.graphs) == 4 * args.max_chunk_frames
                     for buffer, original in zip(engine.buffers, saved):
                         torch.testing.assert_close(buffer, original, atol=0, rtol=0)
                     result['prewarm_live_state_exact'] = True
