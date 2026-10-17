@@ -1,0 +1,131 @@
+{
+  "status": "INCONCLUSIVE",
+  "scope": "Summary-level quality progress for one specified trial; no integrity, lifecycle, hardware, repeated-trial or throughput acceptance",
+  "candidate": "runs/continuous-direct-prompt-card0-round2",
+  "baselines": [
+    "runs/vllm-sweep-round3-card0-full128",
+    "runs/sglang-sweep-round3-full128"
+  ],
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "asr_sources": [
+        "runs/continuous-direct-prompt-card0-round2/quality-c1/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/quality-c1/summary.json",
+        "runs/sglang-sweep-round3-full128/quality-c1/summary.json"
+      ],
+      "asr": {
+        "en": {
+          "candidate": 0.011379800853485065,
+          "maximum": 0.0185348506401138,
+          "status": "PASS"
+        },
+        "zh": {
+          "candidate": 0.03145695364238411,
+          "maximum": 0.03649006622516556,
+          "status": "PASS"
+        }
+      },
+      "speaker": {
+        "candidate": 0.7751290453597903,
+        "minimum": 0.7519795336015522,
+        "status": "PASS"
+      },
+      "speaker_sources": [
+        "runs/continuous-direct-prompt-card0-round2/speaker-c1/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/speaker-c1/summary.json",
+        "runs/sglang-sweep-round3-full128/speaker-c1/summary.json"
+      ]
+    },
+    {
+      "concurrency": 2,
+      "asr_sources": [
+        "runs/continuous-direct-prompt-card0-round2/quality-c2/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/quality-c2/summary.json",
+        "runs/sglang-sweep-round3-full128/quality-c2/summary.json"
+      ],
+      "asr": "PENDING",
+      "speaker": "PENDING",
+      "speaker_sources": [
+        "runs/continuous-direct-prompt-card0-round2/speaker-c2/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/speaker-c2/summary.json",
+        "runs/sglang-sweep-round3-full128/speaker-c2/summary.json"
+      ]
+    },
+    {
+      "concurrency": 4,
+      "asr_sources": [
+        "runs/continuous-direct-prompt-card0-round2/quality-c4/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/quality-c4/summary.json",
+        "runs/sglang-sweep-round3-full128/quality-c4/summary.json"
+      ],
+      "asr": "PENDING",
+      "speaker": "PENDING",
+      "speaker_sources": [
+        "runs/continuous-direct-prompt-card0-round2/speaker-c4/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/speaker-c4/summary.json",
+        "runs/sglang-sweep-round3-full128/speaker-c4/summary.json"
+      ]
+    },
+    {
+      "concurrency": 8,
+      "asr_sources": [
+        "runs/continuous-direct-prompt-card0-round2/quality-c8/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/quality-c8/summary.json",
+        "runs/sglang-sweep-round3-full128/quality-c8/summary.json"
+      ],
+      "asr": "PENDING",
+      "speaker": "PENDING",
+      "speaker_sources": [
+        "runs/continuous-direct-prompt-card0-round2/speaker-c8/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/speaker-c8/summary.json",
+        "runs/sglang-sweep-round3-full128/speaker-c8/summary.json"
+      ]
+    },
+    {
+      "concurrency": 16,
+      "asr_sources": [
+        "runs/continuous-direct-prompt-card0-round2/quality-c16/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/quality-c16/summary.json",
+        "runs/sglang-sweep-round3-full128/quality-c16/summary.json"
+      ],
+      "asr": "PENDING",
+      "speaker": "PENDING",
+      "speaker_sources": [
+        "runs/continuous-direct-prompt-card0-round2/speaker-c16/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/speaker-c16/summary.json",
+        "runs/sglang-sweep-round3-full128/speaker-c16/summary.json"
+      ]
+    },
+    {
+      "concurrency": 32,
+      "asr_sources": [
+        "runs/continuous-direct-prompt-card0-round2/quality-c32/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/quality-c32/summary.json",
+        "runs/sglang-sweep-round3-full128/quality-c32/summary.json"
+      ],
+      "asr": "PENDING",
+      "speaker": "PENDING",
+      "speaker_sources": [
+        "runs/continuous-direct-prompt-card0-round2/speaker-c32/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/speaker-c32/summary.json",
+        "runs/sglang-sweep-round3-full128/speaker-c32/summary.json"
+      ]
+    },
+    {
+      "concurrency": 64,
+      "asr_sources": [
+        "runs/continuous-direct-prompt-card0-round2/quality-c64/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/quality-c64/summary.json",
+        "runs/sglang-sweep-round3-full128/quality-c64/summary.json"
+      ],
+      "asr": "PENDING",
+      "speaker": "PENDING",
+      "speaker_sources": [
+        "runs/continuous-direct-prompt-card0-round2/speaker-c64/summary.json",
+        "runs/vllm-sweep-round3-card0-full128/speaker-c64/summary.json",
+        "runs/sglang-sweep-round3-full128/speaker-c64/summary.json"
+      ]
+    }
+  ]
+}

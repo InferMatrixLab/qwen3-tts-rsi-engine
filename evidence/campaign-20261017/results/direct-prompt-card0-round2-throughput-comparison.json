@@ -1,0 +1,302 @@
+{
+  "status": "INCONCLUSIVE",
+  "scope": "Second same-card candidate trial versus all six selected baseline observations; full candidate quality and third candidate repetition pending",
+  "candidate": "runs/continuous-direct-prompt-card0-round2",
+  "note": "Raw descriptive ratio, not statistical confidence or a replacement for the frozen acceptance contract.",
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "candidate_throughput_frames_s": 60.682120504042686,
+      "baseline_observations": [
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round1-full128",
+          "throughput_frames_s": 12.296847685489093
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round2-full128",
+          "throughput_frames_s": 12.791066544709883
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round3-card0-full128",
+          "throughput_frames_s": 13.057069443918317
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round1-full128",
+          "throughput_frames_s": 4.274688133704026
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round2-full128",
+          "throughput_frames_s": 4.302936586505516
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round3-full128",
+          "throughput_frames_s": 4.358298469907299
+        }
+      ],
+      "highest_observed_baseline": {
+        "arm": "vllm",
+        "run": "runs/vllm-sweep-round3-card0-full128",
+        "throughput_frames_s": 13.057069443918317
+      },
+      "ratio_to_highest_observed_baseline": 4.647453302188495
+    },
+    {
+      "concurrency": 2,
+      "candidate_throughput_frames_s": 95.19104950434105,
+      "baseline_observations": [
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round1-full128",
+          "throughput_frames_s": 22.943153962655607
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round2-full128",
+          "throughput_frames_s": 24.712437230161637
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round3-card0-full128",
+          "throughput_frames_s": 25.31700304027436
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round1-full128",
+          "throughput_frames_s": 7.916893521882779
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round2-full128",
+          "throughput_frames_s": 7.996013792621271
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round3-full128",
+          "throughput_frames_s": 8.003296117201371
+        }
+      ],
+      "highest_observed_baseline": {
+        "arm": "vllm",
+        "run": "runs/vllm-sweep-round3-card0-full128",
+        "throughput_frames_s": 25.31700304027436
+      },
+      "ratio_to_highest_observed_baseline": 3.7599651646330674
+    },
+    {
+      "concurrency": 4,
+      "candidate_throughput_frames_s": 154.1263345280452,
+      "baseline_observations": [
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round1-full128",
+          "throughput_frames_s": 43.83126223034298
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round2-full128",
+          "throughput_frames_s": 47.19281370410862
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round3-card0-full128",
+          "throughput_frames_s": 48.276666811796055
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round1-full128",
+          "throughput_frames_s": 14.116271131187982
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round2-full128",
+          "throughput_frames_s": 14.229748754414576
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round3-full128",
+          "throughput_frames_s": 14.707710097570063
+        }
+      ],
+      "highest_observed_baseline": {
+        "arm": "vllm",
+        "run": "runs/vllm-sweep-round3-card0-full128",
+        "throughput_frames_s": 48.276666811796055
+      },
+      "ratio_to_highest_observed_baseline": 3.1925637105166826
+    },
+    {
+      "concurrency": 8,
+      "candidate_throughput_frames_s": 233.42628233975677,
+      "baseline_observations": [
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round1-full128",
+          "throughput_frames_s": 79.49077891672454
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round2-full128",
+          "throughput_frames_s": 82.57597590962091
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round3-card0-full128",
+          "throughput_frames_s": 88.02191876997009
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round1-full128",
+          "throughput_frames_s": 25.02642936804738
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round2-full128",
+          "throughput_frames_s": 25.759188264917594
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round3-full128",
+          "throughput_frames_s": 25.985093670147286
+        }
+      ],
+      "highest_observed_baseline": {
+        "arm": "vllm",
+        "run": "runs/vllm-sweep-round3-card0-full128",
+        "throughput_frames_s": 88.02191876997009
+      },
+      "ratio_to_highest_observed_baseline": 2.651910860404845
+    },
+    {
+      "concurrency": 16,
+      "candidate_throughput_frames_s": 348.41179923380776,
+      "baseline_observations": [
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round1-full128",
+          "throughput_frames_s": 124.59641583494476
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round2-full128",
+          "throughput_frames_s": 137.54177906611915
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round3-card0-full128",
+          "throughput_frames_s": 141.42567172815862
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round1-full128",
+          "throughput_frames_s": 38.30413736825286
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round2-full128",
+          "throughput_frames_s": 40.6814599663001
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round3-full128",
+          "throughput_frames_s": 41.628054031002264
+        }
+      ],
+      "highest_observed_baseline": {
+        "arm": "vllm",
+        "run": "runs/vllm-sweep-round3-card0-full128",
+        "throughput_frames_s": 141.42567172815862
+      },
+      "ratio_to_highest_observed_baseline": 2.463568282733757
+    },
+    {
+      "concurrency": 32,
+      "candidate_throughput_frames_s": 438.92545921476443,
+      "baseline_observations": [
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round1-full128",
+          "throughput_frames_s": 200.26527505533156
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round2-full128",
+          "throughput_frames_s": 214.29404211656257
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round3-card0-full128",
+          "throughput_frames_s": 213.78626953431618
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round1-full128",
+          "throughput_frames_s": 57.10208034098629
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round2-full128",
+          "throughput_frames_s": 57.36234872351452
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round3-full128",
+          "throughput_frames_s": 58.388031886002395
+        }
+      ],
+      "highest_observed_baseline": {
+        "arm": "vllm",
+        "run": "runs/vllm-sweep-round2-full128",
+        "throughput_frames_s": 214.29404211656257
+      },
+      "ratio_to_highest_observed_baseline": 2.048239208517129
+    },
+    {
+      "concurrency": 64,
+      "candidate_throughput_frames_s": 544.321436475226,
+      "baseline_observations": [
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round1-full128",
+          "throughput_frames_s": 242.0768702666381
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round2-full128",
+          "throughput_frames_s": 232.5999250066449
+        },
+        {
+          "arm": "vllm",
+          "run": "runs/vllm-sweep-round3-card0-full128",
+          "throughput_frames_s": 209.5460144105348
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round1-full128",
+          "throughput_frames_s": 66.60674902518353
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round2-full128",
+          "throughput_frames_s": 73.15645962525753
+        },
+        {
+          "arm": "sglang",
+          "run": "runs/sglang-sweep-round3-full128",
+          "throughput_frames_s": 75.04746962716122
+        }
+      ],
+      "highest_observed_baseline": {
+        "arm": "vllm",
+        "run": "runs/vllm-sweep-round1-full128",
+        "throughput_frames_s": 242.0768702666381
+      },
+      "ratio_to_highest_observed_baseline": 2.2485478925585807
+    }
+  ]
+}
