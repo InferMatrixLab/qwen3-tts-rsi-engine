@@ -19,6 +19,13 @@ All 896 WAV files match the previous full-quality candidate byte-for-byte;
 independent scoring is still running. C32 remains below twice vLLM round 2.
 These single-run results on a shared host are not final repeated 2x acceptance.
 
+The newer default-off `--direct-prompt` option prepares CustomVoice inputs directly
+and caches only fixed model embeddings. Its C32/C64 service probe measured
+**442.09 / 546.64 frames/s**, with 256 WAVs identical to its adjacent control and
+server exit 0. The complete workload and independent scoring are running.
+The C32 exploratory ratio to vLLM round 2 is 2.063x; different physical cards and
+missing repeated validation mean the acceptance status remains INCONCLUSIVE.
+
 See the [four-metric adjacent-control charts](evidence/campaign-20261017/exact-combined-charts/README.md)
 for raw values, timing scope, quality-transfer evidence and limitations.
 

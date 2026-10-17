@@ -482,3 +482,15 @@ CDF plus prefill bucketing completed 256 requests and server exit 0: C32 423.396
 The direct CustomVoice prompt diagnostic compared all four prepared tensors and sampling settings for the full 128-record corpus plus instruction/automatic-language/dialect cases (131 total). All tensors were exactly equal, process exit 0. ABBA preparation timing was upstream 6.5263/6.5891 ms per request versus direct 1.3163/1.3123 ms. Only model-constant special-token and speaker/language embeddings are cached; request text and instruction projections are recomputed. This is preparation-level timing, not service performance. A default-off --direct-prompt option for the 1.7B CustomVoice model is under real-waveform validation; reference-single dispatch is excluded.
 
 The direct-prompt real-model probe completed all four English/Chinese requests, slot reuse and capacity growth 64 to 128 with exit 0. All four WAVs exactly match the upstream-prompt control. The complete current test suite passed 57 tests with exit 0. C32/C64 service validation is the next step.
+
+
+### Direct prompt service experiment
+
+All 256 requests completed with server exit 0 on physical NPU 6; all WAV files match the adjacent CDF/bucket control exactly. This is a measured end-to-end result, not extrapolated from preparation timings.
+
+| Concurrency | frames/s | TTFA p50 ms | TTFA p95 ms | mean RTF |
+|---:|---:|---:|---:|---:|
+| 32 | 442.0855 | 213.6886 | 400.8096 | 0.806552 |
+| 64 | 546.6408 | 588.6600 | 926.0431 | 1.216904 |
+
+C32 is 2.063x vLLM round 2 in this exploratory cross-card comparison. This does not establish stable same-card three-repeat acceptance. The full C1–C64 direct-prompt trial and independent scoring are running. The earlier exact-combination full trial now has independent ASR/speaker scores for all 896 clips, quality-loop exit 0, all seven integrity audits PASS, and all frozen quality gates PASS against both round-2 baselines.

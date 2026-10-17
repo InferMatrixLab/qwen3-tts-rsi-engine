@@ -1,0 +1,22 @@
+{
+  "status": "INCONCLUSIVE",
+  "scope": "One directly measured run per arm. Adjacent engine control on physical NPU 6; vLLM round-2 baseline on physical NPU 0. No final same-card repeated acceptance.",
+  "cohorts": [
+    {
+      "concurrency": 32,
+      "candidate_frames_s": 442.08547517927417,
+      "adjacent_control_frames_s": 423.3961622522332,
+      "adjacent_ratio": 1.044141432051779,
+      "vllm_round2_frames_s": 214.29404211656257,
+      "vllm_round2_ratio": 2.062985376601405
+    },
+    {
+      "concurrency": 64,
+      "candidate_frames_s": 546.6408300692954,
+      "adjacent_control_frames_s": 519.8189827192175,
+      "adjacent_ratio": 1.05159843761336,
+      "vllm_round2_frames_s": 232.5999250066449,
+      "vllm_round2_ratio": 2.350133303154242
+    }
+  ]
+}
