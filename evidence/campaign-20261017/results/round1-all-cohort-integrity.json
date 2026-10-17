@@ -1,0 +1,300 @@
+{
+  "status": "PASS",
+  "scope": "Audio/timing/quality-record integrity only; not quality thresholds, hardware comparability, repetitions or performance acceptance",
+  "cohorts": [
+    {
+      "run": "vllm-sweep-round1-full128",
+      "concurrency": 1,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 12.296847685489093,
+        "ttfa_p50_ms": 270.9299558773637,
+        "ttfa_p95_ms": 284.75743043236434,
+        "rtf_mean": 1.0210431795370278
+      },
+      "issues": []
+    },
+    {
+      "run": "vllm-sweep-round1-full128",
+      "concurrency": 2,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 22.9431539626556,
+        "ttfa_p50_ms": 324.36227006837726,
+        "ttfa_p95_ms": 374.9993046745658,
+        "rtf_mean": 1.0921106427737466
+      },
+      "issues": []
+    },
+    {
+      "run": "vllm-sweep-round1-full128",
+      "concurrency": 4,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 43.83126223034301,
+        "ttfa_p50_ms": 344.9574699625373,
+        "ttfa_p95_ms": 430.1252225879579,
+        "rtf_mean": 1.1361252515339013
+      },
+      "issues": []
+    },
+    {
+      "run": "vllm-sweep-round1-full128",
+      "concurrency": 8,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 79.4907789167245,
+        "ttfa_p50_ms": 391.4935803040862,
+        "ttfa_p95_ms": 520.5294966232032,
+        "rtf_mean": 1.2216941816145934
+      },
+      "issues": []
+    },
+    {
+      "run": "vllm-sweep-round1-full128",
+      "concurrency": 16,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 124.59641583494474,
+        "ttfa_p50_ms": 498.53252014145255,
+        "ttfa_p95_ms": 661.1373523715883,
+        "rtf_mean": 1.3815607495303415
+      },
+      "issues": []
+    },
+    {
+      "run": "vllm-sweep-round1-full128",
+      "concurrency": 32,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 200.26527505533156,
+        "ttfa_p50_ms": 709.2177751474082,
+        "ttfa_p95_ms": 1016.5279964916408,
+        "rtf_mean": 1.7184953824042832
+      },
+      "issues": []
+    },
+    {
+      "run": "vllm-sweep-round1-full128",
+      "concurrency": 64,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 242.0768702666381,
+        "ttfa_p50_ms": 1395.918546244502,
+        "ttfa_p95_ms": 1793.4304440394044,
+        "rtf_mean": 2.614835011977095
+      },
+      "issues": []
+    },
+    {
+      "run": "sglang-sweep-round1-full128",
+      "concurrency": 1,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 4.274688133704026,
+        "ttfa_p50_ms": 424.1716735996306,
+        "ttfa_p95_ms": 565.9927828237414,
+        "rtf_mean": 2.9568215378457765
+      },
+      "issues": []
+    },
+    {
+      "run": "sglang-sweep-round1-full128",
+      "concurrency": 2,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 7.916893521882782,
+        "ttfa_p50_ms": 601.9626688212156,
+        "ttfa_p95_ms": 793.1363265495747,
+        "rtf_mean": 3.168660684523214
+      },
+      "issues": []
+    },
+    {
+      "run": "sglang-sweep-round1-full128",
+      "concurrency": 4,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 14.116271131187988,
+        "ttfa_p50_ms": 658.9919766411185,
+        "ttfa_p95_ms": 986.2919033970683,
+        "rtf_mean": 3.4984478742089373
+      },
+      "issues": []
+    },
+    {
+      "run": "sglang-sweep-round1-full128",
+      "concurrency": 8,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 25.02642936804738,
+        "ttfa_p50_ms": 689.9198177270591,
+        "ttfa_p95_ms": 1267.3496592789882,
+        "rtf_mean": 3.9221544990777235
+      },
+      "issues": []
+    },
+    {
+      "run": "sglang-sweep-round1-full128",
+      "concurrency": 16,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 38.30413736825286,
+        "ttfa_p50_ms": 762.419527862221,
+        "ttfa_p95_ms": 1739.0456179156897,
+        "rtf_mean": 4.789526350765899
+      },
+      "issues": []
+    },
+    {
+      "run": "sglang-sweep-round1-full128",
+      "concurrency": 32,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 57.10208034098627,
+        "ttfa_p50_ms": 811.7464822717011,
+        "ttfa_p95_ms": 2462.347258720547,
+        "rtf_mean": 6.236175363244543
+      },
+      "issues": []
+    },
+    {
+      "run": "sglang-sweep-round1-full128",
+      "concurrency": 64,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 66.60674902518357,
+        "ttfa_p50_ms": 3451.91464247182,
+        "ttfa_p95_ms": 7305.230406951158,
+        "rtf_mean": 10.170835155907064
+      },
+      "issues": []
+    },
+    {
+      "run": "continuous-native-rope-sampling-full",
+      "concurrency": 1,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 56.60815132745007,
+        "ttfa_p50_ms": 59.365371242165565,
+        "ttfa_p95_ms": 63.0266873165965,
+        "rtf_mean": 0.22216432673238115
+      },
+      "issues": []
+    },
+    {
+      "run": "continuous-native-rope-sampling-full",
+      "concurrency": 2,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 85.70181413227657,
+        "ttfa_p50_ms": 85.84185596555471,
+        "ttfa_p95_ms": 90.83082168363035,
+        "rtf_mean": 0.29295640245482
+      },
+      "issues": []
+    },
+    {
+      "run": "continuous-native-rope-sampling-full",
+      "concurrency": 4,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 135.00044994051493,
+        "ttfa_p50_ms": 99.9362450093031,
+        "ttfa_p95_ms": 140.36910058930513,
+        "rtf_mean": 0.3681919052185044
+      },
+      "issues": []
+    },
+    {
+      "run": "continuous-native-rope-sampling-full",
+      "concurrency": 8,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 207.8787024690451,
+        "ttfa_p50_ms": 130.52620133385062,
+        "ttfa_p95_ms": 199.6178788598624,
+        "rtf_mean": 0.471861415767732
+      },
+      "issues": []
+    },
+    {
+      "run": "continuous-native-rope-sampling-full",
+      "concurrency": 16,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 295.96242872166073,
+        "ttfa_p50_ms": 173.53461869060993,
+        "ttfa_p95_ms": 360.88213864713896,
+        "rtf_mean": 0.6431861511661263
+      },
+      "issues": []
+    },
+    {
+      "run": "continuous-native-rope-sampling-full",
+      "concurrency": 32,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 386.5403524053559,
+        "ttfa_p50_ms": 243.5705056414008,
+        "ttfa_p95_ms": 1021.9438086729496,
+        "rtf_mean": 0.9567715245619896
+      },
+      "issues": []
+    },
+    {
+      "run": "continuous-native-rope-sampling-full",
+      "concurrency": 64,
+      "status": "PASS",
+      "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+      "requests": 128,
+      "recomputed_metrics": {
+        "throughput_frames_s": 473.1832376578837,
+        "ttfa_p50_ms": 861.8122604675591,
+        "ttfa_p95_ms": 1259.4859242904931,
+        "rtf_mean": 1.3926872365463625
+      },
+      "issues": []
+    }
+  ]
+}

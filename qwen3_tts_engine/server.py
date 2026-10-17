@@ -112,12 +112,15 @@ class SpeechService:
         loop = asyncio.get_running_loop()
         pending = {}
         sequence = 0
+        tick_index = 0
+        interval = getattr(self.options, "prefill_interval", 1)
         while True:
             submissions = []
             cancelled = [identifier for identifier, (_, future, _) in pending.items() if future.cancelled()]
             for identifier in cancelled:
                 pending.pop(identifier)
                 self.queue.task_done()
+            admit_now = not pending or tick_index % interval == 0
             if not pending and not cancelled:
                 item = await self.queue.get()
                 if item[1].cancelled():
@@ -126,7 +129,7 @@ class SpeechService:
                 pending[sequence] = item
                 submissions.append((sequence, item[0]))
                 sequence += 1
-            while (len(pending) < self.options.max_batch_size and
+            while (admit_now and len(pending) < self.options.max_batch_size and
                    len(submissions) < self.options.prefill_per_tick and not self.queue.empty()):
                 item = self.queue.get_nowait()
                 if item[1].cancelled():
@@ -144,6 +147,7 @@ class SpeechService:
             try:
                 outputs = await loop.run_in_executor(self.executor,
                     partial(self.model.tick, submissions, emit, cancelled))
+                tick_index += 1
                 for identifier, output in outputs:
                     _, future, channel = pending.pop(identifier)
                     if not future.done():
@@ -292,7 +296,10 @@ def main():
     parser.add_argument("--graph-prefill", action="store_true")
     parser.add_argument("--native-kv-update", action="store_true")
     parser.add_argument("--prefill-per-tick", type=int, default=4)
+    parser.add_argument("--prefill-interval", type=int, default=1)
     options = parser.parse_args()
+    if not 1 <= options.prefill_interval <= 64 or (options.prefill_interval != 1 and not options.continuous):
+        parser.error("--prefill-interval must be 1..64 and requires --continuous when not 1")
     if options.native_rope_scope != "all" and not options.native_rope:
         parser.error("--native-rope-scope requires --native-rope")
     if options.cache_codec_codebooks and not (options.continuous and options.incremental_codec):

@@ -171,3 +171,57 @@ def test_continuous_service_admits_replacement_before_long_request_finishes():
         assert events.index(('admit', 'replacement')) < events.index(('finish', 'long'))
 
     asyncio.run(asyncio.wait_for(exercise(), timeout=5))
+
+
+def test_prefill_interval_batches_admission_but_cancellation_remains_immediate():
+    from qwen3_tts_engine.server import AudioChannel
+    events = []
+
+    async def exercise():
+        loop = asyncio.get_running_loop()
+        futures = [loop.create_future() for _ in range(3)]
+        service = None
+        def enqueue_replacement():
+            futures[1].cancel()
+            service.queue.put_nowait(({'input': 'replacement'}, futures[2], AudioChannel(loop)))
+            enqueued.set()
+        enqueued = threading.Event()
+
+        class Model:
+            def __init__(self, path, device):
+                self.active = {}
+                self.step = 0
+            def tick(self, submissions, emit, cancelled):
+                events.append((self.step, [p['input'] for _, p in submissions], list(cancelled)))
+                for identifier in cancelled: self.active.pop(identifier, None)
+                self.active.update(dict(submissions))
+                if self.step == 0:
+                    loop.call_soon_threadsafe(enqueue_replacement)
+                    assert enqueued.wait(2)
+                outputs = []
+                if self.step >= 4:
+                    outputs = [(identifier, {'pcm': b'\x01\x00', 'sample_rate': 24000}) for identifier in self.active]
+                    self.active.clear()
+                self.step += 1
+                return outputs
+            def close(self): pass
+
+        options = SimpleNamespace(model=Path('unused'), device='unused', queue_size=8,
+                                  max_batch_size=4, streaming=False, continuous=True,
+                                  prefill_per_tick=4, prefill_interval=4)
+        service = SpeechService(options, Model)
+        await service.start(None)
+        try:
+            for i, name in enumerate(['long', 'cancel-me']):
+                service.queue.put_nowait(({'input': name}, futures[i], AudioChannel(loop)))
+            await asyncio.wait_for(asyncio.gather(futures[0], futures[2]), timeout=5)
+            await asyncio.wait_for(service.queue.join(), timeout=2)
+        finally:
+            await service.stop(None)
+        assert futures[1].cancelled()
+        assert events[0][1] == ['long', 'cancel-me']
+        assert events[1][2] == [1]
+        assert all(not event[1] for event in events[1:4])
+        assert events[4][1] == ['replacement']
+
+    asyncio.run(exercise())
