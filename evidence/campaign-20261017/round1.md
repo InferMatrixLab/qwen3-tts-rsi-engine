@@ -148,3 +148,7 @@ Native-GQA speaker evaluation completed: C16 mean cosine 0.772866 and C64 0.7742
 The faster native-fusion candidate's C16 ASR is now complete: EN WER 0.009957 and ZH CER 0.025662, both within the frozen margins. Speaker evaluation and C64 ASR remain pending. The reference-rounding control's C16 CER is 0.042219, exceeding its 0.035662 gate (EN WER 0.008535 passes); it is not accepted as a quality-preserving alternative.
 
 Power-of-two prefill batch padding additionally passed a complete BF16 continuous three-request pair (indices 0, 64, 65): all PCM hashes and frame counts matched the unbucketed graph-prefill control, with EOS completion and clean process exit. This narrow identity check does not establish all-batch or full-service quality.
+
+Native-fusion C64 ASR completed: EN WER 0.008535 and ZH CER 0.032285, both within the frozen C64 margins. Its speaker evaluation is running. The reference-rounding control also passes C64 ASR (EN 0.009957, ZH 0.029801), but retains its C16 quality failure.
+
+Adding prefill batch bucketing to native fusion (`ac82d89`, physical NPU 1) measured C16 272.217 and C64 434.461 frames/s, with all requests and clean lifecycle passing. It provides no clear speed benefit over the prior exploratory cohort. All 128 C64 PCM hashes match that prior candidate; only 9 of 128 C16 hashes match, so C16 quality cannot be inherited. It is not selected on the available performance evidence.

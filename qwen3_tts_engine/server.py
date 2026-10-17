@@ -270,6 +270,7 @@ def main():
     parser.add_argument("--bucket-kv", action="store_true")
     parser.add_argument("--graph-embeddings", action="store_true")
     parser.add_argument("--bucket-prefill", action="store_true")
+    parser.add_argument("--decode-bucket-step", type=int, default=0)
     parser.add_argument("--pack-mlp", action="store_true")
     parser.add_argument("--fused-swiglu", action="store_true")
     parser.add_argument("--rms-norm", choices=["native", "reference-rounding"])
@@ -288,6 +289,14 @@ def main():
         parser.error('--batch-prefill requires --continuous')
     if options.graph_prefill and not options.continuous:
         parser.error('--graph-prefill requires --continuous')
+    if options.decode_bucket_step:
+        from qwen3_tts_engine.batching import decode_batch_size
+        try:
+            decode_batch_size(1, options.max_batch_size, options.decode_bucket_step)
+        except ValueError as error:
+            parser.error(str(error))
+        if not options.continuous:
+            parser.error('--decode-bucket-step requires --continuous')
     if options.bucket_prefill and not options.graph_prefill:
         parser.error('--bucket-prefill requires --graph-prefill')
     if options.graph_embeddings and not options.continuous:
@@ -318,7 +327,7 @@ def main():
                           native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, graph_prefill=options.graph_prefill,
                           codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
                           incremental_codec=options.incremental_codec, batch_prefill=options.batch_prefill,
-                          native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec, bucket_kv=options.bucket_kv, graph_embeddings=options.graph_embeddings, bucket_prefill=options.bucket_prefill)
+                          native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec, bucket_kv=options.bucket_kv, graph_embeddings=options.graph_embeddings, bucket_prefill=options.bucket_prefill, decode_bucket_step=options.decode_bucket_step)
     service = SpeechService(options, factory)
     app = web.Application(client_max_size=1024 * 1024)
     app.router.add_get("/health", service.health)

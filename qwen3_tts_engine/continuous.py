@@ -6,6 +6,7 @@ import torch
 from transformers.cache_utils import Cache, DynamicCache
 from qwen3_tts_engine.model import CustomVoiceModel
 from qwen3_tts_engine.codec_graph import CodecGraph
+from qwen3_tts_engine.batching import decode_batch_size
 
 
 from qwen3_tts_engine.sampling import categorical, random_table
@@ -216,7 +217,9 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0):
+        decode_batch_size(1, max_slots, decode_bucket_step)
+        self.decode_bucket_step = decode_bucket_step
         if bucket_prefill and not graph_prefill:
             raise ValueError('Prefill batch bucketing requires graph prefill')
         if prewarm_codec and not incremental_codec:
@@ -412,7 +415,7 @@ class ContinuousModel:
         if not self.states:
             return []
         count = len(self.states)
-        batch = 1 << (count - 1).bit_length()
+        batch = decode_batch_size(count, self.max_slots, self.decode_bucket_step)
         self.ensure_capacity(max(state.position for state in self.states))
         tokens = torch.cat([state.token for state in self.states])
         hidden = torch.cat([state.hidden for state in self.states])
