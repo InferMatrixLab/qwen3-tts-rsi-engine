@@ -164,8 +164,23 @@
         "runs/vllm-sweep-round3-card0-full128/quality-c32/summary.json",
         "runs/sglang-sweep-round3-full128/quality-c32/summary.json"
       ],
-      "asr": "PENDING",
-      "speaker": "PENDING",
+      "asr": {
+        "en": {
+          "candidate": 0.008534850640113799,
+          "maximum": 0.019957325746799433,
+          "status": "PASS"
+        },
+        "zh": {
+          "candidate": 0.03145695364238411,
+          "maximum": 0.04394039735099338,
+          "status": "PASS"
+        }
+      },
+      "speaker": {
+        "candidate": 0.7676113222260028,
+        "minimum": 0.7555636109504849,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-direct-prompt-card0-round2/speaker-c32/summary.json",
         "runs/vllm-sweep-round3-card0-full128/speaker-c32/summary.json",
@@ -179,8 +194,23 @@
         "runs/vllm-sweep-round3-card0-full128/quality-c64/summary.json",
         "runs/sglang-sweep-round3-full128/quality-c64/summary.json"
       ],
-      "asr": "PENDING",
-      "speaker": "PENDING",
+      "asr": {
+        "en": {
+          "candidate": 0.00995732574679943,
+          "maximum": 0.017112375533428165,
+          "status": "PASS"
+        },
+        "zh": {
+          "candidate": 0.027317880794701987,
+          "maximum": 0.03731788079470199,
+          "status": "PASS"
+        }
+      },
+      "speaker": {
+        "candidate": 0.7712946995161474,
+        "minimum": 0.7500438722968101,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-direct-prompt-card0-round2/speaker-c64/summary.json",
         "runs/vllm-sweep-round3-card0-full128/speaker-c64/summary.json",

@@ -146,7 +146,11 @@
           "status": "PASS"
         }
       },
-      "speaker": "PENDING",
+      "speaker": {
+        "candidate": 0.7619745554402471,
+        "minimum": 0.7556396480835974,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-direct-prompt-card0-round3/speaker-c16/summary.json",
         "runs/vllm-sweep-round3-card0-full128/speaker-c16/summary.json",
