@@ -1,6 +1,6 @@
 {
   "status": "INCONCLUSIVE",
-  "scope": "Partial full-trial progress; server still live; independent audio scoring and remaining cohorts pending",
+  "scope": "Full performance trial completed, server exit 0; independent audio scoring and repeated acceptance pending",
   "candidate": "runs/continuous-exact-combined-full-round1",
   "waveform_reference": "runs/continuous-codec-fused-predictor-rope-full",
   "cohorts": [
@@ -55,6 +55,82 @@
         "ttfa_p50_ms": 99.05612422153354,
         "ttfa_p95_ms": 120.72241157293318,
         "rtf_mean": 0.3390736783488949,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 8,
+      "exact_wav_count": 128,
+      "requests": 128,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 34.09395836573094,
+        "throughput_frames_s": 223.08937901575732,
+        "ttfa_p50_ms": 120.6933674402535,
+        "ttfa_p95_ms": 194.83729852363442,
+        "rtf_mean": 0.4407220202260344,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 16,
+      "exact_wav_count": 128,
+      "requests": 128,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 24.097743296064436,
+        "throughput_frames_s": 330.90235471560885,
+        "ttfa_p50_ms": 161.2696098163724,
+        "ttfa_p95_ms": 352.4981641210615,
+        "rtf_mean": 0.5870336675272125,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 32,
+      "exact_wav_count": 128,
+      "requests": 128,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 19.19469744618982,
+        "throughput_frames_s": 409.12340619147574,
+        "ttfa_p50_ms": 229.01602601632476,
+        "ttfa_p95_ms": 1096.5623105876148,
+        "rtf_mean": 0.8884371708301766,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 64,
+      "exact_wav_count": 128,
+      "requests": 128,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 14.595085239969194,
+        "throughput_frames_s": 520.5176862684795,
+        "ttfa_p50_ms": 754.4531784951687,
+        "ttfa_p95_ms": 1236.8211444467306,
+        "rtf_mean": 1.2939498674031014,
         "request_completion_pass": true,
         "quality": "NOT_EVALUATED",
         "server_lifecycle": "NOT_EVALUATED",

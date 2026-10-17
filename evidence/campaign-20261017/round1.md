@@ -401,3 +401,20 @@ The output-head/sampling diagnostic completed with exact sampled tokens and seen
 The full exact-combination trial completed C1 at 59.71978 frames/s; all 128 WAV files match the previous full-quality combined candidate byte-for-byte. The server is still running later cohorts and independent audio scoring is in progress, so this is not a completed trial.
 
 Review of retained shutdown graph-shape logs found no prefill batches 5–8 in either the preceding combination or adjacent control. A proposed larger prewarm limit was therefore reverted before measurement. Actual additional shapes were (28,64), (31,64), and (63,64). The next prepared experiment uses the existing power-of-two prefill bucketing option with the directly measured combination; it may change BF16 outputs and requires independent full quality. No gain is inferred from the graph-shape observation.
+
+
+### Exact combination: full performance trial 1
+
+All 896 requests completed and server exited 0 on physical NPU 6. All 896 WAV files are byte-identical to the previous full-quality combined candidate; independent ASR/speaker scoring remains in progress. This is one full trial, not three-repeat acceptance. C32 remains below twice vLLM round 2.
+
+| Concurrency | frames/s | TTFA p50 ms | TTFA p95 ms | mean RTF |
+|---:|---:|---:|---:|---:|
+| 1 | 59.7198 | 56.5387 | 58.0846 | 0.210790 |
+| 2 | 92.0091 | 74.5824 | 87.1076 | 0.272086 |
+| 4 | 146.3947 | 99.0561 | 120.7224 | 0.339074 |
+| 8 | 223.0894 | 120.6934 | 194.8373 | 0.440722 |
+| 16 | 330.9024 | 161.2696 | 352.4982 | 0.587034 |
+| 32 | 409.1234 | 229.0160 | 1096.5623 | 0.888437 |
+| 64 | 520.5177 | 754.4532 | 1236.8211 | 1.293950 |
+
+The prefill-bucket combination C32/C64 service experiment has started on the same physical card after the full trial exited. See runs/continuous-exact-bucket-prefill-c32-c64.

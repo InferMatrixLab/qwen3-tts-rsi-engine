@@ -13,7 +13,10 @@ gates against both round-2 baselines. Its throughput remains below 2x at C32.
 A directly measured combination of paired KV writes, exact talker rotary and
 prefill prewarming reached **418.05 / 526.22 frames/s at C32 / C64**, with all
 256 WAV files byte-identical to that quality-validated candidate and server exit 0.
-Its complete C1–C64 trial and independent quality scoring are now running.
+Its first complete C1–C64 trial has finished with 896 requests and exit 0:
+59.72 / 92.01 / 146.40 / 223.09 / 330.90 / 409.12 / 520.52 frames/s.
+All 896 WAV files match the previous full-quality candidate byte-for-byte;
+independent scoring is still running. C32 remains below twice vLLM round 2.
 These single-run results on a shared host are not final repeated 2x acceptance.
 
 See the [four-metric adjacent-control charts](evidence/campaign-20261017/exact-combined-charts/README.md)
