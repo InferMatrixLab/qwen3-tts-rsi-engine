@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "scope": "Synthetic operator diagnostic, full cache exact on changed-input replay; native timing includes index preparation amortized in real models",
+  "row_tiled": true,
+  "timing_caveat": "Native arm includes index preparation, amortized across layers in serving.",
+  "cases": [
+    {
+      "batch": 1,
+      "capacity": 64,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.024770088493824005
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.01084107905626297
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.010655880905687809
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.024551786482334137
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "capacity": 512,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.02449103631079197
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.010773073881864548
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.010815826244652271
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.02448153216391802
+        }
+      ]
+    },
+    {
+      "batch": 8,
+      "capacity": 64,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.05179618485271931
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.01103028655052185
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.010824729688465595
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.051672584377229214
+        }
+      ]
+    },
+    {
+      "batch": 8,
+      "capacity": 512,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.05293486639857292
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.012666173279285431
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.013785958290100098
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.052894968539476395
+        }
+      ]
+    },
+    {
+      "batch": 32,
+      "capacity": 64,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.055025871843099594
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.011157039552927017
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.010936879552900791
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.05495897028595209
+        }
+      ]
+    },
+    {
+      "batch": 32,
+      "capacity": 512,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.05643411073833704
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.010755076073110104
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.010718381963670254
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.05630475468933582
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "capacity": 64,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.07294288370758295
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.011881757527589798
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.012011709623038769
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.07304203230887651
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "capacity": 512,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.07171555422246456
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.011543096043169498
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.011498299427330494
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.07163105066865683
+        }
+      ]
+    }
+  ],
+  "process_exit": 0,
+  "device": "Ascend 910B1 physical NPU 6"
+}

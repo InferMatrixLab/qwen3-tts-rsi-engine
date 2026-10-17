@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "Four complete speech outputs with slot reuse and capacity growth; not full corpus or throughput",
+  "process_exit": 0,
+  "samples": [
+    {
+      "file": "00000.wav",
+      "sha256": "5f5528a6cf3bb3eef9cfc017b4ba8de3d1f6e99930a18bcba37abc0d7ef2db5c"
+    },
+    {
+      "file": "00001.wav",
+      "sha256": "dae0e2ffe127757ee96c7242251b539258ed7f3c436b3594c2cd160fced004ed"
+    },
+    {
+      "file": "00064.wav",
+      "sha256": "002bf64925514d9a56eddc8553878d4f447c0d30c2a62c6ad60e3e47105adced"
+    },
+    {
+      "file": "00065.wav",
+      "sha256": "8dcfe64af6442fd79e6d050f7e7abe16fd60e6bd031f1c2c47960b46be53876e"
+    }
+  ]
+}

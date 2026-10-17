@@ -80,11 +80,12 @@ class UniformPredictor:
 
 
 class SlotArena:
-    def __init__(self, reference, slots, capacity, native_kv_update=False):
+    def __init__(self, reference, slots, capacity, native_kv_update=False, triton_kv_update=False):
         self.reference = reference
         self.slots = slots
         self.capacity = capacity
         self.native_kv_update = native_kv_update
+        self.triton_kv_update = triton_kv_update
         weight = next(reference.parameters())
         c = reference.config
         shape = (slots, c.num_key_value_heads, capacity, c.head_dim)
@@ -116,7 +117,7 @@ class SlotCache(Cache):
             self.columns = torch.arange(heads, device=positions.device)[None, :].expand(batch, heads)
 
     def prepare(self):
-        if self.arena.native_kv_update:
+        if self.arena.native_kv_update and not self.arena.triton_kv_update:
             self.indices = torch.stack((self.rows, self.columns,
                                         self.positions[:, None].expand_as(self.rows)), -1).reshape(-1, 3)
 
@@ -125,7 +126,10 @@ class SlotCache(Cache):
         index = self.positions.view(batch, 1, 1, 1).expand(batch, heads, 1, width)
         target_keys = self.arena.keys[layer_idx][:batch]
         target_values = self.arena.values[layer_idx][:batch]
-        if self.arena.native_kv_update:
+        if self.arena.triton_kv_update:
+            from qwen3_tts_engine.kv_triton_ascend import write
+            write(keys, values, target_keys, target_values, self.positions, row_tiled=True)
+        elif self.arena.native_kv_update:
             import torch_npu
             torch_npu.npu_scatter_nd_update_(target_keys, self.indices, keys.reshape(-1, width))
             torch_npu.npu_scatter_nd_update_(target_values, self.indices, values.reshape(-1, width))
@@ -217,7 +221,9 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False):
+        if triton_kv_update and not native_kv_update:
+            raise ValueError("Triton KV update requires native KV update")
         decode_batch_size(1, max_slots, decode_bucket_step)
         self.decode_bucket_step = decode_bucket_step
         self.batch_audio_transfer = batch_audio_transfer
@@ -249,7 +255,7 @@ class ContinuousModel:
         self.prefills = {}
         if max_slots < 1 or max_slots & (max_slots - 1):
             raise ValueError('Continuous slot count must be a positive power of two')
-        self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update)
+        self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update, triton_kv_update)
         self.graphs = {}
         self.graph_embeddings = graph_embeddings
         self.predictor = UniformPredictor(self.talker.code_predictor, graph_embeddings)
@@ -298,7 +304,7 @@ class ContinuousModel:
         self.graphs.clear()
         old = self.arena
         self.arena = SlotArena(self.talker.model, self.max_slots, max(old.capacity * 2, 1 << required.bit_length()),
-                               old.native_kv_update)
+                               old.native_kv_update, old.triton_kv_update)
         for target, source in zip(self.arena.keys + self.arena.values, old.keys + old.values):
             target[:, :, :old.capacity].copy_(source)
 

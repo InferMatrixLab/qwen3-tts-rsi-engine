@@ -12,7 +12,7 @@ from qwen3_tts_engine.continuous import SlotCache
 def test_bucket_cache_updates_full_arena_but_returns_only_valid_bucket(context, positions):
     torch.manual_seed(42)
     keys, values = torch.randn(2, 2, 256, 8), torch.randn(2, 2, 256, 8)
-    arena = SimpleNamespace(capacity=256, native_kv_update=False, keys=[keys.clone()], values=[values.clone()])
+    arena = SimpleNamespace(capacity=256, native_kv_update=False, triton_kv_update=False, keys=[keys.clone()], values=[values.clone()])
     position = torch.tensor(positions)
     cache = SlotCache(arena, position, context)
     new_keys, new_values = torch.randn(2, 2, 1, 8), torch.randn(2, 2, 1, 8)
