@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "backend": "infer",
+  "scope": "operator correctness and capture only; not full-model quality or performance",
+  "cases": [
+    {
+      "batch": 1,
+      "query_length": 2,
+      "kv_length": 2,
+      "replay": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 1,
+      "query_length": 2,
+      "kv_length": 2,
+      "replay": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 1,
+      "query_length": 2,
+      "kv_length": 2,
+      "replay": 2,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 1,
+      "query_length": 1,
+      "kv_length": 16,
+      "replay": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 1,
+      "query_length": 1,
+      "kv_length": 16,
+      "replay": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 1,
+      "query_length": 1,
+      "kv_length": 16,
+      "replay": 2,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 4,
+      "query_length": 1,
+      "kv_length": 512,
+      "replay": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 4,
+      "query_length": 1,
+      "kv_length": 512,
+      "replay": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 4,
+      "query_length": 1,
+      "kv_length": 512,
+      "replay": 2,
+      "max_abs_error": 0.0
+    },
+    {
+      "batch": 32,
+      "query_length": 1,
+      "kv_length": 512,
+      "replay": 0,
+      "max_abs_error": 0.0001220703125
+    },
+    {
+      "batch": 32,
+      "query_length": 1,
+      "kv_length": 512,
+      "replay": 1,
+      "max_abs_error": 3.0517578125e-05
+    },
+    {
+      "batch": 32,
+      "query_length": 1,
+      "kv_length": 512,
+      "replay": 2,
+      "max_abs_error": 0.00048828125
+    }
+  ]
+}

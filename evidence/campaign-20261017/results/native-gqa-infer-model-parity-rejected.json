@@ -1,0 +1,83 @@
+{
+  "status": "FAIL",
+  "scope": "complete waveform parity; diagnostic timings only",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "arms": {
+    "reference": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 30,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+        "elapsed_s": 9.81363258510828
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 40,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+        "elapsed_s": 11.904066015966237
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 90,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "a703cb5d9cc4817231b2aaea8b65b8e10c9b0b683f0705b6dbc4a98c4ecb3eed",
+        "elapsed_s": 26.97775525506586
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 83,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "060258af2a1da40b81d68635d2baa67d93ec473f81f9b90a1a6a6ca172e2768a",
+        "elapsed_s": 24.672768247313797
+      }
+    ],
+    "graph": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 33,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "e7292e001b145f31e5598adbefdcea848d18bce3410dec47382c9f76b5becb6b",
+        "elapsed_s": 3.036612377502024
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 44,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "ef5c9306c15a6d96935030adb8c1ba1d30b77b0620d92e26ad05e92e22c7aa67",
+        "elapsed_s": 1.8051946591585875
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 85,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "c2bc7bb9f07554762a9cd593625f2dfeb8cae88b034a4271299dc360426aaf60",
+        "elapsed_s": 3.3562422767281532
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 70,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "14d578b1d471295c72b5eea25bfe4f7f23c91354e761a9c901cc507bdb3876e7",
+        "elapsed_s": 2.764647774398327
+      }
+    ]
+  },
+  "implementation": "WholePredictorGraph",
+  "talker_graph": true,
+  "batch_size": 1,
+  "rms_norm": null,
+  "pack_qkv": false,
+  "native_gqa": true,
+  "exact": false,
+  "error": "ValueError: Complete waveform parity failed"
+}

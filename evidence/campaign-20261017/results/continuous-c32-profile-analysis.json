@@ -1,0 +1,144 @@
+{
+  "scope": "inclusive profiled CPU ranges; asynchronous device work means ranges are not additive component latency; not service benchmark",
+  "trace_sha256": "9110fce026b6831aa494e9946008fcccbe8e9a3c55e3f330034fc29c3f1d8289",
+  "ranges": [
+    {
+      "name": "continuous_tick",
+      "count": 16,
+      "total_ms": 8176.55305
+    },
+    {
+      "name": "continuous_audio",
+      "count": 16,
+      "total_ms": 5967.467370000001
+    },
+    {
+      "name": "continuous_codec",
+      "count": 41,
+      "total_ms": 5146.13881
+    },
+    {
+      "name": "continuous_prefill",
+      "count": 10,
+      "total_ms": 1060.35967
+    },
+    {
+      "name": "continuous_sampling",
+      "count": 26,
+      "total_ms": 31.49691
+    },
+    {
+      "name": "continuous_predictor",
+      "count": 16,
+      "total_ms": 12.305620000000005
+    },
+    {
+      "name": "continuous_talker",
+      "count": 16,
+      "total_ms": 9.544049999999999
+    }
+  ],
+  "capture_events": {},
+  "top_kernels": [
+    {
+      "name": "aclnnConvolution_ConvTranspose2dWithFlag_Conv2DTranspose",
+      "count": 534,
+      "total_ms": 305.72056000000015
+    },
+    {
+      "name": "aclnnMul_MulAiCore_Mul",
+      "count": 22990,
+      "total_ms": 231.57823999999962
+    },
+    {
+      "name": "aclnnSin_SinAiCore_Sin",
+      "count": 2936,
+      "total_ms": 204.24250000000004
+    },
+    {
+      "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+      "count": 14979,
+      "total_ms": 199.24177999999952
+    },
+    {
+      "name": "ViewCopy",
+      "count": 1792,
+      "total_ms": 172.78542000000007
+    },
+    {
+      "name": "aclnnFlashAttentionScore_FlashAttentionScore_FlashAttentionScore",
+      "count": 2640,
+      "total_ms": 170.95779999999996
+    },
+    {
+      "name": "aclnnConvolution_TransData_TransData",
+      "count": 9701,
+      "total_ms": 167.10317999999907
+    },
+    {
+      "name": "aclnnInplaceScatter_TransposeAiCore_Transpose",
+      "count": 3584,
+      "total_ms": 132.97958000000014
+    },
+    {
+      "name": "aclnnAdd_AddAiCore_Add",
+      "count": 16045,
+      "total_ms": 113.92280000000054
+    },
+    {
+      "name": "aclnnConvolution_Conv2dWithFlag_Conv2D",
+      "count": 2759,
+      "total_ms": 103.80750000000015
+    },
+    {
+      "name": "aclnnInplaceCopy_ViewCopyAiCpu_ViewCopy",
+      "count": 1120,
+      "total_ms": 102.78839999999984
+    },
+    {
+      "name": "RmsNorm",
+      "count": 7978,
+      "total_ms": 80.6399199999997
+    },
+    {
+      "name": "aclnnPowTensorScalar_PowsAiCore_Pows",
+      "count": 4094,
+      "total_ms": 59.408879999999954
+    },
+    {
+      "name": "aclnnInplaceScatterValue_ScatterElements_ScatterElements",
+      "count": 522,
+      "total_ms": 56.14429999999995
+    },
+    {
+      "name": "aclnnInplaceCopy_BroadcastToAiCore_BroadcastTo",
+      "count": 3872,
+      "total_ms": 56.12083999999999
+    },
+    {
+      "name": "aclnnIndex_IndexAiCpu_Index",
+      "count": 308,
+      "total_ms": 44.111900000000006
+    },
+    {
+      "name": "aclnnConvolution_TransData_MemSet",
+      "count": 3115,
+      "total_ms": 41.709220000000094
+    },
+    {
+      "name": "aclnnConstantPadNd_PadV3AiCore_PadV3",
+      "count": 1513,
+      "total_ms": 38.92009999999992
+    },
+    {
+      "name": "aclnnCat_ConcatD_ConcatD",
+      "count": 9697,
+      "total_ms": 37.17566
+    },
+    {
+      "name": "aclnnMul_TransposeAiCore_Transpose",
+      "count": 2144,
+      "total_ms": 33.99794000000007
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 """Direct Ascend GQA attention without materializing repeated K/V heads.
 
-Mask semantics follow torch SDPA at the boundary and Ascend FAS internally.
-API reference: https://www.hiascend.com/doc_center/source/zh/CANNCommunityEdition/80RC1alpha003/apiref/fmkadptapi/ptaoplist_000442.html
+Mask semantics follow torch SDPA at the boundary and Ascend FIA internally.
+The training fusion operator failed graph capture on the qualified stack;
+the inference operator is separately checked by tools/probe_gqa_operator.py.
 """
 import torch
 import torch_npu
@@ -17,8 +18,8 @@ def attention(module, query, key, value, attention_mask, **kwargs):
         mask = torch.ones(query.shape[2], key.shape[2], device=query.device, dtype=torch.bool).triu(1)
     elif mask is not None:
         mask = ~mask if mask.dtype == torch.bool else mask.bool()
-    output = torch_npu.npu_fusion_attention(
-        query.contiguous(), key.contiguous(), value.contiguous(), query.shape[1], 'BNSD',
-        atten_mask=mask, scale=kwargs.get('scaling', query.shape[-1] ** -0.5),
-        keep_prob=1.0, sparse_mode=1 if mask is not None else 0)[0]
+    output = torch_npu.npu_fused_infer_attention_score(
+        query.contiguous(), key.contiguous(), value.contiguous(),
+        num_heads=query.shape[1], num_key_value_heads=key.shape[1], input_layout='BNSD',
+        atten_mask=mask, scale=kwargs.get('scaling', query.shape[-1] ** -0.5), sparse_mode=0)[0]
     return output.transpose(1, 2).contiguous(), None

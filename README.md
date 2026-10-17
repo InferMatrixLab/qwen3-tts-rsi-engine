@@ -66,6 +66,19 @@ independent audio scoring. Slot reuse and capacity growth passed a four-request
 NPU probe, and C1/C2/C4 each completed eight HTTP requests with clean shutdown.
 The complete concurrency/quality acceptance run is still pending.
 
+`tools/profile_continuous.py` collects a separate CPU/NPU trace with ranges for
+prefill, the predictor, talker, semantic sampling and codec. It warms the engine
+before tracing and records admissions, completions and KV capacity per tick.
+New shape captures can still occur in the trace; its timings are diagnostic only.
+Run it on an available device separately from performance measurements:
+
+```bash
+ASCEND_RT_VISIBLE_DEVICES=0 python tools/profile_continuous.py \
+  --model /path/to/pinned/model \
+  --workload evidence/campaign-20261017/plan/workload-128.jsonl \
+  --slots 32 --output runs/profile-continuous-c32
+```
+
 ```bash
 python -m qwen3_tts_engine.server --model /path/to/pinned/model --device npu:0
 bash tools/serve_baseline.sh vllm

@@ -34,6 +34,10 @@ args = parser.parse_args()
 if args.slots < 1 or args.slots & (args.slots - 1) or args.steps < 1 or args.warmup < 1:
     parser.error('slots must be a positive power of two; warmup and steps must be positive')
 args.output.mkdir(parents=True, exist_ok=False)
+repository = Path(__file__).absolute().parent.parent
+revision = subprocess.check_output(
+    ['git', '-c', f'safe.directory={repository}', '-C', str(repository), 'rev-parse', 'HEAD'],
+    text=True).strip()
 data = args.workload.read_bytes()
 payloads = [dict(json.loads(line), instructions='') for line in data.splitlines() if line.strip()]
 if len(payloads) < args.slots + args.warmup + args.steps:
@@ -67,7 +71,7 @@ def tick(phase, step):
 
 
 summary = {'status': 'INCONCLUSIVE', 'scope': 'diagnostic trace, not throughput or quality evidence',
-           'revision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+           'revision': revision,
            'workload_sha256': hashlib.sha256(data).hexdigest(), 'slots': args.slots,
            'warmup': args.warmup, 'steps': args.steps, 'events': events}
 try:
