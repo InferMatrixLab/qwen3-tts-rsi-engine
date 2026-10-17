@@ -337,3 +337,7 @@ All 896 retained WAVs have ASR and speaker scores; all seven cohort integrity au
 |16|0.036984|0.032285|0.772258|
 |32|0.008535|0.041391|0.773680|
 |64|0.011380|0.037252|0.772542|
+
+### Combined candidate: codec batch 8 and KV bucket controls
+
+Codec batch 8 (source `08f29a0`, physical NPU 6): C32/C64 364.465 / 504.726 frames/s. KV context bucketing (source `0053a64`, physical NPU 1): 345.160 / 458.975 frames/s. Each completed 256 requests with server exit 0. Both regress at C32 relative to the current combined candidate; neither is selected. Full quality was not run for these rejected variants. The KV comparison also spans different physical cards on the shared host.
