@@ -18,9 +18,10 @@ class PromptReady(Exception):
 
 
 class UniformPredictor:
-    def __init__(self, reference, graph_embeddings=False):
+    def __init__(self, reference, graph_embeddings=False, triton_cdf=False):
         self.reference = reference
         self.graph_embeddings = graph_embeddings
+        self.triton_cdf = triton_cdf
         self.captures = {}
 
     @torch.inference_mode()
@@ -45,7 +46,7 @@ class UniformPredictor:
                         attention_mask={'full_attention': mask if step == 0 else None},
                         cache_position=positions[step], position_ids=positions[step].unsqueeze(0),
                         output_hidden_states=False, return_dict=True)
-                    token = categorical(output.logits[:, -1], draws[:, step + 1])
+                    token = categorical(output.logits[:, -1], draws[:, step + 1], triton_cdf=self.triton_cdf)
                     codes.append(token)
                 subcodes = torch.cat(codes, dim=-1)
                 if self.graph_embeddings:
@@ -224,7 +225,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False, triton_cdf=False):
         if codec_chunk_frames not in (8, 16) or (codec_chunk_frames != 8 and (not incremental_codec or codec_code_buffer)):
             raise ValueError("16-frame chunks require incremental codec without the 8-frame code buffer")
         self.codec_chunk_frames = codec_chunk_frames
@@ -237,6 +238,7 @@ class ContinuousModel:
             raise ValueError("Codec code buffer requires incremental codec")
         self.codec_codes = None
         self.reference_single = reference_single
+        self.triton_cdf = triton_cdf
         self.graph_sampling = graph_sampling
         self.samplers = {}
         if bucket_prefill and not graph_prefill:
@@ -267,7 +269,7 @@ class ContinuousModel:
         self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update, triton_kv_update)
         self.graphs = {}
         self.graph_embeddings = graph_embeddings
-        self.predictor = UniformPredictor(self.talker.code_predictor, graph_embeddings)
+        self.predictor = UniformPredictor(self.talker.code_predictor, graph_embeddings, triton_cdf)
         decoder = self.model.wrapper.model.speech_tokenizer.model.decoder
         self.incremental_codec = incremental_codec
         if incremental_codec:
@@ -322,7 +324,7 @@ class ContinuousModel:
         logits = torch.where(seen, torch.where(logits < 0, logits * 1.05, logits / 1.05), logits)
         logits = logits.masked_fill(~self.allowed, -float('inf'))
         logits[:, self.eos] = torch.where(steps < 2, -float('inf'), logits[:, self.eos])
-        return categorical(logits, uniforms)
+        return categorical(logits, uniforms, triton_cdf=getattr(self, "triton_cdf", False))
 
     def prepare_prompt(self, payload):
         original = self.talker.generate

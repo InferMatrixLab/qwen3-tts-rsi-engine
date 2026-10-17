@@ -2,11 +2,14 @@
 import torch
 
 
-def categorical(scores, uniform, *, temperature=0.9, top_k=50):
+def categorical(scores, uniform, *, temperature=0.9, top_k=50, triton_cdf=False):
     scores = scores.float() / temperature
     threshold = torch.topk(scores, top_k, dim=-1).values[..., -1:]
     probabilities = torch.softmax(scores.masked_fill(scores < threshold, -float('inf')), dim=-1)
     cdf = probabilities.cumsum(-1)
+    if triton_cdf:
+        from qwen3_tts_engine.cdf_triton_ascend import select
+        return select(cdf, uniform.contiguous())
     cdf = cdf / cdf[..., -1:]
     return (cdf <= uniform.unsqueeze(-1)).sum(-1, keepdim=True)
 

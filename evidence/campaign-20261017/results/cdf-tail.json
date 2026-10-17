@@ -1,0 +1,190 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "Synthetic operator semantics and timings, not speech quality or service performance",
+  "cases": [
+    {
+      "batch": 1,
+      "width": 2048,
+      "exact_replays": 12,
+      "measurements": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.01397215761244297
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.011311438865959644
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.011055488139390945
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.01372210681438446
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "width": 3072,
+      "exact_replays": 12,
+      "measurements": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.014888886362314224
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.011050235480070114
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.010959827341139317
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.0147944875061512
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "width": 2048,
+      "exact_replays": 12,
+      "measurements": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.04142541904002428
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.011997208930552006
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.011899052187800407
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.0415458157658577
+        }
+      ]
+    },
+    {
+      "batch": 17,
+      "width": 3072,
+      "exact_replays": 12,
+      "measurements": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.043160864152014256
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.01268777996301651
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.011878409422934055
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.04309541080147028
+        }
+      ]
+    },
+    {
+      "batch": 32,
+      "width": 2048,
+      "exact_replays": 12,
+      "measurements": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.04788283258676529
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.01116073690354824
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.010967133566737175
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.04769982770085335
+        }
+      ]
+    },
+    {
+      "batch": 32,
+      "width": 3072,
+      "exact_replays": 12,
+      "measurements": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.049237520433962345
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.013395147398114204
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.013206489384174347
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.04911291413009167
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "width": 2048,
+      "exact_replays": 12,
+      "measurements": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.04953878000378609
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.012846975587308407
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.012708581052720547
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.049410625360906124
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "width": 3072,
+      "exact_replays": 12,
+      "measurements": [
+        {
+          "arm": "reference",
+          "mean_ms": 0.05101041868329048
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.014049666933715343
+        },
+        {
+          "arm": "fused",
+          "mean_ms": 0.013866303488612175
+        },
+        {
+          "arm": "reference",
+          "mean_ms": 0.05083086434751749
+        }
+      ]
+    }
+  ]
+}

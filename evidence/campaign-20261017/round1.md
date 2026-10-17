@@ -447,3 +447,10 @@ All 896 requests completed and server exited 0 on physical NPU 6. This repeat di
 | 64 | 515.6635 | 774.6860 | 1277.1045 | 1.310878 |
 
 Independent quality integrity audits now pass for exact-combination C4 and vLLM third-repeat C16/C32. The CDF-tail isolated operator probe is running; no kernel gain or model correctness is assumed.
+
+
+### CDF-tail fusion diagnostic and model control
+
+The isolated CDF-tail kernel preserves the reference FP32 cumulative sum and fuses normalization, comparison and counting using round-to-nearest division. Eight NPU shape cases (B1/17/32/64, widths 2048/3072), each with 12 random/exact-boundary/neighbor replays, matched selected tokens exactly and exited 0. At B32 width 2048, ABBA reference timings were 0.04788/0.04770 ms and fused 0.01116/0.01097 ms. This is isolated operator evidence, not service gain.
+
+Default-off --triton-cdf now applies the tail kernel to predictor and semantic sampling. Six existing sampling/server tests pass. A four-request real-model probe completed with slot reuse, capacity growth 64 to 128, and exit 0; all four WAV files match the flag-off control byte-for-byte. Full cohort service/quality validation remains pending.
