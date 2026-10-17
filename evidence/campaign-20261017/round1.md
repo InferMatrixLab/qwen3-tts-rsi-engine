@@ -226,3 +226,6 @@ This saves only approximately 0.06–0.23 ms per predictor call. It remains a pr
 ### Optional residual-add RMSNorm fusion
 
 Added a default-off `--fused-residual` experiment requiring native RMSNorm. It fuses the post-attention residual add and normalization in both talker and predictor decoder layers. Attention/cache arguments and optional attention outputs are preserved; single-reference mode bypasses the fused decoder. The operator probe covers hidden widths 1024/2048 and decode/prefill shapes. All retained residuals are bit-identical; normalization differs by up to 0.03125 in BF16. B64 width2048 replay approximately 0.0241 ms separate versus 0.0181 ms fused. CPU FP32 errors and ABBA samples are retained. These are component diagnostics, not audio-quality acceptance. All 35 unit tests passed; full service measurement and speech quality remain pending.
+
+
+Residual-fusion service probe (72176a0, physical NPU 6) completed C32/C64 with 256/256 successful requests and server exit 0: 342.220967 / 469.690772 frames/s. It remains below both 2x targets. A same-device, same-runtime-code control with fusion disabled is running to distinguish component attribution from shared-host/device variation; audio quality for the fused variant is not yet evaluated.
