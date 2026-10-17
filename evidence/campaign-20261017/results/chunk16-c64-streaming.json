@@ -1,0 +1,781 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "run": "runs/continuous-codec-chunk16-c32-c64/requests-c64",
+  "scope": "24 kHz mono PCM16, playback begins at first chunk with no extra buffering. Arrival-based simulation, not measured player behavior or a quality gate. First-audio waiting time excluded.",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "requests": 128,
+  "requests_with_stall": 128,
+  "mean_stall_seconds": 1.855053220039699,
+  "p95_stall_seconds": 2.993714498197659,
+  "p95_request_maximum_inter_chunk_seconds": 2.392254553129896,
+  "samples": [
+    {
+      "index": 0,
+      "chunks": 4,
+      "maximum_inter_chunk_seconds": 0.7636923613026738,
+      "ideal_playback_stall_seconds": 0.7367576646059755
+    },
+    {
+      "index": 1,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 1.5087424693629146,
+      "ideal_playback_stall_seconds": 1.1512043652310968
+    },
+    {
+      "index": 2,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 2.272737949155271,
+      "ideal_playback_stall_seconds": 2.7345627951249476
+    },
+    {
+      "index": 3,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 0.9713620003312826,
+      "ideal_playback_stall_seconds": 0.9238660024851564
+    },
+    {
+      "index": 4,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8709961287677288,
+      "ideal_playback_stall_seconds": 1.74323200173676
+    },
+    {
+      "index": 5,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.490063676610589,
+      "ideal_playback_stall_seconds": 1.1432447302341462
+    },
+    {
+      "index": 6,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 2.2715427270159125,
+      "ideal_playback_stall_seconds": 2.903607714697719
+    },
+    {
+      "index": 7,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.507577020674944,
+      "ideal_playback_stall_seconds": 1.1623940550908447
+    },
+    {
+      "index": 8,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 0.9591616950929165,
+      "ideal_playback_stall_seconds": 0.935552414171398
+    },
+    {
+      "index": 9,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 0.9668037733063102,
+      "ideal_playback_stall_seconds": 0.9446552690491083
+    },
+    {
+      "index": 10,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.153115159831941,
+      "ideal_playback_stall_seconds": 2.6162904710322614
+    },
+    {
+      "index": 11,
+      "chunks": 11,
+      "maximum_inter_chunk_seconds": 2.269760991446674,
+      "ideal_playback_stall_seconds": 3.0833220721781256
+    },
+    {
+      "index": 12,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.5064097791910172,
+      "ideal_playback_stall_seconds": 1.17318021312356
+    },
+    {
+      "index": 13,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8503702273592353,
+      "ideal_playback_stall_seconds": 1.734623380191624
+    },
+    {
+      "index": 14,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8687938824295998,
+      "ideal_playback_stall_seconds": 1.7538636468350886
+    },
+    {
+      "index": 15,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.5063883196562529,
+      "ideal_playback_stall_seconds": 1.1833335961401463
+    },
+    {
+      "index": 16,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8513730522245169,
+      "ideal_playback_stall_seconds": 1.7554420262575148
+    },
+    {
+      "index": 17,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8513867342844605,
+      "ideal_playback_stall_seconds": 2.2820420651510354
+    },
+    {
+      "index": 18,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.4885808285325766,
+      "ideal_playback_stall_seconds": 1.1760922576487065
+    },
+    {
+      "index": 19,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.5064594214782119,
+      "ideal_playback_stall_seconds": 1.1947200092673302
+    },
+    {
+      "index": 20,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 0.9870463656261563,
+      "ideal_playback_stall_seconds": 0.9689822873473171
+    },
+    {
+      "index": 21,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.849337331019342,
+      "ideal_playback_stall_seconds": 1.7548502219840882
+    },
+    {
+      "index": 22,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.849337751045823,
+      "ideal_playback_stall_seconds": 2.0692977639660235
+    },
+    {
+      "index": 23,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8493745615705848,
+      "ideal_playback_stall_seconds": 1.7564368734136222
+    },
+    {
+      "index": 24,
+      "chunks": 4,
+      "maximum_inter_chunk_seconds": 0.5276007875800133,
+      "ideal_playback_stall_seconds": 0.511340004988015
+    },
+    {
+      "index": 25,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.6660287790000439,
+      "ideal_playback_stall_seconds": 1.5826353469863532
+    },
+    {
+      "index": 26,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.4877446480095387,
+      "ideal_playback_stall_seconds": 1.197312646470964
+    },
+    {
+      "index": 27,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.4877787390723825,
+      "ideal_playback_stall_seconds": 1.1980730760097504
+    },
+    {
+      "index": 28,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.5056846216320992,
+      "ideal_playback_stall_seconds": 1.216689237318933
+    },
+    {
+      "index": 29,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 1.1389895072206855,
+      "ideal_playback_stall_seconds": 0.9998505335673693
+    },
+    {
+      "index": 30,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8289246540516615,
+      "ideal_playback_stall_seconds": 1.756347471103072
+    },
+    {
+      "index": 31,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.486729641444981,
+      "ideal_playback_stall_seconds": 1.2081663356348873
+    },
+    {
+      "index": 32,
+      "chunks": 9,
+      "maximum_inter_chunk_seconds": 2.2035169415175915,
+      "ideal_playback_stall_seconds": 3.028828356191516
+    },
+    {
+      "index": 33,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 2.2251493092626333,
+      "ideal_playback_stall_seconds": 2.692931679524481
+    },
+    {
+      "index": 34,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.4866268588230014,
+      "ideal_playback_stall_seconds": 1.2181812542676926
+    },
+    {
+      "index": 35,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.4867479130625725,
+      "ideal_playback_stall_seconds": 1.3868558036163448
+    },
+    {
+      "index": 36,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 1.0237301923334599,
+      "ideal_playback_stall_seconds": 1.0131096762046221
+    },
+    {
+      "index": 37,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.062361368909478,
+      "ideal_playback_stall_seconds": 2.538378471024334
+    },
+    {
+      "index": 38,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8072390845045447,
+      "ideal_playback_stall_seconds": 1.7568852651864288
+    },
+    {
+      "index": 39,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.487052139826119,
+      "ideal_playback_stall_seconds": 1.2304076011478902
+    },
+    {
+      "index": 40,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8061268450692296,
+      "ideal_playback_stall_seconds": 1.7573344560340045
+    },
+    {
+      "index": 41,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 1.0401546666398644,
+      "ideal_playback_stall_seconds": 1.0328652659803632
+    },
+    {
+      "index": 42,
+      "chunks": 10,
+      "maximum_inter_chunk_seconds": 2.2028859555721283,
+      "ideal_playback_stall_seconds": 3.007306620255113
+    },
+    {
+      "index": 43,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.8065995080396533,
+      "ideal_playback_stall_seconds": 1.766374710202217
+    },
+    {
+      "index": 44,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.57592305354774,
+      "ideal_playback_stall_seconds": 1.5364792358130215
+    },
+    {
+      "index": 45,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 1.4673984926193953,
+      "ideal_playback_stall_seconds": 1.2319008884206415
+    },
+    {
+      "index": 46,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.4852909846231341,
+      "ideal_playback_stall_seconds": 1.2505203484743834
+    },
+    {
+      "index": 47,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 2.183657579123974,
+      "ideal_playback_stall_seconds": 2.7223836060240867
+    },
+    {
+      "index": 48,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.7852519862353802,
+      "ideal_playback_stall_seconds": 1.7572696844115852
+    },
+    {
+      "index": 49,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.7852417957037687,
+      "ideal_playback_stall_seconds": 1.8059541280195113
+    },
+    {
+      "index": 50,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 1.059600486420095,
+      "ideal_playback_stall_seconds": 1.056597398258746
+    },
+    {
+      "index": 51,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.4838263671845198,
+      "ideal_playback_stall_seconds": 1.261116433814168
+    },
+    {
+      "index": 52,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.7840968267992139,
+      "ideal_playback_stall_seconds": 1.7660237906500695
+    },
+    {
+      "index": 53,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.784125137142837,
+      "ideal_playback_stall_seconds": 1.7573122551664708
+    },
+    {
+      "index": 54,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.016319721005857,
+      "ideal_playback_stall_seconds": 2.4944143579155202
+    },
+    {
+      "index": 55,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.4876572843641043,
+      "ideal_playback_stall_seconds": 1.2763512357324363
+    },
+    {
+      "index": 56,
+      "chunks": 4,
+      "maximum_inter_chunk_seconds": 0.7072576843202114,
+      "ideal_playback_stall_seconds": 0.7068461427837613
+    },
+    {
+      "index": 57,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 1.0582189811393619,
+      "ideal_playback_stall_seconds": 1.0593485987186435
+    },
+    {
+      "index": 58,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.7613629205152392,
+      "ideal_playback_stall_seconds": 1.7479431342333553
+    },
+    {
+      "index": 59,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.2488300316035748,
+      "ideal_playback_stall_seconds": 2.598573944047093
+    },
+    {
+      "index": 60,
+      "chunks": 5,
+      "maximum_inter_chunk_seconds": 1.0781614370644093,
+      "ideal_playback_stall_seconds": 1.0795602906867865
+    },
+    {
+      "index": 61,
+      "chunks": 10,
+      "maximum_inter_chunk_seconds": 2.2533008567988873,
+      "ideal_playback_stall_seconds": 2.93617669377476
+    },
+    {
+      "index": 62,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.338597028516233,
+      "ideal_playback_stall_seconds": 1.1417758426815272
+    },
+    {
+      "index": 63,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.8317888276651502,
+      "ideal_playback_stall_seconds": 1.6445404553785918
+    },
+    {
+      "index": 64,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.2441754611209035,
+      "ideal_playback_stall_seconds": 2.9919691378995767
+    },
+    {
+      "index": 65,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 2.3182050213217735,
+      "ideal_playback_stall_seconds": 3.298925770893692
+    },
+    {
+      "index": 66,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.409299503080547,
+      "ideal_playback_stall_seconds": 2.994654307588934
+    },
+    {
+      "index": 67,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.3411378134042025,
+      "ideal_playback_stall_seconds": 2.686735987588763
+    },
+    {
+      "index": 68,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.3210739763453603,
+      "ideal_playback_stall_seconds": 3.040468824282288
+    },
+    {
+      "index": 69,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.310889103449881,
+      "ideal_playback_stall_seconds": 2.677083957865834
+    },
+    {
+      "index": 70,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.204904687590897,
+      "ideal_playback_stall_seconds": 2.7002397551387545
+    },
+    {
+      "index": 71,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.272784468717873,
+      "ideal_playback_stall_seconds": 2.6770112867653366
+    },
+    {
+      "index": 72,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.160886631347239,
+      "ideal_playback_stall_seconds": 2.7817946708947416
+    },
+    {
+      "index": 73,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.104287520982325,
+      "ideal_playback_stall_seconds": 2.8064901194721457
+    },
+    {
+      "index": 74,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 2.217516372911632,
+      "ideal_playback_stall_seconds": 3.059960616938769
+    },
+    {
+      "index": 75,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 2.3628718741238117,
+      "ideal_playback_stall_seconds": 2.7614538624882687
+    },
+    {
+      "index": 76,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.3634889414533973,
+      "ideal_playback_stall_seconds": 2.7633926916867484
+    },
+    {
+      "index": 77,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.4296986488625407,
+      "ideal_playback_stall_seconds": 2.5691977440565816
+    },
+    {
+      "index": 78,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.43034334667027,
+      "ideal_playback_stall_seconds": 2.571138303652405
+    },
+    {
+      "index": 79,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.405393752269447,
+      "ideal_playback_stall_seconds": 2.54678112540394
+    },
+    {
+      "index": 80,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.4151526940986514,
+      "ideal_playback_stall_seconds": 2.639088585227727
+    },
+    {
+      "index": 81,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.4157244190573692,
+      "ideal_playback_stall_seconds": 2.639874683879315
+    },
+    {
+      "index": 82,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 2.414633460342884,
+      "ideal_playback_stall_seconds": 2.609443539008497
+    },
+    {
+      "index": 83,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.3670874927192926,
+      "ideal_playback_stall_seconds": 2.5830748723074786
+    },
+    {
+      "index": 84,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.367853183299303,
+      "ideal_playback_stall_seconds": 2.6264890685677518
+    },
+    {
+      "index": 85,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.27173026278615,
+      "ideal_playback_stall_seconds": 2.702568666003644
+    },
+    {
+      "index": 86,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.173367314040661,
+      "ideal_playback_stall_seconds": 2.684570912197232
+    },
+    {
+      "index": 87,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 2.1751767806708813,
+      "ideal_playback_stall_seconds": 2.6853975522518154
+    },
+    {
+      "index": 88,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 2.1758257765322924,
+      "ideal_playback_stall_seconds": 2.6857029208168384
+    },
+    {
+      "index": 89,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.6625888608396053,
+      "ideal_playback_stall_seconds": 2.5240788486972447
+    },
+    {
+      "index": 90,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.6765242498368025,
+      "ideal_playback_stall_seconds": 2.5272319111227985
+    },
+    {
+      "index": 91,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 1.6632561087608337,
+      "ideal_playback_stall_seconds": 2.5346750737354156
+    },
+    {
+      "index": 92,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.6523950668051839,
+      "ideal_playback_stall_seconds": 2.5135530679672953
+    },
+    {
+      "index": 93,
+      "chunks": 12,
+      "maximum_inter_chunk_seconds": 1.6517428308725357,
+      "ideal_playback_stall_seconds": 2.5126997660100456
+    },
+    {
+      "index": 94,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.5970149477943778,
+      "ideal_playback_stall_seconds": 2.4784472714364525
+    },
+    {
+      "index": 95,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.564795257523656,
+      "ideal_playback_stall_seconds": 2.292875972501933
+    },
+    {
+      "index": 96,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.574865066446364,
+      "ideal_playback_stall_seconds": 2.1671322173625227
+    },
+    {
+      "index": 97,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.574169559404254,
+      "ideal_playback_stall_seconds": 2.1662798951566216
+    },
+    {
+      "index": 98,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.5303322868421674,
+      "ideal_playback_stall_seconds": 1.7372566619142886
+    },
+    {
+      "index": 99,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.5164115084335208,
+      "ideal_playback_stall_seconds": 1.73933115594089
+    },
+    {
+      "index": 100,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.518323757685721,
+      "ideal_playback_stall_seconds": 1.7400486738607284
+    },
+    {
+      "index": 101,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.562081946991384,
+      "ideal_playback_stall_seconds": 1.6702580237016078
+    },
+    {
+      "index": 102,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.547410897910595,
+      "ideal_playback_stall_seconds": 1.6811350732296702
+    },
+    {
+      "index": 103,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 1.548145986162126,
+      "ideal_playback_stall_seconds": 1.681929594762623
+    },
+    {
+      "index": 104,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 1.5500566558912396,
+      "ideal_playback_stall_seconds": 1.6742786978557702
+    },
+    {
+      "index": 105,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.541982057504356,
+      "ideal_playback_stall_seconds": 1.5789679967984553
+    },
+    {
+      "index": 106,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.5278825843706727,
+      "ideal_playback_stall_seconds": 1.5902907083928581
+    },
+    {
+      "index": 107,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.5491702230647206,
+      "ideal_playback_stall_seconds": 1.53910201780498
+    },
+    {
+      "index": 108,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.5489532677456737,
+      "ideal_playback_stall_seconds": 1.5495605477318164
+    },
+    {
+      "index": 109,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.5631640255451202,
+      "ideal_playback_stall_seconds": 1.542384812533855
+    },
+    {
+      "index": 110,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.5777530511841178,
+      "ideal_playback_stall_seconds": 1.5208551209792494
+    },
+    {
+      "index": 111,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.6613455591723323,
+      "ideal_playback_stall_seconds": 1.578989030458033
+    },
+    {
+      "index": 112,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.6630759723484516,
+      "ideal_playback_stall_seconds": 1.5885344563424586
+    },
+    {
+      "index": 113,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 1.594381719827652,
+      "ideal_playback_stall_seconds": 1.5334638158231972
+    },
+    {
+      "index": 114,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 1.5344720939174294,
+      "ideal_playback_stall_seconds": 1.4726992562785743
+    },
+    {
+      "index": 115,
+      "chunks": 9,
+      "maximum_inter_chunk_seconds": 1.5267932349815965,
+      "ideal_playback_stall_seconds": 1.5060675597190856
+    },
+    {
+      "index": 116,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.4356232825666666,
+      "ideal_playback_stall_seconds": 1.3446290526911615
+    },
+    {
+      "index": 117,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.4331326084211469,
+      "ideal_playback_stall_seconds": 1.3406818608194588
+    },
+    {
+      "index": 118,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 1.4563684687018394,
+      "ideal_playback_stall_seconds": 1.3640070135146378
+    },
+    {
+      "index": 119,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 1.434501334093511,
+      "ideal_playback_stall_seconds": 1.319106333553791
+    },
+    {
+      "index": 120,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.3457605633884668,
+      "ideal_playback_stall_seconds": 1.283348670825362
+    },
+    {
+      "index": 121,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.2605808852240443,
+      "ideal_playback_stall_seconds": 1.2293255372345446
+    },
+    {
+      "index": 122,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.2302328823134303,
+      "ideal_playback_stall_seconds": 1.2134937081858514
+    },
+    {
+      "index": 123,
+      "chunks": 8,
+      "maximum_inter_chunk_seconds": 1.2308627078309655,
+      "ideal_playback_stall_seconds": 1.2142409073561429
+    },
+    {
+      "index": 124,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.1462450940161943,
+      "ideal_playback_stall_seconds": 1.045457340441644
+    },
+    {
+      "index": 125,
+      "chunks": 6,
+      "maximum_inter_chunk_seconds": 1.1335594272240996,
+      "ideal_playback_stall_seconds": 0.9614546835795044
+    },
+    {
+      "index": 126,
+      "chunks": 10,
+      "maximum_inter_chunk_seconds": 1.131437442265451,
+      "ideal_playback_stall_seconds": 0.9594053902104496
+    },
+    {
+      "index": 127,
+      "chunks": 7,
+      "maximum_inter_chunk_seconds": 1.125402407720685,
+      "ideal_playback_stall_seconds": 0.9335093019902705
+    }
+  ]
+}

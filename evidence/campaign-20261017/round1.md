@@ -353,3 +353,10 @@ The subsequent flag-off control on physical NPU 6 produced C32/C64 364.234 / 486
 ### Sixteen-frame codec state validation
 
 FP32 101-frame streams passed tolerance (maximum absolute error 1.43e-5). BF16 Triton Snake plus cached codebooks is exactly equal to the unoptimized graph control for the same chunk sequence; prewarming preserves live state, and move/reset checks pass. The probe observed 7424 actual Triton calls. BF16 graph-versus-eager batch-2 maximum error is 0.09644, so this is not an eager-parity or full-speech-quality claim. Both probes exited 0. Full service throughput and quality remain to be measured.
+
+
+### 16-frame codec and attention length diagnostics
+
+The 16-frame codec service completed 256 requests with server exit 0 on physical NPU 6. C32: 376.5229 frames/s, TTFA p50 244.9299 ms, p95 1395.4177 ms, mean RTF 0.977677. C64: 508.8541 frames/s, TTFA p50 995.7474 ms, p95 1423.1247 ms, mean RTF 1.320684. Full speech quality has not been evaluated; this configuration is not selected.
+
+The full-arena FIA valid-length diagnostic completed 16 synthetic operator cases with exit 0. All passed the stated operator tolerance; maximum absolute difference was 0.001953125, so this is not bitwise equivalence. C32 length 128 measured 0.0648443 ms without a valid-length bound and 0.0585291 ms with it. These isolated timings do not establish service acceleration or speech quality. No runtime integration is enabled. See results/attention-context.json and results/continuous-codec-chunk16-status.json.
