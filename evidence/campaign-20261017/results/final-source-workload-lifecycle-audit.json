@@ -1,0 +1,261 @@
+{
+  "scope": "Recorded source, request specification and lifecycle audit; not full acceptance",
+  "checked_at_unix": 1792276871.356182,
+  "runs": [
+    {
+      "arm": "vllm",
+      "run": "runs/vllm-sweep-round1-full128",
+      "source_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+      "environment": null,
+      "source": null,
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    },
+    {
+      "arm": "vllm",
+      "run": "runs/vllm-sweep-round2-full128",
+      "source_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+      "environment": {
+        "ASCEND_RT_VISIBLE_DEVICES": "0",
+        "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+        "OMP_NUM_THREADS": "4",
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "/home/why/qwen3-tts-engine:/home/why/qwen3-tts-research/vllm-omni:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+      },
+      "source": {
+        "directory": "/home/why/qwen3-tts-research/vllm-omni",
+        "revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "worktree_status": ""
+      },
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    },
+    {
+      "arm": "vllm",
+      "run": "runs/vllm-sweep-round3-card0-full128",
+      "source_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+      "environment": {
+        "ASCEND_RT_VISIBLE_DEVICES": "0",
+        "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+        "OMP_NUM_THREADS": "4",
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen:/home/why/qwen3-tts-research/vllm-omni:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+      },
+      "source": {
+        "directory": "/home/why/qwen3-tts-research/vllm-omni",
+        "revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "worktree_status": ""
+      },
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    },
+    {
+      "arm": "sglang",
+      "run": "runs/sglang-sweep-round1-full128",
+      "source_revision": "6bdd47967caa55c38430d18175b750008aecab61",
+      "environment": {
+        "ASCEND_RT_VISIBLE_DEVICES": "0",
+        "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+        "OMP_NUM_THREADS": "4",
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "/home/why/qwen3-tts-research/sglang-omni-compat:/home/why/qwen3-tts-research/Qwen3-TTS:/home/why/qwen3-tts-research/extra:/home/why/qwen3-tts-engine:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+      },
+      "source": {
+        "directory": "/home/why/qwen3-tts-research/sglang-omni-compat",
+        "revision": "6bdd47967caa55c38430d18175b750008aecab61",
+        "patch_sha256": "757a1f1170ed7cf3c1db2ceeb818ee883c1c1f4a751a99d7ef697cac45122629",
+        "worktree_status": " M sglang_omni/platforms/device_graph.py\n"
+      },
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    },
+    {
+      "arm": "sglang",
+      "run": "runs/sglang-sweep-round2-full128",
+      "source_revision": "6bdd47967caa55c38430d18175b750008aecab61",
+      "environment": {
+        "ASCEND_RT_VISIBLE_DEVICES": "0",
+        "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+        "OMP_NUM_THREADS": "4",
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "/home/why/qwen3-tts-engine:/home/why/qwen3-tts-research/sglang-omni-compat:/home/why/qwen3-tts-research/Qwen3-TTS:/home/why/qwen3-tts-research/extra:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+      },
+      "source": {
+        "directory": "/home/why/qwen3-tts-research/sglang-omni-compat",
+        "revision": "6bdd47967caa55c38430d18175b750008aecab61",
+        "patch_sha256": "757a1f1170ed7cf3c1db2ceeb818ee883c1c1f4a751a99d7ef697cac45122629",
+        "worktree_status": " M sglang_omni/platforms/device_graph.py\n"
+      },
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    },
+    {
+      "arm": "sglang",
+      "run": "runs/sglang-sweep-round3-full128",
+      "source_revision": "6bdd47967caa55c38430d18175b750008aecab61",
+      "environment": {
+        "ASCEND_RT_VISIBLE_DEVICES": "0",
+        "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+        "OMP_NUM_THREADS": "4",
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "/home/why/qwen3-tts-engine:/home/why/qwen3-tts-research/sglang-omni-compat:/home/why/qwen3-tts-research/Qwen3-TTS:/home/why/qwen3-tts-research/extra:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+      },
+      "source": {
+        "directory": "/home/why/qwen3-tts-research/sglang-omni-compat",
+        "revision": "6bdd47967caa55c38430d18175b750008aecab61",
+        "patch_sha256": "757a1f1170ed7cf3c1db2ceeb818ee883c1c1f4a751a99d7ef697cac45122629",
+        "worktree_status": " M sglang_omni/platforms/device_graph.py\n"
+      },
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    },
+    {
+      "arm": "candidate",
+      "run": "runs/continuous-direct-prompt-card0-round1",
+      "source_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+      "environment": {
+        "ASCEND_RT_VISIBLE_DEVICES": "0",
+        "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+        "OMP_NUM_THREADS": "4",
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+      },
+      "source": {
+        "directory": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen",
+        "revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "worktree_status": ""
+      },
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    },
+    {
+      "arm": "candidate",
+      "run": "runs/continuous-direct-prompt-card0-round2",
+      "source_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+      "environment": {
+        "ASCEND_RT_VISIBLE_DEVICES": "0",
+        "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+        "OMP_NUM_THREADS": "4",
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+      },
+      "source": {
+        "directory": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen",
+        "revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "worktree_status": ""
+      },
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    },
+    {
+      "arm": "candidate",
+      "run": "runs/continuous-direct-prompt-card0-round3",
+      "source_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+      "environment": {
+        "ASCEND_RT_VISIBLE_DEVICES": "0",
+        "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+        "OMP_NUM_THREADS": "4",
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+      },
+      "source": {
+        "directory": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen",
+        "revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "worktree_status": ""
+      },
+      "verified_runspec_concurrency": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "server_exit": 0,
+      "benchmark_exit": 0
+    }
+  ],
+  "limitations": [
+    "First vLLM repeat predates environment/provenance capture; physical NPU 0 is recorded in the contemporaneous round1.md campaign report.",
+    "SGLang main has the same recorded torch.xpu type import compatibility patch in every repetition.",
+    "Shared host and sequential trial order remain disclosed."
+  ]
+}
