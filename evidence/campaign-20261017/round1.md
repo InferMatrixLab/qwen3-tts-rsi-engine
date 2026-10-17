@@ -234,3 +234,8 @@ Residual-fusion service probe (72176a0, physical NPU 6) completed C32/C64 with 2
 The residual-fusion same-device control completed: C32 352.082548 and C64 457.430306 frames/s, 256 successful requests, server exit 0. The fused arm was approximately 2.8% slower at C32 and 2.7% faster at C64 in this single sequential comparison. It is not promoted.
 
 A new default-off `--cache-codec-constants` experiment hoists SnakeBeta alpha exponentials and beta inverse scales out of graph replay. It preserves operation ordering and requires fixed evaluation weights/device/dtype. All 38 unit tests passed. The strict-FP32 101-frame codec test passed across two interleaved groups, live-state prewarming, move and reset (maximum error versus eager 9.54e-6); direct BF16 graph-control equality and service throughput are being measured separately.
+
+
+Codec constant cache BF16 graph-control test completed with exact waveform equality for all 101-frame chunks and slot moves/resets. Live-state prewarming was exact. The separate BF16 graph-versus-eager comparison still differs (maximum 0.128784), so graph-control equality must not be described as eager parity or speech-quality acceptance.
+
+Native-RoPE full-sweep quality update: C8 passes both ASR and speaker gates; all seven speaker cohorts pass. C16 EN WER is 0.0042674253, but ZH CER 0.0380794702 exceeds its frozen 0.0356622517 limit. Consequently this configuration is not accepted at all concurrencies even if later throughput optimization succeeds. C32/C64 ASR remains pending.

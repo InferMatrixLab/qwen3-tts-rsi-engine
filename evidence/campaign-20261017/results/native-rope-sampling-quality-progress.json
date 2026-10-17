@@ -1,6 +1,6 @@
 {
   "status": "INCONCLUSIVE",
-  "note": "Partial single-repeat quality assessment; no final performance or quality acceptance",
+  "note": "Partial single-repeat quality assessment; C16 Chinese CER fails frozen gate",
   "cohorts": [
     {
       "concurrency": 1,
@@ -62,6 +62,18 @@
     {
       "concurrency": 8,
       "status": "INCONCLUSIVE",
+      "asr": {
+        "en": {
+          "error_rate": 0.01422475106685633,
+          "maximum": 0.0185348506401138,
+          "pass": true
+        },
+        "zh": {
+          "error_rate": 0.033112582781456956,
+          "maximum": 0.03731788079470199,
+          "pass": true
+        }
+      },
       "speaker_mean": 0.7779738791286945,
       "speaker_minimum": 0.7554849083721638,
       "speaker_pass": true
@@ -69,17 +81,35 @@
     {
       "concurrency": 16,
       "status": "INCONCLUSIVE",
+      "asr": {
+        "en": {
+          "error_rate": 0.004267425320056899,
+          "maximum": 0.02422475106685633,
+          "pass": true
+        },
+        "zh": {
+          "error_rate": 0.0380794701986755,
+          "maximum": 0.03566225165562914,
+          "pass": false
+        }
+      },
       "speaker_mean": 0.7747792687732726,
       "speaker_minimum": 0.7514163074269891,
       "speaker_pass": true
     },
     {
       "concurrency": 32,
-      "status": "INCONCLUSIVE"
+      "status": "INCONCLUSIVE",
+      "speaker_mean": 0.771970413858071,
+      "speaker_minimum": 0.7578975653927773,
+      "speaker_pass": true
     },
     {
       "concurrency": 64,
-      "status": "INCONCLUSIVE"
+      "status": "INCONCLUSIVE",
+      "speaker_mean": 0.7771985684521496,
+      "speaker_minimum": 0.7526154122501612,
+      "speaker_pass": true
     }
   ]
 }
