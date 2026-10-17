@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "Retained cohort integrity only; not quality noninferiority, hardware comparability, lifecycle, repeat independence or 2x acceptance",
+  "requests": 128,
+  "recomputed_metrics": {
+    "throughput_frames_s": 313.008730543532,
+    "ttfa_p50_ms": 169.63129211217165,
+    "ttfa_p95_ms": 370.12574193067843,
+    "rtf_mean": 0.6204907456079376
+  },
+  "issues": [],
+  "speaker_evidence_note": "Speaker samples reused from continuous-predictor-rope-c16 only after all 128 WAVs proved byte-identical; not an independent speaker evaluation."
+}
