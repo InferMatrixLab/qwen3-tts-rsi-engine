@@ -1,0 +1,18 @@
+{
+  "status": "NOT_SELECTED",
+  "scope": "One adjacent pair on physical NPU 6; no repeat-level causal or final acceptance claim; candidate quality not evaluated",
+  "cohorts": [
+    {
+      "concurrency": 32,
+      "candidate_frames_s": 346.3942462718275,
+      "control_frames_s": 369.5605350035445,
+      "ratio": 0.9373139539061042
+    },
+    {
+      "concurrency": 64,
+      "candidate_frames_s": 469.675378130091,
+      "control_frames_s": 490.854909446518,
+      "ratio": 0.9568517480240571
+    }
+  ]
+}
