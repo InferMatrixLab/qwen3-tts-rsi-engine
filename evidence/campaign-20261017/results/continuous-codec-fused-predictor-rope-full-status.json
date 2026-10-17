@@ -1,0 +1,202 @@
+{
+  "status": "INCONCLUSIVE",
+  "phase": "finished",
+  "command": [
+    "/home/why/qwen3-tts-research/venv-engine/bin/python",
+    "-m",
+    "qwen3_tts_engine.server",
+    "--model",
+    "/home/why/qwen3-tts-research/model",
+    "--port",
+    "8099",
+    "--continuous",
+    "--streaming",
+    "--pack-qkv",
+    "--max-batch-size",
+    "64",
+    "--codec-left-context",
+    "72",
+    "--codec-batch-size",
+    "4",
+    "--incremental-codec",
+    "--pack-mlp",
+    "--native-kv-update",
+    "--batch-prefill",
+    "--prefill-per-tick",
+    "64",
+    "--text-only-rope",
+    "--prewarm-codec",
+    "--native-gqa",
+    "--graph-embeddings",
+    "--graph-prefill",
+    "--rms-norm",
+    "native",
+    "--fused-swiglu",
+    "--native-rope",
+    "--graph-sampling",
+    "--native-rope-scope",
+    "predictor",
+    "--triton-snake",
+    "--cache-codec-codebooks"
+  ],
+  "engine": "standalone-codec-fused-predictor-rope",
+  "source_revision": "a9fac0663b1ee2923c6d3dc007f2b5f408457765",
+  "quality": "NOT_RUN",
+  "server_exit": 0,
+  "benchmark_exit": 0,
+  "environment": {
+    "ASCEND_RT_VISIBLE_DEVICES": "6",
+    "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+    "OMP_NUM_THREADS": "4",
+    "HF_HUB_OFFLINE": "1",
+    "PYTHONPATH": "/home/why/qwen3-tts-engine:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+  },
+  "server_pid": 1263799,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 138.12396846804768,
+        "throughput_frames_s": 55.03751509831964,
+        "ttfa_p50_ms": 60.14720629900694,
+        "ttfa_p95_ms": 62.44243532419205,
+        "rtf_mean": 0.22847535911241848,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 2,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 88.68037032149732,
+        "throughput_frames_s": 85.70104040440229,
+        "ttfa_p50_ms": 80.09816333651543,
+        "ttfa_p95_ms": 91.81718570180236,
+        "rtf_mean": 0.292106653536201,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 4,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 55.936952393502,
+        "throughput_frames_s": 135.79574279564076,
+        "ttfa_p50_ms": 105.04452930763364,
+        "ttfa_p95_ms": 143.228876357898,
+        "rtf_mean": 0.3665385963451071,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 8,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 36.532303291372955,
+        "throughput_frames_s": 208.1993007486102,
+        "ttfa_p50_ms": 129.17255889624357,
+        "ttfa_p95_ms": 206.63701184093924,
+        "rtf_mean": 0.4721790227034017,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 16,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 25.475327752530575,
+        "throughput_frames_s": 313.0087305435317,
+        "ttfa_p50_ms": 169.63129211217165,
+        "ttfa_p95_ms": 370.12574193067843,
+        "rtf_mean": 0.6204907456079376,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 32,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 19.895270133391023,
+        "throughput_frames_s": 394.716932584896,
+        "ttfa_p50_ms": 238.27150370925665,
+        "ttfa_p95_ms": 1062.2166921384633,
+        "rtf_mean": 0.9162600560132758,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 64,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 15.45994935836643,
+        "throughput_frames_s": 491.3987635987143,
+        "ttfa_p50_ms": 957.9819859936833,
+        "ttfa_p95_ms": 1288.5734409559518,
+        "rtf_mean": 1.3702643034754378,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    }
+  ],
+  "benchmark_command": [
+    "/home/why/qwen3-tts-research/venv-engine/bin/python",
+    "-m",
+    "qwen3_tts_engine.benchmark",
+    "--endpoint",
+    "http://127.0.0.1:8099/v1/audio/speech",
+    "--model",
+    "/home/why/qwen3-tts-research/model",
+    "--engine",
+    "standalone-codec-fused-predictor-rope",
+    "--source-revision",
+    "a9fac0663b1ee2923c6d3dc007f2b5f408457765",
+    "--workload",
+    "evidence/campaign-20261017/plan/workload-128.jsonl",
+    "--output",
+    "runs/continuous-codec-fused-predictor-rope-full/requests-c64",
+    "--requests",
+    "128",
+    "--concurrency",
+    "64",
+    "--frame-rate",
+    "12.5",
+    "--warmup",
+    "64"
+  ],
+  "clean_server_exit": true
+}
