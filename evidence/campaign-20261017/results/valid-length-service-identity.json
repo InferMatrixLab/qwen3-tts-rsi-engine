@@ -1,0 +1,15 @@
+{
+  "scope": "WAV identity against historical combined candidate; not matched timing control",
+  "cohorts": [
+    {
+      "concurrency": 32,
+      "exact_wav_count": 13,
+      "requests": 128
+    },
+    {
+      "concurrency": 64,
+      "exact_wav_count": 27,
+      "requests": 128
+    }
+  ]
+}

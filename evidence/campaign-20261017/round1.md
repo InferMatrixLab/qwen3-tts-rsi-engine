@@ -372,3 +372,10 @@ Pointwise-convolution versus linear diagnostics completed with real weights and 
 
 
 The valid-length KV probe and matched flag-off control both exited 0; all four retained WAV files are byte-identical (indices 0, 1, 64, 65). This narrow identity check does not replace full-cohort quality. C32/C64 service validation is now running in `runs/continuous-valid-length-kv-c32-c64-retry`; an earlier launch stopped before server startup because Git safe-directory lookup produced an empty revision, with its log retained. SGLang second performance repeat completed with exit 0; the third repeat uses the same physical NPU 0 and pinned main plus import compatibility patch.
+
+
+### Valid-length service and repeated-baseline progress
+
+Valid-length C32/C64 completed 256 requests with clean server exit 0: 346.3942 / 469.6754 frames/s. Only 13/128 C32 and 27/128 C64 WAVs matched the earlier combined candidate exactly, so its quality evidence cannot transfer. A directly adjacent flag-off control is running on the same physical NPU 6. The full current test suite passed 57 tests with exit 0. SGLang round-2 C8/C16/C32 and vLLM round-3 C1 passed retained-audio/timing/quality-provenance integrity audits; this is separate from noninferiority and throughput acceptance.
+
+`results/vllm-three-repeat-descriptive.json` preserves all four metrics per trial with sample standard deviations. It explicitly records the physical-card change and incomplete quality. TTFA p95 values are cohort percentiles, not pooled percentiles. A combined exact-transform candidate plan is prepared for direct service measurement; isolated gains will not be multiplied.
