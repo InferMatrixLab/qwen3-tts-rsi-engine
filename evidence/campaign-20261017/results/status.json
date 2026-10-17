@@ -13,8 +13,8 @@
     "error": "corrupted size vs. prev_size"
   },
   "model_audit": "model-audit.json",
-  "baseline_sweep": "VLLM_FULL128_ROUND1_RUNNING",
-  "quality": "VLLM_FULL128_C1_ASR_RUNNING",
+  "baseline_sweep": "VLLM_ROUND1_COMPLETE_SGLANG_ROUND1_RUNNING",
+  "quality": "VLLM_C1_FULL128_NPU_FLOAT32_ASR_RUNNING",
   "two_times_target": "NOT_ESTABLISHED",
   "qualification_devices": {
     "vllm": 0,
@@ -45,5 +45,5 @@
   },
   "workload": "plan/workload-128.jsonl",
   "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
-  "talker_graph": "FOUR_PROMPT_EXACT_PCM_PASS"
+  "talker_graph": "SINGLE_AND_BATCH4_EXACT_PCM_PASS_HTTP_C1_8_OF_8_EXIT_ZERO"
 }

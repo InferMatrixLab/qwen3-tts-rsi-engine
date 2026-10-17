@@ -1,0 +1,154 @@
+{
+  "metrics": {
+    "requests": 8,
+    "successful_requests": 8,
+    "failed_requests": 0,
+    "wall_seconds": 25.708526856265962,
+    "throughput_frames_s": 22.016041726717933,
+    "ttfa_p50_ms": 3096.7530482448637,
+    "ttfa_p95_ms": 5555.9933044947675,
+    "rtf_mean": 0.567544973534989,
+    "request_completion_pass": true,
+    "quality": "NOT_EVALUATED",
+    "server_lifecycle": "NOT_EVALUATED",
+    "status": "INCONCLUSIVE"
+  },
+  "requests": [
+    {
+      "index": 0,
+      "input": "Get the trust fund to the bank early.",
+      "success": true,
+      "audio_seconds": 2.4,
+      "ttfa_seconds": 1.3986489158123732,
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 30
+      },
+      "peak": 16767,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 1.3994615469127893,
+      "pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+      "pcm_bytes": 115200
+    },
+    {
+      "index": 1,
+      "input": "The stained glass offered a hypnotic atmosphere.",
+      "success": true,
+      "audio_seconds": 3.2,
+      "ttfa_seconds": 1.7938657877966762,
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 40
+      },
+      "peak": 14463,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 1.7947482103481889,
+      "pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+      "pcm_bytes": 153600
+    },
+    {
+      "index": 2,
+      "input": "One by one, the campfires were extinguished, and the oasis fell as quiet as the desert.",
+      "success": true,
+      "audio_seconds": 6.4,
+      "ttfa_seconds": 3.52514776494354,
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 80
+      },
+      "peak": 15871,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 3.526798208244145,
+      "pcm_sha256": "84b40beeb0a9c155c93a5458096ca15951ecbeb86ca61419758bfa62ad2d74d2",
+      "pcm_bytes": 307200
+    },
+    {
+      "index": 3,
+      "input": "The boy knew the desert sensed his fear.",
+      "success": true,
+      "audio_seconds": 6.16,
+      "ttfa_seconds": 3.46996792498976,
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 77
+      },
+      "peak": 18175,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 3.4717693626880646,
+      "pcm_sha256": "eaba64db5e8f704e97b81a25ba5caf19ef1276223843f923d3300ac4dc912bd2",
+      "pcm_bytes": 295680
+    },
+    {
+      "index": 4,
+      "input": "When it comes to the crunch, our company will become insolvent.",
+      "success": true,
+      "audio_seconds": 7.04,
+      "ttfa_seconds": 4.2394518768414855,
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 88
+      },
+      "peak": 26623,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 4.240907304920256,
+      "pcm_sha256": "4994611e55c311790fce0611886bf12a31c18864756c1b801c4f786481a3927d",
+      "pcm_bytes": 337920
+    },
+    {
+      "index": 5,
+      "input": "The primary coil has fifty turns.",
+      "success": true,
+      "audio_seconds": 4.88,
+      "ttfa_seconds": 2.7235381714999676,
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 61
+      },
+      "peak": 15103,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 2.7246221797540784,
+      "pcm_sha256": "1e9b799a5cf52dfd9efbe8894c04e6175925796e544a41eaa758df60f623ae91",
+      "pcm_bytes": 234240
+    },
+    {
+      "index": 6,
+      "input": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing.",
+      "success": true,
+      "audio_seconds": 11.12,
+      "ttfa_seconds": 6.264900227077305,
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 139
+      },
+      "peak": 16063,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.267104993574321,
+      "pcm_sha256": "cc024e7cf7422e78dd155b414348f71cf382a56e66060e79eed2e92f9c1f6a1f",
+      "pcm_bytes": 533760
+    },
+    {
+      "index": 7,
+      "input": "The only shadow was that of the few scattered pine trees.",
+      "success": true,
+      "audio_seconds": 4.08,
+      "ttfa_seconds": 2.273258352652192,
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 51
+      },
+      "peak": 16255,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 2.2742591183632612,
+      "pcm_sha256": "e7e5234ee25e9a30368974992b1963ba319aae4ec63545aee799a052d2de23ee",
+      "pcm_bytes": 195840
+    }
+  ]
+}

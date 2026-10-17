@@ -1,0 +1,3090 @@
+{
+  "metrics": {
+    "requests": 128,
+    "successful_requests": 128,
+    "failed_requests": 0,
+    "wall_seconds": 39.45766432955861,
+    "throughput_frames_s": 200.26527505533156,
+    "ttfa_p50_ms": 709.2177751474082,
+    "ttfa_p95_ms": 1016.5279964916408,
+    "rtf_mean": 1.7184953824042835,
+    "request_completion_pass": true,
+    "quality": "NOT_EVALUATED",
+    "server_lifecycle": "NOT_EVALUATED",
+    "status": "INCONCLUSIVE"
+  },
+  "requests": [
+    {
+      "index": 0,
+      "input": "Get the trust fund to the bank early.",
+      "success": true,
+      "audio_seconds": 1.92,
+      "ttfa_seconds": 0.41893036756664515,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 25,
+          "total_tokens": 34,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 29696,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 3.232373448088765,
+      "pcm_sha256": "f1710676688ad03c8c6a4a109296804926e7210465dae9eb27201ce367998c8d",
+      "pcm_bytes": 92160
+    },
+    {
+      "index": 1,
+      "input": "The stained glass offered a hypnotic atmosphere.",
+      "success": true,
+      "audio_seconds": 3.04,
+      "ttfa_seconds": 0.8262809524312615,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 39,
+          "total_tokens": 48,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 12224,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 5.208687084726989,
+      "pcm_sha256": "92ae4b87c9f937f850080a5e8fa8cf5102c40c57ef4ea95337cc985ef136cfd8",
+      "pcm_bytes": 145920
+    },
+    {
+      "index": 2,
+      "input": "One by one, the campfires were extinguished, and the oasis fell as quiet as the desert.",
+      "success": true,
+      "audio_seconds": 6.72,
+      "ttfa_seconds": 1.0124058471992612,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 21,
+          "output_tokens": 85,
+          "total_tokens": 106,
+          "input_token_details": {
+            "text_tokens": 21,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16512,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 11.334426006302238,
+      "pcm_sha256": "9a8c4d3b0bb2dbe26c74ec16bbcd971e5893db722f2e6c22df9eaa81036b78b4",
+      "pcm_bytes": 322560
+    },
+    {
+      "index": 3,
+      "input": "The boy knew the desert sensed his fear.",
+      "success": true,
+      "audio_seconds": 2.96,
+      "ttfa_seconds": 1.0125484205782413,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 38,
+          "total_tokens": 47,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 14528,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 5.0795136876404285,
+      "pcm_sha256": "44740caa03d450377e78197730d2b7696f06fdf3ae6faee87cebfd4f6fcaf76f",
+      "pcm_bytes": 142080
+    },
+    {
+      "index": 4,
+      "input": "When it comes to the crunch, our company will become insolvent.",
+      "success": true,
+      "audio_seconds": 3.84,
+      "ttfa_seconds": 1.0129528306424618,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 49,
+          "total_tokens": 63,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 11712,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.551121064461768,
+      "pcm_sha256": "2cf37184de9f8d228e6b9010b6fdd114f95089f6d9c53bd56cb819d1d0793a3a",
+      "pcm_bytes": 184320
+    },
+    {
+      "index": 5,
+      "input": "The primary coil has fifty turns.",
+      "success": true,
+      "audio_seconds": 2.88,
+      "ttfa_seconds": 1.0132699999958277,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 7,
+          "output_tokens": 37,
+          "total_tokens": 44,
+          "input_token_details": {
+            "text_tokens": 7,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 11136,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 4.950461043976247,
+      "pcm_sha256": "ed961a83929c0fb7e8f30661276685331a58b484f89543a7dd061e42ab7fe6d3",
+      "pcm_bytes": 138240
+    },
+    {
+      "index": 6,
+      "input": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing.",
+      "success": true,
+      "audio_seconds": 12.16,
+      "ttfa_seconds": 1.0137763116508722,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 28,
+          "output_tokens": 153,
+          "total_tokens": 181,
+          "input_token_details": {
+            "text_tokens": 28,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 13248,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 20.398831414058805,
+      "pcm_sha256": "722f1ee1b626d77130ee254af831e7ee7980cd79fca7fe146702e758d338250f",
+      "pcm_bytes": 583680
+    },
+    {
+      "index": 7,
+      "input": "The only shadow was that of the few scattered pine trees.",
+      "success": true,
+      "audio_seconds": 3.76,
+      "ttfa_seconds": 1.0158379366621375,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 48,
+          "total_tokens": 60,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 8896,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.417114472016692,
+      "pcm_sha256": "7aa5ecadb4d72e9ba3a4722bd427d5b37d305243badaf48b484c030958ff6a5b",
+      "pcm_bytes": 180480
+    },
+    {
+      "index": 8,
+      "input": "The work of the tailor is seen on each side.",
+      "success": true,
+      "audio_seconds": 2.88,
+      "ttfa_seconds": 1.0160587010905147,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 37,
+          "total_tokens": 48,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 11584,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 4.9551359442994,
+      "pcm_sha256": "f50bab8912aa2b2a4b581fd83647c095a1a0455d79b99975cceede82d2a448f5",
+      "pcm_bytes": 138240
+    },
+    {
+      "index": 9,
+      "input": "NASA plans to launch the rocket tomorrow.",
+      "success": true,
+      "audio_seconds": 3.44,
+      "ttfa_seconds": 1.0162837877869606,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 44,
+          "total_tokens": 52,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 13056,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 5.906314834952354,
+      "pcm_sha256": "d351127ca2bb039a0e94b2c5263fb18f69606c988b211aba7add93a7484c9f3b",
+      "pcm_bytes": 165120
+    },
+    {
+      "index": 10,
+      "input": "After all, who doesn\u2019t want to overcome new challenges and achieve great heights?",
+      "success": true,
+      "audio_seconds": 4.64,
+      "ttfa_seconds": 1.0165434842929244,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 16,
+          "output_tokens": 59,
+          "total_tokens": 75,
+          "input_token_details": {
+            "text_tokens": 16,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 14720,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.813079399056733,
+      "pcm_sha256": "665e9fbaaa2fcc1f9e876791fdfe0297429668107f8eaa6185e5ac7ee7279857",
+      "pcm_bytes": 222720
+    },
+    {
+      "index": 11,
+      "input": "Later, we simply let life proceed, in its own direction, toward its own fate.",
+      "success": true,
+      "audio_seconds": 7.84,
+      "ttfa_seconds": 1.0164992334321141,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 18,
+          "output_tokens": 99,
+          "total_tokens": 117,
+          "input_token_details": {
+            "text_tokens": 18,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15616,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 13.204040138050914,
+      "pcm_sha256": "9862d3143992d37beae2e4a5f4a33a506496e41ef36d25c2bcc5855fe730c038",
+      "pcm_bytes": 376320
+    },
+    {
+      "index": 12,
+      "input": "The two men hurried back and found the cylinder still lying in the same position.",
+      "success": true,
+      "audio_seconds": 5.36,
+      "ttfa_seconds": 1.0165906250476837,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 16,
+          "output_tokens": 68,
+          "total_tokens": 84,
+          "input_token_details": {
+            "text_tokens": 16,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16128,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.127195755019784,
+      "pcm_sha256": "d617465181f90b3af7f1fe5debf5771faba6bda23bab8124d7d1e9245418a825",
+      "pcm_bytes": 257280
+    },
+    {
+      "index": 13,
+      "input": "I thought about the difficulties in translation that might arise.",
+      "success": true,
+      "audio_seconds": 4.88,
+      "ttfa_seconds": 1.0166894188150764,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 62,
+          "total_tokens": 73,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 9280,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.21021680161357,
+      "pcm_sha256": "dfb0cddabc7b10e7b108dfafe1a920df676879db7026a260e29c1fd8d95ff355",
+      "pcm_bytes": 234240
+    },
+    {
+      "index": 14,
+      "input": "Elvis Presley is often called the \"King of Rock and Roll\".",
+      "success": true,
+      "audio_seconds": 3.68,
+      "ttfa_seconds": 1.0167826004326344,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 15,
+          "output_tokens": 47,
+          "total_tokens": 62,
+          "input_token_details": {
+            "text_tokens": 15,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16256,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.225678130984306,
+      "pcm_sha256": "73b2fce9aff6ef15f0eeea5e2a6abeac5df34e171255a7ee3ea2bf892cceae29",
+      "pcm_bytes": 176640
+    },
+    {
+      "index": 15,
+      "input": "We don't have the budget to produce it in studio quality.",
+      "success": true,
+      "audio_seconds": 3.92,
+      "ttfa_seconds": 1.016886493191123,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 13,
+          "output_tokens": 50,
+          "total_tokens": 63,
+          "input_token_details": {
+            "text_tokens": 13,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15104,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.7317996164783835,
+      "pcm_sha256": "558dabb4ac39d21e10427b056ef038eef3268fb1ba1cacc0bc406d024b2efc8f",
+      "pcm_bytes": 188160
+    },
+    {
+      "index": 16,
+      "input": "Also, will numbers be written as digits or as words?",
+      "success": true,
+      "audio_seconds": 4.16,
+      "ttfa_seconds": 1.0148727912455797,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 53,
+          "total_tokens": 65,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15296,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.463973701931536,
+      "pcm_sha256": "4fbbf99335738482cb6b77f47975eb47d6696b93633a4cf92a968574b3831ffb",
+      "pcm_bytes": 199680
+    },
+    {
+      "index": 17,
+      "input": "I do not like sushi, so I did not really enjoy the meal.",
+      "success": true,
+      "audio_seconds": 8.32,
+      "ttfa_seconds": 1.0149505827575922,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 15,
+          "output_tokens": 105,
+          "total_tokens": 120,
+          "input_token_details": {
+            "text_tokens": 15,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16512,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 14.070026800967753,
+      "pcm_sha256": "9a7385f44a8b94878a3ee31e5e06495f68d62df741eaa568e64eb6c5f683e049",
+      "pcm_bytes": 399360
+    },
+    {
+      "index": 18,
+      "input": "Large brown dog walks up a blue staircase.",
+      "success": true,
+      "audio_seconds": 3.2,
+      "ttfa_seconds": 1.0150459054857492,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 41,
+          "total_tokens": 50,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18432,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 5.4375874269753695,
+      "pcm_sha256": "5841a4abf119085149eb74955604ab314265c0318e3dc3bd7fe8300688ae71bc",
+      "pcm_bytes": 153600
+    },
+    {
+      "index": 19,
+      "input": "A sky jumper falls toward the sea and the earth.",
+      "success": true,
+      "audio_seconds": 5.36,
+      "ttfa_seconds": 1.0151868592947721,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 68,
+          "total_tokens": 79,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 14144,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.18926327303052,
+      "pcm_sha256": "a2df9f25949dbb35e70b7d9960823106daf7fc81d666551857f9d121cd739abe",
+      "pcm_bytes": 257280
+    },
+    {
+      "index": 20,
+      "input": "They set off running wildly into the trees.",
+      "success": true,
+      "audio_seconds": 3.12,
+      "ttfa_seconds": 1.015290160663426,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 40,
+          "total_tokens": 49,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 24320,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 5.2999606700614095,
+      "pcm_sha256": "124048a5603beab33ed452fdf61c28ab3cda14c6c68fba556c054265ad6b3e88",
+      "pcm_bytes": 149760
+    },
+    {
+      "index": 21,
+      "input": "A thin circle of bright metal showed between the top and the body of the cylinder.",
+      "success": true,
+      "audio_seconds": 6.4,
+      "ttfa_seconds": 1.0155357979238033,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 17,
+          "output_tokens": 81,
+          "total_tokens": 98,
+          "input_token_details": {
+            "text_tokens": 17,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 13248,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.890757597982883,
+      "pcm_sha256": "d92331aaebd84e8ffd0dd1430ad153ef3c74d44c198ec174d5d457ec096a0316",
+      "pcm_bytes": 307200
+    },
+    {
+      "index": 22,
+      "input": "Replace the Ts in Tim Tebow's name with any other consonant to get a Star Wars character",
+      "success": true,
+      "audio_seconds": 6.0,
+      "ttfa_seconds": 1.015642810612917,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 20,
+          "output_tokens": 76,
+          "total_tokens": 96,
+          "input_token_details": {
+            "text_tokens": 20,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15616,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.235667741857469,
+      "pcm_sha256": "6085dbd3bada1c6c2763b9d86065d6cd0b0d8d6f8529e7f542e560ed31c3fa16",
+      "pcm_bytes": 288000
+    },
+    {
+      "index": 23,
+      "input": "Tyler, Lucy, Michelle, we're going to space!",
+      "success": true,
+      "audio_seconds": 4.32,
+      "ttfa_seconds": 1.0157492337748408,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 55,
+          "total_tokens": 67,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 13504,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.579616348259151,
+      "pcm_sha256": "dc64ea6afae85a0f0203977971659a8ec8062a19bc167e14d90962192ab13fd6",
+      "pcm_bytes": 207360
+    },
+    {
+      "index": 24,
+      "input": "Get out of this!",
+      "success": true,
+      "audio_seconds": 1.6,
+      "ttfa_seconds": 1.0158573361113667,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 5,
+          "output_tokens": 21,
+          "total_tokens": 26,
+          "input_token_details": {
+            "text_tokens": 5,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 21376,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 2.977022341452539,
+      "pcm_sha256": "3bafc020f231623cdb73c671d31ba8ee7ef0c1486feaaf1a355e72889452cb34",
+      "pcm_bytes": 76800
+    },
+    {
+      "index": 25,
+      "input": "Thousands of people die every year as a consequence of air pollution.",
+      "success": true,
+      "audio_seconds": 4.16,
+      "ttfa_seconds": 1.0157956052571535,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 13,
+          "output_tokens": 53,
+          "total_tokens": 66,
+          "input_token_details": {
+            "text_tokens": 13,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15360,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.571702264249325,
+      "pcm_sha256": "22c390465858f6b3d517364526909b52e3f6189d4f31d44bd74394aa5521af6b",
+      "pcm_bytes": 199680
+    },
+    {
+      "index": 26,
+      "input": "History teaches us that humans do not learn from history.",
+      "success": true,
+      "audio_seconds": 3.28,
+      "ttfa_seconds": 1.0158838173374534,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 42,
+          "total_tokens": 53,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 13184,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 5.773792300373316,
+      "pcm_sha256": "c4807b3abd6b6f1a1033716ddf1c98141182b57b9be1b798ee0c3d7a30dc5e01",
+      "pcm_bytes": 157440
+    },
+    {
+      "index": 27,
+      "input": "I was well, but I'm all the better for being here.",
+      "success": true,
+      "audio_seconds": 3.84,
+      "ttfa_seconds": 1.015984340570867,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 49,
+          "total_tokens": 63,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 22272,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.84202070441097,
+      "pcm_sha256": "f5405bd91294cedaec70ff5cdb0cee9759e5211c661f0fca4801d80acac7b843",
+      "pcm_bytes": 184320
+    },
+    {
+      "index": 28,
+      "input": "what is the forecast for California for rain",
+      "success": true,
+      "audio_seconds": 3.44,
+      "ttfa_seconds": 1.0161135029047728,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 44,
+          "total_tokens": 52,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 9280,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.02509734313935,
+      "pcm_sha256": "a514248875d671aeeba588149a8019847418d93d0d5eb99ae2b66feda6dd8a98",
+      "pcm_bytes": 165120
+    },
+    {
+      "index": 29,
+      "input": "Take these capsules over to Mrs. David's house.",
+      "success": true,
+      "audio_seconds": 2.64,
+      "ttfa_seconds": 1.016269656829536,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 34,
+          "total_tokens": 45,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18560,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 4.632792601361871,
+      "pcm_sha256": "a76065b286098604ab5d9fa92699e2f5927d3665954b35a026e972eb7aab20f9",
+      "pcm_bytes": 126720
+    },
+    {
+      "index": 30,
+      "input": "Lions hunt their prey with sprints, whereas wolves take advantage of their stamina.",
+      "success": true,
+      "audio_seconds": 6.24,
+      "ttfa_seconds": 1.016581735573709,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 17,
+          "output_tokens": 79,
+          "total_tokens": 96,
+          "input_token_details": {
+            "text_tokens": 17,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15488,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.712775816209614,
+      "pcm_sha256": "5f1cc1dfc1534821439d6c60197a1b949990bd1f5dc163c44cdb32e7d4022da0",
+      "pcm_bytes": 299520
+    },
+    {
+      "index": 31,
+      "input": "He must be disguised to avoid encounters with thieves.",
+      "success": true,
+      "audio_seconds": 2.88,
+      "ttfa_seconds": 1.019192443229258,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 37,
+          "total_tokens": 47,
+          "input_token_details": {
+            "text_tokens": 10,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16640,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 5.074349164031446,
+      "pcm_sha256": "da62483b9c09fe65a428608f46405e65b38ba82e5477d35f902221ed54dc8fb1",
+      "pcm_bytes": 138240
+    },
+    {
+      "index": 32,
+      "input": "The area was swirling in dust so intense that it hid the moon from view.",
+      "success": true,
+      "audio_seconds": 4.72,
+      "ttfa_seconds": 0.49493691697716713,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 16,
+          "output_tokens": 60,
+          "total_tokens": 76,
+          "input_token_details": {
+            "text_tokens": 16,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16512,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.168658724054694,
+      "pcm_sha256": "9ce4c45de74ea1706631f94042dc1875f217a6b4256b8a4c038af4558efb1407",
+      "pcm_bytes": 226560
+    },
+    {
+      "index": 33,
+      "input": "I heard the land where the hobbits live, the Shire, has actually been filmed in New Zealand.",
+      "success": true,
+      "audio_seconds": 8.64,
+      "ttfa_seconds": 0.9386742860078812,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 22,
+          "output_tokens": 109,
+          "total_tokens": 131,
+          "input_token_details": {
+            "text_tokens": 22,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15168,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 14.73853329475969,
+      "pcm_sha256": "4ca6dcfdf1af99d7a6da7939c6b531edac07c7aa22d1f08fa23134112bca6e00",
+      "pcm_bytes": 414720
+    },
+    {
+      "index": 34,
+      "input": "The salesman was like the rest of them, untrustworthy.",
+      "success": true,
+      "audio_seconds": 3.68,
+      "ttfa_seconds": 0.5660279989242554,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 13,
+          "output_tokens": 47,
+          "total_tokens": 60,
+          "input_token_details": {
+            "text_tokens": 13,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16896,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.516589640639722,
+      "pcm_sha256": "5718e815d8f40313e7f16fff7d9b8f432d8a7d504ddd28e1d04ed00611f8fb8b",
+      "pcm_bytes": 176640
+    },
+    {
+      "index": 35,
+      "input": "To her amazement, she found a supermarket trolley lying on the seabed.",
+      "success": true,
+      "audio_seconds": 5.44,
+      "ttfa_seconds": 0.6225254032760859,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 18,
+          "output_tokens": 69,
+          "total_tokens": 87,
+          "input_token_details": {
+            "text_tokens": 18,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 9728,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.484928606078029,
+      "pcm_sha256": "720a5a535823aa938ada11b28e24d62725ee8a9dfd1991c7bb9e09106fffb9c1",
+      "pcm_bytes": 261120
+    },
+    {
+      "index": 36,
+      "input": "This pepperoni tastes off, she said.",
+      "success": true,
+      "audio_seconds": 2.56,
+      "ttfa_seconds": 0.6177891697734594,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 33,
+          "total_tokens": 42,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18944,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 4.791714819148183,
+      "pcm_sha256": "009d41b450723b6f127b9b487c54ce3c270aa2702a51d94203c8ed364bba8572",
+      "pcm_bytes": 122880
+    },
+    {
+      "index": 37,
+      "input": "Try to make eye contact with a stranger on the bus, and hold it for five seconds, without speaking.",
+      "success": true,
+      "audio_seconds": 7.04,
+      "ttfa_seconds": 0.7041790802031755,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 22,
+          "output_tokens": 89,
+          "total_tokens": 111,
+          "input_token_details": {
+            "text_tokens": 22,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15168,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 12.488351240754128,
+      "pcm_sha256": "a204dbb8884f5e39f894a26869c3125fdf79784bb6dc3de83a8940bbc16a98de",
+      "pcm_bytes": 337920
+    },
+    {
+      "index": 38,
+      "input": "Spain is producing lots of lettuce, paprika and tomatoes.",
+      "success": true,
+      "audio_seconds": 7.84,
+      "ttfa_seconds": 0.6990232057869434,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 99,
+          "total_tokens": 111,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18432,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 13.604374532587826,
+      "pcm_sha256": "90080d5a0a43d35828b4f45db3ebb6cff0e9baa0adc5fd78c04d2a0e672dfbe2",
+      "pcm_bytes": 376320
+    },
+    {
+      "index": 39,
+      "input": "The more you read, the better you will be understood.",
+      "success": true,
+      "audio_seconds": 3.84,
+      "ttfa_seconds": 0.575569985434413,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 49,
+          "total_tokens": 61,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 13696,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.741043406538665,
+      "pcm_sha256": "8ff541aecfff3c6aacf2224979361a5414310af6c31dc6600c74695c1cbb644c",
+      "pcm_bytes": 184320
+    },
+    {
+      "index": 40,
+      "input": "If my stepfather sold this old sculpture, he'd probably become a millionaire.",
+      "success": true,
+      "audio_seconds": 6.56,
+      "ttfa_seconds": 0.6015996504575014,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 16,
+          "output_tokens": 83,
+          "total_tokens": 99,
+          "input_token_details": {
+            "text_tokens": 16,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 14912,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 11.280294573865831,
+      "pcm_sha256": "33f8ae6b1297cb780f99faf2a5d270565d5e29f43ec58a5eff6444411ccb29d1",
+      "pcm_bytes": 314880
+    },
+    {
+      "index": 41,
+      "input": "Can we please leave now?",
+      "success": true,
+      "audio_seconds": 2.08,
+      "ttfa_seconds": 0.5914767878130078,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 6,
+          "output_tokens": 27,
+          "total_tokens": 33,
+          "input_token_details": {
+            "text_tokens": 6,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 12544,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 3.8183261323720217,
+      "pcm_sha256": "1db4bc865bdfd43521530452c51b96967338d0ec0a4313c582d223f07ff5c991",
+      "pcm_bytes": 99840
+    },
+    {
+      "index": 42,
+      "input": "Contrary to common belief, children won't gain computer literacy, if you just hand them tablet computers and smartphones.",
+      "success": true,
+      "audio_seconds": 7.84,
+      "ttfa_seconds": 0.6355959614738822,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 23,
+          "output_tokens": 99,
+          "total_tokens": 122,
+          "input_token_details": {
+            "text_tokens": 23,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 9664,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 13.519903583452106,
+      "pcm_sha256": "a530ab2389539ae21de6e3cffb4642dbde2d6b29314066dd0afea4ecd1d3ff9a",
+      "pcm_bytes": 376320
+    },
+    {
+      "index": 43,
+      "input": "Regarding your request, I have decided to heed your warnings.",
+      "success": true,
+      "audio_seconds": 5.2,
+      "ttfa_seconds": 0.6446812674403191,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 66,
+          "total_tokens": 78,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 22272,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.173098245635629,
+      "pcm_sha256": "4eb4a81c7f8dacd6b93ddae624533790efb9bbe7ce5e30c41bffc2fbc0767dfe",
+      "pcm_bytes": 249600
+    },
+    {
+      "index": 44,
+      "input": "It was such a thrill, her veins were pumped full of adrenaline.",
+      "success": true,
+      "audio_seconds": 3.6,
+      "ttfa_seconds": 0.8174598049372435,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 46,
+          "total_tokens": 60,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15168,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.451821022666991,
+      "pcm_sha256": "8e709ca3a7fdb0bb97b95a399ad4e5bf0ab545fdc689e89867cad8ed41fc9755",
+      "pcm_bytes": 172800
+    },
+    {
+      "index": 45,
+      "input": "Nora finds herself ugly, because she has pimples.",
+      "success": true,
+      "audio_seconds": 3.28,
+      "ttfa_seconds": 0.7947193756699562,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 42,
+          "total_tokens": 54,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15232,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 5.862239232286811,
+      "pcm_sha256": "e5193d6f15fffccc8127f25c8c44173811bc24f9c30f94045d76c6687f3fd8e4",
+      "pcm_bytes": 157440
+    },
+    {
+      "index": 46,
+      "input": "Ninety five lines and no more, that's it.",
+      "success": true,
+      "audio_seconds": 3.92,
+      "ttfa_seconds": 0.9529977180063725,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 13,
+          "output_tokens": 50,
+          "total_tokens": 63,
+          "input_token_details": {
+            "text_tokens": 13,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16000,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.991916209459305,
+      "pcm_sha256": "37a367564e007e5623d2d1fd12fa97aa97e7c77ac223e9ff9991d15084205022",
+      "pcm_bytes": 188160
+    },
+    {
+      "index": 47,
+      "input": "If possible, we'd like the papers a week before and after each of these dates please.",
+      "success": true,
+      "audio_seconds": 6.96,
+      "ttfa_seconds": 0.9198707984760404,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 19,
+          "output_tokens": 88,
+          "total_tokens": 107,
+          "input_token_details": {
+            "text_tokens": 19,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16384,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 12.205443387851119,
+      "pcm_sha256": "4d5f9a8a35d7c114fb6f402f2b992804b6db0f3d6a3caa2565d118177b88ee11",
+      "pcm_bytes": 334080
+    },
+    {
+      "index": 48,
+      "input": "Television can make you dumb, but it can also be good education.",
+      "success": true,
+      "audio_seconds": 4.8,
+      "ttfa_seconds": 0.8457452775910497,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 15,
+          "output_tokens": 61,
+          "total_tokens": 76,
+          "input_token_details": {
+            "text_tokens": 15,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 14656,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.537661496549845,
+      "pcm_sha256": "12bed2b49f15353e59dc39a9bd77132bd41133f969a1f4fa9dad5cfd2aac1d1a",
+      "pcm_bytes": 230400
+    },
+    {
+      "index": 49,
+      "input": "Ladies and gentlemen, this wagon is going to be detached.",
+      "success": true,
+      "audio_seconds": 6.8,
+      "ttfa_seconds": 0.7364369351416826,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 13,
+          "output_tokens": 86,
+          "total_tokens": 99,
+          "input_token_details": {
+            "text_tokens": 13,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19328,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 11.902365355752409,
+      "pcm_sha256": "897deeb2cc77eb4fbffbc31808106e8498e2de6327b2d7fe3eb5f1a212f3b67e",
+      "pcm_bytes": 326400
+    },
+    {
+      "index": 50,
+      "input": "Three weeks later, he was feeling a lot better.",
+      "success": true,
+      "audio_seconds": 3.44,
+      "ttfa_seconds": 0.46763196866959333,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 44,
+          "total_tokens": 55,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 12800,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.249087677337229,
+      "pcm_sha256": "a91dfd9cdc670233a7e0277f4ef9352d56df2b0e38a86bc003d0d5167317c540",
+      "pcm_bytes": 165120
+    },
+    {
+      "index": 51,
+      "input": "Little thieves are hanged, but great ones escape.",
+      "success": true,
+      "audio_seconds": 3.52,
+      "ttfa_seconds": 0.5500955665484071,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 45,
+          "total_tokens": 56,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 17024,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.4324204586446285,
+      "pcm_sha256": "115e140909d03bb77a82dc9559137c99f9831ec08627c6590c1c75e22b1f5c51",
+      "pcm_bytes": 168960
+    },
+    {
+      "index": 52,
+      "input": "With skin and hair completely, thoroughly out and out.",
+      "success": true,
+      "audio_seconds": 5.6,
+      "ttfa_seconds": 0.5434118025004864,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 71,
+          "total_tokens": 82,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 9856,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.984208744950593,
+      "pcm_sha256": "f019c0db3a0bcc6f10f56d14af6cdff5fa741292fc5c947066b50ac9b143c000",
+      "pcm_bytes": 268800
+    },
+    {
+      "index": 53,
+      "input": "This part of the town was half residential, half industrial.",
+      "success": true,
+      "audio_seconds": 5.04,
+      "ttfa_seconds": 0.5221006097272038,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 64,
+          "total_tokens": 76,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 12416,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.777102082036436,
+      "pcm_sha256": "042dde9786d4a7b415eb32e3638ef90dc50270cbc34fc0f79f90eb0c00a72440",
+      "pcm_bytes": 241920
+    },
+    {
+      "index": 54,
+      "input": "As he couldn't prove his innocence, he was brought to the detention zone, as if guilty.",
+      "success": true,
+      "audio_seconds": 5.68,
+      "ttfa_seconds": 0.5080793770030141,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 20,
+          "output_tokens": 72,
+          "total_tokens": 92,
+          "input_token_details": {
+            "text_tokens": 20,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19968,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.82569051720202,
+      "pcm_sha256": "5287a7107918e3ad8ef21f401689eebf4f0c47b20bf2953ab7338c5e1a8c561a",
+      "pcm_bytes": 272640
+    },
+    {
+      "index": 55,
+      "input": "Lifeguards were standing on a tower, staring at the water.",
+      "success": true,
+      "audio_seconds": 4.08,
+      "ttfa_seconds": 0.7305402122437954,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 15,
+          "output_tokens": 52,
+          "total_tokens": 67,
+          "input_token_details": {
+            "text_tokens": 15,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 17408,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.193713907152414,
+      "pcm_sha256": "8c31772047e25cf8f00eb681cd69e9a953d8ca43e3dd7c2930ae33c1b52db298",
+      "pcm_bytes": 195840
+    },
+    {
+      "index": 56,
+      "input": "Where did that come from?",
+      "success": true,
+      "audio_seconds": 1.6,
+      "ttfa_seconds": 0.722791631706059,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 6,
+          "output_tokens": 21,
+          "total_tokens": 27,
+          "input_token_details": {
+            "text_tokens": 6,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 13120,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 3.2863868474960327,
+      "pcm_sha256": "fa74da574022385c983df058f4a51f39d72971bfec60304f27a3cad092558e93",
+      "pcm_bytes": 76800
+    },
+    {
+      "index": 57,
+      "input": "Did you really think it through?",
+      "success": true,
+      "audio_seconds": 1.84,
+      "ttfa_seconds": 0.656136704608798,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 7,
+          "output_tokens": 24,
+          "total_tokens": 31,
+          "input_token_details": {
+            "text_tokens": 7,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 20352,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 3.482993682846427,
+      "pcm_sha256": "31aff885c3140f454457f76aecdd206f179ad88647ee8860dfa3aca7d932e97a",
+      "pcm_bytes": 88320
+    },
+    {
+      "index": 58,
+      "input": "Despite years of research, the problem remained intractable.",
+      "success": true,
+      "audio_seconds": 4.4,
+      "ttfa_seconds": 0.8006839901208878,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 56,
+          "total_tokens": 68,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18048,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.878918175585568,
+      "pcm_sha256": "259055d96a6198eee27ab673931ca68d4927812a27254eee8c201fcb3cdb1563",
+      "pcm_bytes": 211200
+    },
+    {
+      "index": 59,
+      "input": "As independent studies document, the Neanderthals developed simple tools such as spears.",
+      "success": true,
+      "audio_seconds": 6.16,
+      "ttfa_seconds": 0.6551630888134241,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 18,
+          "output_tokens": 78,
+          "total_tokens": 96,
+          "input_token_details": {
+            "text_tokens": 18,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 23808,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.816380110569298,
+      "pcm_sha256": "c9acaccbb259e030d7d3429a59ab144ab0a1a9d51897615bea5cc65fd54f1586",
+      "pcm_bytes": 295680
+    },
+    {
+      "index": 60,
+      "input": "Worryingly, the radio signal became weaker.",
+      "success": true,
+      "audio_seconds": 4.64,
+      "ttfa_seconds": 0.6814543399959803,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 59,
+          "total_tokens": 69,
+          "input_token_details": {
+            "text_tokens": 10,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15040,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.114411188289523,
+      "pcm_sha256": "bbfd7aba3b47613d415539c942759ee1274a5b737e86a0ee09a14e6c9a70c129",
+      "pcm_bytes": 222720
+    },
+    {
+      "index": 61,
+      "input": "This swallow is twittering without Internet connection and has a swarm of followers.",
+      "success": true,
+      "audio_seconds": 5.28,
+      "ttfa_seconds": 0.5903970208019018,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 15,
+          "output_tokens": 67,
+          "total_tokens": 82,
+          "input_token_details": {
+            "text_tokens": 15,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 20096,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.435297549702227,
+      "pcm_sha256": "4158585c6f92372792b7f397819686b108ec668d0152fa2bba0fe33cca3a1b3f",
+      "pcm_bytes": 253440
+    },
+    {
+      "index": 62,
+      "input": "Strip down the rig until you know exactly where the error is located.",
+      "success": true,
+      "audio_seconds": 4.32,
+      "ttfa_seconds": 0.6042245477437973,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 55,
+          "total_tokens": 69,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 20736,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.6792430896312,
+      "pcm_sha256": "4808203bf55e412f79800f82801f6b90b7a770fc8ad4cdc2dd82ca2842d5124a",
+      "pcm_bytes": 207360
+    },
+    {
+      "index": 63,
+      "input": "I like the avenger of the new episode, he really is a badass.",
+      "success": true,
+      "audio_seconds": 4.96,
+      "ttfa_seconds": 0.5995854577049613,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 16,
+          "output_tokens": 63,
+          "total_tokens": 79,
+          "input_token_details": {
+            "text_tokens": 16,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19968,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.83401343692094,
+      "pcm_sha256": "cdb850334553b78421b59beb62f15b7e860ee3d72fe5179c6a27cc234b11eafa",
+      "pcm_bytes": 238080
+    },
+    {
+      "index": 64,
+      "input": "\u7b80\u5355\u5730\u8bf4\uff0c\u8fd9\u76f8\u5f53\u4e8e\u60e0\u666e\u628a\u6d88\u8d39\u9886\u57df\u5e02\u573a\u62f1\u624b\u76f8\u8ba9\u4e86\u3002",
+      "success": true,
+      "audio_seconds": 5.2,
+      "ttfa_seconds": 0.6162671810016036,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 17,
+          "output_tokens": 66,
+          "total_tokens": 83,
+          "input_token_details": {
+            "text_tokens": 17,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 17024,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.069449429400265,
+      "pcm_sha256": "f6ef4b6eb402de9d821bd53cd92c849ebb928094d9d81c65a45544d95eed422a",
+      "pcm_bytes": 249600
+    },
+    {
+      "index": 65,
+      "input": "\u53ef\u662f\u5bf9\u53e6\u5916\u4e24\u53f0\u97f3\u8c03\u5931\u51c6\uff0c\u602a\u58f0\u602a\u6c14\u7684\u7434\uff0c\u4ed6\u675f\u624b\u7a9d\u7b56\u3002",
+      "success": true,
+      "audio_seconds": 7.44,
+      "ttfa_seconds": 0.6026299064978957,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 23,
+          "output_tokens": 94,
+          "total_tokens": 117,
+          "input_token_details": {
+            "text_tokens": 23,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 22912,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 12.828392441384494,
+      "pcm_sha256": "1b7d06ce656a3606aec4cf95017084fc6cc5979e4247ca6358d7e07f447dab8c",
+      "pcm_bytes": 357120
+    },
+    {
+      "index": 66,
+      "input": "\u8bf4\u8bf4\u4f60\u4eec\u5728\u4eac\u85cf\u9ad8\u901f\u6000\u5b89\u6bb5\uff0c\u5835\u8f66\u73b0\u573a\u770b\u5230\u7684\u60c5\u51b5\u3002",
+      "success": true,
+      "audio_seconds": 3.68,
+      "ttfa_seconds": 0.655614560469985,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 16,
+          "output_tokens": 47,
+          "total_tokens": 63,
+          "input_token_details": {
+            "text_tokens": 16,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18176,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.740207054652274,
+      "pcm_sha256": "7f711829ba06bf2b56c7ba5e74db15ea162b669eb5c5a68d8e3e3a2cc4ab6464",
+      "pcm_bytes": 176640
+    },
+    {
+      "index": 67,
+      "input": "\u81ea\u52a8\u9a7e\u9a76\u5c06\u5927\u5e45\u63d0\u5347\u51fa\u884c\u5b89\u5168\uff0c\u6548\u7387\u3002",
+      "success": true,
+      "audio_seconds": 4.8,
+      "ttfa_seconds": 0.7248939359560609,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 61,
+          "total_tokens": 69,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 22528,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.637511123903096,
+      "pcm_sha256": "932dfcdf15dcd3e852cec82d54e973e19a7e713643a790e12ccdbe1bb15638a9",
+      "pcm_bytes": 230400
+    },
+    {
+      "index": 68,
+      "input": "\u5171\u540c\u5efa\u8bbe\u9762\u5411\u672a\u6765\u7684\u4ea4\u901a\uff0c\u548c\u51fa\u884c\u670d\u52a1\u65b0\u751f\u6001\u3002",
+      "success": true,
+      "audio_seconds": 6.24,
+      "ttfa_seconds": 0.7213569637387991,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 79,
+          "total_tokens": 91,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19968,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.823983797803521,
+      "pcm_sha256": "d08fd10f933e4cf5a4ceb922f64afa8025571fddc796c1585f064554ff135db9",
+      "pcm_bytes": 299520
+    },
+    {
+      "index": 69,
+      "input": "\u6211\u4eec\u5c06\u4e3a\u5168\u7403\u57ce\u5e02\u7684\u53ef\u6301\u7eed\u53d1\u5c55\u8d21\u732e\u529b\u91cf\u3002",
+      "success": true,
+      "audio_seconds": 3.52,
+      "ttfa_seconds": 0.6644899509847164,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 45,
+          "total_tokens": 53,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 20736,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.369958230294287,
+      "pcm_sha256": "f1dc6ff7443413a8860e3557e44f39e29affa2f4f15677a79145d198944f6af9",
+      "pcm_bytes": 168960
+    },
+    {
+      "index": 70,
+      "input": "\u76ee\u524d\u4e2d\u56fd\u4e92\u8054\u7f51\u56fd\u9645\u5316\u8fd8\u5728\u5f00\u62d3\u9636\u6bb5\u3002",
+      "success": true,
+      "audio_seconds": 3.84,
+      "ttfa_seconds": 0.808160244487226,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 49,
+          "total_tokens": 57,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 17280,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.791094244457781,
+      "pcm_sha256": "28f7aa83e7412b3cfe8efb4ce9eaa5b1458986827dccc8d7a33c9f013dde1a2a",
+      "pcm_bytes": 184320
+    },
+    {
+      "index": 71,
+      "input": "\u81ea\u52a8\u9a7e\u9a76\u5c06\u5927\u5e45\u63d0\u5347\u51fa\u884c\u5b89\u5168\uff0c\u6548\u7387\u3002",
+      "success": true,
+      "audio_seconds": 3.84,
+      "ttfa_seconds": 0.6670530065894127,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 49,
+          "total_tokens": 57,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18176,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.931925293058157,
+      "pcm_sha256": "ce32f5bb07db97785ac5dd1410377eb45c93cbaf7e34a197dfcc978ceb2f278a",
+      "pcm_bytes": 184320
+    },
+    {
+      "index": 72,
+      "input": "\u7ecf\u6d4e\u53d1\u5c55\u662f\u57ce\u5e02\u9ad8\u6548\u5b9c\u5c45\u53d1\u5c55\u7684\u57fa\u77f3\u3002",
+      "success": true,
+      "audio_seconds": 4.4,
+      "ttfa_seconds": 0.5775284972041845,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 56,
+          "total_tokens": 64,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 17536,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.766460120677948,
+      "pcm_sha256": "879e0b4998d29fd0c5a7d940f4ed10d91ace706497c1413208e380aa3ebce38e",
+      "pcm_bytes": 211200
+    },
+    {
+      "index": 73,
+      "input": "\u7ecf\u6d4e\u53d1\u5c55\u7684\u4e0d\u5e73\u4e0d\u5145\u5206\u95ee\u9898\u65e5\u76ca\u7a81\u51fa\u3002",
+      "success": true,
+      "audio_seconds": 4.0,
+      "ttfa_seconds": 0.6196092562749982,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 51,
+          "total_tokens": 61,
+          "input_token_details": {
+            "text_tokens": 10,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 17536,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.1672690426930785,
+      "pcm_sha256": "0ce9a18a70dfc6c836b9c1c9e730ff23b0de1d924388da9b207cd0e31cf1601e",
+      "pcm_bytes": 192000
+    },
+    {
+      "index": 74,
+      "input": "\u5973\u6027\u53ef\u4ee5\u6210\u4e3a\u6210\u529f\u7684\u79d1\u5b66\u5bb6\uff0c\u5de5\u7a0b\u5e08\u548c\u7a0b\u5e8f\u5458\u3002",
+      "success": true,
+      "audio_seconds": 4.56,
+      "ttfa_seconds": 0.5571268685162067,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 58,
+          "total_tokens": 68,
+          "input_token_details": {
+            "text_tokens": 10,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 20352,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.88138288911432,
+      "pcm_sha256": "7f1f8738430334bc814eeee755d6dfed3820ba23816585ec4d0f6023e13f10d3",
+      "pcm_bytes": 218880
+    },
+    {
+      "index": 75,
+      "input": "\u4e92\u8054\u7f51\u5df2\u7ecf\u6210\u4e3a\u4e00\u79cd\u89e3\u51b3\u65b9\u6848\u7684\u5e94\u7528\u5c42\u3002",
+      "success": true,
+      "audio_seconds": 4.48,
+      "ttfa_seconds": 0.7743743797764182,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 7,
+          "output_tokens": 57,
+          "total_tokens": 64,
+          "input_token_details": {
+            "text_tokens": 7,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 27392,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.8356531439349055,
+      "pcm_sha256": "2335893500eb2ad06c76e7999431918d6de141694e0b55225ff4faa040946546",
+      "pcm_bytes": 215040
+    },
+    {
+      "index": 76,
+      "input": "\u53ea\u6709\u5f53\u79d1\u6280\u4e3a\u672c\u5730\u793e\u7fa4\u521b\u9020\u4ef7\u503c\u7684\u65f6\u5019\uff0c\u624d\u771f\u6b63\u6709\u610f\u4e49\u3002",
+      "success": true,
+      "audio_seconds": 6.0,
+      "ttfa_seconds": 0.7581121670082211,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 76,
+          "total_tokens": 90,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18688,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.382818385027349,
+      "pcm_sha256": "968b1a91e6075cae5b337e7389db13b9da598dfdf310d7727c692f893416be35",
+      "pcm_bytes": 288000
+    },
+    {
+      "index": 77,
+      "input": "\u81ea\u52a8\u9a7e\u9a76\u5c06\u5927\u5e45\u63d0\u5347\u51fa\u884c\u5b89\u5168\uff0c\u6548\u7387\u3002",
+      "success": true,
+      "audio_seconds": 4.56,
+      "ttfa_seconds": 0.6264663562178612,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 58,
+          "total_tokens": 66,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 24192,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.03229609131813,
+      "pcm_sha256": "4c0abf72fcebf62c04ce0bdc87138597d1ae8fd450bfe14168fde95d81fb0aea",
+      "pcm_bytes": 218880
+    },
+    {
+      "index": 78,
+      "input": "\u5a92\u4f53\u8fc5\u901f\u628a\u4e30\u7530\u7684\u9893\u52bf\uff0c\u4e0e\u65e5\u672c\u8870\u843d\u6302\u94a9\u3002",
+      "success": true,
+      "audio_seconds": 3.36,
+      "ttfa_seconds": 0.8558837594464421,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 43,
+          "total_tokens": 57,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18560,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.091414030641317,
+      "pcm_sha256": "1d505188e0f0da3d2355b13f2024cdac9f871ef313478303a910a3b2699890b0",
+      "pcm_bytes": 161280
+    },
+    {
+      "index": 79,
+      "input": "\u76ee\u524d\u5171\u4eab\u51fa\u884c\u5e02\u573a\u5904\u4e8e\u9ad8\u901f\u589e\u957f\u9636\u6bb5\u3002",
+      "success": true,
+      "audio_seconds": 4.0,
+      "ttfa_seconds": 0.9855073904618621,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 51,
+          "total_tokens": 59,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 10112,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.07491996884346,
+      "pcm_sha256": "73ecb416fdd069b25f88c40944e8baa51906eab629db27380f3b956ab71d2526",
+      "pcm_bytes": 192000
+    },
+    {
+      "index": 80,
+      "input": "\u5317\u4eac\u5728\u51fa\u884c\u89c4\u6a21\uff0c\u57ce\u5e02\u5f71\u54cd\u529b\u65b9\u9762\u8868\u73b0\u4f18\u5f02\u3002",
+      "success": true,
+      "audio_seconds": 5.6,
+      "ttfa_seconds": 0.9812265392392874,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 71,
+          "total_tokens": 82,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 10496,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.736015003174543,
+      "pcm_sha256": "2483c01fffed5ecb9c6255081bc96f596b5035d30c123987e78e5b93cc15efbb",
+      "pcm_bytes": 268800
+    },
+    {
+      "index": 81,
+      "input": "\u5c31\u5728\u8425\u6551\u8fdb\u884c\u7684\u540c\u65f6\uff0c\u697c\u4e0b\u5374\u4e0d\u65ad\u5730\u53d1\u51fa\u6b22\u547c\uff0c\u8d77\u54c4\u58f0\u3002",
+      "success": true,
+      "audio_seconds": 5.84,
+      "ttfa_seconds": 0.6208373801782727,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 16,
+          "output_tokens": 74,
+          "total_tokens": 90,
+          "input_token_details": {
+            "text_tokens": 16,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 24192,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.178818418644369,
+      "pcm_sha256": "c6540cf56f539c4c2268941395332a3658778ce76b04bf82a7f0d12ef8441bb6",
+      "pcm_bytes": 280320
+    },
+    {
+      "index": 82,
+      "input": "\u4e92\u8054\u7f51\u5df2\u7ecf\u6210\u4e3a\u4e00\u79cd\u89e3\u51b3\u65b9\u6848\u7684\u5e94\u7528\u5c42\u3002",
+      "success": true,
+      "audio_seconds": 5.52,
+      "ttfa_seconds": 0.6177095482125878,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 7,
+          "output_tokens": 70,
+          "total_tokens": 77,
+          "input_token_details": {
+            "text_tokens": 7,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 23168,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.554936839267612,
+      "pcm_sha256": "7058e36e124f86cdf9d58515f860119c686e63f7a67e6f660d6bc1bdf0a4a428",
+      "pcm_bytes": 264960
+    },
+    {
+      "index": 83,
+      "input": "\u503c\u73ed\u8b66\u957f\u9648\u771f\u548c\u540c\u4e8b\uff0c\u7acb\u5373\u8d76\u5f80\u4e8b\u53d1\u5730\u5de5\u5546\u94f6\u884c\u3002",
+      "success": true,
+      "audio_seconds": 4.4,
+      "ttfa_seconds": 0.5620000939816236,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 15,
+          "output_tokens": 56,
+          "total_tokens": 71,
+          "input_token_details": {
+            "text_tokens": 15,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 23936,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.640028824098408,
+      "pcm_sha256": "a3fe5165932ea3cc06e35fe6acb8ca5e88321d3ff560fa155ed108f4948f0a8c",
+      "pcm_bytes": 211200
+    },
+    {
+      "index": 84,
+      "input": "\u5317\u4eac\u5728\u51fa\u884c\u89c4\u6a21\uff0c\u57ce\u5e02\u5f71\u54cd\u529b\u65b9\u9762\u8868\u73b0\u4f18\u5f02\u3002",
+      "success": true,
+      "audio_seconds": 5.2,
+      "ttfa_seconds": 0.7885356647893786,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 66,
+          "total_tokens": 77,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 10304,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.936452792026103,
+      "pcm_sha256": "1b3ccee35bd44e3bfbab2a56a28f2230806bfe90f6b5d64d38714bb673adb6cf",
+      "pcm_bytes": 249600
+    },
+    {
+      "index": 85,
+      "input": "\u4ea7\u4e1a\u4e92\u8054\u7f51\u65f6\u4ee3\uff0c\u9762\u4e34\u5f88\u591a\u5b89\u5168\u6311\u6218\u3002",
+      "success": true,
+      "audio_seconds": 3.92,
+      "ttfa_seconds": 0.719921076670289,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 50,
+          "total_tokens": 59,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16768,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.950515005737543,
+      "pcm_sha256": "dce58455f2d499c20c0abc9547a2dba2ac515a1a5e068706107efbb8af702993",
+      "pcm_bytes": 188160
+    },
+    {
+      "index": 86,
+      "input": "\u81ea\u52a8\u9a7e\u9a76\u5c06\u5927\u5e45\u63d0\u5347\u51fa\u884c\u5b89\u5168\uff0c\u6548\u7387\u3002",
+      "success": true,
+      "audio_seconds": 4.96,
+      "ttfa_seconds": 0.6770315943285823,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 63,
+          "total_tokens": 71,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 23552,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.60726892016828,
+      "pcm_sha256": "6e274932102114b895d97e4ce830794bbc2a0fd91cb2e2a10f5c7c22796da439",
+      "pcm_bytes": 238080
+    },
+    {
+      "index": 87,
+      "input": "\u6643\u773c\u7684\u4eba\u6c11\u5e01\u65c1\uff0c\u66f4\u591a\u7684\u662f\u751f\u547d\u7684\u65e0\u5948\u3002",
+      "success": true,
+      "audio_seconds": 7.28,
+      "ttfa_seconds": 0.6125454539433122,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 92,
+          "total_tokens": 102,
+          "input_token_details": {
+            "text_tokens": 10,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 21632,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 12.483429952524602,
+      "pcm_sha256": "2815cf2e50d1162fbcf81aae87dcf9ed7f1dfb68194166264675f90b271d061a",
+      "pcm_bytes": 349440
+    },
+    {
+      "index": 88,
+      "input": "\u6253\u9020\u66f4\u8d34\u5fc3\uff0c\u66f4\u7ec6\u81f4\u7684\u4e2a\u6027\u5316\u670d\u52a1\u3002",
+      "success": true,
+      "audio_seconds": 3.68,
+      "ttfa_seconds": 0.6094609936699271,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 47,
+          "total_tokens": 57,
+          "input_token_details": {
+            "text_tokens": 10,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16064,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.70261020027101,
+      "pcm_sha256": "8228653459965b654fe9954f4e0bd01887d00154a9841c351d297c55355f49aa",
+      "pcm_bytes": 176640
+    },
+    {
+      "index": 89,
+      "input": "\u7b2c\u4e00\u5929\u53bb\uff0c\u524d\u51e0\u4e2a\u5c0f\u65f6\u5f88\u5c34\u5c2c\uff0c\u5b64\u96f6\u96f6\u7684\u3002",
+      "success": true,
+      "audio_seconds": 7.28,
+      "ttfa_seconds": 0.5352955013513565,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 92,
+          "total_tokens": 106,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 14528,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 12.41457642801106,
+      "pcm_sha256": "d10685821dc1a1273f7c8a9f83b4cc5821f06e4fed5554dacf20bf79b13fd6cd",
+      "pcm_bytes": 349440
+    },
+    {
+      "index": 90,
+      "input": "\u771f\u6b63\u843d\u5730\u6210\u4e3a\u4ea7\u54c1\u670d\u52a1\u8fdb\u5165\u6bcf\u4e2a\u4eba\u7684\u751f\u6d3b\u3002",
+      "success": true,
+      "audio_seconds": 4.88,
+      "ttfa_seconds": 0.6669880645349622,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 62,
+          "total_tokens": 71,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18560,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.46548777539283,
+      "pcm_sha256": "d5e5eb18c59dde7aa7be92b91066250f39a1334084260c59aff49f2bbfcb1cbc",
+      "pcm_bytes": 234240
+    },
+    {
+      "index": 91,
+      "input": "\u53ea\u6709\u5f53\u79d1\u6280\u4e3a\u672c\u5730\u793e\u7fa4\u521b\u9020\u4ef7\u503c\u65f6\u5019\uff0c\u624d\u80fd\u771f\u6b63\u6709\u610f\u4e49\u3002",
+      "success": true,
+      "audio_seconds": 6.32,
+      "ttfa_seconds": 0.6646344233304262,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 80,
+          "total_tokens": 94,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 14016,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.933776232413948,
+      "pcm_sha256": "b8da7804267b781147beced0c58129a280b8444f7f1c2c97c063c548de21dfcd",
+      "pcm_bytes": 303360
+    },
+    {
+      "index": 92,
+      "input": "\u901a\u8fc7\u8c03\u67e5\uff0c\u5c06\u7b5b\u9009\u51fa\u4e00\u6279\u53e3\u5473\u4ee4\u6d88\u8d39\u8005\u6ee1\u610f\u7684\u4ea7\u54c1\u3002",
+      "success": true,
+      "audio_seconds": 6.48,
+      "ttfa_seconds": 0.8142610220238566,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 13,
+          "output_tokens": 82,
+          "total_tokens": 95,
+          "input_token_details": {
+            "text_tokens": 13,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 21248,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 11.161371591500938,
+      "pcm_sha256": "911469e3c51789525cf26f0a21122d5b23266a3ccf3bf6a035ee9736b53571e7",
+      "pcm_bytes": 311040
+    },
+    {
+      "index": 93,
+      "input": "\u6b64\u5916\uff0c\u8fd8\u6709\u6bd2\u86c7\uff0c\u87d2\u86c7\u7ecf\u5e38\u51fa\u73b0\uff0c\u7ed9\u53d1\u5c55\u751f\u9020\u6210\u8bb8\u591a\u56f0\u96be\u3002",
+      "success": true,
+      "audio_seconds": 7.92,
+      "ttfa_seconds": 0.6916824150830507,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 18,
+          "output_tokens": 100,
+          "total_tokens": 118,
+          "input_token_details": {
+            "text_tokens": 18,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 21504,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 13.306875753216445,
+      "pcm_sha256": "82d6531748321e40c3db9c3f5cf472371157d6c0234b9b2840089c06ecc4169d",
+      "pcm_bytes": 380160
+    },
+    {
+      "index": 94,
+      "input": "\u8fd9\u4e9b\u533b\u7597\u961f\u7684\u533b\u751f\u4eec\u514b\u670d\u9ad8\u5bd2\u7f3a\u6c27\uff0c\u4ea4\u901a\u4e0d\u4fbf\u7b49\u56f0\u96be\u3002",
+      "success": true,
+      "audio_seconds": 4.56,
+      "ttfa_seconds": 0.6090440740808845,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 17,
+          "output_tokens": 58,
+          "total_tokens": 75,
+          "input_token_details": {
+            "text_tokens": 17,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 22144,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.909154708497226,
+      "pcm_sha256": "df6e1b2c2e08444d664f6e122012e69ad9f2e5e173b123ca2ab6856f4d255c53",
+      "pcm_bytes": 218880
+    },
+    {
+      "index": 95,
+      "input": "\u521b\u4e1a\u9700\u8981\u6fc0\u60c5\uff0c\u66f4\u9700\u8981\u5f3a\u70c8\u7684\u793e\u4f1a\u8d23\u4efb\u611f\u3002",
+      "success": true,
+      "audio_seconds": 3.84,
+      "ttfa_seconds": 0.605370769277215,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 49,
+          "total_tokens": 59,
+          "input_token_details": {
+            "text_tokens": 10,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 23040,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.60607622936368,
+      "pcm_sha256": "dfe1b7aec3c83973cadc8c6448aca6652ad99d4e1c9391a2bbfb74113c805202",
+      "pcm_bytes": 184320
+    },
+    {
+      "index": 96,
+      "input": "\u7ecf\u6d4e\u53d1\u5c55\u7684\u4e0d\u5e73\u8861\u4e0d\u5145\u5206\u95ee\u9898\u65e5\u76ca\u7a81\u51fa\u3002",
+      "success": true,
+      "audio_seconds": 4.24,
+      "ttfa_seconds": 0.7891223011538386,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 54,
+          "total_tokens": 63,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15552,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.507047668099403,
+      "pcm_sha256": "bba7124d73b72e3685f2fb068494a189152858178c1c3049af4a79fb270d8a5d",
+      "pcm_bytes": 203520
+    },
+    {
+      "index": 97,
+      "input": "\u4f46\u662f\u8fd9\u4e2a\u5927\u575d\u4ecd\u7136\u4e0d\u6392\u9664\u57ae\u575d\u7684\u53ef\u80fd\u6027\u3002",
+      "success": true,
+      "audio_seconds": 4.32,
+      "ttfa_seconds": 0.7747282776981592,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 55,
+          "total_tokens": 65,
+          "input_token_details": {
+            "text_tokens": 10,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 27008,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.552560138516128,
+      "pcm_sha256": "b2e9c02eb1ff0c5a610295857b9ece6c237c4ad9f96d0ec898ff3028bc2f3dd7",
+      "pcm_bytes": 207360
+    },
+    {
+      "index": 98,
+      "input": "\u5bfc\u822a\u5f00\u59cb\uff0c\u5168\u7a0b\u4e8c\u5341\u4e94\u516c\u91cc\uff0c\u9884\u8ba1\u9700\u8981\u5341\u4e8c\u5206\u949f\u3002",
+      "success": true,
+      "audio_seconds": 4.8,
+      "ttfa_seconds": 0.7237297855317593,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 61,
+          "total_tokens": 73,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 20224,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.313966888934374,
+      "pcm_sha256": "bdc1f36272cc46419633c1b3f3fd6802adda35b291c6c2df20a1a04cc042dc07",
+      "pcm_bytes": 230400
+    },
+    {
+      "index": 99,
+      "input": "\u901a\u8fc7\u521b\u65b0\u6280\u672f\u8ba9\u672a\u6765\u51fa\u884c\u66f4\u52a0\u5b89\u5168\uff0c\u9ad8\u6548\u3002",
+      "success": true,
+      "audio_seconds": 7.2,
+      "ttfa_seconds": 0.7194303143769503,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 91,
+          "total_tokens": 102,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15424,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 12.08286545239389,
+      "pcm_sha256": "9b71cecb03cbc03a7fc5d5b11191af1a58389a71fe679fc4338e148df3f446ff",
+      "pcm_bytes": 345600
+    },
+    {
+      "index": 100,
+      "input": "\u81ea\u52a8\u9a7e\u9a76\u5c06\u5927\u5e45\u63d0\u5347\u51fa\u884c\u5b89\u5168\uff0c\u6548\u7387\u3002",
+      "success": true,
+      "audio_seconds": 4.88,
+      "ttfa_seconds": 0.5465114125981927,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 62,
+          "total_tokens": 70,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 17920,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.583264798857272,
+      "pcm_sha256": "3b6778143fa7b7713fdcd8750bb7183a8133b3bcd6822f318510b0cdcde54946",
+      "pcm_bytes": 234240
+    },
+    {
+      "index": 101,
+      "input": "\u8fd9\u4e0d\u662f\u53d8\u9b54\u672f\uff0c\u800c\u662f\u6dfb\u52a0\u5242\u8ba9\u8150\u673d\u53d8\u795e\u5947\u3002",
+      "success": true,
+      "audio_seconds": 4.88,
+      "ttfa_seconds": 0.5613896884024143,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 62,
+          "total_tokens": 74,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15616,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.642286158166826,
+      "pcm_sha256": "4e4ee5d82fd99969b4bbcec8966215ee6466cdcbb28a53ca69a2470bc45c941c",
+      "pcm_bytes": 234240
+    },
+    {
+      "index": 102,
+      "input": "\u5171\u540c\u5efa\u8bbe\u9762\u5411\u672a\u6765\u7684\u4ea4\u901a\uff0c\u548c\u51fa\u884c\u670d\u52a1\u65b0\u751f\u6001\u3002",
+      "success": true,
+      "audio_seconds": 6.0,
+      "ttfa_seconds": 0.501969269476831,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 76,
+          "total_tokens": 88,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19968,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 10.148713308386505,
+      "pcm_sha256": "22f5ff1a38865f67a206a7ff49e04a3521bd17b60a7bea79bd097250ba1e744e",
+      "pcm_bytes": 288000
+    },
+    {
+      "index": 103,
+      "input": "\u4ed6\u4eec\u8131\u6389\u7b28\u91cd\u7684\u51ac\u8863\uff0c\u8d70\u8d77\u8def\u6765\u8170\u6746\u633a\u76f4\u6b65\u5c65\u8f7b\u76c8\u3002",
+      "success": true,
+      "audio_seconds": 5.12,
+      "ttfa_seconds": 0.5940167335793376,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 22,
+          "output_tokens": 65,
+          "total_tokens": 87,
+          "input_token_details": {
+            "text_tokens": 22,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19072,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.027639553882182,
+      "pcm_sha256": "da54b2535e8c990fc50dace110784c027ca6ff56765a8ee96b0d7a65dfc74026",
+      "pcm_bytes": 245760
+    },
+    {
+      "index": 104,
+      "input": "\u8fd1\u4e09\u5468\u6765\uff0c\u4ed6\u51ed\u7740\u4e00\u80a1\u5014\u813e\u6c14\uff0c\u5bf9\u8fd9\u4e2a\u52a8\u4f5c\u7ec3\u5f97\u7279\u522b\u72e0\u3002",
+      "success": true,
+      "audio_seconds": 5.36,
+      "ttfa_seconds": 0.714256470091641,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 19,
+          "output_tokens": 68,
+          "total_tokens": 87,
+          "input_token_details": {
+            "text_tokens": 19,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18304,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.291423780843616,
+      "pcm_sha256": "e920073efac4d2b900c053410a9952b6e0156311b6c955765df5d282788a9098",
+      "pcm_bytes": 257280
+    },
+    {
+      "index": 105,
+      "input": "\u53ea\u6709\u5f53\u79d1\u6280\u4e3a\u672c\u5730\u793e\u7fa4\u521b\u9020\u4ef7\u503c\u7684\u65f6\u5019\uff0c\u624d\u771f\u6b63\u6709\u610f\u4e49\u3002",
+      "success": true,
+      "audio_seconds": 5.76,
+      "ttfa_seconds": 0.5985686713829637,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 73,
+          "total_tokens": 87,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 20096,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.636940934695303,
+      "pcm_sha256": "83d9668695de441366ee5c2296e2e115a5b780f98eccbfa34089e80098f4c347",
+      "pcm_bytes": 276480
+    },
+    {
+      "index": 106,
+      "input": "\u901a\u8fc7\u521b\u65b0\u6280\u672f\u8ba9\u672a\u6765\u51fa\u884c\u66f4\u52a0\u5b89\u5168\uff0c\u9ad8\u6548\u3002",
+      "success": true,
+      "audio_seconds": 4.88,
+      "ttfa_seconds": 0.8278375826776028,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 62,
+          "total_tokens": 73,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 22144,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.446171045303345,
+      "pcm_sha256": "b881e673d67e5428d882603ee32d01d8a73ecad87fb6d642fc1caae49f984990",
+      "pcm_bytes": 234240
+    },
+    {
+      "index": 107,
+      "input": "\u5317\u4eac\u5728\u51fa\u884c\u89c4\u6a21\uff0c\u57ce\u5e02\u5f71\u54cd\u529b\u65b9\u9762\u8868\u73b0\u4f18\u5f02\u3002",
+      "success": true,
+      "audio_seconds": 5.52,
+      "ttfa_seconds": 0.611724273301661,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 11,
+          "output_tokens": 70,
+          "total_tokens": 81,
+          "input_token_details": {
+            "text_tokens": 11,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 10496,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.300159267149866,
+      "pcm_sha256": "cdb32d6862a972a1204a56c934df7a01f1d94039d257d1762c8529f4bd50258d",
+      "pcm_bytes": 264960
+    },
+    {
+      "index": 108,
+      "input": "\u8ba4\u4e3a\u5b83\u53ef\u80fd\u662f\u552f\u4e00\u80fd\u6253\u7834\uff0c\u5fae\u8f6f\u5784\u65ad\u5730\u4f4d\u7684\u64cd\u4f5c\u7cfb\u7edf\u3002",
+      "success": true,
+      "audio_seconds": 4.56,
+      "ttfa_seconds": 0.6067836154252291,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 13,
+          "output_tokens": 58,
+          "total_tokens": 71,
+          "input_token_details": {
+            "text_tokens": 13,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 21888,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.931473097763956,
+      "pcm_sha256": "8130fd74fb403a85814d9e03b6ff5b53b5453b2676b42f9c5675cd81bd232e24",
+      "pcm_bytes": 218880
+    },
+    {
+      "index": 109,
+      "input": "\u53ea\u6709\u5f53\u79d1\u6280\u4e3a\u672c\u5730\u793e\u7fa4\u521b\u9020\u4ef7\u503c\u7684\u65f6\u5019\uff0c\u624d\u771f\u6b63\u6709\u610f\u4e49\u3002",
+      "success": true,
+      "audio_seconds": 5.52,
+      "ttfa_seconds": 0.6587571119889617,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 70,
+          "total_tokens": 84,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18688,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.190579897724092,
+      "pcm_sha256": "fa9ebc262e5648a50714620deb6d5d93f579492631b28e57164d5c59690778d9",
+      "pcm_bytes": 264960
+    },
+    {
+      "index": 110,
+      "input": "\u6211\u5f00\u59cb\u8ddf\u968f\u5468\u8001\uff0c\u4ece\u4e8b\u4e86\u957f\u8fbe\u6570\u5341\u5e74\u7684\u5598\u6d41\u7814\u7a76\u5de5\u4f5c\u3002",
+      "success": true,
+      "audio_seconds": 5.36,
+      "ttfa_seconds": 0.6872254787012935,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 17,
+          "output_tokens": 68,
+          "total_tokens": 85,
+          "input_token_details": {
+            "text_tokens": 17,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18816,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.915404805913568,
+      "pcm_sha256": "de10201236b82d44c136912428b00173d5cffc738e8a4ad04da61ad54b25ec08",
+      "pcm_bytes": 257280
+    },
+    {
+      "index": 111,
+      "input": "\u53ea\u8981\u72d7\u4e00\u53eb\uff0c\u803f\u7d20\u6797\u5c31\u5f97\u8d77\u6765\u7785\u7785\uff0c\u770b\u662f\u4e0d\u662f\u6765\u4e86\u5916\u4eba\u3002",
+      "success": true,
+      "audio_seconds": 5.2,
+      "ttfa_seconds": 0.5832193437963724,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 19,
+          "output_tokens": 66,
+          "total_tokens": 85,
+          "input_token_details": {
+            "text_tokens": 19,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 23040,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.707435635849833,
+      "pcm_sha256": "4502055014545fef2f42cf2020edcb4571e7b64f4f100bfbff8b2cfbd32b5730",
+      "pcm_bytes": 249600
+    },
+    {
+      "index": 112,
+      "input": "\u76ee\u524d\u4e2d\u56fd\u4e92\u8054\u7f51\u56fd\u9645\u5316\u8fd8\u5728\u5f00\u62d3\u9636\u6bb5\u3002",
+      "success": true,
+      "audio_seconds": 5.92,
+      "ttfa_seconds": 0.8260735776275396,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 75,
+          "total_tokens": 83,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 16384,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.414287175051868,
+      "pcm_sha256": "6806871ae49873b8fbeee763665a65c4126575af29e63f39db3fe91a9fcd6620",
+      "pcm_bytes": 284160
+    },
+    {
+      "index": 113,
+      "input": "\u53ea\u6709\u5f53\u79d1\u6280\u4e3a\u672c\u5730\u793e\u7fa4\u521b\u9020\u4ef7\u503c\u7684\u65f6\u5019\uff0c\u624d\u771f\u6b63\u6709\u610f\u4e49\u3002",
+      "success": true,
+      "audio_seconds": 5.52,
+      "ttfa_seconds": 0.6419248152524233,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 70,
+          "total_tokens": 84,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 24704,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.896518646739423,
+      "pcm_sha256": "0625114b5fb1d2ba6d3db99704b43cc75500d5d9f23863d61100ed7a944d7dc6",
+      "pcm_bytes": 264960
+    },
+    {
+      "index": 114,
+      "input": "\u53ea\u6709\u5f53\u79d1\u6280\u4e3a\u672c\u5730\u793e\u7fa4\u521b\u9020\u4ef7\u503c\u7684\u65f6\u5019\uff0c\u624d\u771f\u6b63\u6709\u610f\u4e49\u3002",
+      "success": true,
+      "audio_seconds": 6.08,
+      "ttfa_seconds": 0.6377172358334064,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 77,
+          "total_tokens": 91,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 24448,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.562142475508153,
+      "pcm_sha256": "22b4591eda22ce482f339347670fbb79fcaa1d6740a4e06bf5c1ad34fd5b148e",
+      "pcm_bytes": 291840
+    },
+    {
+      "index": 115,
+      "input": "\u6211\u4eec\u5f53\u8fce\u7740\u9633\u5149\u8f9b\u52e4\u8015\u4f5c\uff0c\u53bb\u6458\u53d6\uff0c\u53bb\u5236\u4f5c\uff0c\u53bb\u54c1\u5c1d\uff0c\u53bb\u9988\u8d60\u3002",
+      "success": true,
+      "audio_seconds": 9.84,
+      "ttfa_seconds": 0.5790796568617225,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 23,
+          "output_tokens": 124,
+          "total_tokens": 147,
+          "input_token_details": {
+            "text_tokens": 23,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 22528,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 13.122892654500902,
+      "pcm_sha256": "033049784ccd9ad8df14d90359cb044b5c11ae36a37021e0b6ce6891c6d4af8f",
+      "pcm_bytes": 472320
+    },
+    {
+      "index": 116,
+      "input": "\u53ea\u6709\u5f53\u79d1\u6280\u4e3a\u672c\u5730\u793e\u7fa4\u521b\u9020\u4ef7\u503c\u7684\u65f6\u5019\uff0c\u624d\u771f\u6b63\u6709\u610f\u4e49\u3002",
+      "success": true,
+      "audio_seconds": 5.84,
+      "ttfa_seconds": 0.693075860850513,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 74,
+          "total_tokens": 88,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 15232,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.915691962465644,
+      "pcm_sha256": "82db4a384d6166578bfc2944f1e341bb2d701f3d322737818da2aecf943b4f8b",
+      "pcm_bytes": 280320
+    },
+    {
+      "index": 117,
+      "input": "\u4e00\u526f\u5de8\u5927\u7684\u5bf9\u8054\u8d34\uff0c\u5728\u62c9\u8428\u5e02\u6c34\u6ce5\u5382\u793c\u5802\u7684\u95e8\u67f1\u4e0a\u3002",
+      "success": true,
+      "audio_seconds": 4.8,
+      "ttfa_seconds": 0.7345905965194106,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 17,
+          "output_tokens": 61,
+          "total_tokens": 78,
+          "input_token_details": {
+            "text_tokens": 17,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18688,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.583712564781308,
+      "pcm_sha256": "0846196ca45b10b48db18a1f7f8ea5e29d188ae33c33a52a8a1ad645a9e3c984",
+      "pcm_bytes": 230400
+    },
+    {
+      "index": 118,
+      "input": "\u5bfc\u822a\u5f00\u59cb\uff0c\u5168\u7a0b\u4e8c\u5341\u4e94\u516c\u91cc\uff0c\u9884\u8ba1\u9700\u8981\u5341\u4e8c\u5206\u949f\u3002",
+      "success": true,
+      "audio_seconds": 5.28,
+      "ttfa_seconds": 0.7145960489287972,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 67,
+          "total_tokens": 79,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 21632,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.122060427442193,
+      "pcm_sha256": "3a5a7f095d0c469b61a97894a8748660abfb458bd8107b0e83a571ab4534d585",
+      "pcm_bytes": 253440
+    },
+    {
+      "index": 119,
+      "input": "\u5927\u575d\u53e6\u4e00\u7aef\u7684\u9ec4\u6cb3\u4e09\u5ce1\uff0c\u9ad8\u5ce1\u5e73\u6e56\uff0c\u6c14\u8c61\u4e07\u5343\u3002",
+      "success": true,
+      "audio_seconds": 5.84,
+      "ttfa_seconds": 0.6070700725540519,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 16,
+          "output_tokens": 74,
+          "total_tokens": 90,
+          "input_token_details": {
+            "text_tokens": 16,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 18560,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.66216845344752,
+      "pcm_sha256": "fb803e9e2850b68c9b2946b3c684c997a4617a9a8b7d6462502ebb01b89dfe2e",
+      "pcm_bytes": 280320
+    },
+    {
+      "index": 120,
+      "input": "\u4ea7\u4e1a\u4e92\u8054\u7f51\u65f6\u4ee3\uff0c\u9762\u4e34\u5f88\u591a\u5b89\u5168\u6311\u6218\u3002",
+      "success": true,
+      "audio_seconds": 3.6,
+      "ttfa_seconds": 0.6035431111231446,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 9,
+          "output_tokens": 46,
+          "total_tokens": 55,
+          "input_token_details": {
+            "text_tokens": 9,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19200,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.031463308259845,
+      "pcm_sha256": "37569670a22c3e3ac36b9b0efc0352675b8bb46f70b241b6fd76e49a52d94ab8",
+      "pcm_bytes": 172800
+    },
+    {
+      "index": 121,
+      "input": "\u81ea\u52a8\u9a7e\u9a76\u5c06\u5927\u5e45\u63d0\u5347\u51fa\u884c\u5b89\u5168\uff0c\u6548\u7387\u3002",
+      "success": true,
+      "audio_seconds": 4.48,
+      "ttfa_seconds": 0.6299409251660109,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 8,
+          "output_tokens": 57,
+          "total_tokens": 65,
+          "input_token_details": {
+            "text_tokens": 8,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19712,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.02934399805963,
+      "pcm_sha256": "7bc05c637176d5919bbb4d1fcdd06abcdf36aa84499dfcbd7d9f6868f40532a2",
+      "pcm_bytes": 215040
+    },
+    {
+      "index": 122,
+      "input": "\u5171\u540c\u5efa\u8bbe\u9762\u5411\u672a\u6765\u7684\u4ea4\u901a\uff0c\u548c\u51fa\u884c\u670d\u52a1\u65b0\u751f\u6001\u3002",
+      "success": true,
+      "audio_seconds": 4.72,
+      "ttfa_seconds": 0.5368417231366038,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 60,
+          "total_tokens": 72,
+          "input_token_details": {
+            "text_tokens": 12,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19968,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.242827490903437,
+      "pcm_sha256": "92a4d4aae6020ffa92f2f0302bcd44d8a540e987326307232019aa94f884557d",
+      "pcm_bytes": 226560
+    },
+    {
+      "index": 123,
+      "input": "\u4ed6\u5c31\u60f3\u628a\u5927\u5bb6\u805a\u5728\u4e00\u8d77\u5410\u69fd\uff0c\u8bf4\u8bf4\u5de5\u4f5c\u4e2d\u7684\u95ee\u9898\u3002",
+      "success": true,
+      "audio_seconds": 4.96,
+      "ttfa_seconds": 0.5633351393043995,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 63,
+          "total_tokens": 77,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 24704,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 7.529289685189724,
+      "pcm_sha256": "805cfa26c07a436b34b39aca48c0838baafbcb7249bbe935ecdf49c579d22523",
+      "pcm_bytes": 238080
+    },
+    {
+      "index": 124,
+      "input": "\u4ed6\u62ff\u8d77\u67f4\u5200\u80e1\u4e71\u6325\u821e\uff0c\u51f6\u731b\u7684\u85cf\u7352\u8eb2\u5230\u4e86\u4e00\u8fb9\u3002",
+      "success": true,
+      "audio_seconds": 4.08,
+      "ttfa_seconds": 0.560967618599534,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 18,
+          "output_tokens": 52,
+          "total_tokens": 70,
+          "input_token_details": {
+            "text_tokens": 18,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 17664,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.532476032152772,
+      "pcm_sha256": "033521fc36bf2be75833d27fd92e435a4a9ca2fa41dcfb6478f1315dc7d4084b",
+      "pcm_bytes": 195840
+    },
+    {
+      "index": 125,
+      "input": "\u5168\u7403\u6bcf\u5e74\u6709\u8d85\u8fc7\u4e00\u767e\u4e09\u5341\u4e94\u4e07\u4eba\uff0c\u56e0\u4ea4\u901a\u4e8b\u6545\u800c\u6b7b\u4ea1\u3002",
+      "success": true,
+      "audio_seconds": 5.84,
+      "ttfa_seconds": 0.8201398244127631,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 14,
+          "output_tokens": 74,
+          "total_tokens": 88,
+          "input_token_details": {
+            "text_tokens": 14,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 20736,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 8.168211893178523,
+      "pcm_sha256": "aeee12497bd5b4dc370a52b3dd24e9f0a9be4f7005e0f7e9c29d84135173f108",
+      "pcm_bytes": 280320
+    },
+    {
+      "index": 126,
+      "input": "\u70df\u96e8\u5f25\u6f2b\u4e0b\uff0c\u5c71\u73af\u7ed5\u7740\u6c34\u8038\u7acb\u7740\uff0c\u6c34\u73af\u7ed5\u7740\u5c71\u6d41\u6dcc\u7740\u3002",
+      "success": true,
+      "audio_seconds": 7.52,
+      "ttfa_seconds": 0.8091878602281213,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 20,
+          "output_tokens": 95,
+          "total_tokens": 115,
+          "input_token_details": {
+            "text_tokens": 20,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 19072,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.48940016143024,
+      "pcm_sha256": "4501b0c28279f099a4ae52d1ca5f168a71b455f2d9327cb4933c6972f89e21cd",
+      "pcm_bytes": 360960
+    },
+    {
+      "index": 127,
+      "input": "\u4ed6\u62ff\u8d77\u67f4\u5200\u80e1\u4e71\u6325\u821e\uff0c\u51f6\u731b\u7684\u85cf\u7352\u8eb2\u5230\u4e86\u4e00\u8fb9\u3002",
+      "success": true,
+      "audio_seconds": 4.4,
+      "ttfa_seconds": 0.7555438801646233,
+      "terminal": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 18,
+          "output_tokens": 56,
+          "total_tokens": 74,
+          "input_token_details": {
+            "text_tokens": 18,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "peak": 23040,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 6.279984618537128,
+      "pcm_sha256": "601db1cecd17484f3941f96c7ca5a9e2e9981c54b525e0a09c86cf4dd95bf037",
+      "pcm_bytes": 211200
+    }
+  ]
+}

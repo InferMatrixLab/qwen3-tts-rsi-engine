@@ -13,6 +13,9 @@ Full audio, request failures, terminal events and clean server exits are retaine
 
 See [the campaign contract](evidence/campaign-20261017/plan/contract.json)
 and [source provenance](evidence/campaign-20261017/plan/sources.md).
+The [first exploratory sweep](evidence/campaign-20261017/round1.md) contains
+all four requested metrics for vLLM C1–C64; SGLang and quality evaluation are
+still running. It is not the final repeated comparison.
 
 Benchmark against an already running OpenAI speech SSE endpoint:
 

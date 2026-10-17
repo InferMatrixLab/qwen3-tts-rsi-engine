@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "four English waveform ASR CPU/NPU float32 comparison only",
+  "matched_samples": 4,
+  "exact_records": true,
+  "cpu_full_evaluation": "STOPPED_AFTER_QUALIFICATION",
+  "full_evaluation": "NPU_FLOAT32_RUNNING"
+}

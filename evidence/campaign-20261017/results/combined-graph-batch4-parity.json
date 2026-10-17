@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "scope": "complete waveform parity; diagnostic timings only",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "arms": {
+    "reference": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 36,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "539421e02e5f98db12272801ab8e717e5e75d21d95a37c7ad832d86b7c8629e3",
+        "elapsed_s": 34.81999895442277
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 49,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "399079c395dba0adf0b07df2b77a9664b78eda1d4f1bdc623ca3041e0cf1f456",
+        "elapsed_s": 34.81999895442277
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 64,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "33425b01b4740a37fde1bfe2f31530bfb01c53306fdbdd63de3c7ef51b7beac7",
+        "elapsed_s": 34.81999895442277
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 108,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "ea2caffcecb84cac6b46688f55b6257794f8073f51efdf93c7e5a9f40288dfc3",
+        "elapsed_s": 34.81999895442277
+      }
+    ],
+    "graph": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 36,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "539421e02e5f98db12272801ab8e717e5e75d21d95a37c7ad832d86b7c8629e3",
+        "elapsed_s": 7.291630386374891
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 49,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "399079c395dba0adf0b07df2b77a9664b78eda1d4f1bdc623ca3041e0cf1f456",
+        "elapsed_s": 7.291630386374891
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 64,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "33425b01b4740a37fde1bfe2f31530bfb01c53306fdbdd63de3c7ef51b7beac7",
+        "elapsed_s": 7.291630386374891
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 108,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "ea2caffcecb84cac6b46688f55b6257794f8073f51efdf93c7e5a9f40288dfc3",
+        "elapsed_s": 7.291630386374891
+      }
+    ]
+  },
+  "implementation": "WholePredictorGraph",
+  "talker_graph": true,
+  "batch_size": 4,
+  "exact": true
+}

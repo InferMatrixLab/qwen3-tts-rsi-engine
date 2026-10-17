@@ -1,0 +1,168 @@
+{
+  "status": "INCONCLUSIVE",
+  "phase": "finished",
+  "command": [
+    "/home/why/qwen3-tts-research/venv-vllm/bin/vllm-omni",
+    "serve",
+    "--omni",
+    "/home/why/qwen3-tts-research/model",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8096",
+    "--trust-remote-code"
+  ],
+  "engine": "vllm-omni-main-jemalloc",
+  "source_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+  "quality": "NOT_RUN",
+  "server_exit": 0,
+  "benchmark_exit": 0,
+  "server_pid": 1207993,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 640.3267082255334,
+        "throughput_frames_s": 12.296847685489093,
+        "ttfa_p50_ms": 270.9299558773637,
+        "ttfa_p95_ms": 284.75743043236434,
+        "rtf_mean": 1.021043179537028,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 2,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 340.14503902569413,
+        "throughput_frames_s": 22.943153962655607,
+        "ttfa_p50_ms": 324.36227006837726,
+        "ttfa_p95_ms": 374.9993046745658,
+        "rtf_mean": 1.0921106427737464,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 4,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 179.9856905452907,
+        "throughput_frames_s": 43.83126223034298,
+        "ttfa_p50_ms": 344.9574699625373,
+        "ttfa_p95_ms": 430.1252225879579,
+        "rtf_mean": 1.1361252515339015,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 8,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 102.07473257370293,
+        "throughput_frames_s": 79.49077891672454,
+        "ttfa_p50_ms": 391.4935803040862,
+        "ttfa_p95_ms": 520.5294966232032,
+        "rtf_mean": 1.2216941816145934,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 16,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 65.00989571586251,
+        "throughput_frames_s": 124.59641583494476,
+        "ttfa_p50_ms": 498.53252014145255,
+        "ttfa_p95_ms": 661.1373523715883,
+        "rtf_mean": 1.3815607495303417,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 32,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 39.45766432955861,
+        "throughput_frames_s": 200.26527505533156,
+        "ttfa_p50_ms": 709.2177751474082,
+        "ttfa_p95_ms": 1016.5279964916408,
+        "rtf_mean": 1.7184953824042835,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 64,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 33.08040124271065,
+        "throughput_frames_s": 242.0768702666381,
+        "ttfa_p50_ms": 1395.918546244502,
+        "ttfa_p95_ms": 1793.4304440394044,
+        "rtf_mean": 2.6148350119770956,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    }
+  ],
+  "benchmark_command": [
+    "/home/why/qwen3-tts-research/venv-vllm/bin/python",
+    "-m",
+    "qwen3_tts_engine.benchmark",
+    "--endpoint",
+    "http://127.0.0.1:8096/v1/audio/speech",
+    "--model",
+    "/home/why/qwen3-tts-research/model",
+    "--engine",
+    "vllm-omni-main-jemalloc",
+    "--source-revision",
+    "b164fea797531c1fa10f8b87829632cad006b9fc",
+    "--workload",
+    "evidence/campaign-20261017/plan/workload-128.jsonl",
+    "--output",
+    "runs/vllm-sweep-round1-full128/requests-c64",
+    "--requests",
+    "128",
+    "--concurrency",
+    "64",
+    "--frame-rate",
+    "12.5",
+    "--warmup",
+    "64"
+  ],
+  "clean_server_exit": true
+}
