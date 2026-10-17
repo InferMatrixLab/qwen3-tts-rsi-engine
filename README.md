@@ -5,8 +5,10 @@ Independent inference work for `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` on Ascend 
 **Status: INCONCLUSIVE — full repeated, quality-qualified 2x acceptance is pending.**
 Two complete baseline repeats have performance and full ASR/speaker evidence.
 The third vLLM exploratory repeat has complete performance and audio scoring;
-the third SGLang repeat is running. SGLang uses the recorded import-only
-compatibility patch on its pinned main revision.
+the third SGLang repeat has completed all 896 requests with clean shutdown,
+and its audio scoring is finishing. A replacement third vLLM repeat on physical
+NPU 0 is running to keep the final comparison on the same card. SGLang uses
+the recorded import-only compatibility patch on its pinned main revision.
 
 The full predictor-only-RoPE/Triton-codec candidate passes all seven audio-quality
 gates against both round-2 baselines. Its throughput remains below 2x at C32.
@@ -16,7 +18,9 @@ prefill prewarming reached **418.05 / 526.22 frames/s at C32 / C64**, with all
 Its first complete C1–C64 trial has finished with 896 requests and exit 0:
 59.72 / 92.01 / 146.40 / 223.09 / 330.90 / 409.12 / 520.52 frames/s.
 All 896 WAV files match the previous full-quality candidate byte-for-byte;
-independent scoring is still running. C32 remains below twice vLLM round 2.
+independent scoring and all seven cohort integrity audits now pass, with quality
+within the frozen margins against both round-2 baselines. C32 remains below
+twice vLLM round 2.
 These single-run results on a shared host are not final repeated 2x acceptance.
 
 The newer default-off `--direct-prompt` option prepares CustomVoice inputs directly
