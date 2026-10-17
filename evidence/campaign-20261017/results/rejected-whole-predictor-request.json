@@ -1,0 +1,22 @@
+{
+  "index": 0,
+  "input": "Get the trust fund to the bank early.",
+  "success": false,
+  "audio_seconds": 0,
+  "ttfa_seconds": 253.99190829135478,
+  "chunks": [
+    {
+      "seconds": 253.99190829135478,
+      "bytes": 7860480
+    }
+  ],
+  "terminal": null,
+  "error": "ValueError: Unsuccessful generation stop: length",
+  "elapsed_seconds": 253.99237515311688,
+  "pcm_sha256": "b09f91223e823ae1522fccf444fb0f103bdf9c24ab18b0caca7d4ec664441f73",
+  "pcm_bytes": 7860480,
+  "decision": "REJECTED",
+  "reason": "Full model reached 2048-token limit instead of normal EOS, despite reseeded single-call component parity.",
+  "termination": "Owned server deliberately killed after failed first warmup to stop the queued second request.",
+  "source_revision": "1761366b5501e02a8e99f686429f49ff2d696c8e"
+}

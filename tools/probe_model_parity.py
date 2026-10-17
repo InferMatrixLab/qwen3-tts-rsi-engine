@@ -1,0 +1,63 @@
+"""Compare complete reference/graph PCM, EOS and frame counts on fixed prompts."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import time
+import wave
+
+from qwen3_tts_engine.model import CustomVoiceModel
+from qwen3_tts_engine.predictor import PredictorGraph
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--model', required=True)
+parser.add_argument('--workload', type=Path, required=True)
+parser.add_argument('--output', type=Path, required=True)
+parser.add_argument('--indices', type=int, nargs='+', default=[0, 1, 64, 65])
+parser.add_argument('--whole', action='store_true')
+args = parser.parse_args()
+args.output.mkdir(parents=True, exist_ok=False)
+data = args.workload.read_bytes()
+payloads = [json.loads(line) for line in data.splitlines() if line.strip()]
+model = CustomVoiceModel(args.model, 'npu:0')
+reference = model.wrapper.model.talker.code_predictor
+graph = PredictorGraph(reference)
+if args.whole:
+    from qwen3_tts_engine.whole_predictor import WholePredictorGraph
+    graph = WholePredictorGraph(reference)
+result = {'status': 'INCONCLUSIVE', 'scope': 'complete waveform parity; diagnostic timings only',
+          'workload_sha256': hashlib.sha256(data).hexdigest(), 'arms': {}}
+result['implementation'] = type(graph).__name__
+try:
+    for name, predictor in [('reference', reference), ('graph', graph)]:
+        model.wrapper.model.talker.code_predictor = predictor
+        rows = []
+        for index in args.indices:
+            payload = dict(payloads[index], instructions='')
+            started = time.perf_counter()
+            output = model.generate([payload])[0]
+            elapsed = time.perf_counter() - started
+            pcm = output.pop('pcm')
+            with wave.open(str(args.output / f'{name}-{index:05d}.wav'), 'wb') as audio:
+                audio.setparams((1, 2, output['sample_rate'], 0, 'NONE', 'not compressed'))
+                audio.writeframes(pcm)
+            rows.append(dict(output, index=index, pcm_sha256=hashlib.sha256(pcm).hexdigest(), elapsed_s=elapsed))
+            result['arms'][name] = rows
+            (args.output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
+            print(name, index, output, elapsed, flush=True)
+            if output['finish_reason'] != 'stop':
+                raise ValueError('Generation hit length limit')
+    comparable = lambda rows: [{k: v for k, v in row.items() if k != 'elapsed_s'} for row in rows]
+    result['exact'] = comparable(result['arms']['reference']) == comparable(result['arms']['graph'])
+    if not result['exact']:
+        raise ValueError('Complete waveform parity failed')
+    result['status'] = 'PASS'
+except Exception as error:
+    result['status'] = 'FAIL'
+    result['error'] = f'{type(error).__name__}: {error}'
+    raise
+finally:
+    (args.output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
+    graph.close()
+    model.wrapper.model.talker.code_predictor = reference
+    model.close()

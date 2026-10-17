@@ -27,6 +27,16 @@ This bootstrap path delivers the complete waveform in one SSE audio event;
 its TTFA therefore includes the whole synthesis. Incremental codec delivery and
 optimized decode have not yet been qualified. It is not the final performance candidate.
 
+The opt-in `--predictor-graph` path is experimental. Whole-predictor graph capture
+at commit `1761366` passed reseeded component checks but failed full-model EOS
+termination and was rejected. Capture constants were not retained for replay;
+preserving their lifetime fixes the observed per-step graph discrepancy.
+The per-step path now passes sequential token/RNG comparison and exact full PCM
+parity on two English and two Chinese prompts, with clean process exit. This
+limited check does not establish corpus-wide quality or service performance.
+The whole-predictor experiment remains separate and is under revalidation.
+See the retained counterexample in `evidence/campaign-20261017/results/`.
+
 ```bash
 python -m qwen3_tts_engine.server --model /path/to/pinned/model --device npu:0
 bash tools/serve_baseline.sh vllm
@@ -38,6 +48,9 @@ python tools/audit_model.py --tree /path/to/model-tree.json --model /path/to/mod
 Python paths. Configure `NPU_CONTAINER`, `RESEARCH_ROOT`, `NPU_DEVICE` and `PORT`.
 The SGLang configuration is a concurrency qualification candidate, not a measured
 best configuration. Setup scripts do not alter either upstream main checkout.
+See [environment exceptions and reproduction](evidence/campaign-20261017/plan/environment.md)
+for the allocator workaround and SGLang type compatibility patch used by the
+successful qualifications; untouched-main startup failures are retained too.
 
 Model weights and generated waveforms are kept outside Git. Compact results and
 SHA256 manifests identify retained local artifacts. CPU tests validate the

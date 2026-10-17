@@ -13,7 +13,7 @@
     "error": "corrupted size vs. prev_size"
   },
   "model_audit": "model-audit.json",
-  "baseline_sweep": "VLLM_ROUND1_RUNNING",
+  "baseline_sweep": "VLLM_FULL128_ROUND1_RUNNING",
   "quality": "REFERENCE_2_ENGLISH_WER_ZERO_ONLY",
   "two_times_target": "NOT_ESTABLISHED",
   "qualification_devices": {
@@ -39,8 +39,10 @@
     }
   },
   "predictor_graph": {
-    "greedy_exact_inputs": 3,
-    "exit": 0,
-    "sampled_service": "NOT_VALIDATED"
-  }
+    "whole_graph": "REJECTED_LENGTH_STOP",
+    "step_graph": "FOUR_PROMPT_EXACT_PCM_AND_SEQUENTIAL_RNG_PASS",
+    "whole_graph_fixed_constants": "SEQUENTIAL_PARITY_PASS_MODEL_PARITY_RUNNING"
+  },
+  "workload": "plan/workload-128.jsonl",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7"
 }

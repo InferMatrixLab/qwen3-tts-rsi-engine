@@ -1,0 +1,521 @@
+{
+  "dataset": "zhaochenyang20/seed-tts-eval",
+  "revision": "8f5e1aa2a35d42f42e940074c1983358b9491f89",
+  "zh_meta_sha256": "86b14ae63229615dee73583887a7452a3e68ab3959b1eb5adae132bcddb89d28",
+  "sample_ids": [
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_10119832-common_voice_en_10119840"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_10119832-common_voice_en_10119847"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_103675-common_voice_en_103676"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_103675-common_voice_en_103677"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_10933823-common_voice_en_10933822"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_10933823-common_voice_en_10933825"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_120405-common_voice_en_120402"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_120405-common_voice_en_120406"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_1205005-common_voice_en_1205007"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_1205005-common_voice_en_1205008"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_123125-common_voice_en_123126"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_123125-common_voice_en_123127"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_125386-common_voice_en_125388"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_125386-common_voice_en_125389"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_137148-common_voice_en_137152"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_13900-common_voice_en_13901"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_1416089-common_voice_en_1416090"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_1416089-common_voice_en_1416093"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_15265-common_voice_en_15266"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_15265-common_voice_en_15268"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_153872-common_voice_en_153873"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_153872-common_voice_en_153874"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_155313-common_voice_en_155315"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_15734837-common_voice_en_15734838"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_15735839-common_voice_en_15735837"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_15903802-common_voice_en_15903807"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_15903802-common_voice_en_15903815"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_16666041-common_voice_en_16666040"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_167249-common_voice_en_167246"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_167249-common_voice_en_167247"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17147545-common_voice_en_17147546"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17161-common_voice_en_17159"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17161-common_voice_en_17160"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17249419-common_voice_en_17249428"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17255102-common_voice_en_17255101"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17256676-common_voice_en_17256678"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17259121-common_voice_en_17259122"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17263752-common_voice_en_17263750"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17263752-common_voice_en_17263755"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17263780-common_voice_en_17263781"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17263780-common_voice_en_17263782"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17267923-common_voice_en_17267922"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17268075-common_voice_en_17268076"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17271507-common_voice_en_17271509"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17271507-common_voice_en_17271510"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17274522-common_voice_en_17274523"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17274522-common_voice_en_17274525"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17274533-common_voice_en_17274531"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17275818-common_voice_en_17275816"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17275818-common_voice_en_17275817"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17277080-common_voice_en_17277082"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17277080-common_voice_en_17277083"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17278904-common_voice_en_17278905"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17278904-common_voice_en_17278909"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17281385-common_voice_en_17281386"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17281385-common_voice_en_17281393"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17288057-common_voice_en_17288056"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17288057-common_voice_en_17288059"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17324784-common_voice_en_17324785"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17324784-common_voice_en_17324786"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17347410-common_voice_en_17347409"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_17352169-common_voice_en_17352173"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_173534-common_voice_en_173537"
+    },
+    {
+      "locale": "en",
+      "sample_id": "common_voice_en_173534-common_voice_en_173540"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002287-00000095"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002287-00000099"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002290-00000102"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002290-00000011"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002298-00000016"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002298-00000019"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002309-00000033"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002309-00000011"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002334-00000041"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002334-00000043"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002352-00000005"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002352-00000049"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002394-00000006"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002394-00000011"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002430-00000053"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002430-00000015"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002481-00000044"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002481-00000105"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002508-00000049"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002508-00000062"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002526-00000044"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002526-00000012"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002536-00000011"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002536-00000061"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002539-00000018"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002539-00000054"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002570-00000010"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002570-00000006"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002698-00000092"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002698-00000106"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002702-00000051"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002702-00000007"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002730-00000043"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002730-00000095"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002733-00000021"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002733-00000009"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002739-00000011"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002739-00000101"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002740-00000016"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002740-00000052"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002743-00000102"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002743-00000006"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002745-00000009"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002745-00000044"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002750-00000099"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002750-00000006"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002751-00000060"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002751-00000071"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002752-00000033"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002752-00000006"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002753-00000006"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002753-00000069"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002754-00000006"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002754-00000100"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002756-00000021"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002756-00000074"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002823-00000012"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002823-00000011"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002829-00000016"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002829-00000062"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002830-00000090"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002830-00000039"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002831-00000075"
+    },
+    {
+      "locale": "zh",
+      "sample_id": "10002831-00000090"
+    }
+  ],
+  "en_meta_sha256": "7cd29f701743e6c7033edbca764ddc0b979de8c4f4907eff5e5454682114661f",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7"
+}

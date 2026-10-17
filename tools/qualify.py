@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import signal
+import socket
 import subprocess
 import sys
 import time
@@ -26,10 +27,20 @@ options = parser.parse_args()
 command = json.loads(options.command_json.read_text())
 if not isinstance(command, list) or not command or not all(isinstance(s, str) for s in command):
     parser.error("Command must be a JSON array of strings")
+if options.requests <= 0 or any(c <= 0 for c in options.concurrency_list or [options.concurrency]):
+    parser.error("Request and concurrency counts must be positive")
+if len([line for line in options.workload.read_text().splitlines() if line.strip()]) < options.requests:
+    parser.error("Workload has fewer records than requested; server was not started")
+with socket.socket() as probe:
+    probe.settimeout(2)
+    if probe.connect_ex(("127.0.0.1", options.port)) == 0:
+        parser.error("Port is already in use; refusing to measure an unrelated server")
 options.output.mkdir(parents=True, exist_ok=False)
 status = {"status": "INCONCLUSIVE", "phase": "startup", "command": command,
           "engine": options.engine, "source_revision": options.source_revision,
-          "quality": "NOT_RUN", "server_exit": None, "benchmark_exit": None}
+          "quality": "NOT_RUN", "server_exit": None, "benchmark_exit": None,
+          "environment": {name: os.environ.get(name) for name in (
+              "ASCEND_RT_VISIBLE_DEVICES", "LD_PRELOAD", "OMP_NUM_THREADS", "HF_HUB_OFFLINE", "PYTHONPATH")}}
 
 
 def save():

@@ -8,3 +8,5 @@ runs/
 *.pcm
 *.safetensors
 *.log
+kernel_meta/
+fusion_result.json

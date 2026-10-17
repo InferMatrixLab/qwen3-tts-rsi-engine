@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "scope": "complete waveform parity; diagnostic timings only",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "arms": {
+    "reference": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 30,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+        "elapsed_s": 10.144232318736613
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 40,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+        "elapsed_s": 12.232959756627679
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 90,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "a703cb5d9cc4817231b2aaea8b65b8e10c9b0b683f0705b6dbc4a98c4ecb3eed",
+        "elapsed_s": 27.538300368003547
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 83,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "060258af2a1da40b81d68635d2baa67d93ec473f81f9b90a1a6a6ca172e2768a",
+        "elapsed_s": 25.216953068971634
+      }
+    ],
+    "graph": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 30,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+        "elapsed_s": 4.222104465588927
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 40,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+        "elapsed_s": 4.511165579780936
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 90,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "a703cb5d9cc4817231b2aaea8b65b8e10c9b0b683f0705b6dbc4a98c4ecb3eed",
+        "elapsed_s": 9.814716930501163
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 83,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "060258af2a1da40b81d68635d2baa67d93ec473f81f9b90a1a6a6ca172e2768a",
+        "elapsed_s": 9.235437178984284
+      }
+    ]
+  },
+  "exact": true
+}

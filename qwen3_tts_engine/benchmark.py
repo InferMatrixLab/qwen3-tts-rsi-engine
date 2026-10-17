@@ -99,7 +99,7 @@ async def request(session, endpoint, payload, output, index, sample_rate):
 async def run(options):
     payloads = [json.loads(line) for line in options.workload.read_text().splitlines() if line.strip()]
     if len(payloads) < options.requests:
-        raise ValueError("Workload has fewer unique records than requested")
+        raise ValueError("Workload has fewer records than requested")
     for payload in payloads:
         if not isinstance(payload, dict) or not isinstance(payload.get("input"), str):
             raise ValueError("Each workload record must contain input text")
@@ -120,10 +120,13 @@ async def run(options):
             async with semaphore:
                 return await request(session, options.endpoint, payloads[index % len(payloads)], warmup_dir, index, options.sample_rate)
 
-        warmup_results = await asyncio.gather(*(warmup(i) for i in range(options.warmup)))
-        for result in warmup_results:
-            if not result["success"]:
-                raise RuntimeError(f"Warmup failed: {result}")
+        for start in range(0, options.warmup, options.concurrency):
+            warmup_results = await asyncio.gather(*(
+                warmup(i) for i in range(start, min(start + options.concurrency, options.warmup))
+            ))
+            for result in warmup_results:
+                if not result["success"]:
+                    raise RuntimeError(f"Warmup failed: {result}")
 
         async def limited(index):
             async with semaphore:

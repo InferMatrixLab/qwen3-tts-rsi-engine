@@ -33,5 +33,8 @@
     "truncated generation as speedup",
     "quality-unchecked throughput as acceptance"
   ],
-  "frame_rate_evidence": "speech_tokenizer/config.json output_sample_rate 24000 / decode_upsample_rate 1920"
+  "frame_rate_evidence": "speech_tokenizer/config.json output_sample_rate 24000 / decode_upsample_rate 1920",
+  "workload": "workload-128.jsonl",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "qualification_workload": "workload.jsonl is an earlier 84-record local subset, retained unchanged for the recorded smoke runs"
 }
