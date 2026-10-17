@@ -22,7 +22,10 @@ These single-run results on a shared host are not final repeated 2x acceptance.
 The newer default-off `--direct-prompt` option prepares CustomVoice inputs directly
 and caches only fixed model embeddings. Its C32/C64 service probe measured
 **442.09 / 546.64 frames/s**, with 256 WAVs identical to its adjacent control and
-server exit 0. The complete workload and independent scoring are running.
+server exit 0. Its first full workload trial completed with exit 0 at
+61.71 / 96.37 / 154.14 / 232.83 / 349.17 / 444.31 / 554.42 frames/s
+(C1–C64); all 896 WAVs match the corresponding bucketed-control files.
+Independent scoring and a second trial from frozen source are running.
 The C32 exploratory ratio to vLLM round 2 is 2.063x; different physical cards and
 missing repeated validation mean the acceptance status remains INCONCLUSIVE.
 

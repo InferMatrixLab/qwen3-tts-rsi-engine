@@ -494,3 +494,22 @@ All 256 requests completed with server exit 0 on physical NPU 6; all WAV files m
 | 64 | 546.6408 | 588.6600 | 926.0431 | 1.216904 |
 
 C32 is 2.063x vLLM round 2 in this exploratory cross-card comparison. This does not establish stable same-card three-repeat acceptance. The full C1–C64 direct-prompt trial and independent scoring are running. The earlier exact-combination full trial now has independent ASR/speaker scores for all 896 clips, quality-loop exit 0, all seven integrity audits PASS, and all frozen quality gates PASS against both round-2 baselines.
+
+
+### Direct prompt full trial 1
+
+All 896 requests completed and server exit 0 on physical NPU 6. All 896 WAV files match the bucketed full trial exactly; independent scoring is in progress and C1 integrity now passes. The following values are one trial, not final repeated acceptance.
+
+| Concurrency | frames/s | TTFA p50 ms | TTFA p95 ms | mean RTF |
+|---:|---:|---:|---:|---:|
+| 1 | 61.7081 | 50.2013 | 51.7471 | 0.204020 |
+| 2 | 96.3736 | 67.2550 | 79.4533 | 0.259692 |
+| 4 | 154.1408 | 90.6184 | 107.4266 | 0.321823 |
+| 8 | 232.8313 | 112.2293 | 161.1967 | 0.421840 |
+| 16 | 349.1663 | 146.5342 | 272.2349 | 0.558900 |
+| 32 | 444.3136 | 212.4640 | 484.0299 | 0.803848 |
+| 64 | 554.4216 | 583.2360 | 916.3593 | 1.202064 |
+
+Exploratory ratios against the largest observed value among three completed vLLM and two completed SGLang sweeps are 4.674 / 3.781 / 3.150 / 2.612 / 2.393 / 2.073 / 2.203. This deliberately retains the largest listed baseline observation, but is not a new acceptance rule or proof of same-card repeatability.
+
+A detached, clean worktree at /home/why/qwen3-tts-research/engine-direct-prompt-frozen pins source e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a. Round 2 has started from it on physical NPU 6; recorded provenance has empty patch and worktree status. The import path was verified to resolve inside this worktree. Physical-NPU-0 final validation remains separately planned. SGLang third-repeat C1/C2 quality integrity audits pass.

@@ -4,7 +4,8 @@
 
 Caches only model-constant special-token and speaker/language embeddings.
 Request text, instructions and their projections are never cached.
-Not enabled by the service; validate against the upstream preparation first.
+Service opt-in: --direct-prompt. Model weights, dtype and device must remain
+fixed for the lifetime of this builder.
 """
 import torch
 

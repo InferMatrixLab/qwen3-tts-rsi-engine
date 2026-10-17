@@ -1,0 +1,42 @@
+{
+  "scope": "Full WAV identity; independent scores and repeated acceptance remain separate",
+  "reference": "runs/continuous-exact-bucket-prefill-full-round1",
+  "candidate": "runs/continuous-direct-prompt-full-round1",
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "exact_wav_count": 128,
+      "requests": 128
+    },
+    {
+      "concurrency": 2,
+      "exact_wav_count": 128,
+      "requests": 128
+    },
+    {
+      "concurrency": 4,
+      "exact_wav_count": 128,
+      "requests": 128
+    },
+    {
+      "concurrency": 8,
+      "exact_wav_count": 128,
+      "requests": 128
+    },
+    {
+      "concurrency": 16,
+      "exact_wav_count": 128,
+      "requests": 128
+    },
+    {
+      "concurrency": 32,
+      "exact_wav_count": 128,
+      "requests": 128
+    },
+    {
+      "concurrency": 64,
+      "exact_wav_count": 128,
+      "requests": 128
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "status": "INCONCLUSIVE",
+  "scope": "One candidate trial versus largest observed baseline value among listed completed exploratory sweeps; mixed physical cards, incomplete repeated final validation, independent candidate scoring pending. Not a replacement acceptance policy.",
+  "candidate": "runs/continuous-direct-prompt-full-round1",
+  "baselines": [
+    "vllm-sweep-round1-full128",
+    "vllm-sweep-round2-full128",
+    "vllm-sweep-round3-full128",
+    "sglang-sweep-round1-full128",
+    "sglang-sweep-round2-full128"
+  ],
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "candidate_frames_s": 61.70807848645802,
+      "largest_observed_baseline_frames_s": 13.201400227920061,
+      "baseline_run": "vllm-sweep-round3-full128",
+      "ratio": 4.674358584777215
+    },
+    {
+      "concurrency": 2,
+      "candidate_frames_s": 96.37356914239625,
+      "largest_observed_baseline_frames_s": 25.4880749546191,
+      "baseline_run": "vllm-sweep-round3-full128",
+      "ratio": 3.7811238908386393
+    },
+    {
+      "concurrency": 4,
+      "candidate_frames_s": 154.14084660928913,
+      "largest_observed_baseline_frames_s": 48.92617662594441,
+      "baseline_run": "vllm-sweep-round3-full128",
+      "ratio": 3.150478072050123
+    },
+    {
+      "concurrency": 8,
+      "candidate_frames_s": 232.83128341354626,
+      "largest_observed_baseline_frames_s": 89.12847435086645,
+      "baseline_run": "vllm-sweep-round3-full128",
+      "ratio": 2.6123108816714846
+    },
+    {
+      "concurrency": 16,
+      "candidate_frames_s": 349.16625159226214,
+      "largest_observed_baseline_frames_s": 145.9158552474945,
+      "baseline_run": "vllm-sweep-round3-full128",
+      "ratio": 2.392928794475593
+    },
+    {
+      "concurrency": 32,
+      "candidate_frames_s": 444.31355083350104,
+      "largest_observed_baseline_frames_s": 214.29404211656257,
+      "baseline_run": "vllm-sweep-round2-full128",
+      "ratio": 2.0733826589160245
+    },
+    {
+      "concurrency": 64,
+      "candidate_frames_s": 554.4216120534304,
+      "largest_observed_baseline_frames_s": 251.641388536362,
+      "baseline_run": "vllm-sweep-round3-full128",
+      "ratio": 2.2032210809125976
+    }
+  ]
+}

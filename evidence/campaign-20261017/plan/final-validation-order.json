@@ -14,5 +14,8 @@
     "Report all trial values and variation; do not choose convenient baseline repeats or pool per-trial p95 values.",
     "Shared-host interference remains a disclosed limitation; retain adjacent comparison and hardware evidence.",
     "Full per-concurrency 2x and quality gates must be independently demonstrated before goal completion."
-  ]
+  ],
+  "candidate_source_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+  "candidate_frozen_worktree": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen",
+  "candidate_command": "continuous-direct-prompt-command.json"
 }
