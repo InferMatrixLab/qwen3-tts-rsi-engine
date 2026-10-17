@@ -473,3 +473,12 @@ The CDF-tail service experiment completed all 256 requests and server exit 0. In
 | 64 | 519.6544 | 776.2377 | 1281.0302 | 1.304500 |
 
 The next direct experiment combines this option with existing prefill bucketing. Prefill-bucket C8 independent ASR/speaker evidence and integrity audit are complete; C16 remains pending. Exact-combination C16 independent quality integrity audit also passed.
+
+
+### Direct CDF + bucket measurement and prompt-preparation diagnostic
+
+CDF plus prefill bucketing completed 256 requests and server exit 0: C32 423.39616 and C64 519.81898 frames/s. Every WAV matches the bucketed full trial at the corresponding concurrency. This does not establish a stable C32 2x margin. The bucketed full-trial changed C8/C16 cohorts now independently pass ASR, speaker and retained-data integrity checks; other cohorts have separately recorded waveform identity evidence.
+
+The direct CustomVoice prompt diagnostic compared all four prepared tensors and sampling settings for the full 128-record corpus plus instruction/automatic-language/dialect cases (131 total). All tensors were exactly equal, process exit 0. ABBA preparation timing was upstream 6.5263/6.5891 ms per request versus direct 1.3163/1.3123 ms. Only model-constant special-token and speaker/language embeddings are cached; request text and instruction projections are recomputed. This is preparation-level timing, not service performance. A default-off --direct-prompt option for the 1.7B CustomVoice model is under real-waveform validation; reference-single dispatch is excluded.
+
+The direct-prompt real-model probe completed all four English/Chinese requests, slot reuse and capacity growth 64 to 128 with exit 0. All four WAVs exactly match the upstream-prompt control. The complete current test suite passed 57 tests with exit 0. C32/C64 service validation is the next step.

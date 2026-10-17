@@ -1,0 +1,17 @@
+{
+  "scope": "Complete WAV identity, not independent scoring or repeated performance acceptance",
+  "reference": "runs/continuous-exact-bucket-prefill-full-round1",
+  "candidate": "runs/continuous-exact-cdf-bucket-c32-c64",
+  "cohorts": [
+    {
+      "concurrency": 32,
+      "exact_wav_count": 128,
+      "requests": 128
+    },
+    {
+      "concurrency": 64,
+      "exact_wav_count": 128,
+      "requests": 128
+    }
+  ]
+}

@@ -225,7 +225,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False, triton_cdf=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False, triton_cdf=False, direct_prompt=False):
         if codec_chunk_frames not in (8, 16) or (codec_chunk_frames != 8 and (not incremental_codec or codec_code_buffer)):
             raise ValueError("16-frame chunks require incremental codec without the 8-frame code buffer")
         self.codec_chunk_frames = codec_chunk_frames
@@ -249,12 +249,18 @@ class ContinuousModel:
             raise ValueError('Prefill prewarming does not support reference-single dispatch')
         if prewarm_codec and not incremental_codec:
             raise ValueError('Codec prewarming requires the incremental codec')
+        if direct_prompt and reference_single:
+            raise ValueError("Direct prompt preparation excludes reference-single dispatch")
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
                                      pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope, fused_residual=fused_residual, native_rope_scope=native_rope_scope, triton_talker_rope=triton_talker_rope)
         self.device = device
         self.speakers = self.model.speakers
         self.languages = self.model.languages
         self.talker = self.model.wrapper.model.talker
+        self.prompt_builder = None
+        if direct_prompt:
+            from qwen3_tts_engine.custom_voice_prompt import CustomVoicePrompt
+            self.prompt_builder = CustomVoicePrompt(self.model.wrapper)
         self.max_slots = max_slots
         if valid_length_kv and (not native_gqa or reference_single):
             raise ValueError("Valid-length KV requires native GQA without reference-single")
@@ -327,18 +333,21 @@ class ContinuousModel:
         return categorical(logits, uniforms, triton_cdf=getattr(self, "triton_cdf", False))
 
     def prepare_prompt(self, payload):
-        original = self.talker.generate
-        def capture(**kwargs):
-            raise PromptReady(kwargs)
-        self.talker.generate = capture
-        try:
-            self.model.wrapper.generate_custom_voice(
-                text=payload['input'], speaker=payload['voice'], language=payload['language'],
-                instruct=payload['instructions'], max_new_tokens=payload['max_new_tokens'], non_streaming_mode=True)
-        except PromptReady as captured:
-            prompt = captured.arguments
-        finally:
-            self.talker.generate = original
+        if self.prompt_builder is not None:
+            prompt = self.prompt_builder.build(payload)
+        else:
+            original = self.talker.generate
+            def capture(**kwargs):
+                raise PromptReady(kwargs)
+            self.talker.generate = capture
+            try:
+                self.model.wrapper.generate_custom_voice(
+                    text=payload['input'], speaker=payload['voice'], language=payload['language'],
+                    instruct=payload['instructions'], max_new_tokens=payload['max_new_tokens'], non_streaming_mode=True)
+            except PromptReady as captured:
+                prompt = captured.arguments
+            finally:
+                self.talker.generate = original
         supported = {'do_sample': True, 'top_k': 50, 'top_p': 1.0, 'temperature': 0.9,
                      'repetition_penalty': 1.05, 'subtalker_dosample': True,
                      'subtalker_top_k': 50, 'subtalker_top_p': 1.0, 'subtalker_temperature': 0.9}
