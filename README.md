@@ -31,7 +31,10 @@ server exit 0. Its first full workload trial completed with exit 0 at
 (C1–C64); all 896 WAVs match the corresponding bucketed-control files.
 The second trial from frozen source completed with exit 0 and identical WAVs:
 C32 439.38 and C64 551.41 frames/s. The third trial also completed with exit 0 and identical WAVs: C32 439.27 and
-C64 549.99 frames/s. Independent scoring and final same-card validation remain pending.
+C64 549.99 frames/s. The first trial now has complete independent ASR and speaker scoring and seven
+passing integrity audits; all frozen quality margins pass against both round-2
+baselines. Independent scoring of repeats 2 and 3 and final same-card validation
+remain pending.
 [Three-trial exploratory charts](evidence/campaign-20261017/direct-prompt-three-trial-charts/README.md)
 retain all four metrics and sample-SD error bars.
 The C32 exploratory ratio to vLLM round 2 is 2.063x; different physical cards and

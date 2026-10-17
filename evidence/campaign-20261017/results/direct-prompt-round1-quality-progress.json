@@ -194,8 +194,23 @@
         "runs/vllm-sweep-round2-full128/quality-c64/summary.json",
         "runs/sglang-sweep-round2-full128/quality-c64/summary.json"
       ],
-      "asr": "PENDING",
-      "speaker": "PENDING",
+      "asr": {
+        "en": {
+          "candidate": 0.00995732574679943,
+          "maximum": 0.017112375533428165,
+          "status": "PASS"
+        },
+        "zh": {
+          "candidate": 0.027317880794701987,
+          "maximum": 0.04394039735099338,
+          "status": "PASS"
+        }
+      },
+      "speaker": {
+        "candidate": 0.7712946995161474,
+        "minimum": 0.7525423087831586,
+        "status": "PASS"
+      },
       "speaker_sources": [
         "runs/continuous-direct-prompt-full-round1/speaker-c64/summary.json",
         "runs/vllm-sweep-round2-full128/speaker-c64/summary.json",
