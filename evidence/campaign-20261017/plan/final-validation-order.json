@@ -19,15 +19,24 @@
   "candidate_frozen_worktree": "/home/why/qwen3-tts-research/engine-direct-prompt-frozen",
   "candidate_command": "continuous-direct-prompt-command.json",
   "same_card_vllm_queue": {
-    "status": "WAITING_FOR_PREDECESSOR",
+    "status": "STARTED",
     "predecessor": "runs/sglang-sweep-round3-full128",
     "output": "runs/vllm-sweep-round3-card0-full128",
     "log": "results/vllm-round3-card0-queue.log",
     "guards": [
       "seven complete successful cohorts",
       "server and benchmark exit 0",
-      "predecessor process group absent and port released",
+      "No live predecessor process-group members, released port and empty NPU 0",
       "clean pinned vLLM source"
-    ]
+    ],
+    "queue_recovery": {
+      "reason": "killpg(pid, 0) treats zombie-only groups as existing",
+      "predecessor_zombies": 19,
+      "live_predecessor_members": 0,
+      "port_8098_released": true,
+      "npu_0_processes": 0,
+      "action": "Terminated only the two owned waiting queue processes; launched unchanged benchmark command",
+      "session": 41647
+    }
   }
 }
