@@ -34,6 +34,10 @@ and the limitations of comparing single runs on a shared host.
 the post-attention residual addition and RMSNorm. Operator validation and
 contract tests pass, but BF16 normalization changes and full speech-quality
 validation is required. No service gain is presumed from operator timings.
+`--cache-codec-constants` optionally precomputes fixed SnakeBeta parameters in
+the incremental codec. BF16 graph-control output equality and strict-FP32
+state tests passed; its first service probe did not establish a throughput gain.
+Both options remain experimental and disabled by default.
 
 Benchmark against an already running OpenAI speech SSE endpoint:
 

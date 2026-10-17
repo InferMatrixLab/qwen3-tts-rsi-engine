@@ -239,3 +239,6 @@ A new default-off `--cache-codec-constants` experiment hoists SnakeBeta alpha ex
 Codec constant cache BF16 graph-control test completed with exact waveform equality for all 101-frame chunks and slot moves/resets. Live-state prewarming was exact. The separate BF16 graph-versus-eager comparison still differs (maximum 0.128784), so graph-control equality must not be described as eager parity or speech-quality acceptance.
 
 Native-RoPE full-sweep quality update: C8 passes both ASR and speaker gates; all seven speaker cohorts pass. C16 EN WER is 0.0042674253, but ZH CER 0.0380794702 exceeds its frozen 0.0356622517 limit. Consequently this configuration is not accepted at all concurrencies even if later throughput optimization succeeds. C32/C64 ASR remains pending.
+
+
+Codec-constant service measurement (d769981, physical NPU 0): C32 361.892265 and C64 469.078374 frames/s, 256/256 successful requests, clean server exit. This does not demonstrate a gain against the earlier same-device native-RoPE sweep and remains below both target thresholds. The flag stays default-off. A second full 128-request-per-concurrency vLLM-Omni baseline repeat has started on physical NPU 0 with the same pinned clean main and allocator workaround, to extend repeat evidence and check temporal variability; it is not yet complete.
