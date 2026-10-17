@@ -1,0 +1,16 @@
+diff --git a/sglang_omni/platforms/device_graph.py b/sglang_omni/platforms/device_graph.py
+index 169b13e..eff6012 100644
+--- a/sglang_omni/platforms/device_graph.py
++++ b/sglang_omni/platforms/device_graph.py
+@@ -15,7 +15,10 @@ from typing import Literal, Protocol, TypedDict
+ 
+ import torch
+ from torch.cuda import _POOL_HANDLE as CudaGraphPoolHandle
+-from torch.xpu import _POOL_HANDLE as XpuGraphPoolHandle
++try:
++    from torch.xpu import _POOL_HANDLE as XpuGraphPoolHandle
++except ImportError:
++    XpuGraphPoolHandle = tuple[int, int]
+ 
+ 
+ class CudaCaptureKwargs(TypedDict, total=False):

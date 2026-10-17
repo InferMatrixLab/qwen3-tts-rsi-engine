@@ -1,0 +1,23 @@
+{
+  "status": "FAIL",
+  "phase": "finished",
+  "command": [
+    "/home/why/qwen3-tts-research/venv-vllm/bin/vllm-omni",
+    "serve",
+    "--omni",
+    "/home/why/qwen3-tts-research/model",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8096",
+    "--trust-remote-code"
+  ],
+  "engine": "vllm-omni",
+  "source_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+  "quality": "NOT_RUN",
+  "server_exit": -6,
+  "benchmark_exit": null,
+  "server_pid": 1201562,
+  "error": "RuntimeError: Server exited during startup: -6",
+  "clean_server_exit": false
+}

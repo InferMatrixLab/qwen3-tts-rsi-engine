@@ -1,0 +1,26 @@
+{
+  "status": "FAIL",
+  "phase": "finished",
+  "command": [
+    "/home/why/drama3-research/venv-sglang/bin/python",
+    "-m",
+    "sglang_omni.cli",
+    "serve",
+    "--model-path",
+    "/home/why/qwen3-tts-research/model",
+    "--config",
+    "/home/why/qwen3-tts-engine/configs/sglang-npu.yaml",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8098"
+  ],
+  "engine": "sglang-omni",
+  "source_revision": "6bdd47967caa55c38430d18175b750008aecab61",
+  "quality": "NOT_RUN",
+  "server_exit": -6,
+  "benchmark_exit": null,
+  "server_pid": 1201679,
+  "error": "RuntimeError: Server exited during startup: -6",
+  "clean_server_exit": false
+}

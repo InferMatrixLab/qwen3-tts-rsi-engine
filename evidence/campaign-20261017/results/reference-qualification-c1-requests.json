@@ -1,0 +1,64 @@
+{
+  "metrics": {
+    "requests": 2,
+    "successful_requests": 2,
+    "failed_requests": 0,
+    "wall_seconds": 22.11370377894491,
+    "throughput_frames_s": 3.1654579757303707,
+    "ttfa_p50_ms": 11055.118769872934,
+    "ttfa_p95_ms": 12472.565991291776,
+    "rtf_mean": 3.948788997513475,
+    "request_completion_pass": true,
+    "quality": "NOT_EVALUATED",
+    "server_lifecycle": "NOT_EVALUATED",
+    "status": "INCONCLUSIVE"
+  },
+  "requests": [
+    {
+      "index": 0,
+      "input": "Get the trust fund to the bank early.",
+      "success": true,
+      "audio_seconds": 2.4,
+      "ttfa_seconds": 9.480177412740886,
+      "chunks": [
+        {
+          "seconds": 9.480177412740886,
+          "bytes": 115200
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 30
+      },
+      "peak": 16767,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 9.480891960673034,
+      "pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+      "pcm_bytes": 115200
+    },
+    {
+      "index": 1,
+      "input": "The stained glass offered a hypnotic atmosphere.",
+      "success": true,
+      "audio_seconds": 3.2,
+      "ttfa_seconds": 12.630060127004981,
+      "chunks": [
+        {
+          "seconds": 12.630060127004981,
+          "bytes": 153600
+        }
+      ],
+      "terminal": {
+        "type": "speech.audio.done",
+        "finish_reason": "stop",
+        "codec_frames": 40
+      },
+      "peak": 14463,
+      "clipped_fraction": 0.0,
+      "elapsed_seconds": 12.63106030318886,
+      "pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+      "pcm_bytes": 153600
+    }
+  ]
+}

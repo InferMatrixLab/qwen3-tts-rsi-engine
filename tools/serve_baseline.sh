@@ -13,7 +13,7 @@ if [[ "$engine" == vllm ]]; then
     export PYTHONPATH="$RESEARCH_ROOT/vllm-omni:${PYTHONPATH:-}"
     export HF_HUB_OFFLINE=1 OMP_NUM_THREADS=4
     exec "$RESEARCH_ROOT/venv-vllm/bin/vllm-omni" serve "$RESEARCH_ROOT/model" \
-      --host 127.0.0.1 --port "$PORT" --trust-remote-code
+      --omni --host 127.0.0.1 --port "$PORT" --trust-remote-code
     '
 elif [[ "$engine" == sglang ]]; then
   : "${SGLANG_PYTHON:?Set SGLANG_PYTHON to the qualified NPU environment interpreter}"

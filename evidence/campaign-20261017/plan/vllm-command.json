@@ -1,6 +1,7 @@
 [
   "/home/why/qwen3-tts-research/venv-vllm/bin/vllm-omni",
   "serve",
+  "--omni",
   "/home/why/qwen3-tts-research/model",
   "--host",
   "127.0.0.1",

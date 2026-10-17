@@ -1,0 +1,19 @@
+{
+  "model_source": "QwenLM/Qwen3-TTS",
+  "revision": "022e286b98fbec7e1e916cb940cdf532cd9f488e",
+  "dependency_versions": {
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post4",
+    "transformers_reference": "4.57.3",
+    "transformers_baselines": "5.14.1",
+    "vllm": "0.31.0+empty",
+    "vllm_ascend": "0.19.1rc2.dev2590+ge25912733",
+    "sglang_source": "e00930c5489053f26d86b179cee0d087f846acbb"
+  },
+  "reference_code_sha256": {
+    "__init__.py": "9f7e7ecc1e417db1eda84a8904ef82621444b63a60cc35c14a4121609c11f5a3",
+    "benchmark.py": "0685729cf287c4b22a51b489e46c39f3b0d22832484eaf4da2004cbab191571c",
+    "model.py": "bb3f811bc53425a99a66e0a9c1afea41034c362859d3dcb27bd0f96da051830f",
+    "server.py": "519dbd68c621d666ccd034c1036d97bf1bbb93903022ec9ea5698b7d8039052e"
+  }
+}
