@@ -142,3 +142,9 @@ Single exploratory C16/C64 cohorts, each 128 requests and clean server exit: the
 The separate native-GQA/eager-prefill control with FP32 fused normalization followed by BF16 rounding and weight multiplication (`acd2685`, physical NPU 0) reached 187.962 / 328.034 frames/s. Its ASR evaluation is running. This is not an isolated ablation against the preceding graph-prefill candidate.
 
 The earlier original-RMS native-GQA candidate completed ASR: C16 EN WER 0.007112, ZH CER 0.023179; C64 EN WER 0.011380, ZH CER 0.031457. Both cohorts meet the frozen ASR margins. Speaker similarity is still pending, and its throughput remains below 2x.
+
+Native-GQA speaker evaluation completed: C16 mean cosine 0.772866 and C64 0.774282, both within the frozen margins. Together with its ASR results this passes those two exploratory quality cohorts, but its throughput is below target.
+
+The faster native-fusion candidate's C16 ASR is now complete: EN WER 0.009957 and ZH CER 0.025662, both within the frozen margins. Speaker evaluation and C64 ASR remain pending. The reference-rounding control's C16 CER is 0.042219, exceeding its 0.035662 gate (EN WER 0.008535 passes); it is not accepted as a quality-preserving alternative.
+
+Power-of-two prefill batch padding additionally passed a complete BF16 continuous three-request pair (indices 0, 64, 65): all PCM hashes and frame counts matched the unbucketed graph-prefill control, with EOS completion and clean process exit. This narrow identity check does not establish all-batch or full-service quality.
