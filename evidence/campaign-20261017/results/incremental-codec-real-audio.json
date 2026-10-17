@@ -1,0 +1,54 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "real-prompt incremental codec diagnostic, independent quality pending",
+  "requests": [
+    {
+      "index": 0,
+      "success": true,
+      "codec_frames": 30,
+      "finish_reason": "stop",
+      "pcm_sha256": "3bcf6e5ee0d57d179e5757747f87c654142c56da1a18f8463a97e8b8afabc3cc",
+      "pcm_bytes": 115200,
+      "audio_seconds": 2.4,
+      "reference_pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+      "max_pcm_error": 192.0,
+      "rms_pcm_error": 13.473808182709313
+    },
+    {
+      "index": 1,
+      "success": true,
+      "codec_frames": 40,
+      "finish_reason": "stop",
+      "pcm_sha256": "9c27ca20c26b2633bc4d5783dd5a1c5cf92cad18afb93a3288ccc0138bbf442d",
+      "pcm_bytes": 153600,
+      "audio_seconds": 3.2,
+      "reference_pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+      "max_pcm_error": 431.0,
+      "rms_pcm_error": 12.818349782473302
+    },
+    {
+      "index": 64,
+      "success": true,
+      "codec_frames": 90,
+      "finish_reason": "stop",
+      "pcm_sha256": "078b9e5fa6b8b4f4d8fb2e517a4c85a34c9f8ef0c781353d7d938f6e7277c46d",
+      "pcm_bytes": 345600,
+      "audio_seconds": 7.2,
+      "reference_pcm_sha256": "a703cb5d9cc4817231b2aaea8b65b8e10c9b0b683f0705b6dbc4a98c4ecb3eed",
+      "max_pcm_error": 192.0,
+      "rms_pcm_error": 16.11429679950672
+    },
+    {
+      "index": 65,
+      "success": true,
+      "codec_frames": 83,
+      "finish_reason": "stop",
+      "pcm_sha256": "62b0647dddae2fe7f5d73a6a24917616ae2e687b23aeac9ef62acde96d25e0aa",
+      "pcm_bytes": 318720,
+      "audio_seconds": 6.64,
+      "reference_pcm_sha256": "060258af2a1da40b81d68635d2baa67d93ec473f81f9b90a1a6a6ca172e2768a",
+      "max_pcm_error": 512.0,
+      "rms_pcm_error": 19.32492719895679
+    }
+  ]
+}

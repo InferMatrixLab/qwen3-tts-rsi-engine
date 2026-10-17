@@ -1,0 +1,28 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "synthetic codec numerical diagnostic; not speech quality or speed",
+  "cases": [
+    {
+      "batch": 1,
+      "frames": 101,
+      "max_abs_error": 6.134435534477234e-05,
+      "mean_abs_error": 1.9815792029476142e-07,
+      "rms_error": 8.213663704736973e-07,
+      "reference_rms": 0.1412513703107834,
+      "finite": true,
+      "dtype": "torch.float32"
+    },
+    {
+      "batch": 2,
+      "frames": 101,
+      "max_abs_error": 2.672150731086731e-05,
+      "mean_abs_error": 1.4117524926859915e-07,
+      "rms_error": 4.005046321253758e-07,
+      "reference_rms": 0.12073996663093567,
+      "finite": true,
+      "dtype": "torch.float32"
+    }
+  ],
+  "conv_hf32": false,
+  "matmul_hf32": false
+}
