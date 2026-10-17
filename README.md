@@ -6,7 +6,7 @@ Independent inference work for `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` on Ascend 
 Two complete baseline repeats have performance and full ASR/speaker evidence.
 The third vLLM exploratory repeat has complete performance and audio scoring;
 the third SGLang repeat has completed all 896 requests with clean shutdown,
-and its audio scoring is finishing. A replacement third vLLM repeat on physical
+full independent ASR/speaker scoring and all seven integrity audits. A replacement third vLLM repeat on physical
 NPU 0 is running to keep the final comparison on the same card. SGLang uses
 the recorded import-only compatibility patch on its pinned main revision.
 
