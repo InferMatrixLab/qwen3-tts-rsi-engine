@@ -76,6 +76,9 @@ class PackedAttention(torch.nn.Module):
             ALL_ATTENTION_FUNCTIONS[reference.config._attn_implementation])
         if self.native_gqa and not (self.reference_single and hidden_states.shape[0] == 1):
             from qwen3_tts_engine.npu_attention import attention
+            lengths = getattr(past_key_values, "actual_seq_lengths_kv", None)
+            if lengths is not None:
+                kwargs["actual_seq_lengths_kv"] = lengths
         output, weights = attention(reference, query, key, value, attention_mask,
                                     dropout=0.0 if not reference.training else reference.attention_dropout,
                                     scaling=reference.scaling, sliding_window=reference.sliding_window, **kwargs)

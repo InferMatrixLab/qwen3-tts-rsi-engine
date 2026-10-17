@@ -106,11 +106,12 @@ class SlotArena:
 
 
 class SlotCache(Cache):
-    def __init__(self, arena, positions, context_length=None):
+    def __init__(self, arena, positions, context_length=None, valid_length_kv=False):
         super().__init__(layers=[])
         self.arena = arena
         self.positions = positions
         self.context_length = arena.capacity if context_length is None else context_length
+        self.actual_seq_lengths_kv = [self.context_length] * positions.shape[0] if valid_length_kv else None
         if arena.native_kv_update:
             batch, heads = positions.shape[0], arena.keys[0].shape[1]
             self.rows = torch.arange(batch, device=positions.device)[:, None].expand(batch, heads)
@@ -136,11 +137,13 @@ class SlotCache(Cache):
         else:
             target_keys.scatter_(2, index, keys)
             target_values.scatter_(2, index, values)
+        if self.actual_seq_lengths_kv is not None:
+            return target_keys, target_values
         return target_keys[:, :, :self.context_length], target_values[:, :, :self.context_length]
 
 
 class SlotGraph:
-    def __init__(self, arena, batch, context_length=None):
+    def __init__(self, arena, batch, context_length=None, valid_length_kv=False):
         self.arena = arena
         self.batch = batch
         self.context_length = arena.capacity if context_length is None else context_length
@@ -151,8 +154,8 @@ class SlotGraph:
         self.inputs = torch.zeros(batch, 1, self.reference.config.hidden_size, device=weight.device, dtype=weight.dtype)
         self.positions = torch.zeros(batch, device=weight.device, dtype=torch.long)
         self.rotary = torch.zeros(3, batch, 1, device=weight.device, dtype=torch.long)
-        self.indices = torch.arange(self.context_length, device=weight.device)
-        self.cache = SlotCache(arena, self.positions, self.context_length)
+        self.indices = torch.arange(arena.capacity if valid_length_kv else self.context_length, device=weight.device)
+        self.cache = SlotCache(arena, self.positions, self.context_length, valid_length_kv)
         self.graph = None
 
     def compute(self):
@@ -221,7 +224,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False):
         if codec_chunk_frames not in (8, 16) or (codec_chunk_frames != 8 and (not incremental_codec or codec_code_buffer)):
             raise ValueError("16-frame chunks require incremental codec without the 8-frame code buffer")
         self.codec_chunk_frames = codec_chunk_frames
@@ -251,7 +254,10 @@ class ContinuousModel:
         self.languages = self.model.languages
         self.talker = self.model.wrapper.model.talker
         self.max_slots = max_slots
-        self.bucket_kv = bucket_kv
+        if valid_length_kv and (not native_gqa or reference_single):
+            raise ValueError("Valid-length KV requires native GQA without reference-single")
+        self.valid_length_kv = valid_length_kv
+        self.bucket_kv = bucket_kv or valid_length_kv
         self.batch_prefill = batch_prefill
         self.graph_prefill = graph_prefill
         self.bucket_prefill = bucket_prefill
@@ -517,7 +523,7 @@ class ContinuousModel:
         context = min(self.arena.capacity, max(64, 1 << (required_context - 1).bit_length())) if self.bucket_kv else self.arena.capacity
         graph_key = (batch, context)
         if graph_key not in self.graphs:
-            graph = SlotGraph(self.arena, batch, context)
+            graph = SlotGraph(self.arena, batch, context, self.valid_length_kv)
             graph.capture()
             self.graphs[graph_key] = graph
         hidden = self.graphs[graph_key].run(embeds, positions, rotary)[:count]

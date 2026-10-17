@@ -1,0 +1,258 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "scope": "Real weights, synthetic activations; numerical and operator timing diagnostic only",
+  "cases": [
+    {
+      "module": "decoder.4.block.2.conv2.conv",
+      "input_channels": 96,
+      "output_channels": 96,
+      "batch": 4,
+      "length": 8,
+      "exact": false,
+      "max_abs_error": 0.001953125,
+      "rms_error": 0.00015268840070348233,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.044615548104047775
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.04786293022334576
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.04781792871654034
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.04453564994037151
+        }
+      ]
+    },
+    {
+      "module": "decoder.4.block.2.conv2.conv",
+      "input_channels": 96,
+      "output_channels": 96,
+      "batch": 4,
+      "length": 128,
+      "exact": false,
+      "max_abs_error": 0.001953125,
+      "rms_error": 0.00013757676060777158,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.04322041757404804
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.044074542820453644
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.0438582431524992
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.04318821243941784
+        }
+      ]
+    },
+    {
+      "module": "decoder.4.block.2.conv2.conv",
+      "input_channels": 96,
+      "output_channels": 96,
+      "batch": 4,
+      "length": 1024,
+      "exact": false,
+      "max_abs_error": 0.001953125,
+      "rms_error": 0.000141834796522744,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.055514536798000336
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.056357355788350105
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.056355465203523636
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.05552752874791622
+        }
+      ]
+    },
+    {
+      "module": "quantizer.rvq_first.output_proj",
+      "input_channels": 256,
+      "output_channels": 512,
+      "batch": 4,
+      "length": 8,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.047102123498916626
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.04261700436472893
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.04258040338754654
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.04712941125035286
+        }
+      ]
+    },
+    {
+      "module": "quantizer.rvq_first.output_proj",
+      "input_channels": 256,
+      "output_channels": 512,
+      "batch": 4,
+      "length": 128,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.05445490591228008
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.0450015626847744
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.04492506384849548
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.054430095478892326
+        }
+      ]
+    },
+    {
+      "module": "quantizer.rvq_first.output_proj",
+      "input_channels": 256,
+      "output_channels": 512,
+      "batch": 4,
+      "length": 1024,
+      "exact": true,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.0719995517283678
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.05886632017791271
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.05897671915590763
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.07205676287412643
+        }
+      ]
+    },
+    {
+      "module": "decoder.1.block.2.conv2.conv",
+      "input_channels": 768,
+      "output_channels": 768,
+      "batch": 4,
+      "length": 8,
+      "exact": false,
+      "max_abs_error": 0.001953125,
+      "rms_error": 0.000123984384117648,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.054903822019696236
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.050835106521844864
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.0509986188262701
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.05483992397785187
+        }
+      ]
+    },
+    {
+      "module": "decoder.1.block.2.conv2.conv",
+      "input_channels": 768,
+      "output_channels": 768,
+      "batch": 4,
+      "length": 128,
+      "exact": false,
+      "max_abs_error": 0.001953125,
+      "rms_error": 0.0001160063620773144,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.08248472586274147
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.05649385042488575
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.05638396367430687
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.08242003619670868
+        }
+      ]
+    },
+    {
+      "module": "decoder.1.block.2.conv2.conv",
+      "input_channels": 768,
+      "output_channels": 768,
+      "batch": 4,
+      "length": 1024,
+      "exact": false,
+      "max_abs_error": 0.001953125,
+      "rms_error": 0.00011655967682600021,
+      "measurements": [
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.11068645864725113
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.08231932297348976
+        },
+        {
+          "arm": "linear",
+          "mean_ms": 0.0826665386557579
+        },
+        {
+          "arm": "conv1d",
+          "mean_ms": 0.11089696548879147
+        }
+      ]
+    }
+  ]
+}

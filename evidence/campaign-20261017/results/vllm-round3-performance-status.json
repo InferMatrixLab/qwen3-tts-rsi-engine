@@ -1,0 +1,175 @@
+{
+  "status": "INCONCLUSIVE",
+  "phase": "finished",
+  "command": [
+    "/home/why/qwen3-tts-research/venv-vllm/bin/vllm-omni",
+    "serve",
+    "--omni",
+    "/home/why/qwen3-tts-research/model",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8096",
+    "--trust-remote-code"
+  ],
+  "engine": "vllm-omni-main",
+  "source_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+  "quality": "NOT_RUN",
+  "server_exit": 0,
+  "benchmark_exit": 0,
+  "environment": {
+    "ASCEND_RT_VISIBLE_DEVICES": "1",
+    "LD_PRELOAD": "/usr/lib/aarch64-linux-gnu/libjemalloc.so.2",
+    "OMP_NUM_THREADS": "4",
+    "HF_HUB_OFFLINE": "1",
+    "PYTHONPATH": "/home/why/qwen3-tts-engine:/home/why/qwen3-tts-research/vllm-omni:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:"
+  },
+  "server_pid": 1291813,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 596.4518811684102,
+        "throughput_frames_s": 13.201400227920061,
+        "ttfa_p50_ms": 254.9037914723158,
+        "ttfa_p95_ms": 261.0186230391264,
+        "rtf_mean": 0.9518393844746192,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 2,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 305.9862313605845,
+        "throughput_frames_s": 25.4880749546191,
+        "ttfa_p50_ms": 289.0684646554291,
+        "ttfa_p95_ms": 331.9365553557873,
+        "rtf_mean": 0.9848559281382632,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 4,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 158.70849789399654,
+        "throughput_frames_s": 48.92617662594441,
+        "ttfa_p50_ms": 301.03933019563556,
+        "ttfa_p95_ms": 387.86559542641044,
+        "rtf_mean": 1.0158431113123076,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 8,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 89.66831372585148,
+        "throughput_frames_s": 89.12847435086645,
+        "ttfa_p50_ms": 331.6035089083016,
+        "ttfa_p95_ms": 464.1299081966281,
+        "rtf_mean": 1.0900648017357981,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 16,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 53.82554203364998,
+        "throughput_frames_s": 145.9158552474945,
+        "ttfa_p50_ms": 446.1585464887321,
+        "ttfa_p95_ms": 606.981008220464,
+        "rtf_mean": 1.2262058547836423,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 32,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 37.56578983925283,
+        "throughput_frames_s": 210.72364068140797,
+        "ttfa_p50_ms": 684.3228046782315,
+        "ttfa_p95_ms": 926.5770651400089,
+        "rtf_mean": 1.5704379832437827,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "concurrency": 64,
+      "metrics": {
+        "requests": 128,
+        "successful_requests": 128,
+        "failed_requests": 0,
+        "wall_seconds": 32.16482013184577,
+        "throughput_frames_s": 251.641388536362,
+        "ttfa_p50_ms": 1260.1862191222608,
+        "ttfa_p95_ms": 1633.6938893888146,
+        "rtf_mean": 2.361524938811907,
+        "request_completion_pass": true,
+        "quality": "NOT_EVALUATED",
+        "server_lifecycle": "NOT_EVALUATED",
+        "status": "INCONCLUSIVE"
+      }
+    }
+  ],
+  "benchmark_command": [
+    "/home/why/qwen3-tts-research/venv-vllm/bin/python",
+    "-m",
+    "qwen3_tts_engine.benchmark",
+    "--endpoint",
+    "http://127.0.0.1:8096/v1/audio/speech",
+    "--model",
+    "/home/why/qwen3-tts-research/model",
+    "--engine",
+    "vllm-omni-main",
+    "--source-revision",
+    "b164fea797531c1fa10f8b87829632cad006b9fc",
+    "--workload",
+    "evidence/campaign-20261017/plan/workload-128.jsonl",
+    "--output",
+    "runs/vllm-sweep-round3-full128/requests-c64",
+    "--requests",
+    "128",
+    "--concurrency",
+    "64",
+    "--frame-rate",
+    "12.5",
+    "--warmup",
+    "64"
+  ],
+  "clean_server_exit": true
+}

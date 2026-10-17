@@ -360,3 +360,12 @@ FP32 101-frame streams passed tolerance (maximum absolute error 1.43e-5). BF16 T
 The 16-frame codec service completed 256 requests with server exit 0 on physical NPU 6. C32: 376.5229 frames/s, TTFA p50 244.9299 ms, p95 1395.4177 ms, mean RTF 0.977677. C64: 508.8541 frames/s, TTFA p50 995.7474 ms, p95 1423.1247 ms, mean RTF 1.320684. Full speech quality has not been evaluated; this configuration is not selected.
 
 The full-arena FIA valid-length diagnostic completed 16 synthetic operator cases with exit 0. All passed the stated operator tolerance; maximum absolute difference was 0.001953125, so this is not bitwise equivalence. C32 length 128 measured 0.0648443 ms without a valid-length bound and 0.0585291 ms with it. These isolated timings do not establish service acceleration or speech quality. No runtime integration is enabled. See results/attention-context.json and results/continuous-codec-chunk16-status.json.
+
+
+### Valid-length KV integration (experimental)
+
+Added default-off `--valid-length-kv`, requiring continuous native GQA without reference-single. It buckets the attention bound but keeps full contiguous KV arenas and full-capacity causal masks; FIA receives the bound directly, avoiding prefix materialization. Four cache-history/attention cases plus four server tests passed (8 tests total). A real-model four-request probe completed with slot reuse, capacity growth from 64 to 128, and clean exit 0; matched control and service measurements are pending. Operator tolerance is not a speech-quality pass.
+
+The vLLM third performance repeat completed all 896 requests with server exit 0 on physical NPU 1 (earlier repeats used physical NPU 0). C1/2/4/8/16/32/64 throughput: 13.2014 / 25.4881 / 48.9262 / 89.1285 / 145.9159 / 210.7236 / 251.6414 frames/s. Full audio quality evaluation is running; hardware differences and repeat variance prevent selecting a convenient baseline for acceptance.
+
+Pointwise-convolution versus linear diagnostics completed with real weights and synthetic activations. Results vary by shape and include numerical differences; no runtime replacement is selected. See results/codec-pointwise.json.

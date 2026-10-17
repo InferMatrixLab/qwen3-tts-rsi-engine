@@ -21,5 +21,6 @@ def attention(module, query, key, value, attention_mask, **kwargs):
     output = torch_npu.npu_fused_infer_attention_score(
         query.contiguous(), key.contiguous(), value.contiguous(),
         num_heads=query.shape[1], num_key_value_heads=key.shape[1], input_layout='BNSD',
+        actual_seq_lengths_kv=kwargs.get("actual_seq_lengths_kv"),
         atten_mask=mask, scale=kwargs.get('scaling', query.shape[-1] ** -0.5), sparse_mode=0)[0]
     return output.transpose(1, 2).contiguous(), None

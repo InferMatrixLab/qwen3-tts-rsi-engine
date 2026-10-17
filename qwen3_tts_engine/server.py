@@ -276,6 +276,7 @@ def main():
     parser.add_argument("--triton-talker-rope", action="store_true")
     parser.add_argument("--codec-chunk-frames", type=int, choices=[8, 16], default=8)
     parser.add_argument("--bucket-kv", action="store_true")
+    parser.add_argument("--valid-length-kv", action="store_true")
     parser.add_argument("--graph-embeddings", action="store_true")
     parser.add_argument("--bucket-prefill", action="store_true")
     parser.add_argument("--decode-bucket-step", type=int, default=0)
@@ -346,6 +347,8 @@ def main():
         parser.error('--bucket-prefill requires --graph-prefill')
     if options.graph_embeddings and not options.continuous:
         parser.error('--graph-embeddings requires --continuous')
+    if options.valid_length_kv and (not options.continuous or not options.native_gqa or options.reference_single):
+        parser.error("--valid-length-kv requires continuous native GQA without reference-single")
     if options.bucket_kv and not options.continuous:
         parser.error('--bucket-kv requires --continuous')
     if options.native_kv_update and not options.continuous:
@@ -372,7 +375,7 @@ def main():
                           native_gqa=options.native_gqa, text_only_rope=options.text_only_rope, reference_single=options.reference_single, native_rope=options.native_rope, native_rope_scope=options.native_rope_scope, fused_residual=options.fused_residual, graph_prefill=options.graph_prefill,
                           codec_left_context=options.codec_left_context, codec_batch_size=options.codec_batch_size,
                           incremental_codec=options.incremental_codec, batch_prefill=options.batch_prefill,
-                          native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec, bucket_kv=options.bucket_kv, graph_embeddings=options.graph_embeddings, bucket_prefill=options.bucket_prefill, decode_bucket_step=options.decode_bucket_step, batch_audio_transfer=options.batch_audio_transfer, graph_sampling=options.graph_sampling, cache_codec_constants=options.cache_codec_constants, codec_code_buffer=options.codec_code_buffer, triton_snake=options.triton_snake, cache_codec_codebooks=options.cache_codec_codebooks, prewarm_prefill=options.prewarm_prefill, triton_kv_update=options.triton_kv_update, triton_talker_rope=options.triton_talker_rope, codec_chunk_frames=options.codec_chunk_frames)
+                          native_kv_update=options.native_kv_update, prewarm_codec=options.prewarm_codec, bucket_kv=options.bucket_kv, graph_embeddings=options.graph_embeddings, bucket_prefill=options.bucket_prefill, decode_bucket_step=options.decode_bucket_step, batch_audio_transfer=options.batch_audio_transfer, graph_sampling=options.graph_sampling, cache_codec_constants=options.cache_codec_constants, codec_code_buffer=options.codec_code_buffer, triton_snake=options.triton_snake, cache_codec_codebooks=options.cache_codec_codebooks, prewarm_prefill=options.prewarm_prefill, triton_kv_update=options.triton_kv_update, triton_talker_rope=options.triton_talker_rope, codec_chunk_frames=options.codec_chunk_frames, valid_length_kv=options.valid_length_kv)
     service = SpeechService(options, factory)
     app = web.Application(client_max_size=1024 * 1024)
     app.router.add_get("/health", service.health)
