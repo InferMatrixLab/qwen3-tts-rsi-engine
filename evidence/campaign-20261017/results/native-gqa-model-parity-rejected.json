@@ -1,0 +1,48 @@
+{
+  "status": "FAIL",
+  "scope": "complete waveform parity; diagnostic timings only",
+  "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+  "arms": {
+    "reference": [
+      {
+        "sample_rate": 24000,
+        "codec_frames": 30,
+        "finish_reason": "stop",
+        "index": 0,
+        "pcm_sha256": "39358abfdcb96b99f2ec54e68bb5d37201d341385eccf4a3e44852d165aa2e0f",
+        "elapsed_s": 10.33050057478249
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 40,
+        "finish_reason": "stop",
+        "index": 1,
+        "pcm_sha256": "a4f54b33b456cfa41ffa34bdc70ac7b8ffaa5ec5f9298f98362e801ceb21ef8b",
+        "elapsed_s": 12.616190296597779
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 90,
+        "finish_reason": "stop",
+        "index": 64,
+        "pcm_sha256": "a703cb5d9cc4817231b2aaea8b65b8e10c9b0b683f0705b6dbc4a98c4ecb3eed",
+        "elapsed_s": 27.95992225781083
+      },
+      {
+        "sample_rate": 24000,
+        "codec_frames": 83,
+        "finish_reason": "stop",
+        "index": 65,
+        "pcm_sha256": "060258af2a1da40b81d68635d2baa67d93ec473f81f9b90a1a6a6ca172e2768a",
+        "elapsed_s": 26.107135354541242
+      }
+    ]
+  },
+  "implementation": "WholePredictorGraph",
+  "talker_graph": true,
+  "batch_size": 1,
+  "rms_norm": null,
+  "pack_qkv": false,
+  "native_gqa": true,
+  "error": "RuntimeError: capture_end:../torch_npu/csrc/core/npu/NPUGraph.cpp:240 NPU function error: c10_npu::acl::AclmdlRICaptureEnd(capture_stream_, &model_ri), error code is 107025\n[ERROR] 2026-10-17-15:59:44 (PID:1217812, Device:0, RankID:-1) ERR00100 PTA call acl api failed.\nEE9999: Inner Error!\nEE9999[PID: 1217812] 2026-10-17-15:59:44.426.832 (EE9999):  The type of the task is not event record nor capture record, stream_id=12, task_id=74, task_type=3 (EVENT_WAIT).[FUNC:GetCaptureEventFromTask][FILE:capture_adapt_v100.cc][LINE:52]\nTraceBack (most recent call last):\n       rtStreamEndCapture execution failed, reason=capture model contains a stream that was not joined to the original stream[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:69]\n"
+}

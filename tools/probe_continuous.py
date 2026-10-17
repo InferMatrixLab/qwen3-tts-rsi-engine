@@ -14,6 +14,7 @@ parser.add_argument('--output', type=Path, required=True)
 parser.add_argument('--slots', type=int, default=2)
 parser.add_argument('--capacity', type=int, default=64)
 parser.add_argument('--indices', type=int, nargs='+', default=[0, 1, 64, 65])
+parser.add_argument('--cancel-first-at', type=int)
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 data = args.workload.read_bytes()
@@ -24,7 +25,9 @@ result = {'status': 'INCONCLUSIVE', 'scope': 'native scheduling correctness prob
 (args.output / 'runspec.json').write_text(json.dumps({'workload': str(args.workload),
     'workload_sha256': hashlib.sha256(data).hexdigest(), 'sample_rate': 24000, 'frame_rate': 12.5}, indent=2)+'\n')
 starts, pieces, chunks = {}, {}, {}
+cancelled_ids = set()
 def emit(identifier, pcm, rate):
+    assert identifier not in cancelled_ids
     assert rate == 24000 and len(pcm) > 0 and len(pcm) % 2 == 0
     pieces[identifier].append(pcm)
     chunks[identifier].append({'seconds': time.perf_counter() - starts[identifier], 'bytes': len(pcm)})
@@ -32,16 +35,24 @@ try:
     pending = list(args.indices)
     completed = set()
     while pending or model.states:
+        cancelled = []
+        if args.cancel_first_at is not None and args.indices[0] not in cancelled_ids:
+            for state in model.states:
+                if state.identifier == args.indices[0] and state.frames >= args.cancel_first_at:
+                    cancelled = [state.identifier]
+                    cancelled_ids.add(state.identifier)
+                    break
         submissions = []
-        while pending and len(model.states) + len(submissions) < args.slots:
+        while pending and len(model.states) - len(cancelled) + len(submissions) < args.slots:
             index = pending.pop(0)
             starts[index] = time.perf_counter()
             pieces[index], chunks[index] = [], []
             submissions.append((index, payloads[index]))
-        outputs = model.tick(submissions, emit)
-        if submissions or outputs:
+        outputs = model.tick(submissions, emit, cancelled)
+        if submissions or outputs or cancelled:
             result['events'].append({'admitted': [i for i, _ in submissions], 'finished': [i for i, _ in outputs],
-                                     'active': [state.identifier for state in model.states], 'capacity': model.arena.capacity})
+                                     'cancelled': cancelled, 'active': [state.identifier for state in model.states],
+                                     'capacity': model.arena.capacity})
             print(result['events'][-1], flush=True)
         for index, output in outputs:
             assert index not in completed
@@ -58,7 +69,10 @@ try:
                 'audio_seconds': len(output['pcm']) / 48000, 'elapsed_seconds': time.perf_counter() - starts[index],
                 'chunks': chunks[index]})
             (args.output / 'results.json').write_text(json.dumps(result, indent=2)+'\n')
-    assert completed == set(args.indices)
+    assert completed == set(args.indices) - cancelled_ids
+    if args.cancel_first_at is not None:
+        assert cancelled_ids == {args.indices[0]}
+    result['cancelled'] = sorted(cancelled_ids)
     result['status'] = 'PASS'
 except Exception as error:
     result['status'] = 'FAIL'

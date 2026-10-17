@@ -19,6 +19,7 @@ parser.add_argument('--talker-graph', action='store_true')
 parser.add_argument('--batch-size', type=int, default=1)
 parser.add_argument('--rms-norm', choices=['native', 'reference-rounding'])
 parser.add_argument('--pack-qkv', action='store_true')
+parser.add_argument('--native-gqa', action='store_true')
 args = parser.parse_args()
 if args.batch_size <= 0:
     parser.error('Batch size must be positive')
@@ -43,6 +44,7 @@ result['talker_graph'] = args.talker_graph
 result['batch_size'] = args.batch_size
 result['rms_norm'] = args.rms_norm
 result['pack_qkv'] = args.pack_qkv
+result['native_gqa'] = args.native_gqa
 replacements = []
 try:
     for name, predictor in [('reference', reference), ('graph', graph)]:
@@ -50,9 +52,9 @@ try:
         if name == 'graph' and args.rms_norm:
             from qwen3_tts_engine.operators import install_rms_norms
             replacements = install_rms_norms(model.wrapper.model.talker, args.rms_norm)
-        if name == 'graph' and args.pack_qkv:
+        if name == 'graph' and (args.pack_qkv or args.native_gqa):
             from qwen3_tts_engine.packed_attention import install_packed_attention
-            replacements.extend(install_packed_attention(model.wrapper.model.talker))
+            replacements.extend(install_packed_attention(model.wrapper.model.talker, native_gqa=args.native_gqa))
         if name == 'graph' and talker_graph is not None:
             model.wrapper.model.talker.model = talker_graph
         rows = []
