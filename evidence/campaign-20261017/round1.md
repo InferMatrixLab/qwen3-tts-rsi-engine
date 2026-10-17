@@ -305,3 +305,7 @@ Sixteen synthetic BF16 cases (B1/8/32/64, valid KV length 2/3/8/16, head dimensi
 ### Fixed-capacity predictor KV: model diagnostic rejected
 
 Real weights with synthetic embeddings and identical random draws: B1/8/32/64 produced exactly equal subcodes and combined embeddings, including three changed-input graph replays. ABBA mean times (dynamic / fixed, ms): approximately 9.36 / 10.54, 13.60 / 14.82, 17.65 / 18.65, 21.56 / 22.46. Process exit 0. The fixed buffer implementation is slower at every batch and is not integrated into serving. Attention-only savings did not survive the full cache-update path.
+
+### Bounded prefill prewarming
+
+Source `5dd348a`, physical NPU 6, one trial. C32/C64: 392.226 / 500.101 frames/s; TTFA p95 1068.516 / 1269.826 ms. All 256 requests completed and server exited 0. All 256 WAVs are byte-identical to the combined candidate without prewarming. C32 did not improve; C64 showed a modest exploratory increase. This does not establish an all-concurrency or repeated-trial gain.

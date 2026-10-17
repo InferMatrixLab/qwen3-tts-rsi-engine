@@ -1,0 +1,55 @@
+{
+  "status": "INCONCLUSIVE",
+  "scope": "Exploratory comparison with vLLM round 2 only; not final repeated-trial acceptance, shared host and separate devices",
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "candidate_frames_s": 55.03751509831964,
+      "vllm_round2_frames_s": 12.791066544709883,
+      "ratio": 4.302808910104686,
+      "additional_throughput_needed_percent": 0
+    },
+    {
+      "concurrency": 2,
+      "candidate_frames_s": 85.70104040440229,
+      "vllm_round2_frames_s": 24.712437230161637,
+      "ratio": 3.467931536101336,
+      "additional_throughput_needed_percent": 0
+    },
+    {
+      "concurrency": 4,
+      "candidate_frames_s": 135.79574279564076,
+      "vllm_round2_frames_s": 47.19281370410862,
+      "ratio": 2.877466549188152,
+      "additional_throughput_needed_percent": 0
+    },
+    {
+      "concurrency": 8,
+      "candidate_frames_s": 208.1993007486102,
+      "vllm_round2_frames_s": 82.57597590962091,
+      "ratio": 2.521305966477266,
+      "additional_throughput_needed_percent": 0
+    },
+    {
+      "concurrency": 16,
+      "candidate_frames_s": 313.0087305435317,
+      "vllm_round2_frames_s": 137.54177906611915,
+      "ratio": 2.275735654059426,
+      "additional_throughput_needed_percent": 0
+    },
+    {
+      "concurrency": 32,
+      "candidate_frames_s": 394.716932584896,
+      "vllm_round2_frames_s": 214.29404211656257,
+      "ratio": 1.841940768330809,
+      "additional_throughput_needed_percent": 8.5811245609394
+    },
+    {
+      "concurrency": 64,
+      "candidate_frames_s": 491.3987635987143,
+      "vllm_round2_frames_s": 232.5999250066449,
+      "ratio": 2.1126350904226476,
+      "additional_throughput_needed_percent": 0
+    }
+  ]
+}

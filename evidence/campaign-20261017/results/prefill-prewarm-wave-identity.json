@@ -1,0 +1,19 @@
+{
+  "scope": "Full WAV identity compared with combined candidate; not independent quality evaluation",
+  "cohorts": [
+    {
+      "concurrency": 32,
+      "reference_count": 128,
+      "candidate_count": 128,
+      "matching": 128,
+      "all_equal": true
+    },
+    {
+      "concurrency": 64,
+      "reference_count": 128,
+      "candidate_count": 128,
+      "matching": 128,
+      "all_equal": true
+    }
+  ]
+}
