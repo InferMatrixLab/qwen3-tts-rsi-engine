@@ -28,6 +28,13 @@ if args.strict_fp32:
 engine = CodecSlots(decoder, 4, cache_constants=args.cache_constants, triton_snake=args.triton_snake)
 eager = IncrementalCodec(decoder)
 control = CodecSlots(decoder, 4) if args.graph_control else None
+triton_calls = []
+if args.triton_snake:
+    original_snake = engine.eager.triton_snake
+    def observed_snake(hidden, *arguments, **keywords):
+        triton_calls.append(tuple(hidden.shape))
+        return original_snake(hidden, *arguments, **keywords)
+    engine.eager.triton_snake = observed_snake
 result = {'status': 'INCONCLUSIVE', 'scope': 'synthetic slot graph diagnostic, not speech quality or speed',
           'triton_snake': args.triton_snake, 'graph_control': args.graph_control, 'strict_fp32': args.strict_fp32, 'cache_constants': args.cache_constants, 'prewarm': args.prewarm, 'cases': []}
 try:
@@ -83,12 +90,16 @@ try:
         result['reset_max_abs_error'] = (fresh.float() - reference.float()).abs().max().item()
         if args.strict_fp32:
             torch.testing.assert_close(fresh, reference, atol=1e-4, rtol=1e-4)
+        if args.triton_snake and not args.strict_fp32:
+            assert triton_calls, 'Triton path was never executed'
         result['status'] = 'PASS' if args.strict_fp32 else 'DIAGNOSTIC_ONLY'
 except Exception as error:
     result['status'] = 'FAIL'
     result['error'] = str(error)
     raise
 finally:
+    result['triton_capture_calls'] = len(triton_calls)
+    result['triton_shapes'] = sorted(set(triton_calls))
     (args.output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
     if control is not None: control.close()
     engine.close()

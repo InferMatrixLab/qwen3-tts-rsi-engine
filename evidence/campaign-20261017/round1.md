@@ -259,3 +259,6 @@ Native-RoPE/sampling full-sweep quality is now complete: all 896 clips have ASR 
 The codec code-buffer cancellation control passed: cancelling request 0 after frame 3 left requests 1/64/65 with identical complete PCM hashes. The 101-frame real decoder test with Triton SnakeBeta also passed exact graph-control equality across interleaved groups, slot move and reset; BF16 graph-versus-eager differences remain unchanged and are not described as eager parity. Service throughput is the next gate.
 
 Added default-all `--native-rope-scope {all,talker,predictor}` for component attribution of the C16 ASR regression. It changes no sampling parameters or quality thresholds. The predictor-only C16 control is prepared; it is not an accepted numerical policy.
+
+
+Predictor-only native RoPE C16 service control (a96f3f1, physical NPU 1) completed 128 requests, 283.171092 frames/s, server exit 0. This exceeds the exploratory C16 throughput threshold but full ASR is running; no quality acceptance is claimed. Triton codec serving remains in first-time compilation/prewarming. The codec probe now records actual Triton invocation shapes/count and rejects a BF16 run that never reaches the kernel, to distinguish graph equality from an unexercised fallback.

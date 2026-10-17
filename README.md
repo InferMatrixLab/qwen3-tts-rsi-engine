@@ -42,11 +42,11 @@ the incremental codec. BF16 graph-control output equality and strict-FP32
 state tests passed; its first service probe did not establish a throughput gain.
 These options remain experimental and disabled by default.
 `--codec-code-buffer` adds bounded, batched eight-frame code history; four complete
-waveform controls are exact, with cancellation and service qualification pending.
+waveform controls and cancellation controls are exact; service qualification is pending.
 `--triton-snake` enables an experimental Ascend vector kernel with explicit BF16
 rounding and automatically cached codec coefficients. Ten operator cases were
-exact and faster after physical-core tiling; actual codec and service validation
-are separate. See [the migration record](evidence/campaign-20261017/triton-snake.md).
+exact and faster after physical-core tiling; the 101-frame actual codec graph
+control was also exact. Full service validation is separate and still running. See [the migration record](evidence/campaign-20261017/triton-snake.md).
 
 Benchmark against an already running OpenAI speech SSE endpoint:
 
