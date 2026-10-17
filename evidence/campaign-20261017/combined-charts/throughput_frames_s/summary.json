@@ -1,0 +1,136 @@
+{
+  "status": "INCONCLUSIVE",
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "metrics": [
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C1",
+      "before": {
+        "mean": 12.791066544709883,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 55.03751509831964,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 330.2808910104685,
+      "observation": "single trial"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C2",
+      "before": {
+        "mean": 24.712437230161637,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 85.70104040440229,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 246.79315361013357,
+      "observation": "single trial"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C4",
+      "before": {
+        "mean": 47.19281370410862,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 135.79574279564076,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 187.74665491881518,
+      "observation": "single trial"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C8",
+      "before": {
+        "mean": 82.57597590962091,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 208.1993007486102,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 152.13059664772663,
+      "observation": "single trial"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C16",
+      "before": {
+        "mean": 137.54177906611915,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 313.0087305435317,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 127.5735654059426,
+      "observation": "single trial"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C32",
+      "before": {
+        "mean": 214.29404211656257,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 394.716932584896,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 84.19407683308091,
+      "observation": "single trial"
+    },
+    {
+      "name": "throughput_frames_s",
+      "unit": "frames/s",
+      "direction": "higher",
+      "scenario": "C64",
+      "before": {
+        "mean": 232.5999250066449,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 491.3987635987143,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 111.26350904226476,
+      "observation": "single trial"
+    }
+  ]
+}

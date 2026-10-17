@@ -1,0 +1,147 @@
+# Exploratory vLLM round 2 vs combined candidate: rtf_mean
+
+Evidence checks: **INCONCLUSIVE**
+
+PASS means supplied evidence checks passed; it does not establish a statistically significant gain.
+Means are equally weighted trial means. SD is sample standard deviation, not a confidence interval.
+
+| Metric / scenario | Direction | Before mean ± SD (n) | After mean ± SD (n) | Improvement | Scope |
+|---|---|---:|---:|---:|---|
+| rtf_mean / C1 (ratio) | lower | 0.982176 ± N/A (n=1) | 0.228475 ± N/A (n=1) | +76.74% | single trial |
+| rtf_mean / C2 (ratio) | lower | 1.01493 ± N/A (n=1) | 0.292107 ± N/A (n=1) | +71.22% | single trial |
+| rtf_mean / C4 (ratio) | lower | 1.05196 ± N/A (n=1) | 0.366539 ± N/A (n=1) | +65.16% | single trial |
+| rtf_mean / C8 (ratio) | lower | 1.17885 ± N/A (n=1) | 0.472179 ± N/A (n=1) | +59.95% | single trial |
+| rtf_mean / C16 (ratio) | lower | 1.27763 ± N/A (n=1) | 0.620491 ± N/A (n=1) | +51.43% | single trial |
+| rtf_mean / C32 (ratio) | lower | 1.58882 ± N/A (n=1) | 0.91626 ± N/A (n=1) | +42.33% | single trial |
+| rtf_mean / C64 (ratio) | lower | 2.40161 ± N/A (n=1) | 1.37026 ± N/A (n=1) | +42.94% | single trial |
+
+![Before and after](comparison.png)
+
+## Input and provenance
+
+```json
+{
+  "title": "Exploratory vLLM round 2 vs combined candidate: rtf_mean",
+  "synthetic": false,
+  "context": {
+    "hardware": "One Ascend 910B1 per arm; baseline physical device 0, candidate physical device 6; shared host",
+    "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice BF16",
+    "workload_sha256": "5007716c83b29d0247b2c6291b9704c652e01a94362c19e90ea3cb34987060c7",
+    "baseline_revision": "b164fea797531c1fa10f8b87829632cad006b9fc",
+    "candidate_revision": "a9fac0663b1ee2923c6d3dc007f2b5f408457765",
+    "source_logs": [
+      "runs/vllm-sweep-round2-full128/status.json",
+      "runs/continuous-codec-fused-predictor-rope-full/status.json"
+    ],
+    "timing_scope": "Warm service, client dispatch through terminal PCM event; TTFA first nonempty PCM"
+  },
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "runs": {
+    "before": {
+      "completed": 896,
+      "failed": 0
+    },
+    "after": {
+      "completed": 896,
+      "failed": 0
+    }
+  },
+  "notes": [
+    "One independent trial per arm; no error bars or significance claim.",
+    "Comparison is with vLLM round 2, not final selection across three repeats of both frameworks.",
+    "All candidate ASR gates pass against round-1 baselines; speaker evaluation and round-2 matched quality remain incomplete.",
+    "C32 candidate throughput is 1.842x this baseline, below the required 2x.",
+    "Both services exited 0; shared-host and device variability remain uncontrolled."
+  ],
+  "metrics": [
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C1",
+      "before": [
+        0.982175721115547
+      ],
+      "after": [
+        0.22847535911241848
+      ]
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C2",
+      "before": [
+        1.0149255174912346
+      ],
+      "after": [
+        0.292106653536201
+      ]
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C4",
+      "before": [
+        1.0519599005503668
+      ],
+      "after": [
+        0.3665385963451071
+      ]
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C8",
+      "before": [
+        1.1788510196547728
+      ],
+      "after": [
+        0.4721790227034017
+      ]
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C16",
+      "before": [
+        1.2776324467121596
+      ],
+      "after": [
+        0.6204907456079376
+      ]
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C32",
+      "before": [
+        1.5888183318249476
+      ],
+      "after": [
+        0.9162600560132758
+      ]
+    },
+    {
+      "name": "rtf_mean",
+      "unit": "ratio",
+      "direction": "lower",
+      "scenario": "C64",
+      "before": [
+        2.4016064005608397
+      ],
+      "after": [
+        1.3702643034754378
+      ]
+    }
+  ]
+}
+```

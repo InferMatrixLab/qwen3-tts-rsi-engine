@@ -1,0 +1,136 @@
+{
+  "status": "INCONCLUSIVE",
+  "checks": {
+    "comparable": "unknown",
+    "correctness": "unknown",
+    "lifecycle": "pass"
+  },
+  "metrics": [
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C1",
+      "before": {
+        "mean": 270.6865864805877,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 62.44243532419205,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 76.93183244280554,
+      "observation": "single trial"
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C2",
+      "before": {
+        "mean": 340.47881476581097,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 91.81718570180236,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 73.032922543226,
+      "observation": "single trial"
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C4",
+      "before": {
+        "mean": 387.02510218136007,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 143.228876357898,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 62.99235487552926,
+      "observation": "single trial"
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C8",
+      "before": {
+        "mean": 487.53843032754946,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 206.63701184093924,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 57.61626181917361,
+      "observation": "single trial"
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C16",
+      "before": {
+        "mean": 634.7947570495307,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 370.12574193067843,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 41.69363596337976,
+      "observation": "single trial"
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C32",
+      "before": {
+        "mean": 1019.0857470035553,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 1062.2166921384633,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": -4.232317571090265,
+      "observation": "single trial"
+    },
+    {
+      "name": "ttfa_p95_ms",
+      "unit": "ms",
+      "direction": "lower",
+      "scenario": "C64",
+      "before": {
+        "mean": 1688.375543570146,
+        "std": null,
+        "n": 1
+      },
+      "after": {
+        "mean": 1288.5734409559518,
+        "std": null,
+        "n": 1
+      },
+      "improvement_pct": 23.679690465593612,
+      "observation": "single trial"
+    }
+  ]
+}
