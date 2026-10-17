@@ -430,3 +430,20 @@ All 256 requests completed with server exit 0 on physical NPU 6. Every WAV match
 | 64 | 530.1827 | 734.3281 | 1203.6463 | 1.272795 |
 
 Against vLLM round 2, the exploratory ratios are C32 2.00256x and C64 2.27938x. The C32 margin is only 0.128% above the 2x line and this comparison uses different physical cards; it does not establish stable final acceptance. A complete C1–C64 trial of this configuration is running in runs/continuous-exact-bucket-prefill-full-round1. The earlier exact-combination full-trial C1 independent ASR/speaker scores and retained-audio audit now pass.
+
+
+### Prefill-bucket full performance trial
+
+All 896 requests completed and server exited 0 on physical NPU 6. This repeat did not reproduce a stable C32 2x margin. Relative to the exact-combination full trial, WAV identity was 128/128 at C1/C2/C4/C32/C64, but only 13/128 at C8 and 7/128 at C16. Quality cannot transfer for those changed cohorts; the configuration remains unqualified.
+
+| Concurrency | frames/s | TTFA p50 ms | TTFA p95 ms | mean RTF |
+|---:|---:|---:|---:|---:|
+| 1 | 59.8501 | 56.1925 | 59.8856 | 0.210397 |
+| 2 | 91.6895 | 74.9874 | 89.1899 | 0.273019 |
+| 4 | 149.0185 | 97.9961 | 120.4445 | 0.333034 |
+| 8 | 225.3128 | 120.8146 | 198.6704 | 0.436125 |
+| 16 | 333.0264 | 160.3463 | 358.6177 | 0.587186 |
+| 32 | 419.4268 | 228.3700 | 663.9449 | 0.858584 |
+| 64 | 515.6635 | 774.6860 | 1277.1045 | 1.310878 |
+
+Independent quality integrity audits now pass for exact-combination C4 and vLLM third-repeat C16/C32. The CDF-tail isolated operator probe is running; no kernel gain or model correctness is assumed.
