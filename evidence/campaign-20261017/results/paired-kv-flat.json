@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "scope": "Synthetic cache operator, not model or service validation",
+  "cases": [
+    {
+      "batch": 1,
+      "capacity": 64,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.02447778359055519
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.2932503307238221
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.2932044258341193
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.024982397444546223
+        }
+      ]
+    },
+    {
+      "batch": 1,
+      "capacity": 512,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.024338881485164165
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.30268657486885786
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.30289412941783667
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.024284375831484795
+        }
+      ]
+    },
+    {
+      "batch": 8,
+      "capacity": 64,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.05424425005912781
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.31285193283110857
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.3128903917968273
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.05422795191407204
+        }
+      ]
+    },
+    {
+      "batch": 8,
+      "capacity": 512,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.05241290666162968
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.32434423454105854
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.3243296826258302
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.05241085775196552
+        }
+      ]
+    },
+    {
+      "batch": 32,
+      "capacity": 64,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.0552939809858799
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.3204765310510993
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.3207510896027088
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.05543418228626251
+        }
+      ]
+    },
+    {
+      "batch": 32,
+      "capacity": 512,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.05521118175238371
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.33951472491025925
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.33962042536586523
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.05516467150300741
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "capacity": 64,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.07237672340124846
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.6221680296584964
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.6217778706923127
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.07308433763682842
+        }
+      ]
+    },
+    {
+      "batch": 64,
+      "capacity": 512,
+      "full_arena_exact": true,
+      "measurements": [
+        {
+          "arm": "native",
+          "mean_ms": 0.07034567184746265
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.6627969769760966
+        },
+        {
+          "arm": "paired",
+          "mean_ms": 0.6630471395328641
+        },
+        {
+          "arm": "native",
+          "mean_ms": 0.0705479271709919
+        }
+      ]
+    }
+  ],
+  "process_exit": 0,
+  "variant": "flat offsets",
+  "selection": "REJECTED: slower at every tested shape",
+  "timing_caveat": "Native arm includes index preparation, amortized across layers in serving."
+}
