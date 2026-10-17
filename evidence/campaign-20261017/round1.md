@@ -267,3 +267,8 @@ Predictor-only native RoPE C16 service control (a96f3f1, physical NPU 1) complet
 Predictor-only RoPE C16 full ASR completed: EN WER 0.0099573257, ZH CER 0.0223509934, both within frozen gates. Speaker scoring remains pending. The all-RoPE candidate comparison now has reproducible PNG/SVG charts and machine-readable reports for all four metrics under `native-rope-charts/`; every chart is marked FAIL because that older candidate fails C16 quality, with n=1 and shared-host limitations explicit.
 
 Added default-off `--cache-codec-codebooks`: precompute the sixteen fixed embedding_sum / clamp(cluster_usage) tables without changing codebook accumulation order or mutating the reference quantizer. CPU FP32/BF16 tests cover negative, zero and tiny usage counts and partial/full codebook inputs; all 49 tests pass. The NPU 101-frame graph-control test is running before any service claim.
+
+
+Cached normalized codebooks passed the real NPU BF16 graph control: all 101-frame chunks and reset output are bit-identical to the uncached quantizer, including interleaved streams and slot compaction. Prewarming all 32 codec shapes preserved live state exactly. This is graph parity only; service throughput remains unmeasured for this flag.
+
+Predictor-only RoPE C16 speaker scoring completed on 128 clips: mean cosine 0.7649079487, above the frozen minimum 0.751416. Thus this single C16 cohort passes ASR/speaker gates and exceeds its exploratory throughput target; no other concurrency or repeat is implied.
