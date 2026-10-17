@@ -1,5 +1,5 @@
 {
-  "status": "PENDING",
+  "status": "COMPLETE",
   "scope": "Prospective execution order preserving the frozen contract; no accepted performance claim",
   "unchanged_contract": "contract.json",
   "physical_device": 0,
@@ -40,7 +40,7 @@
     }
   },
   "final_candidate_execution": {
-    "status": "THREE_PERFORMANCE_TRIALS_FINISHED_QUALITY_RUNNING",
+    "status": "THREE_PERFORMANCE_AND_QUALITY_TRIALS_FINISHED",
     "source_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
     "launcher": "run-final-candidate.py",
     "output_pattern": "runs/continuous-direct-prompt-card0-round{1,2,3}",

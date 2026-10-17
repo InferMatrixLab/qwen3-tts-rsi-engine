@@ -1,6 +1,6 @@
 {
-  "status": "INCONCLUSIVE",
-  "scope": "All nine selected performance trials complete; candidate quality and final audit pending",
+  "status": "PASS",
+  "scope": "All nine selected performance trials complete; full independent quality and numerical audit passed, see ../acceptance.json",
   "manifest": "plan/final-comparison-runs.json",
   "cohorts": [
     {

@@ -1,7 +1,7 @@
 # Before: vLLM | After: independent engine (same physical NPU)
 ttfa_p95_ms
 
-Evidence checks: **INCONCLUSIVE**
+Evidence checks: **PASS**
 
 PASS means supplied evidence checks passed; it does not establish a statistically significant gain.
 Means are equally weighted trial means. SD is sample standard deviation, not a confidence interval.
@@ -48,8 +48,8 @@ Means are equally weighted trial means. SD is sample standard deviation, not a c
     ]
   },
   "checks": {
-    "comparable": "unknown",
-    "correctness": "unknown",
+    "comparable": "pass",
+    "correctness": "pass",
     "lifecycle": "pass"
   },
   "runs": {
@@ -65,7 +65,7 @@ Means are equally weighted trial means. SD is sample standard deviation, not a c
   "notes": [
     "Three independent server processes per arm; bars are means and error bars sample standard deviations, not confidence intervals.",
     "All arms used physical NPU 0; host activity was shared and trials were sequential, not randomized.",
-    "Full independent candidate scoring is still running; this figure is not final acceptance.",
+    "All 2,688 candidate waveforms independently scored; all 63 cohorts and 21 candidate contract comparisons passed. See final acceptance for scope and qualifications.",
     "TTFA p50/p95 bars summarize per-trial percentiles, not pooled-request percentiles.",
     "vLLM is the faster measured baseline at every concurrency; all SGLang observations remain in the machine-readable comparison.",
     "Round-1 vLLM physical device is recorded in the contemporaneous campaign report; its older runner lacks the environment field."

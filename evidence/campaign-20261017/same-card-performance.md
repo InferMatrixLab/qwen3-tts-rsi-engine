@@ -1,6 +1,8 @@
 # Three-framework same-card performance
 
-Status: **INCONCLUSIVE — full independent candidate audio scoring is still running.**
+Status: **PASS — all independent candidate audio scoring and full contract checks passed.**
+
+[Final acceptance and qualifications](acceptance.md).
 
 Three independent server runs per framework, Ascend 910B1 physical NPU 0, one NPU, BF16, the same pinned CustomVoice model and 128-record workload at each concurrency. All 8,064 timed requests completed and all nine servers exited 0. SGLang uses the documented import-only compatibility patch on pinned main. Round-1 vLLM device assignment is recorded in the contemporaneous campaign report; its older runner did not capture the environment field.
 

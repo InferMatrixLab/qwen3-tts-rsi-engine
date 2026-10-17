@@ -1,8 +1,8 @@
 {
-  "status": "INCONCLUSIVE",
+  "status": "PASS",
   "checks": {
-    "comparable": "unknown",
-    "correctness": "unknown",
+    "comparable": "pass",
+    "correctness": "pass",
     "lifecycle": "pass"
   },
   "metrics": [

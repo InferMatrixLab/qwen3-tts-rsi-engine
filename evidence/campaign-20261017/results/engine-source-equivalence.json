@@ -1,0 +1,170 @@
+{
+  "status": "PASS",
+  "scope": "Static runtime source comparison; excludes module docstrings only, not execution tests",
+  "measured_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+  "files": [
+    {
+      "path": "qwen3_tts_engine/__init__.py",
+      "current_sha256": "9f7e7ecc1e417db1eda84a8904ef82621444b63a60cc35c14a4121609c11f5a3",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/batching.py",
+      "current_sha256": "08a390970af85286f3e85d37619c01fa414d58c760551544182c87fbd4d5bef0",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/benchmark.py",
+      "current_sha256": "0cf57d578b49aeccd0d00a3da77258b12c16ac56a001dbf7ff807c85f47c9b66",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/cached_quantizer.py",
+      "current_sha256": "75207d415dbe425f677c4974880b56a066785e10a1715e058a9e790507c0498a",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/cdf_triton_ascend.py",
+      "current_sha256": "2f032fde4d7d4c9e01a3089b4bcf3bbe48d3ff652f47834f8dbf1f2a82d0d0d8",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/codec_code_buffer.py",
+      "current_sha256": "8e50e33d0d529a06b67717eec1175a44d97d18d73b8c7b7fc7bf24023b9920e9",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/codec_graph.py",
+      "current_sha256": "1ff053ffc0db1f0d55c98ec065aa70eec0580368e685dd53f598042b8c08e8ff",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/codec_slots.py",
+      "current_sha256": "ac2187d6c85e052c3c06f1a761eb6f59f7324f0b9c79635687a7cb6ea129f838",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/continuous.py",
+      "current_sha256": "ad803c1ebe062fce51b647c1f8ebedc8bf5a3acfaa2e4366bcfacfecb1549b3b",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/custom_voice_prompt.py",
+      "current_sha256": "3c3b2d6a3c948159c85b0073d678b831b860f7c65aa68e6de43b7c3b9e64177c",
+      "byte_identical": false,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/fused_decoder.py",
+      "current_sha256": "0fe34c764c553f0c6d2424b99db913d74a7ae4aee66fcfef568ab378b11afe13",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/incremental_codec.py",
+      "current_sha256": "cb555a40604f06981db409f5fc0773b39a556eb87930aababb56299e37e7acc4",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/kv_triton_ascend.py",
+      "current_sha256": "84639e51c533b8686836c00b8de08fbf3a836b0f5a53e5c508a8876f3faaf3c1",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/model.py",
+      "current_sha256": "fc1810629bfe996ea36239a61b6885091de03ee2c84ef148878bd9c5ecc87f6a",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/npu_attention.py",
+      "current_sha256": "2aa284056bd921539abca517ca713c7028a6b103a3b0606842613d95f2bf84e7",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/operators.py",
+      "current_sha256": "48879874201b7717324effda1a3ad808f173b7b25cb6b407e58952b0de121aee",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/packed_attention.py",
+      "current_sha256": "1b87e3e3fa9030929d15a3f13a7aa2880c2f7756186e8c998a0a2c2cae44ace5",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/packed_mlp.py",
+      "current_sha256": "f46cfbaae4ca78b81052b223a17b052cda56949b28c52dd305229a4561ca53da",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/predictor.py",
+      "current_sha256": "90f8fd7a4ff5e97c1740052ad262a83aa99bd824f535e730a4f887849819dd06",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/prefill_graph.py",
+      "current_sha256": "7d2941dcf74e73168b3f6d4ecbda913532572a2b710c65053d08f1a32304fd2e",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/rotary_triton_ascend.py",
+      "current_sha256": "b2a7ab09de0da74e6ddf7e7ad2d16b0ba66f6797afef1cefad95f8046ea6eb80",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/sampling.py",
+      "current_sha256": "73ab94598f58377d2b19e2ad1b172c0580ac612a25f0116c6c6bd88c5e8757de",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/sampling_graph.py",
+      "current_sha256": "8bf562ac5da6fdfe75640aaf9a7d97a18deb14b699dd0f260b955c56baf9e3cc",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/server.py",
+      "current_sha256": "20a6d3a2aad97c1c6ded4ebd561c1e22bb02b5772af4662bbf76467facffcf17",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/snake_triton_ascend.py",
+      "current_sha256": "c21e422cb9fd4fad97c4b302eacef904223c53ef5fcfed4f30c0a6a507dbdacd",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/talker_graph.py",
+      "current_sha256": "e86ca92452290fda310ca1398ffffb44cf289c30450ce21929c49703b71844dd",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    },
+    {
+      "path": "qwen3_tts_engine/whole_predictor.py",
+      "current_sha256": "54380d4c16201671aff6913985e9e6689af2306692aa9d830c21392dd94d3d6a",
+      "byte_identical": true,
+      "ast_identical_excluding_module_docstring": true
+    }
+  ],
+  "baseline_runtime_imports": []
+}

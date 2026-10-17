@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "scope": "Frozen single-NPU CustomVoice benchmark contract, all seven concurrency levels and all three repetitions; not a claim of global optimality or statistical significance",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "engine_revision": "e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a",
+  "hardware": "Ascend 910B1, physical NPU 0, one NPU per server, BF16",
+  "completed_requests": 8064,
+  "failed_requests": 0,
+  "server_runs": 9,
+  "server_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "candidate_quality_loop_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "cohorts_audited": 63,
+  "candidate_comparisons_passed": 21,
+  "minimum_candidate_to_highest_observed_baseline_ratio": 2.047682980137045,
+  "evidence": [
+    {
+      "path": "results/final-numerical-audit.json",
+      "sha256": "1235a17df98afa2674d9bab61e961c579c3625d9a95984745d5630c7f0066077"
+    },
+    {
+      "path": "results/final-source-workload-lifecycle-audit.json",
+      "sha256": "b821d33aaeec32b951227c757122584938299df842d9e296474313979155f229"
+    },
+    {
+      "path": "results/model-recheck-after-final-performance.json",
+      "sha256": "e274f475ba2544b7ea6bbc70417910b0cd5811c8166087f32ff4182d45bd0694"
+    },
+    {
+      "path": "results/engine-source-equivalence.json",
+      "sha256": "bf8e22d8f7170f32cd678e719d499d5191104d4e0e39d3965e0e8a6970fec089"
+    },
+    {
+      "path": "results/direct-prompt-test-summary.json",
+      "sha256": "0ec6f20515b7932f224cdca22bdd4bdef7e27046ef77ddbb41cab5ddef3be764"
+    },
+    {
+      "path": "final-request-records.tar.gz.json",
+      "sha256": "c37c35d4d7f758d0d9249c5e754068900ffed359a39c8e12e568e6a4305bffe7"
+    }
+  ],
+  "qualifications": [
+    "SGLang uses the identical documented torch.xpu type-import compatibility patch on pinned main in every trial.",
+    "Both baseline configurations use the documented jemalloc workaround; the underlying upstream allocator issue was not fixed here.",
+    "First vLLM trial predates automatic environment/provenance recording; its physical NPU 0 placement is documented in the contemporaneous campaign report.",
+    "Shared-host, sequential trials: sample SD is descriptive, not a confidence interval.",
+    "Whisper WER/CER and WavLM speaker consistency are automatic quality measures, not a subjective naturalness study.",
+    "Results apply to the pinned workload, sampling settings, model and baseline configurations."
+  ]
+}

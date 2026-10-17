@@ -90,8 +90,8 @@ independent scoring. A successful request count alone is not final acceptance.
 [raw trial values](evidence/campaign-20261017/results/final-three-arm-performance.json),
 [charts](evidence/campaign-20261017/same-card-three-trial-charts/README.md), and
 [run selection](evidence/campaign-20261017/plan/final-comparison-runs.json) identify
-the final comparison. Performance is complete; full candidate quality validation
-is still in progress. Shared-host interference and sequential trial order remain
+the final comparison. Performance and full independent candidate quality validation
+are complete; see [final acceptance](evidence/campaign-20261017/acceptance.md). Shared-host interference and sequential trial order remain
 limitations; sample SD is not a confidence interval.
 
 Weights and generated audio are retained outside Git under the recorded paths.

@@ -5,8 +5,10 @@ Ascend 910B1. Python implements request scheduling, NPU graph execution and
 streaming audio; inference does not depend on vLLM-Omni or SGLang-Omni runtime.
 Official Qwen model components and weights are reused.
 
-**Acceptance: INCONCLUSIVE — repeated performance is complete; full independent
-candidate audio quality validation is still running.**
+**Acceptance: PASS — all three performance repetitions and full independent
+audio-quality validation satisfy the frozen contract.**
+
+[Final acceptance and evidence](evidence/campaign-20261017/acceptance.md).
 
 ## Measured performance
 
@@ -26,9 +28,9 @@ same concurrency. C32 was the narrowest margin.
 | 32 | 441.46 | 438.93 | 438.81 |
 | 64 | 558.62 | 544.32 | 545.23 |
 
-Values are throughput in frames/s. This table alone is not quality-qualified
-acceptance. The first final candidate run has completed all independent quality
-checks; runs 2 and 3 are still being scored. Each final run is scored separately.
+Values are throughput in frames/s. All three candidate runs have completed
+independent audio scoring and cohort integrity checks. The weakest observed
+throughput ratio to the highest baseline observation is **2.047683×** (C32).
 
 - [All three frameworks: throughput, TTFA p50/p95 and mean RTF](evidence/campaign-20261017/same-card-performance.md)
 - [Four-metric charts with sample standard deviation](evidence/campaign-20261017/same-card-three-trial-charts/README.md)

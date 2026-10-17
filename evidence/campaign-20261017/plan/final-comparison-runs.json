@@ -1,5 +1,5 @@
 {
-  "status": "PENDING",
+  "status": "COMPLETE",
   "scope": "Explicit run selection for the frozen final same-card comparison; not an acceptance result",
   "contract": "contract.json",
   "quality_gates": "quality-gates.json",

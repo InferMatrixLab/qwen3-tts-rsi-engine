@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "Recorded engine regression run at the selected direct-prompt implementation; CPU/mocked tests are distinct from NPU end-to-end evidence",
+  "passed": 57,
+  "warnings": 14,
+  "log_sha256": "9162596236e74b1aa388bf2880f8c0a209f0fdb2c166ee435ff911c2e0a99a5f",
+  "result_line": "57 passed, 14 warnings in 14.70s"
+}

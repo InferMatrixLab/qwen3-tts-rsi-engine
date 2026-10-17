@@ -1,6 +1,6 @@
 # Same-card three-trial performance
 
-All three arms completed three C1–C64 trials, 128 requests per cohort, with clean exits. Candidate full independent quality scoring remains in progress, so these plots are not final acceptance.
+All three arms completed three C1–C64 trials, 128 requests per cohort, with clean exits. Full independent quality and contract checks passed; see [final acceptance](../acceptance.md) for evidence and qualifications.
 
 Each plot compares vLLM (before) with the independent engine (after). Bars show trial means and sample SD, not confidence intervals. Per-trial percentile means are not pooled percentiles. Host activity was shared; the runs were sequential.
 
