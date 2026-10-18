@@ -10,6 +10,9 @@ audio-quality validation satisfy the frozen contract.**
 
 [Final acceptance and evidence](evidence/campaign-20261017/acceptance.md).
 
+Comparison reports with launch and benchmark commands: [local 910B1](compare.md)
+and [provided 910B3 report](compare-910b3.md). Their workloads and environments differ.
+
 ## Measured performance
 
 The candidate and both pinned baseline frameworks each completed three runs on
