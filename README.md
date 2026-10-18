@@ -258,10 +258,17 @@ python -m qwen3_tts_engine.benchmark \
   --source-revision "$(git rev-parse HEAD)" \
   --workload evidence/campaign-20261017/plan/workload-128.jsonl \
   --output runs/local-c4 \
-  --concurrency 4 --requests 128 --warmup 2 --frame-rate 12.5
+  --concurrency 4 --requests 128 --warmup 4 --frame-rate 12.5
 ```
 
-Change `--concurrency` and `--output` for C1/2/4/8/16/32/64. A client benchmark
+For C1/2/4/8/16/32/64, change `--concurrency` and `--output`, and set
+`--warmup` to **max(2, concurrency)**, matching the measured campaign (C64
+uses `--warmup 64`). Startup prewarming covers only selected graph shapes;
+new larger prefill/decode shapes can still trigger graph capture on the first
+requests. Using only two warmup requests at high concurrency can include this
+first-use cost in timed results. Warmup does not guarantee every later shape
+is cached; inspect first-request timing and repeat the same cohort when
+investigating cold versus warm behavior. A client benchmark
 alone does not verify server shutdown or audio quality. For the full three-run
 protocol, server lifecycle capture and independent scoring, follow
 [REPRODUCE.md](REPRODUCE.md) and `tools/qualify.py`.
