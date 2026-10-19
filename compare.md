@@ -149,22 +149,42 @@ PYTHONPATH="$QWEN_RESEARCH_ROOT/sglang-omni-compat:$QWEN_RESEARCH_ROOT/Qwen3-TTS
 
 ### 独立引擎
 
-直接加载保存的完整命令，避免漏掉优化开关；Python 和模型路径替换成本机变量。
+完成上述环境准备后，从冻结源码目录执行以下完整启动命令。参数与归档的实测命令一致。
 
 ```bash
-"$QWEN_BENCH_PYTHON" - <<'PY'
-import json
-import os
-import subprocess
-import sys
-from pathlib import Path
-command = json.loads((Path(os.environ["QWEN_COMPARE_ROOT"]) /
-    "evidence/campaign-20261017/plan/continuous-direct-prompt-command.json"
-).read_text())
-command[0] = sys.executable
-command[command.index("--model") + 1] = os.environ["QWEN_TTS_MODEL"]
-subprocess.run(command, cwd=os.environ["QWEN_FROZEN_ROOT"], check=True)
-PY
+cd "$QWEN_FROZEN_ROOT"
+"$QWEN_BENCH_PYTHON" -m qwen3_tts_engine.server \
+  --model "$QWEN_TTS_MODEL" \
+  --port 8099 \
+  --continuous \
+  --streaming \
+  --pack-qkv \
+  --max-batch-size 64 \
+  --codec-left-context 72 \
+  --codec-batch-size 4 \
+  --incremental-codec \
+  --pack-mlp \
+  --native-kv-update \
+  --batch-prefill \
+  --prefill-per-tick 64 \
+  --text-only-rope \
+  --prewarm-codec \
+  --native-gqa \
+  --graph-embeddings \
+  --graph-prefill \
+  --rms-norm native \
+  --fused-swiglu \
+  --native-rope \
+  --graph-sampling \
+  --native-rope-scope predictor \
+  --triton-snake \
+  --cache-codec-codebooks \
+  --triton-kv-update \
+  --triton-talker-rope \
+  --prewarm-prefill \
+  --triton-cdf \
+  --bucket-prefill \
+  --direct-prompt
 ```
 
 该命令包括 `--max-batch-size 64 --prefill-per-tick 64 --continuous --streaming` 及全部实测优化选项。
