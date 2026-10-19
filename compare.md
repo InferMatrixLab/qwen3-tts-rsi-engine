@@ -113,11 +113,12 @@ export QWEN_TTS_MODEL="$QWEN_RESEARCH_ROOT/model"
 export QWEN_FROZEN_ROOT="$QWEN_RESEARCH_ROOT/engine-direct-prompt-frozen"
 export QWEN_BENCH_PYTHON="$QWEN_RESEARCH_ROOT/venv-engine/bin/python"
 export PYTHONPATH="$QWEN_FROZEN_ROOT:${PYTHONPATH:-}"
-cd "$QWEN_COMPARE_ROOT"
+cd "$QWEN_FROZEN_ROOT"
 npu-smi info
 ```
 
-确认 NPU 0 空闲；同一时间只启动一个被测框架。冻结 checkout 用于导入原实测版本；
+确认 NPU 0 空闲；同一时间只启动一个被测框架。服务与客户端均从冻结 checkout 执行，以导入原实测版本；
+不能只设置 `PYTHONPATH` 后留在主仓库运行 `python -m`，因为当前目录优先。
 开始前用 `git -C "$QWEN_FROZEN_ROOT" rev-parse HEAD` 核对上表 SHA，并检查相关 checkout 无未记录修改。
 模型权重与 tokenizer 的完整哈希见 [model audit](evidence/campaign-20261017/results/model-audit.json)。
 
@@ -157,12 +158,12 @@ import os
 import subprocess
 import sys
 from pathlib import Path
-command = json.loads(Path(
+command = json.loads((Path(os.environ["QWEN_COMPARE_ROOT"]) /
     "evidence/campaign-20261017/plan/continuous-direct-prompt-command.json"
 ).read_text())
 command[0] = sys.executable
 command[command.index("--model") + 1] = os.environ["QWEN_TTS_MODEL"]
-subprocess.run(command, check=True)
+subprocess.run(command, cwd=os.environ["QWEN_FROZEN_ROOT"], check=True)
 PY
 ```
 
@@ -196,10 +197,10 @@ for concurrency in 1 2 4 8 16 32 64; do
     --endpoint "http://127.0.0.1:$QWEN_PORT/v1/audio/speech" \
     --model "$QWEN_TTS_MODEL" --engine "$QWEN_ARM" \
     --source-revision "$QWEN_REV" \
-    --workload evidence/campaign-20261017/plan/workload-128.jsonl \
-    --output "runs/reproduce-$QWEN_ARM-round$QWEN_TRIAL/requests-c$concurrency" \
+    --workload "$QWEN_COMPARE_ROOT/evidence/campaign-20261017/plan/workload-128.jsonl" \
+    --output "$QWEN_COMPARE_ROOT/runs/reproduce-$QWEN_ARM-round$QWEN_TRIAL/requests-c$concurrency" \
     --concurrency "$concurrency" --requests 128 --warmup "$warmup" \
-    --sample-rate 24000 --frame-rate 12.5 --timeout 1800 || break
+    --sample-rate 24000 --frame-rate 12.5 --timeout 1800 || exit $?
 done
 ```
 
@@ -209,16 +210,95 @@ done
 它内部同样使用 `max(2, concurrency)`。原三个独立引擎进程的执行记录见
 [run-final-candidate.py](evidence/campaign-20261017/plan/run-final-candidate.py)，该历史脚本有本机路径及前置状态检查，不应直接当通用安装脚本执行。
 
+## 与历史脚本的核对及正式复现
+
+本次核对使用九轮 `status.json` 中的服务/压测命令、`provenance.json`、客户端参数及历史 runner。
+修正前的文档存在以下差异，表中的历史测量值未因此改写：
+
+| 项目 | 原文档与实测脚本的差异 | 本文修正 |
+|---|---|---|
+| Python 导入 | 原文档从主仓库运行，可能遮蔽冻结版本；候选实测 runner 指定 `cwd=frozen` | 从冻结目录执行，输入/输出使用绝对路径 |
+| 生命周期 | 手动启动仅单次检查 health；实测由 `qualify.py` 等待就绪、管理进程并记录退出码 | 补充下方自动运行命令 |
+| 失败处理 | `|| break` 可使失败后的循环返回成功 | 改为 `|| exit $?` |
+| 环境记录 | 历史各轮 `PYTHONPATH` 的源码顺序不完全相同 | 复现统一冻结客户端并保留 CANN 路径；历史环境以各轮 status 为准 |
+
+已保存的 [源码等价审计](evidence/campaign-20261017/results/engine-source-equivalence.json)
+仅证明当时源码排除模块 docstring 后 AST 一致，不保证未来主分支一致，也不代表重新执行验证。
+128 请求、七档并发、每档 `max(2, C)` 预热、24000 Hz PCM、12.5 frames/s 和 1800 秒请求超时与实测一致。
+
+正式复现优先使用下面命令，**不要同时执行手动启动/压测**。
+先完成环境准备，选择一个框架；每轮脚本都会重新启动服务并覆盖七档并发。
+三个 command JSON 保留原机器绝对路径，要求模型、venv 和 checkout 位于本文约定位置。
+SGLang checkout 必须保留已记录的兼容补丁。输出必须为新目录。
+
+```bash
+export QWEN_ARM=vllm  # 分别执行 vllm、sglang、independent
+export QWEN_REPRO_TAG=verify-20261019
+case "$QWEN_ARM" in
+  vllm)
+    QWEN_COMMAND=vllm-command.json
+    QWEN_ENGINE=vllm-omni-main
+    QWEN_PORT=8096
+    QWEN_REV=b164fea797531c1fa10f8b87829632cad006b9fc
+    QWEN_SOURCE="$QWEN_RESEARCH_ROOT/vllm-omni"
+    export PYTHONPATH="$QWEN_FROZEN_ROOT:$QWEN_SOURCE:$PYTHONPATH" ;;
+  sglang)
+    QWEN_COMMAND=sglang-command.json
+    QWEN_ENGINE=sglang-omni-main-importcompat
+    QWEN_PORT=8098
+    QWEN_REV=6bdd47967caa55c38430d18175b750008aecab61
+    QWEN_SOURCE="$QWEN_RESEARCH_ROOT/sglang-omni-compat"
+    export PYTHONPATH="$QWEN_FROZEN_ROOT:$QWEN_SOURCE:$QWEN_RESEARCH_ROOT/Qwen3-TTS:$QWEN_RESEARCH_ROOT/extra:$PYTHONPATH" ;;
+  independent)
+    QWEN_COMMAND=continuous-direct-prompt-command.json
+    QWEN_ENGINE=standalone-direct-prompt
+    QWEN_PORT=8099
+    QWEN_REV=e783a64b0fb4f9ade2ffb3980b3e1f74a00c9a6a
+    QWEN_SOURCE="$QWEN_FROZEN_ROOT" ;;
+  *) echo 'Unknown framework'; exit 1 ;;
+esac
+cd "$QWEN_FROZEN_ROOT"
+for trial in 1 2 3; do
+  output="$QWEN_COMPARE_ROOT/runs/$QWEN_REPRO_TAG-$QWEN_ARM-round$trial"
+  "$QWEN_BENCH_PYTHON" tools/qualify.py \
+    --command-json "$QWEN_COMPARE_ROOT/evidence/campaign-20261017/plan/$QWEN_COMMAND" \
+    --output "$output" \
+    --workload "$QWEN_COMPARE_ROOT/evidence/campaign-20261017/plan/workload-128.jsonl" \
+    --model "$QWEN_TTS_MODEL" --engine "$QWEN_ENGINE" \
+    --source-revision "$QWEN_REV" --source-directory "$QWEN_SOURCE" \
+    --port "$QWEN_PORT" --requests 128 \
+    --concurrency-list 1 2 4 8 16 32 64 --startup-timeout 1800 || exit $?
+  "$QWEN_BENCH_PYTHON" - "$output/status.json" <<'PY'
+import json
+import sys
+from pathlib import Path
+s = json.loads(Path(sys.argv[1]).read_text())
+assert s["phase"] == "finished" and not s.get("error"), s
+assert s["server_exit"] == s["benchmark_exit"] == 0, s
+assert [c["concurrency"] for c in s["cohorts"]] == [1, 2, 4, 8, 16, 32, 64]
+assert all(c["metrics"]["successful_requests"] == 128
+           and c["metrics"]["failed_requests"] == 0 for c in s["cohorts"])
+PY
+  check_exit=$?
+  if [ "$check_exit" -ne 0 ]; then exit "$check_exit"; fi
+done
+```
+
+这是按历史参数整理的复现入口，不是原九轮调度脚本的逐字副本。
+`qualify.py` 只负责性能与生命周期，返回 0 后仍须完成精度评估。
+下方手动评估示例的运行路径须替换为自动运行生成的
+`runs/$QWEN_REPRO_TAG-<arm>-round<trial>/requests-c<C>`。
+
 ## 精度评估和原始结果
 
 结束服务并释放 NPU 0 后，用相同 Whisper 权重逐 cohort 评估。以下示例评估当前框架/轮次的 C64，
 需对全部 C1/2/4/8/16/32/64 和三轮分别执行：
 
 ```bash
-"$QWEN_BENCH_PYTHON" tools/evaluate_audio.py \
-  --run "runs/reproduce-$QWEN_ARM-round$QWEN_TRIAL/requests-c64" \
+"$QWEN_BENCH_PYTHON" "$QWEN_FROZEN_ROOT/tools/evaluate_audio.py" \
+  --run "$QWEN_COMPARE_ROOT/runs/reproduce-$QWEN_ARM-round$QWEN_TRIAL/requests-c64" \
   --asr-model /dataset/models/whisper-large-v3 \
-  --output "runs/reproduce-$QWEN_ARM-round$QWEN_TRIAL/quality-c64" \
+  --output "$QWEN_COMPARE_ROOT/runs/reproduce-$QWEN_ARM-round$QWEN_TRIAL/quality-c64" \
   --device npu:0 --dtype float32
 ```
 
