@@ -1,8 +1,9 @@
 import unittest
+from types import SimpleNamespace
 
 import torch
 
-from qwen3_tts_engine.fixed_predictor_rotary import FixedPredictorRotary
+from qwen3_tts_engine.fixed_predictor_rotary import FixedPredictorRotary, predictor_rotary
 
 
 class Rotary(torch.nn.Module):
@@ -69,6 +70,20 @@ class FixedPredictorRotaryTests(unittest.TestCase):
         other = FixedPredictorRotary(self.original, self.hidden, other_positions)
         self.fixed.entries.clear()
         self.assertEqual(len(other(self.hidden, other_positions[0])), 2)
+
+    def test_startup_resolves_without_computing_coefficients(self):
+        reference = SimpleNamespace(model=SimpleNamespace(rotary_emb=self.original))
+        calls = self.original.calls
+        self.assertIs(predictor_rotary(reference), self.original)
+        self.assertEqual(self.original.calls, calls)
+
+    def test_startup_rejects_missing_or_wrapped_structure(self):
+        for reference in (object(), SimpleNamespace(model=None),
+                          SimpleNamespace(model=SimpleNamespace()),
+                          SimpleNamespace(model=SimpleNamespace(rotary_emb=object()))):
+            with self.subTest(reference_type=type(reference).__name__):
+                with self.assertRaisesRegex(ValueError, "reference.model.rotary_emb"):
+                    predictor_rotary(reference)
 
 
 if __name__ == "__main__":

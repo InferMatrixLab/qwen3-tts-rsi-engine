@@ -25,6 +25,9 @@ class UniformPredictor:
         self.triton_cdf = triton_cdf
         self.fixed_rope = fixed_rope
         self.captures = {}
+        if fixed_rope:
+            from qwen3_tts_engine.fixed_predictor_rotary import predictor_rotary
+            predictor_rotary(reference)
 
     @torch.inference_mode()
     def run(self, embeddings, uniforms):
@@ -40,9 +43,9 @@ class UniformPredictor:
             position_ids = [position.unsqueeze(0) for position in positions]
             fixed_rotary = None
             if self.fixed_rope:
-                from qwen3_tts_engine.fixed_predictor_rotary import FixedPredictorRotary
+                from qwen3_tts_engine.fixed_predictor_rotary import FixedPredictorRotary, predictor_rotary
                 fixed_rotary = FixedPredictorRotary(
-                    self.reference.model.rotary_emb, inputs, position_ids)
+                    predictor_rotary(self.reference), inputs, position_ids)
 
             def compute():
                 cache = DynamicCache()

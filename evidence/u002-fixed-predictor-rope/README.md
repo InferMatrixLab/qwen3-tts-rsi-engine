@@ -4,6 +4,12 @@
 
 Base: `9f190577aa2a147c6840560a56c5996a6c4879a4`. Measured uncommitted candidate snapshot: `b00e46522eff0f40044fa4e51c474094ac68c9bcb4eed002cf047d38efa8cb62`. The later commit is bound to all measured Python blobs by `source-applicability.json`. Supplemental metadata tooling/tests are validated separately in `final-checks.json`.
 
+## Review revision applicability
+
+The campaign below measured commit `890e64ecd0ede47dd395d280886688ccc3dfcfad` (the initial uncommitted snapshot was later bound to that commit). Historical manifests, source-applicability statements and audit reports describe that measured revision; they are retained unchanged. The subsequent review fix adds metadata validation at predictor construction and retains capture-time validation. Its separate A2 checks are recorded in [review R1](../u002-review-r1/README.md); the original three-pair timings are not relabeled as fresh measurements of that fix.
+
+Enable the option only for C1–C2. At C≥4, expect no useful throughput benefit: the small aggregate gains have two negative repeats per load, while conservative p95 TTFA regresses up to 4.30% at C16 and 3.96% at C32.
+
 ## Results
 
 | C | Control frames/s | Fixed RoPE frames/s | Paired geometric gain | Individual paired gains | Conservative p95 change | Gate |

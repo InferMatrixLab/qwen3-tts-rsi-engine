@@ -4,6 +4,21 @@ from contextlib import contextmanager
 import torch
 
 
+def validate_rotary(reference):
+    """Check compatibility without computing coefficients or touching the NPU."""
+    if not isinstance(reference, torch.nn.Module):
+        raise ValueError("Fixed predictor RoPE requires reference.model.rotary_emb module")
+    if reference.training or getattr(reference, "rope_type", None) != "default":
+        raise ValueError("Fixed predictor RoPE requires evaluation with default RoPE")
+
+
+def predictor_rotary(reference):
+    """Resolve and validate the opt-in predictor structure during model startup."""
+    rotary = getattr(getattr(reference, "model", None), "rotary_emb", None)
+    validate_rotary(rotary)
+    return rotary
+
+
 class FixedPredictorRotary(torch.nn.Module):
     """Read-only replacement, scoped to warmup/capture of one predictor graph.
 
@@ -14,8 +29,7 @@ class FixedPredictorRotary(torch.nn.Module):
     @torch.inference_mode()
     def __init__(self, reference, hidden, positions):
         super().__init__()
-        if reference.training or getattr(reference, "rope_type", None) != "default":
-            raise ValueError("Fixed predictor RoPE requires evaluation with default RoPE")
+        validate_rotary(reference)
         self.dtype = hidden.dtype
         self.device = hidden.device
         self.entries = {}
