@@ -1,0 +1,12 @@
+{
+  "tested_base_revision": "9f190577aa2a147c6840560a56c5996a6c4879a4",
+  "tested_candidate_snapshot_sha256": "b00e46522eff0f40044fa4e51c474094ac68c9bcb4eed002cf047d38efa8cb62",
+  "candidate_was_uncommitted": true,
+  "all_measured_python_files_match_current": true,
+  "all_control_python_files_match_base": true,
+  "additional_execution_scope": "stdlib evidence auditor and its four CPU safety tests, validated in final checks; no further inference change",
+  "additional_nonexecution_scope": "documentation and redacted evidence",
+  "raw_benchmark_revision_labels": "candidate snapshot-sha256; control exact base Git revision",
+  "no_parameter_retuning": true,
+  "privacy_review": "new diff and artifacts checked before commit; private originals remain outside Git"
+}

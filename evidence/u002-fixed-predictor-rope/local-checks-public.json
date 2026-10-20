@@ -1,0 +1,14 @@
+{
+  "targeted_cpu_unittest": {
+    "status": "PASS",
+    "exit": 0,
+    "cases": 10,
+    "raw_log_sha256": "85a73913ec67cea70d84c756d173f6d875981d5f26f45de1bfc03da73c960862"
+  },
+  "full_local_discovery": {
+    "status": "INCONCLUSIVE",
+    "execution_exit": 1,
+    "reason": "Local accelerator/model dependencies unavailable; full discovery raised import-skip errors. Full suite separately executed in the A2 environment."
+  },
+  "redactions": "local paths and raw tracebacks omitted"
+}

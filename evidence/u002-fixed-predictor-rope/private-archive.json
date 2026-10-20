@@ -1,0 +1,8 @@
+{
+  "archive_label": "U002_PRIVATE_ORIGINALS",
+  "bytes": 1462835200,
+  "sha256": "1f744c0ccadeb4d587df9f1242740b0786131a03c115a046c847e04c48909bf6",
+  "location": "<PRIVATE_ARCHIVE_PATH> on <REMOTE_HOST>",
+  "access": "outside repository, access-controlled; resolve connection details at runtime",
+  "contents": "all original campaign WAVs, results, runspecs and logs; actual runner, source snapshots and prerequisite/operator evidence"
+}

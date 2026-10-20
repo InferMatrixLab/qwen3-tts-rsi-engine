@@ -1,0 +1,16 @@
+{
+  "repeat": 1,
+  "arm": "candidate",
+  "server_exit": 0,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "exit": 0
+    },
+    {
+      "concurrency": 2,
+      "exit": 0
+    }
+  ],
+  "forced_kill": false
+}

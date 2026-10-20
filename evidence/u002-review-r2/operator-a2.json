@@ -1,0 +1,346 @@
+{
+  "status": "PASS",
+  "scope": "predictor graphs, not service throughput",
+  "cases": [
+    {
+      "batch": 1,
+      "replay": 0,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 1,
+      "replay": 1,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 1,
+      "replay": 2,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 1,
+      "replay": 3,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 4,
+      "replay": 0,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 4,
+      "replay": 1,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 4,
+      "replay": 2,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 4,
+      "replay": 3,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 16,
+      "replay": 0,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 16,
+      "replay": 1,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 16,
+      "replay": 2,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 16,
+      "replay": 3,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 32,
+      "replay": 0,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 32,
+      "replay": 1,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 32,
+      "replay": 2,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 32,
+      "replay": 3,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 64,
+      "replay": 0,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 64,
+      "replay": 1,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 64,
+      "replay": 2,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 64,
+      "replay": 3,
+      "graph_embeddings": false,
+      "outputs_exact": [
+        true
+      ]
+    },
+    {
+      "batch": 1,
+      "replay": 0,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 1,
+      "replay": 1,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 1,
+      "replay": 2,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 1,
+      "replay": 3,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 4,
+      "replay": 0,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 4,
+      "replay": 1,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 4,
+      "replay": 2,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 4,
+      "replay": 3,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 16,
+      "replay": 0,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 16,
+      "replay": 1,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 16,
+      "replay": 2,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 16,
+      "replay": 3,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 32,
+      "replay": 0,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 32,
+      "replay": 1,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 32,
+      "replay": 2,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 32,
+      "replay": 3,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 64,
+      "replay": 0,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 64,
+      "replay": 1,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 64,
+      "replay": 2,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "batch": 64,
+      "replay": 3,
+      "graph_embeddings": true,
+      "outputs_exact": [
+        true,
+        true
+      ]
+    }
+  ]
+}

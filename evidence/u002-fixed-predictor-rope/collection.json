@@ -1,0 +1,16 @@
+{
+  "source_sync": "both arms synced successfully before checks",
+  "redactions": [
+    "connection identifiers",
+    "resolved paths",
+    "service endpoints",
+    "input texts",
+    "raw warning/exception text"
+  ],
+  "accuracy_scope": "A2 controller read every original WAV, verified PCM SHA256, bytes, format, duration and stream coverage; public audit checks recorded identities only",
+  "missing_evidence_policy": "INCONCLUSIVE; failed measured gate remains FAIL",
+  "executed_collector_sha256": "d2cb33b4a63b2afb1eb2c13e2a346a1b07ec3967efb326e610fdd7447bd4b26d",
+  "collector_literal_pcm_pairs_equal": 2688,
+  "executed_runner_sha256": "21f54b96b66a188c9d8ecfc94d1ef96c7b52ac4e067ddda440a8e648b75bc76b",
+  "executed_probe_sha256": "010eb5047c4109dfb2e1bc44f2490cf7dbe07f158ba9728dff5c9ff82a0a88ec"
+}

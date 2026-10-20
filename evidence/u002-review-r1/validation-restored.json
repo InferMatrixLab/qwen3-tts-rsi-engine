@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scope": "fresh review R1 A2 startup/graph/service output regressions",
+  "tested_revision": "d22a97981976dde533c61ff63043acf3f09cfdf6",
+  "source_snapshot_sha256": "194ab5e4dc4256451478a0c4bc2c521eddede71b797796c77ea23516a2711880",
+  "source_python_files": 90,
+  "source_python_files_match_working_tree": true,
+  "source_python_files_match_tested_commit": true,
+  "a2_tests_executed": true,
+  "source_and_model_unchanged": true,
+  "startup_integration_tests_executed": 6,
+  "unittest_passed": 18,
+  "pytest_passed": 75,
+  "pytest_warnings": 14,
+  "passing_subtests": 17,
+  "operator_cases": 40,
+  "actual_new_timed_requests": 256,
+  "literal_paired_pcm_equal": 256,
+  "server_exit": 0,
+  "benchmark_exits": [
+    0,
+    0
+  ],
+  "forced_kill": false,
+  "local_metadata_audit": "PASS",
+  "prior_connection_failure_record": "validation.json (preserved unchanged)",
+  "performance_qualification": "INCONCLUSIVE",
+  "performance_scope": "Original three-pair campaign remains bound to 890e64e; not re-executed or relabeled for this review fix",
+  "redactions": [
+    "connection identities",
+    "resolved paths",
+    "raw logs",
+    "input texts"
+  ]
+}

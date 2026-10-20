@@ -1,10 +1,10 @@
 """Experimental iteration-level CustomVoice execution with reusable request slots."""
+from contextlib import nullcontext
 from dataclasses import dataclass, field
 import logging
 import numpy as np
 import torch
 from transformers.cache_utils import Cache, DynamicCache
-from qwen3_tts_engine.model import CustomVoiceModel
 from qwen3_tts_engine.codec_graph import CodecGraph
 from qwen3_tts_engine.batching import decode_batch_size
 
@@ -18,11 +18,15 @@ class PromptReady(Exception):
 
 
 class UniformPredictor:
-    def __init__(self, reference, graph_embeddings=False, triton_cdf=False):
+    def __init__(self, reference, graph_embeddings=False, triton_cdf=False, fixed_rope=False):
         self.reference = reference
         self.graph_embeddings = graph_embeddings
         self.triton_cdf = triton_cdf
+        self.fixed_rope = fixed_rope
         self.captures = {}
+        if fixed_rope:
+            from qwen3_tts_engine.fixed_predictor_rotary import predictor_rotary
+            predictor_rotary(reference)
 
     @torch.inference_mode()
     def run(self, embeddings, uniforms):
@@ -35,6 +39,13 @@ class UniformPredictor:
             mask = torch.zeros(1, 1, 2, 2, device=embeddings.device, dtype=embeddings.dtype)
             mask[..., 0, 1] = torch.finfo(embeddings.dtype).min
 
+            position_ids = [position.unsqueeze(0) for position in positions]
+            fixed_rotary = None
+            if self.fixed_rope:
+                from qwen3_tts_engine.fixed_predictor_rotary import FixedPredictorRotary, predictor_rotary
+                fixed_rotary = FixedPredictorRotary(
+                    predictor_rotary(self.reference), inputs, position_ids)
+
             def compute():
                 cache = DynamicCache()
                 token = None
@@ -44,7 +55,7 @@ class UniformPredictor:
                         inputs_embeds=inputs if step == 0 else None, input_ids=token,
                         generation_steps=step, past_key_values=cache, use_cache=True,
                         attention_mask={'full_attention': mask if step == 0 else None},
-                        cache_position=positions[step], position_ids=positions[step].unsqueeze(0),
+                        cache_position=positions[step], position_ids=position_ids[step],
                         output_hidden_states=False, return_dict=True)
                     token = categorical(output.logits[:, -1], draws[:, step + 1], triton_cdf=self.triton_cdf)
                     codes.append(token)
@@ -58,15 +69,18 @@ class UniformPredictor:
 
             stream = torch.npu.Stream(device=embeddings.device)
             stream.wait_stream(torch.npu.current_stream())
-            with torch.npu.stream(stream):
-                for _ in range(3):
-                    compute()
-            torch.npu.current_stream().wait_stream(stream)
-            torch.npu.synchronize()
-            graph = torch.npu.NPUGraph()
-            with torch.npu.graph(graph, stream=stream):
-                output = compute()
-            self.captures[batch] = (graph, inputs, draws, output, positions, mask)
+            scope = fixed_rotary.installed(self.reference.model) if fixed_rotary else nullcontext()
+            with scope:
+                with torch.npu.stream(stream):
+                    for _ in range(3):
+                        compute()
+                torch.npu.current_stream().wait_stream(stream)
+                torch.npu.synchronize()
+                graph = torch.npu.NPUGraph()
+                with torch.npu.graph(graph, stream=stream):
+                    output = compute()
+            self.captures[batch] = (graph, inputs, draws, output, positions, mask,
+                                    position_ids, fixed_rotary)
         graph, inputs, draws, output, *_ = self.captures[batch]
         inputs.copy_(embeddings)
         draws.copy_(uniforms)
@@ -225,7 +239,7 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False, triton_cdf=False, direct_prompt=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False, triton_cdf=False, direct_prompt=False, fixed_predictor_rope=False):
         if codec_chunk_frames not in (8, 16) or (codec_chunk_frames != 8 and (not incremental_codec or codec_code_buffer)):
             raise ValueError("16-frame chunks require incremental codec without the 8-frame code buffer")
         self.codec_chunk_frames = codec_chunk_frames
@@ -251,6 +265,7 @@ class ContinuousModel:
             raise ValueError('Codec prewarming requires the incremental codec')
         if direct_prompt and reference_single:
             raise ValueError("Direct prompt preparation excludes reference-single dispatch")
+        from qwen3_tts_engine.model import CustomVoiceModel
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
                                      pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope, fused_residual=fused_residual, native_rope_scope=native_rope_scope, triton_talker_rope=triton_talker_rope)
         self.device = device
@@ -275,7 +290,8 @@ class ContinuousModel:
         self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update, triton_kv_update)
         self.graphs = {}
         self.graph_embeddings = graph_embeddings
-        self.predictor = UniformPredictor(self.talker.code_predictor, graph_embeddings, triton_cdf)
+        self.predictor = UniformPredictor(self.talker.code_predictor, graph_embeddings, triton_cdf,
+                                          fixed_rope=fixed_predictor_rope)
         decoder = self.model.wrapper.model.speech_tokenizer.model.decoder
         self.incremental_codec = incremental_codec
         if incremental_codec:

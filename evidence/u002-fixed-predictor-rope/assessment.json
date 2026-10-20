@@ -1,0 +1,328 @@
+{
+  "status": "PASS",
+  "accuracy": "PASS_EXACT_PCM",
+  "paired_wavs": 2688,
+  "timed_requests": 5376,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "control": [
+        {
+          "throughput_frames_s": 63.321215185379074,
+          "ttfa_p95_ms": 49.64722543954849,
+          "wall_seconds": 123.10250169993378
+        },
+        {
+          "throughput_frames_s": 63.493534466717605,
+          "ttfa_p95_ms": 49.30670147296041,
+          "wall_seconds": 122.76840571989305
+        },
+        {
+          "throughput_frames_s": 62.79426773401545,
+          "ttfa_p95_ms": 49.841272505000234,
+          "wall_seconds": 124.13553467998281
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 64.44979008951513,
+          "ttfa_p95_ms": 48.9638990489766,
+          "wall_seconds": 120.9468640498817
+        },
+        {
+          "throughput_frames_s": 63.893224474806196,
+          "ttfa_p95_ms": 49.621124484110624,
+          "wall_seconds": 122.00041653984226
+        },
+        {
+          "throughput_frames_s": 64.55316250396294,
+          "ttfa_p95_ms": 48.50141101051122,
+          "wall_seconds": 120.75318540004082
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.0178230139903672,
+        1.0062949717864282,
+        1.0280104352422395
+      ],
+      "geomean_throughput_ratio": 1.017337447222671,
+      "conservative_p95_ratio": 1.0063768818792844,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 2,
+      "control": [
+        {
+          "throughput_frames_s": 97.24886977079404,
+          "ttfa_p95_ms": 76.35576800676063,
+          "wall_seconds": 80.15517320018262
+        },
+        {
+          "throughput_frames_s": 98.23348464902053,
+          "ttfa_p95_ms": 75.71874547284096,
+          "wall_seconds": 79.35176104004495
+        },
+        {
+          "throughput_frames_s": 96.63467426154901,
+          "ttfa_p95_ms": 76.75657357322052,
+          "wall_seconds": 80.66462747007608
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 98.8251419648794,
+          "ttfa_p95_ms": 75.30654207803309,
+          "wall_seconds": 78.87668911996298
+        },
+        {
+          "throughput_frames_s": 98.56585318000593,
+          "ttfa_p95_ms": 76.02308001369238,
+          "wall_seconds": 79.084183299914
+        },
+        {
+          "throughput_frames_s": 100.01579447630999,
+          "ttfa_p95_ms": 74.56145304022357,
+          "wall_seconds": 77.9376901499927
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.0162086428130268,
+        1.0033834545539428,
+        1.034988685382327
+      ],
+      "geomean_throughput_ratio": 1.0181110254004144,
+      "conservative_p95_ratio": 1.0040192760584046,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 4,
+      "control": [
+        {
+          "throughput_frames_s": 159.80477176359642,
+          "ttfa_p95_ms": 101.25268758274613,
+          "wall_seconds": 48.922193709993735
+        },
+        {
+          "throughput_frames_s": 160.18297161994477,
+          "ttfa_p95_ms": 100.89302888372913,
+          "wall_seconds": 48.806686009978876
+        },
+        {
+          "throughput_frames_s": 158.15566663742152,
+          "ttfa_p95_ms": 102.40871498826891,
+          "wall_seconds": 49.43231037002988
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 159.5130226805264,
+          "ttfa_p95_ms": 101.36659196577966,
+          "wall_seconds": 49.01167233008891
+        },
+        {
+          "throughput_frames_s": 158.8408620719801,
+          "ttfa_p95_ms": 101.95710501866415,
+          "wall_seconds": 49.2190730900038
+        },
+        {
+          "throughput_frames_s": 161.05006580935128,
+          "ttfa_p95_ms": 100.29753097333014,
+          "wall_seconds": 48.543910620035604
+        }
+      ],
+      "paired_throughput_ratios": [
+        0.9981743406041617,
+        0.9916213968663973,
+        1.0183009514200039
+      ],
+      "geomean_throughput_ratio": 1.0026348904523736,
+      "conservative_p95_ratio": 1.0105465773672162,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 8,
+      "control": [
+        {
+          "throughput_frames_s": 249.31326795640996,
+          "ttfa_p95_ms": 154.24366105580694,
+          "wall_seconds": 31.04929016996175
+        },
+        {
+          "throughput_frames_s": 250.37157676254142,
+          "ttfa_p95_ms": 153.7465798435732,
+          "wall_seconds": 30.918046289822087
+        },
+        {
+          "throughput_frames_s": 244.79967134358557,
+          "ttfa_p95_ms": 155.6525314808823,
+          "wall_seconds": 31.62177447997965
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 248.72576634877177,
+          "ttfa_p95_ms": 154.61270402884105,
+          "wall_seconds": 31.122630009893328
+        },
+        {
+          "throughput_frames_s": 248.35527712279506,
+          "ttfa_p95_ms": 155.59969313908363,
+          "wall_seconds": 31.169057850027457
+        },
+        {
+          "throughput_frames_s": 251.46728382754196,
+          "ttfa_p95_ms": 152.3028300609439,
+          "wall_seconds": 30.78332847985439
+        }
+      ],
+      "paired_throughput_ratios": [
+        0.9976435204894876,
+        0.991946771012036,
+        1.0272370156682038
+      ],
+      "geomean_throughput_ratio": 1.00549088563504,
+      "conservative_p95_ratio": 1.0120530375205474,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 16,
+      "control": [
+        {
+          "throughput_frames_s": 360.42307655178723,
+          "ttfa_p95_ms": 258.07328297523776,
+          "wall_seconds": 21.849322400055826
+        },
+        {
+          "throughput_frames_s": 359.57065193308244,
+          "ttfa_p95_ms": 251.59994245041153,
+          "wall_seconds": 21.901120009832084
+        },
+        {
+          "throughput_frames_s": 358.6272542170538,
+          "ttfa_p95_ms": 259.7221415373496,
+          "wall_seconds": 21.95873266016133
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 358.958013559023,
+          "ttfa_p95_ms": 262.02373551204795,
+          "wall_seconds": 21.938498940085992
+        },
+        {
+          "throughput_frames_s": 356.30610239605863,
+          "ttfa_p95_ms": 262.4124501016922,
+          "wall_seconds": 22.10178256011568
+        },
+        {
+          "throughput_frames_s": 363.80661833026545,
+          "ttfa_p95_ms": 254.40410346491254,
+          "wall_seconds": 21.646115279989317
+        }
+      ],
+      "paired_throughput_ratios": [
+        0.9959351576298037,
+        0.990920978896711,
+        1.014442193258622
+      ],
+      "geomean_throughput_ratio": 1.000381834631908,
+      "conservative_p95_ratio": 1.0429750004947307,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 32,
+      "control": [
+        {
+          "throughput_frames_s": 462.46331564293405,
+          "ttfa_p95_ms": 453.714362415485,
+          "wall_seconds": 17.225150040118024
+        },
+        {
+          "throughput_frames_s": 460.12534071624356,
+          "ttfa_p95_ms": 454.1175970109179,
+          "wall_seconds": 17.31267395010218
+        },
+        {
+          "throughput_frames_s": 458.12437674882835,
+          "ttfa_p95_ms": 461.22548595303664,
+          "wall_seconds": 17.38829104998149
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 458.9422967881842,
+          "ttfa_p95_ms": 466.3661840837448,
+          "wall_seconds": 17.357301899930462
+        },
+        {
+          "throughput_frames_s": 459.37299759233144,
+          "ttfa_p95_ms": 471.6638935147784,
+          "wall_seconds": 17.341027970192954
+        },
+        {
+          "throughput_frames_s": 465.98915637920777,
+          "ttfa_p95_ms": 448.619288066402,
+          "wall_seconds": 17.094818389974535
+        }
+      ],
+      "paired_throughput_ratios": [
+        0.9923863823666644,
+        0.9983649169968752,
+        1.0171673458771031
+      ],
+      "geomean_throughput_ratio": 1.0025841604323524,
+      "conservative_p95_ratio": 1.039561302410031,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 64,
+      "control": [
+        {
+          "throughput_frames_s": 583.8478314500026,
+          "ttfa_p95_ms": 854.9027979606761,
+          "wall_seconds": 13.282570529961959
+        },
+        {
+          "throughput_frames_s": 584.025836923198,
+          "ttfa_p95_ms": 858.081661898177,
+          "wall_seconds": 13.278522129869089
+        },
+        {
+          "throughput_frames_s": 580.0516677070973,
+          "ttfa_p95_ms": 855.1684305188245,
+          "wall_seconds": 13.369498670101166
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 581.5578406814149,
+          "ttfa_p95_ms": 860.336683585774,
+          "wall_seconds": 13.334873090032488
+        },
+        {
+          "throughput_frames_s": 579.0618095358875,
+          "ttfa_p95_ms": 866.8472655699587,
+          "wall_seconds": 13.392352720024064
+        },
+        {
+          "throughput_frames_s": 588.4182686063905,
+          "ttfa_p95_ms": 857.8033049823715,
+          "wall_seconds": 13.179400460096076
+        }
+      ],
+      "paired_throughput_ratios": [
+        0.9960777609417502,
+        0.991500329140467,
+        1.014423889051756
+      ],
+      "geomean_throughput_ratio": 1.0006184925495727,
+      "conservative_p95_ratio": 1.0139717259526762,
+      "gate": "PASS"
+    }
+  ],
+  "source_unchanged": true,
+  "model_unchanged": true,
+  "redacted": true,
+  "scope": "U002 fixed predictor coefficients; primary C1 >1%; not historical all-cohort >5% acceptance",
+  "collector_literal_pcm_pairs_equal": 2688
+}

@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "checks": {
+    "syntax": {
+      "exit": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "summary": [],
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "unittest": {
+      "exit": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "summary": [
+        "Ran 10 tests in 0.090s"
+      ],
+      "raw_log_sha256": "400a7c52244e7c36a161ecbf270441a339a876649d5afcb6f9af98441cc9afe3"
+    },
+    "pytest": {
+      "exit": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "summary": [
+        "67 passed, 14 warnings, 5 subtests passed in 13.40s"
+      ],
+      "raw_log_sha256": "6854631ac31b2b84a8de820a5c1c42145d1df0a7cefa2c9c8421373ae2269f1e"
+    },
+    "package-import": {
+      "exit": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "summary": [],
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cli-invalid": {
+      "exit": 2,
+      "expected_exit": 2,
+      "status": "PASS",
+      "summary": [],
+      "raw_log_sha256": "47c10ec351787d0af800e3dc5157fd2820e354f14d48fd14ff04bfad5e68ae84"
+    }
+  },
+  "measured_python_sources_unchanged": true,
+  "scope": "final Python snapshot; service implementation identical to measured snapshot; added metadata auditor/tests validated separately",
+  "redactions": "paths, connection details and raw logs omitted",
+  "source_files_sha256": {
+    "tools/audit_fixed_rope_campaign.py": "ef59d759dad3fac299d7ab8663de1178c591f758625511aca00c3cf7115b2783",
+    "tests/test_fixed_rope_audit.py": "d1d2c1725577f96b7fd0fd15fb6cd168d123ef36627846c795b6020bada3a24f"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "stage": "prerequisites",
+  "status": "PASS",
+  "exits": {
+    "UNIT_EXIT": 0,
+    "PYTEST_EXIT": 0,
+    "OPERATOR_EXIT": 0
+  },
+  "operator_status": "PASS",
+  "operator_cases": 40,
+  "operator_error_type": null,
+  "logs": {
+    "unittest": {
+      "raw_log_sha256": "2b4f090ba6c16c63f45732eb8b8c683fadd39aca3361909bef7eae5e0bdcb3df",
+      "allowlisted_summary": [
+        "Ran 18 tests in 0.099s"
+      ]
+    },
+    "pytest": {
+      "raw_log_sha256": "b5075bc31022b67a82fe579d2edc8bf2d5bce31fe690808670be0a7570080e4f",
+      "allowlisted_summary": [
+        "75 passed, 14 warnings, 17 subtests passed in 14.12s"
+      ]
+    },
+    "operator": {
+      "raw_log_sha256": "723069017a2b62ef2719cfffabb823f2f0ead9df845a794b14549fe8018c2ef6",
+      "allowlisted_summary": []
+    }
+  },
+  "redactions": "raw paths, identifiers, warning and exception text omitted"
+}

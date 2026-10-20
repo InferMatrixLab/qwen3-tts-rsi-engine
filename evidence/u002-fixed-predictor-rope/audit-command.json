@@ -1,0 +1,5 @@
+{
+  "exit": 0,
+  "auditor_sha256": "ef59d759dad3fac299d7ab8663de1178c591f758625511aca00c3cf7115b2783",
+  "scope": "actual A2 stdlib metadata recomputation; no new accelerator inference"
+}

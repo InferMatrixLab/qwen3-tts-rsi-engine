@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "local metadata/source consistency check only; no fresh NPU inference or private WAV read",
+  "tested_revision": "d22a97981976dde533c61ff63043acf3f09cfdf6",
+  "timed_requests": 256,
+  "paired_recorded_pcm_identities": 256,
+  "source_python_files_verified": 90,
+  "operator_cases": 40,
+  "checks": {
+    "full_unittest": 18,
+    "pytest": 75
+  },
+  "source_snapshot_sha256": "194ab5e4dc4256451478a0c4bc2c521eddede71b797796c77ea23516a2711880",
+  "evidence_sha256": {
+    "archive-restored.json": "129ae9877d809edae983fe2d5b6afae552e65bbf6e84be11a662691d939ab120",
+    "c1-restored.json": "6d78e676b2db62caabea3cf18befd5de682aa902b9f05438e62ba2a33cbe37f1",
+    "c1-retained-reference.json": "7108a2c5ca45cd2ea05b21104c690013365f200070e2709593e980429dc4ff55",
+    "c2-restored.json": "782d91a71166ba961e2ef6bb0af3c0e49e674cab91c8f68d5a94ca2600af7e0a",
+    "c2-retained-reference.json": "723ad1de3eb7ecff9ec0d1c5cbc5f658d4a226f1c08f81d17d8f8df2c1f822dd",
+    "checks-restored.json": "ade94fc6c6ed02a9fadb1f800ef9da11d0c33f134daca9a326b54738c39e0c43",
+    "identity-restored.json": "37a0bae46557cb3d85b07765913b780c1bd42d0b6486952f1a4b0c0ddc44c3e7",
+    "lifecycle-restored.json": "c32b894821727097b4773324943cc417552c1f8224e596eb659304177473ec28",
+    "operator-restored.json": "33f23ea752d07c6f7d19e6e86811bcaa63e828bd3217ab2c1f7d7301ba885300",
+    "service-restored.json": "cadf25abab6aeedbd87960760e9f216f35d937a2e4ec8a96a151f6857dd8e30e"
+  }
+}

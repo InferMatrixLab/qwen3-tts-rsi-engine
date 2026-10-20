@@ -1,0 +1,70 @@
+{
+  "status": "PASS_CPU_STARTUP_SCOPE",
+  "scope": "all six startup paths executed on CPU without optional accelerator/model packages",
+  "source_snapshot_sha256": "255ecce8d849165e7a03879eca1e661ad9dc013dd35241f71bb370e2ea6fff77",
+  "checks": {
+    "startup": {
+      "status": "PASS",
+      "exit": 0,
+      "raw_log_sha256": "cfbb2a0a7c08a5222b8ac575ea90385d2b7dfe9f78cdc885f7e494254d1b34b7",
+      "summary": [
+        "Ran 6 tests in 25.825s"
+      ],
+      "cases": [
+        {
+          "test": "test_capture_rechecks_after_constructor",
+          "status": "PASS"
+        },
+        {
+          "test": "test_missing_structure_rejected_in_constructor",
+          "status": "PASS"
+        },
+        {
+          "test": "test_opted_out_does_not_inspect_model",
+          "status": "PASS"
+        },
+        {
+          "test": "test_service_start_fails_before_ready_or_worker",
+          "status": "PASS"
+        },
+        {
+          "test": "test_training_and_non_default_rejected_in_constructor",
+          "status": "PASS"
+        },
+        {
+          "test": "test_valid_constructor_does_not_compute_or_allocate",
+          "status": "PASS"
+        }
+      ]
+    },
+    "pytest": {
+      "status": "PASS_AVAILABLE_TESTS_ONLY",
+      "exit": 0,
+      "raw_log_sha256": "7417e7b001a3b069d7da5821437f0bc667fe31620f98e2c6501714ac691eb1e8",
+      "summary": [
+        "46 passed, 8 skipped, 17 subtests passed in 7.24s"
+      ]
+    },
+    "full-unittest": {
+      "status": "INCONCLUSIVE",
+      "exit": 1,
+      "raw_log_sha256": "4a6074a40fe5b5b82f045ba01956b88faa2c314feafedecf2cc629a0c59926ce",
+      "summary": [
+        "Ran 26 tests in 2.759s",
+        "FAILED (errors=8)"
+      ]
+    }
+  },
+  "optional_packages_present": {
+    "torch_npu": false,
+    "qwen_tts": false
+  },
+  "remaining_cpu_dependencies": [
+    "torch",
+    "transformers",
+    "numpy",
+    "aiohttp"
+  ],
+  "skipped_accelerator_tests_are_not_pass": true,
+  "redactions": "raw paths and exception text omitted; raw logs retained privately"
+}

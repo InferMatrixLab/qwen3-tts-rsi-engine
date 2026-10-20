@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "accuracy": "PASS_EXACT_PCM",
+  "paired_wavs": 256,
+  "timed_requests": 256,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "paired_requests": 128,
+      "pcm_literal_equal": true
+    },
+    {
+      "concurrency": 2,
+      "paired_requests": 128,
+      "pcm_literal_equal": true
+    }
+  ],
+  "source_unchanged": true,
+  "model_unchanged": true,
+  "reference_measured_commit": "890e64ecd0ede47dd395d280886688ccc3dfcfad",
+  "scope": "U002 review R1 A2 regressions and actual service parity at C1/C2",
+  "performance_qualification": "INCONCLUSIVE",
+  "performance_scope": "No fresh three-pair performance qualification; original U002 table remains bound to its measured source",
+  "redactions": [
+    "connection identities",
+    "resolved paths",
+    "service endpoints",
+    "input texts"
+  ],
+  "collector_literal_pcm_pairs_equal": 256,
+  "runner_exit": 0,
+  "executed_runner_sha256": "9b71645bb19641f2deb2ee7ab51d2cd1192124bb852e2943742b96623598bec6",
+  "executed_collector_sha256": "f5eddc4aa1b08cc4064281c894c5c32b21bc3fc17d7097059729b6af27a5a324"
+}

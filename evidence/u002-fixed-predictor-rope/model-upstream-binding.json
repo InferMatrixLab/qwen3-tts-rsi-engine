@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "source": "public Hugging Face model revision API",
+  "verified_lfs_sha256": {
+    "model.safetensors": "38b1d5971bdbd982b561cccec982669a53b0537c3cf5e9bd4778ed07bb2f5137",
+    "speech_tokenizer/model.safetensors": "836b7b357f5ea43e889936a3709af68dfe3751881acefe4ecf0dbd30ba571258"
+  },
+  "scope": "authoritative public model revision weight digests and config bytes; A2 controller separately hashes actual files",
+  "verified_config_sha256": "17a07f527a1c25ea30b4e023a184482a23d3e279d697b1dc81b1bde498d29cf9"
+}
