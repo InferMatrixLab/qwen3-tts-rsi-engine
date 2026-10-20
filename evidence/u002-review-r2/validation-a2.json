@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "CPU startup coverage plus A2 startup/graph/service output regressions",
+  "parent_revision": "cde3a52d81e9811d887941f23416855dbd5150d6",
+  "tested_source_snapshot_sha256": "255ecce8d849165e7a03879eca1e661ad9dc013dd35241f71bb370e2ea6fff77",
+  "candidate_was_uncommitted": true,
+  "source_python_files": 90,
+  "source_files_match_working_tree": true,
+  "cpu_startup_cases_executed_without_optional_packages": 6,
+  "cpu_startup_skipped": 0,
+  "local_pytest_passed": 46,
+  "local_pytest_skipped": 8,
+  "local_full_unittest_status": "INCONCLUSIVE",
+  "a2_unittest_passed": 18,
+  "a2_pytest_passed": 75,
+  "a2_passing_subtests": 17,
+  "a2_pytest_warnings": 14,
+  "operator_exact_cases": 40,
+  "actual_new_timed_requests": 256,
+  "literal_pcm_pairs_equal": 256,
+  "server_exit": 0,
+  "benchmark_exits": [
+    0,
+    0
+  ],
+  "forced_kill": false,
+  "source_and_model_unchanged": true,
+  "local_metadata_audit": "PASS",
+  "performance_qualification": "INCONCLUSIVE",
+  "performance_scope": "No new three-pair qualification; original throughput evidence remains bound to 890e64e",
+  "redactions": [
+    "connection identifiers",
+    "resolved paths",
+    "raw logs",
+    "input texts"
+  ]
+}

@@ -5,7 +5,6 @@ import logging
 import numpy as np
 import torch
 from transformers.cache_utils import Cache, DynamicCache
-from qwen3_tts_engine.model import CustomVoiceModel
 from qwen3_tts_engine.codec_graph import CodecGraph
 from qwen3_tts_engine.batching import decode_batch_size
 
@@ -266,6 +265,7 @@ class ContinuousModel:
             raise ValueError('Codec prewarming requires the incremental codec')
         if direct_prompt and reference_single:
             raise ValueError("Direct prompt preparation excludes reference-single dispatch")
+        from qwen3_tts_engine.model import CustomVoiceModel
         self.model = CustomVoiceModel(model_path, device, rms_norm=rms_norm, pack_qkv=pack_qkv,
                                      pack_mlp=pack_mlp, fused_swiglu=fused_swiglu, native_gqa=native_gqa, text_only_rope=text_only_rope, reference_single=reference_single, native_rope=native_rope, fused_residual=fused_residual, native_rope_scope=native_rope_scope, triton_talker_rope=triton_talker_rope)
         self.device = device

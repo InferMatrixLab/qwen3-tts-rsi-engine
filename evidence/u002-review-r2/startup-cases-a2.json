@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "actual A2 unittest startup case results",
+  "tested_source_snapshot_sha256": "255ecce8d849165e7a03879eca1e661ad9dc013dd35241f71bb370e2ea6fff77",
+  "raw_log_sha256": "dbc52729d3dd07d5079b3df0fe1cc5c2071db2959149a8ee4dae5b7b29083c9c",
+  "cases": [
+    {
+      "test": "test_capture_rechecks_after_constructor",
+      "status": "PASS"
+    },
+    {
+      "test": "test_missing_structure_rejected_in_constructor",
+      "status": "PASS"
+    },
+    {
+      "test": "test_opted_out_does_not_inspect_model",
+      "status": "PASS"
+    },
+    {
+      "test": "test_service_start_fails_before_ready_or_worker",
+      "status": "PASS"
+    },
+    {
+      "test": "test_training_and_non_default_rejected_in_constructor",
+      "status": "PASS"
+    },
+    {
+      "test": "test_valid_constructor_does_not_compute_or_allocate",
+      "status": "PASS"
+    }
+  ]
+}

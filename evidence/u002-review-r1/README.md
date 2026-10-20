@@ -1,6 +1,6 @@
 # U002 review R1 validation
 
-Restored A2 functional/regression validation: **PASS** for `d22a97981976dde533c61ff63043acf3f09cfdf6`. See `validation-restored.json`, actual A2 checks, predictor cases, service records and source manifests. All 90 measured Python files match that commit and the evidence follow-up working tree. This follow-up changes documentation/evidence only.
+Restored A2 functional/regression validation: **PASS** for `d22a97981976dde533c61ff63043acf3f09cfdf6`. See `validation-restored.json`, actual A2 checks, predictor cases, service records and source manifests. All 90 measured Python files matched that commit and its evidence-only follow-up `cde3a52d81e9811d887941f23416855dbd5150d6`. These are historical statements for R1; the later CPU-import/test revision has separate [R2 validation](../u002-review-r2/README.md).
 
 The first attempt failed before synchronization because SSH timed out. Its original INCONCLUSIVE `validation.json` and local results remain unchanged. Restored results are new records, not a rewrite of that attempt.
 

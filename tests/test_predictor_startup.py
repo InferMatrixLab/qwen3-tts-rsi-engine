@@ -1,16 +1,13 @@
 """Constructor/startup regressions; no accelerator allocations or model weights."""
 import asyncio
-import importlib.util
 from pathlib import Path
 from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import torch
 
 
-@unittest.skipUnless(all(importlib.util.find_spec(name) for name in ("torch_npu", "qwen_tts")),
-                     "Predictor imports require the accelerator/model environment")
 class PredictorStartupTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -35,7 +32,8 @@ class PredictorStartupTests(unittest.TestCase):
     def test_valid_constructor_does_not_compute_or_allocate(self):
         # A bare module has no forward implementation: even a CPU coefficient
         # computation would fail. Construction must inspect only metadata.
-        with patch.object(torch.npu, "Stream", side_effect=AssertionError("No capture at startup")) as stream:
+        stream = Mock(side_effect=AssertionError("No capture at startup"))
+        with patch.object(torch, "npu", SimpleNamespace(Stream=stream), create=True):
             predictor = self.predictor_type(self.reference, fixed_rope=True)
         stream.assert_not_called()
         self.assertEqual(predictor.captures, {})
@@ -61,7 +59,8 @@ class PredictorStartupTests(unittest.TestCase):
     def test_capture_rechecks_after_constructor(self):
         predictor = self.predictor_type(self.reference, fixed_rope=True)
         self.rotary.rope_type = "dynamic"
-        with patch.object(torch.npu, "Stream", side_effect=AssertionError("Guard must precede capture")) as stream:
+        stream = Mock(side_effect=AssertionError("Guard must precede capture"))
+        with patch.object(torch, "npu", SimpleNamespace(Stream=stream), create=True):
             with self.assertRaisesRegex(ValueError, "evaluation with default"):
                 predictor.run(torch.zeros(1, 2, 8), torch.zeros(1, 16))
         stream.assert_not_called()

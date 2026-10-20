@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "label": "U002_R2_CPU_STARTUP_PRIVATE_ORIGINALS",
+  "bytes": 124948480,
+  "sha256": "c4177aab4b12f1fcbb52bf7e2835fdb11078996b2910e567ab27f99161deb775",
+  "location": "<PRIVATE_ARCHIVE_PATH> on <REMOTE_HOST>",
+  "scope": "raw new campaign, selected actual reference WAVs, logs, operator evidence, source snapshot, executed runner and collector; outside Git and access-controlled"
+}
