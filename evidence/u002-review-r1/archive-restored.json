@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "label": "U002_R1_RESTORED_PRIVATE_ORIGINALS",
+  "bytes": 124948480,
+  "sha256": "e1c88ed5c05ba8c54599497d61b10acd69710368beef3fa566554ea5ca3fbb51",
+  "location": "<PRIVATE_ARCHIVE_PATH> on <REMOTE_HOST>",
+  "scope": "raw new campaign, selected actual reference WAVs, logs, operator evidence, source snapshot, executed runner and collector; outside Git and access-controlled"
+}
