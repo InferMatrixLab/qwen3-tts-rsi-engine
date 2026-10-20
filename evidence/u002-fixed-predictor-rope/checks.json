@@ -1,0 +1,32 @@
+{
+  "stage": "prerequisites",
+  "status": "PASS",
+  "exits": {
+    "UNIT_EXIT": 0,
+    "PYTEST_EXIT": 0,
+    "OPERATOR_EXIT": 0
+  },
+  "operator_status": "PASS",
+  "operator_cases": 40,
+  "operator_error_type": null,
+  "logs": {
+    "unittest": {
+      "sha256": "4a6c04d15b4eb80617c99349dcf33424704e01f43ed2832ed57fb7ab38f57763",
+      "allowlisted_summary": [
+        "Ran 6 tests in 0.014s",
+        "OK"
+      ]
+    },
+    "pytest": {
+      "sha256": "806ef8269ee400ceccfc1f49053b7d84d505fbc01602588e7eadff7d23a9d3a5",
+      "allowlisted_summary": [
+        "63 passed, 14 warnings, 5 subtests passed in 13.51s"
+      ]
+    },
+    "operator": {
+      "sha256": "d8219fee68b3150cbd15676ca8ebc30848c202624e85cf0698a0e383d3ac7847",
+      "allowlisted_summary": []
+    }
+  },
+  "redactions": "Only exits, test counts, log hashes; private paths, endpoints, identities omitted"
+}

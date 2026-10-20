@@ -303,3 +303,7 @@ Weights, generated WAV files and verbose logs remain at the recorded local
 paths. The repository contains source, compact results, hashes and audit reports.
 `tools/export_evidence.py` exports selected per-request timings, transcripts and
 speaker scores after all files are complete, and verifies the archive contents.
+
+## Opt-in fixed predictor RoPE (U002)
+
+`--fixed-predictor-rope` computes the predictor's immutable rotary coefficients before NPU graph capture. On the qualified single-910B3 workload, three paired runs measured **1.73% geometric-mean C1 throughput improvement**, with exact PCM for all 2,688 timed request pairs. C4–C64 did not improve consistently across all three pairs; inspect the complete results before enabling at those loads. This option targets low-concurrency serving and is disabled by default. See the [complete cohort results, alternatives, validation and limits](evidence/u002-fixed-predictor-rope/README.md) and [RFC design](docs/iterations/u002.md).

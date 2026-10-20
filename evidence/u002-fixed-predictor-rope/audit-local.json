@@ -1,0 +1,146 @@
+{
+  "status": "PASS",
+  "accuracy": "PASS_RECORDED_PCM_IDENTITIES",
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "paired_throughput_ratios": [
+        1.0178230139903672,
+        1.0062949717864282,
+        1.0280104352422395
+      ],
+      "geomean_throughput_ratio": 1.017337447222671,
+      "conservative_p95_ratio": 1.0063768818792844,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 2,
+      "paired_throughput_ratios": [
+        1.0162086428130268,
+        1.0033834545539428,
+        1.034988685382327
+      ],
+      "geomean_throughput_ratio": 1.0181110254004144,
+      "conservative_p95_ratio": 1.0040192760584046,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 4,
+      "paired_throughput_ratios": [
+        0.9981743406041617,
+        0.9916213968663973,
+        1.0183009514200039
+      ],
+      "geomean_throughput_ratio": 1.0026348904523736,
+      "conservative_p95_ratio": 1.0105465773672162,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 8,
+      "paired_throughput_ratios": [
+        0.9976435204894876,
+        0.991946771012036,
+        1.0272370156682038
+      ],
+      "geomean_throughput_ratio": 1.00549088563504,
+      "conservative_p95_ratio": 1.0120530375205474,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 16,
+      "paired_throughput_ratios": [
+        0.9959351576298037,
+        0.990920978896711,
+        1.014442193258622
+      ],
+      "geomean_throughput_ratio": 1.000381834631908,
+      "conservative_p95_ratio": 1.0429750004947307,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 32,
+      "paired_throughput_ratios": [
+        0.9923863823666644,
+        0.9983649169968752,
+        1.0171673458771031
+      ],
+      "geomean_throughput_ratio": 1.0025841604323524,
+      "conservative_p95_ratio": 1.039561302410031,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 64,
+      "paired_throughput_ratios": [
+        0.9960777609417502,
+        0.991500329140467,
+        1.014423889051756
+      ],
+      "geomean_throughput_ratio": 1.0006184925495727,
+      "conservative_p95_ratio": 1.0139717259526762,
+      "gate": "PASS"
+    }
+  ],
+  "paired_requests": 2688,
+  "timed_requests": 5376,
+  "scope": "metadata recomputation; no new NPU run or independent original-WAV inspection",
+  "evidence_sha256": {
+    "assessment.json": "8f2f69b9c8090ab53b204e10bd06b03b44dafcbfe59e6c504735d19def501f28",
+    "checks.json": "276c5c7e5cfe0fa805be0ecb3f99e0e7392bd356cf22afcfc5681c7854ecce64",
+    "collection.json": "8a3de12690206e6214a057d821360292e774a150001ef93d43d4c6430f55c3c8",
+    "final-checks.json": "d32292d8de346fc3e4d4f349bea68fc958f8af205a020202a9e392b9ead3160b",
+    "identity.json": "936d92819a85e0997bfbbdaa819df44ae4469e9e2185de98cf035920a3021154",
+    "local-checks-public.json": "4ce131c96be4d30fbafa74e54c5b18349bc75994d2a339bef2ad563505b8b214",
+    "model-upstream-binding.json": "e57e6cdd70a73b29bda027415039f1cc5dca0399952b522f9c5f0ee0d5d2a03c",
+    "operator.json": "33f23ea752d07c6f7d19e6e86811bcaa63e828bd3217ab2c1f7d7301ba885300",
+    "private-archive.json": "125b1f21987816ec67284284dabbd879fc57b17605211aaacbb9904c0528fc5b",
+    "r1-candidate-c1.json": "65705eafedaaa74ecb30b03bb30df88f235276655a99f59784c649fc5919665a",
+    "r1-candidate-c16.json": "2577ada6d835676e652e9576b2a2582fc59dc68a401992ea02e1cadc327655b3",
+    "r1-candidate-c2.json": "fe0c962d84292bcc528567dda4cec895286265a5f054f47c58580c2bb0393692",
+    "r1-candidate-c32.json": "e147f99643f8358f22d4877f676e2df74cee43878aa4e027ed7da4eb1f9f1d02",
+    "r1-candidate-c4.json": "ea7b54d26424cb965664420e4f67c5873f530ccd4d04c9c27ea758344181edfa",
+    "r1-candidate-c64.json": "afb0a3ad98a33a2d34d92e82c2fa520583fac275ebd854962836fff64dd407ef",
+    "r1-candidate-c8.json": "134b3541b987adb35e665a42e3896d7353a06701c3299df2b5323cc044cff73e",
+    "r1-candidate-lifecycle.json": "1579196c6e6a55db842bed05cb780fb2e92e6d7c6047856eee064f4fc700d459",
+    "r1-control-c1.json": "6b6a1a48de2917b617dfe14b6de696bcb7a9f3e82a52afa4f37c02feef484e6a",
+    "r1-control-c16.json": "7f323b412e20cb5f84226e2388ff75994dec5d3f897c1904eb0782fc70c32c8f",
+    "r1-control-c2.json": "c1ca17d8d687c7f1dd0aa6e989a60d1ae551250f6b9a261a139347dd5f758c6b",
+    "r1-control-c32.json": "6a30df3e0e268327ca1433abc4cd65b74262d3d90c48b0d6d7056bcfee06feab",
+    "r1-control-c4.json": "48713e170ff305f5a2130a13b7269150f9990d1c6edb5ec2c7c4c92ee71179fe",
+    "r1-control-c64.json": "fb29ad5d6fab0a1a1dc96bdc167c378841a7ee20bbdba6c1c17d39a0c44e564a",
+    "r1-control-c8.json": "d793952fc81a60a43be3cc4b31eefd66238d26aad8daaebfd34c3304cd604c68",
+    "r1-control-lifecycle.json": "d6d33fb0c979568b20262ffde04cf60309d6513ba999a5ec99dceff5d71146ad",
+    "r2-candidate-c1.json": "481db5e2dffbc0d66a0fce638a67776d3f4923c06c52779de0e5bdabc6a6bcf4",
+    "r2-candidate-c16.json": "1909eaadc86186fb77cd96701d9db4ae52e6a995837e03f451c368e221538c43",
+    "r2-candidate-c2.json": "9104a787e6775bb2fa44e6053f28a5ceccc0ab8e05845ff095f9f3b665ab1d5c",
+    "r2-candidate-c32.json": "ae4c87f2a5ec4226cdd390790873b17d74af586b0dd3e5cc63fe53c7c7a2ff4d",
+    "r2-candidate-c4.json": "54d442e44aeba07b8cfc5842003f04d3626954b16da1ae9d43a7299c8d684b47",
+    "r2-candidate-c64.json": "021cf719b1e2daa0e5d315e1702fb2982c3ab11f244510f35287750cd7e810ab",
+    "r2-candidate-c8.json": "6befe4ff5527308e9fbf484108878898481e138d376eff00f2586a1e41febcf8",
+    "r2-candidate-lifecycle.json": "e8bf766182fb518ffc0f59e0f8fe4adcaeca8605889efc897dd2984305f5a5a0",
+    "r2-control-c1.json": "2369cfe693d9763230f6f071244ee28ee24ca3ee009885720836d56a857072ec",
+    "r2-control-c16.json": "c3d77cbd4fe78bd98dac5b920852476471802b16fd9c48c253267f9f9a90c77d",
+    "r2-control-c2.json": "d1828822e5f9fecdc2fb1563623f6f54111b5af7ab117ae6c572c8b984d75613",
+    "r2-control-c32.json": "6c68fb2a892bf8e21a67ceb616ebeee7ee4f056f468f16dee36dc1846cca124b",
+    "r2-control-c4.json": "1a7a61e7589f63bfa52334bf271da36ea4de1070fca3ca15d75def4b058d0a6f",
+    "r2-control-c64.json": "bd329b8b908f4479e7b7d7333c3360f8efd489cb002451aad94ecd81c5e3c0ab",
+    "r2-control-c8.json": "4e6ffc5367fc4219eb4f79b330060e7881311ca89e6602deb56af8652ff005c2",
+    "r2-control-lifecycle.json": "841bd8c46f1fbb8e134e99e792ba2be0822618857f206e00da6a5c68c4af201e",
+    "r3-candidate-c1.json": "0ac8f9f3d525ed311aeb0f741cd65b39bd9df9af235ea261c78548a8edcd8474",
+    "r3-candidate-c16.json": "7f7bf7b5d7ff53774d45be9795b0adbb768e41ba664b57be62683c52c43ebcce",
+    "r3-candidate-c2.json": "070baff5154dd7b6f86c4efbecc6b2b44627b16990f4bbae1198842280c6f4ca",
+    "r3-candidate-c32.json": "b274be4b5cb47502f55fe68f0938af388e6115035fee32a29e536914bb07938a",
+    "r3-candidate-c4.json": "318949d85df3e2869034e702a2cbaf9d726bc9d86812038d616d75aed18cffc4",
+    "r3-candidate-c64.json": "5f016541c4a19f14d68409f29d74bed649dfc5710c4c4cdcc78cdce1eac88650",
+    "r3-candidate-c8.json": "173e38879bbabb1f5aea0ee81bda1cb55abe190e144cac166615027d6b0984b6",
+    "r3-candidate-lifecycle.json": "3abab83a167a1e4cfaf4a9e2edf930aed0a1706516a342f85b5cdebe6b6f355d",
+    "r3-control-c1.json": "fd5bd3ec81b69eaf96e4eecb59a4d6f7d1c766e5ecaa235dc5bbd8d29323f12f",
+    "r3-control-c16.json": "e9f0cf41d3604b5b209bfedfe1b758f26ea6bde8c396b9b6275d56aabacea91e",
+    "r3-control-c2.json": "f4e2832fb5a749e0cc195f27789aeb14cfca1bac37da315cb95904c325e408e8",
+    "r3-control-c32.json": "270c74475baa0c1d6402b9c96108a9bd87d2ef685cd46843f0cf3d080dd80803",
+    "r3-control-c4.json": "fada92540a7b41173a9188d6da5d9ce3834b7fd07a070461645d76f383dc1758",
+    "r3-control-c64.json": "60eeee19bf664f951b6389b507cd41345c1d83cb444263d316946da9b2b74b3c",
+    "r3-control-c8.json": "d5e46276f761922155984a27d02175bc4d0d06278ef3695dbb51f57ac7b74a35",
+    "r3-control-lifecycle.json": "9a92992828f34704056a52fc844bb437be82583dd6632385bf96eab47db4eb1c",
+    "source-applicability.json": "7ac88281e5011cc6e044177e499d6cfd17f5ed9aa76cda478c3a2429d3ff20f1"
+  }
+}
