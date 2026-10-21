@@ -1,0 +1,66 @@
+{
+  "repeat": 3,
+  "arm": "candidate",
+  "server_exit": 0,
+  "forced_kill": false,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "exit": 0
+    },
+    {
+      "concurrency": 2,
+      "exit": 0
+    },
+    {
+      "concurrency": 4,
+      "exit": 0
+    },
+    {
+      "concurrency": 8,
+      "exit": 0
+    },
+    {
+      "concurrency": 16,
+      "exit": 0
+    },
+    {
+      "concurrency": 32,
+      "exit": 0
+    },
+    {
+      "concurrency": 64,
+      "exit": 0
+    }
+  ],
+  "container_server_pid": 257568,
+  "physical_device_index": 2,
+  "resource_policy": "opportunistic-hbm-calibrated",
+  "hbm_before": {
+    "capacity_mb": 65536,
+    "used_percent": 14,
+    "estimated_free_mb": 56360.96,
+    "minimum_free_mb": 24576
+  },
+  "hbm_after_ready": {
+    "capacity_mb": 65536,
+    "used_percent": 32,
+    "scope": "driver aggregate observation; not an allocation-peak measurement"
+  },
+  "hbm_after_cohorts": {
+    "capacity_mb": 65536,
+    "used_percent": 38,
+    "scope": "driver aggregate observation; not an allocation-peak measurement"
+  },
+  "context_mapping_confidence": "one_new_context",
+  "device_monitor": {
+    "samples": 173,
+    "interval_seconds": 1.0,
+    "max_gap_seconds": 2.160827449988574,
+    "unexpected_samples": 0,
+    "query_errors": 0,
+    "thread_stopped": true,
+    "scope": "sampled shared-device context telemetry; context creation is not compute-load attribution"
+  },
+  "readiness_seconds": 33.0322583199013
+}

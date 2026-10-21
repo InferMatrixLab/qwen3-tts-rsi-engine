@@ -1,0 +1,350 @@
+{
+  "accuracy": "PASS_EXACT",
+  "actual_process_exit": 0,
+  "worker_timeout": false,
+  "optimization_decision": "REJECTED",
+  "accepted": false,
+  "source_snapshot": "646520ace810ee85b77fa44a513b75e6f1adb85644e885ee375be83b50736630",
+  "arena_slots": 64,
+  "exact_cases": [
+    {
+      "batch": 1,
+      "length": 1,
+      "changed_replays": 5,
+      "wave_and_full_state_exact": true
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "changed_replays": 5,
+      "wave_and_full_state_exact": true
+    },
+    {
+      "batch": 1,
+      "length": 4,
+      "changed_replays": 5,
+      "wave_and_full_state_exact": true
+    },
+    {
+      "batch": 1,
+      "length": 8,
+      "changed_replays": 5,
+      "wave_and_full_state_exact": true
+    },
+    {
+      "batch": 2,
+      "length": 1,
+      "changed_replays": 5,
+      "wave_and_full_state_exact": true
+    },
+    {
+      "batch": 2,
+      "length": 2,
+      "changed_replays": 5,
+      "wave_and_full_state_exact": true
+    },
+    {
+      "batch": 2,
+      "length": 4,
+      "changed_replays": 5,
+      "wave_and_full_state_exact": true
+    },
+    {
+      "batch": 2,
+      "length": 8,
+      "changed_replays": 5,
+      "wave_and_full_state_exact": true
+    }
+  ],
+  "timings": [
+    {
+      "batch": 1,
+      "length": 1,
+      "arm": "control",
+      "decode_wall_ms": 4.91251774947159
+    },
+    {
+      "batch": 1,
+      "length": 1,
+      "arm": "pure",
+      "decode_wall_ms": 4.614405750180595
+    },
+    {
+      "batch": 1,
+      "length": 1,
+      "arm": "native-owner",
+      "decode_wall_ms": 4.873100624536164
+    },
+    {
+      "batch": 1,
+      "length": 1,
+      "arm": "native-owner",
+      "decode_wall_ms": 4.870061750989407
+    },
+    {
+      "batch": 1,
+      "length": 1,
+      "arm": "pure",
+      "decode_wall_ms": 4.596703752758913
+    },
+    {
+      "batch": 1,
+      "length": 1,
+      "arm": "control",
+      "decode_wall_ms": 4.912707750918344
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "arm": "control",
+      "decode_wall_ms": 6.423447123961523
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "arm": "pure",
+      "decode_wall_ms": 6.145760000799783
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "arm": "native-owner",
+      "decode_wall_ms": 6.3584646239178255
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "arm": "native-owner",
+      "decode_wall_ms": 6.373233374324627
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "arm": "pure",
+      "decode_wall_ms": 6.144859251799062
+    },
+    {
+      "batch": 1,
+      "length": 2,
+      "arm": "control",
+      "decode_wall_ms": 6.425984125235118
+    },
+    {
+      "batch": 1,
+      "length": 4,
+      "arm": "control",
+      "decode_wall_ms": 6.757637750706635
+    },
+    {
+      "batch": 1,
+      "length": 4,
+      "arm": "pure",
+      "decode_wall_ms": 6.561620251159184
+    },
+    {
+      "batch": 1,
+      "length": 4,
+      "arm": "native-owner",
+      "decode_wall_ms": 6.772615251247771
+    },
+    {
+      "batch": 1,
+      "length": 4,
+      "arm": "native-owner",
+      "decode_wall_ms": 6.769909750437364
+    },
+    {
+      "batch": 1,
+      "length": 4,
+      "arm": "pure",
+      "decode_wall_ms": 6.570920624653809
+    },
+    {
+      "batch": 1,
+      "length": 4,
+      "arm": "control",
+      "decode_wall_ms": 6.756330499774776
+    },
+    {
+      "batch": 1,
+      "length": 8,
+      "arm": "control",
+      "decode_wall_ms": 7.897734874859452
+    },
+    {
+      "batch": 1,
+      "length": 8,
+      "arm": "pure",
+      "decode_wall_ms": 7.796962998691015
+    },
+    {
+      "batch": 1,
+      "length": 8,
+      "arm": "native-owner",
+      "decode_wall_ms": 7.903720624744892
+    },
+    {
+      "batch": 1,
+      "length": 8,
+      "arm": "native-owner",
+      "decode_wall_ms": 7.894360247883014
+    },
+    {
+      "batch": 1,
+      "length": 8,
+      "arm": "pure",
+      "decode_wall_ms": 7.81130637624301
+    },
+    {
+      "batch": 1,
+      "length": 8,
+      "arm": "control",
+      "decode_wall_ms": 7.899500249186531
+    },
+    {
+      "batch": 2,
+      "length": 1,
+      "arm": "control",
+      "decode_wall_ms": 5.551533625111915
+    },
+    {
+      "batch": 2,
+      "length": 1,
+      "arm": "pure",
+      "decode_wall_ms": 5.34510150027927
+    },
+    {
+      "batch": 2,
+      "length": 1,
+      "arm": "native-owner",
+      "decode_wall_ms": 5.594054376706481
+    },
+    {
+      "batch": 2,
+      "length": 1,
+      "arm": "native-owner",
+      "decode_wall_ms": 5.599490998429246
+    },
+    {
+      "batch": 2,
+      "length": 1,
+      "arm": "pure",
+      "decode_wall_ms": 5.355644875089638
+    },
+    {
+      "batch": 2,
+      "length": 1,
+      "arm": "control",
+      "decode_wall_ms": 5.559890498989262
+    },
+    {
+      "batch": 2,
+      "length": 2,
+      "arm": "control",
+      "decode_wall_ms": 7.2188771242508665
+    },
+    {
+      "batch": 2,
+      "length": 2,
+      "arm": "pure",
+      "decode_wall_ms": 6.928726373007521
+    },
+    {
+      "batch": 2,
+      "length": 2,
+      "arm": "native-owner",
+      "decode_wall_ms": 7.196452250354923
+    },
+    {
+      "batch": 2,
+      "length": 2,
+      "arm": "native-owner",
+      "decode_wall_ms": 7.1879167488077655
+    },
+    {
+      "batch": 2,
+      "length": 2,
+      "arm": "pure",
+      "decode_wall_ms": 6.917544250609353
+    },
+    {
+      "batch": 2,
+      "length": 2,
+      "arm": "control",
+      "decode_wall_ms": 7.230079875444062
+    },
+    {
+      "batch": 2,
+      "length": 4,
+      "arm": "control",
+      "decode_wall_ms": 9.590340126305819
+    },
+    {
+      "batch": 2,
+      "length": 4,
+      "arm": "pure",
+      "decode_wall_ms": 9.157283251988702
+    },
+    {
+      "batch": 2,
+      "length": 4,
+      "arm": "native-owner",
+      "decode_wall_ms": 9.605700126849115
+    },
+    {
+      "batch": 2,
+      "length": 4,
+      "arm": "native-owner",
+      "decode_wall_ms": 9.597469627624378
+    },
+    {
+      "batch": 2,
+      "length": 4,
+      "arm": "pure",
+      "decode_wall_ms": 9.147273126291111
+    },
+    {
+      "batch": 2,
+      "length": 4,
+      "arm": "control",
+      "decode_wall_ms": 9.607128248899244
+    },
+    {
+      "batch": 2,
+      "length": 8,
+      "arm": "control",
+      "decode_wall_ms": 12.4492473754799
+    },
+    {
+      "batch": 2,
+      "length": 8,
+      "arm": "pure",
+      "decode_wall_ms": 12.159067124594003
+    },
+    {
+      "batch": 2,
+      "length": 8,
+      "arm": "native-owner",
+      "decode_wall_ms": 12.502861249959096
+    },
+    {
+      "batch": 2,
+      "length": 8,
+      "arm": "native-owner",
+      "decode_wall_ms": 12.503977751475759
+    },
+    {
+      "batch": 2,
+      "length": 8,
+      "arm": "pure",
+      "decode_wall_ms": 12.153475999366492
+    },
+    {
+      "batch": 2,
+      "length": 8,
+      "arm": "control",
+      "decode_wall_ms": 12.4458521255292
+    }
+  ],
+  "scope": "component only; native owner was slower than pure copies; no native fallback integrated"
+}

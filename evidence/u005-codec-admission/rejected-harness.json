@@ -1,0 +1,8 @@
+{
+  "actual_status": "FAIL",
+  "actual_process_exit": 1,
+  "operator_cases": 0,
+  "timings": 0,
+  "interpretation": "incorrect expected configuration hash in the first discriminator; no operator executed",
+  "scope": "harness identity failure retained; no model precision or performance conclusion"
+}

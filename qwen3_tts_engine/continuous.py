@@ -95,17 +95,25 @@ class UniformPredictor:
 
 
 class SlotArena:
-    def __init__(self, reference, slots, capacity, native_kv_update=False, triton_kv_update=False):
+    def __init__(self, reference, slots, capacity, native_kv_update=False, triton_kv_update=False, packed_kv=False):
         self.reference = reference
         self.slots = slots
         self.capacity = capacity
         self.native_kv_update = native_kv_update
         self.triton_kv_update = triton_kv_update
+        self.packed_kv = packed_kv
         weight = next(reference.parameters())
         c = reference.config
         shape = (slots, c.num_key_value_heads, capacity, c.head_dim)
-        self.keys = [torch.zeros(shape, device=weight.device, dtype=weight.dtype) for _ in reference.layers]
-        self.values = [torch.zeros_like(key) for key in self.keys]
+        self.packed = None
+        if packed_kv:
+            layers = len(reference.layers)
+            self.packed = torch.zeros((layers * 2, *shape), device=weight.device, dtype=weight.dtype)
+            self.keys = list(self.packed[:layers].unbind(0))
+            self.values = list(self.packed[layers:].unbind(0))
+        else:
+            self.keys = [torch.zeros(shape, device=weight.device, dtype=weight.dtype) for _ in reference.layers]
+            self.values = [torch.zeros_like(key) for key in self.keys]
 
     def load(self, slot, cache, row=0, length=None):
         length = cache.get_seq_length() if length is None else length
@@ -118,6 +126,10 @@ class SlotArena:
             for keys, values in zip(self.keys, self.values):
                 keys[destination].copy_(keys[source])
                 values[destination].copy_(values[source])
+
+    def load_packed(self, slot, cache, row=0, length=None):
+        from qwen3_tts_engine.packed_kv import copy_packed_prefix
+        copy_packed_prefix(self.packed, cache, slot, row=row, length=length)
 
 
 class SlotCache(Cache):
@@ -239,9 +251,16 @@ class ContinuousModel:
     def __init__(self, model_path, device, max_slots=64, initial_capacity=512,
                  rms_norm=None, pack_qkv=False, codec_left_context=72, codec_batch_size=4,
                  incremental_codec=False, batch_prefill=False, pack_mlp=False, fused_swiglu=False,
-                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False, triton_cdf=False, direct_prompt=False, fixed_predictor_rope=False):
+                 native_kv_update=False, native_gqa=False, graph_prefill=False, text_only_rope=False, prewarm_codec=False, bucket_kv=False, graph_embeddings=False, bucket_prefill=False, decode_bucket_step=0, batch_audio_transfer=False, reference_single=False, graph_sampling=False, native_rope=False, fused_residual=False, cache_codec_constants=False, codec_code_buffer=False, triton_snake=False, native_rope_scope="all", cache_codec_codebooks=False, prewarm_prefill=False, triton_kv_update=False, triton_talker_rope=False, codec_chunk_frames=8, valid_length_kv=False, triton_cdf=False, direct_prompt=False, fixed_predictor_rope=False, codec_streams=1, packed_kv_load=False, single_request_views=False):
         if codec_chunk_frames not in (8, 16) or (codec_chunk_frames != 8 and (not incremental_codec or codec_code_buffer)):
             raise ValueError("16-frame chunks require incremental codec without the 8-frame code buffer")
+        if codec_streams not in (1, 2) or (codec_streams == 2 and not incremental_codec):
+            raise ValueError("Two Codec streams require incremental codec")
+        self.codec_streams = codec_streams
+        if packed_kv_load and (not graph_prefill or reference_single):
+            raise ValueError("Packed KV loading requires graph prefill without reference-single")
+        self.packed_kv_load = packed_kv_load
+        self.single_request_views = single_request_views
         self.codec_chunk_frames = codec_chunk_frames
         if triton_kv_update and not native_kv_update:
             raise ValueError("Triton KV update requires native KV update")
@@ -287,7 +306,7 @@ class ContinuousModel:
         self.prefills = {}
         if max_slots < 1 or max_slots & (max_slots - 1):
             raise ValueError('Continuous slot count must be a positive power of two')
-        self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update, triton_kv_update)
+        self.arena = SlotArena(self.talker.model, max_slots, initial_capacity, native_kv_update, triton_kv_update, packed_kv=packed_kv_load)
         self.graphs = {}
         self.graph_embeddings = graph_embeddings
         self.predictor = UniformPredictor(self.talker.code_predictor, graph_embeddings, triton_cdf,
@@ -296,7 +315,7 @@ class ContinuousModel:
         self.incremental_codec = incremental_codec
         if incremental_codec:
             from qwen3_tts_engine.codec_slots import CodecSlots
-            self.codec = CodecSlots(decoder, max_slots, cache_constants=cache_codec_constants, triton_snake=triton_snake, cache_codebooks=cache_codec_codebooks, max_chunk_frames=codec_chunk_frames)
+            self.codec = CodecSlots(decoder, max_slots, cache_constants=cache_codec_constants, triton_snake=triton_snake, cache_codebooks=cache_codec_codebooks, max_chunk_frames=codec_chunk_frames, streams=codec_streams)
             if codec_code_buffer:
                 from qwen3_tts_engine.codec_code_buffer import CodecCodeBuffer
                 self.codec_codes = CodecCodeBuffer(max_slots, decoder.config.num_quantizers, device)
@@ -313,6 +332,8 @@ class ContinuousModel:
         self.allowed[self.eos] = True
         if graph_sampling:
             from qwen3_tts_engine.sampling_graph import SamplingGraph
+            self.initial_seen = torch.zeros(1, self.talker.config.vocab_size, device=device, dtype=torch.bool)
+            self.initial_steps = torch.zeros(1, device=device, dtype=torch.long)
             for batch in range(1, max_slots + 1):
                 graph = SamplingGraph(self.semantic, batch, self.talker.config.vocab_size, device)
                 graph.capture()
@@ -325,7 +346,7 @@ class ContinuousModel:
                 if bucket_prefill and batch & (batch - 1):
                     continue
                 for length in (32, 64, 128):
-                    graph = PrefillGraph(self.talker, batch, length)
+                    graph = PrefillGraph(self.talker, batch, length, packed_kv=self.packed_kv_load)
                     graph.capture()
                     self.prefills[batch, length] = graph
 
@@ -337,7 +358,7 @@ class ContinuousModel:
         self.graphs.clear()
         old = self.arena
         self.arena = SlotArena(self.talker.model, self.max_slots, max(old.capacity * 2, 1 << required.bit_length()),
-                               old.native_kv_update, old.triton_kv_update)
+                               old.native_kv_update, old.triton_kv_update, packed_kv=old.packed_kv)
         for target, source in zip(self.arena.keys + self.arena.values, old.keys + old.values):
             target[:, :, :old.capacity].copy_(source)
 
@@ -385,13 +406,16 @@ class ContinuousModel:
         self.add_state(identifier, payload, prompt, output.past_hidden, output.logits[:, -1],
                        position, int(self.talker.rope_deltas[0, 0].item()))
 
-    def add_state(self, identifier, payload, prompt, hidden, logits, position, rope_delta):
+    def add_state(self, identifier, payload, prompt, hidden, logits, position, rope_delta, reset_codec=True):
         uniforms = random_table(payload['seed'], payload['max_new_tokens']).to(self.device)
-        seen = torch.zeros(1, self.talker.config.vocab_size, device=self.device, dtype=torch.bool)
-        token = self.semantic(logits, uniforms[0, 0:1], seen,
-                              torch.zeros(1, device=self.device, dtype=torch.long))
-        seen.scatter_(1, token, True)
-        if self.incremental_codec:
+        if self.graph_sampling:
+            token, seen = self.samplers[1].run(logits, uniforms[0, 0:1], self.initial_seen, self.initial_steps)
+        else:
+            seen = torch.zeros(1, self.talker.config.vocab_size, device=self.device, dtype=torch.bool)
+            token = self.semantic(logits, uniforms[0, 0:1], seen,
+                                  torch.zeros(1, device=self.device, dtype=torch.long))
+            seen.scatter_(1, token, True)
+        if self.incremental_codec and reset_codec:
             self.codec.reset(len(self.states))
         self.states.append(RequestState(identifier, payload, hidden, token,
                                         prompt['trailing_text_hidden'], prompt['tts_pad_embed'], uniforms, seen,
@@ -420,7 +444,7 @@ class ContinuousModel:
             embeddings, mask = pad_prefill_batch(embeddings, mask, graph_batch)
             key = (graph_batch, padded_length)
             if key not in self.prefills:
-                graph = PrefillGraph(self.talker, *key)
+                graph = PrefillGraph(self.talker, *key, packed_kv=self.packed_kv_load)
                 graph.capture()
                 self.prefills[key] = graph
             hidden, logits, cache = self.prefills[key].run(embeddings, mask)
@@ -434,11 +458,19 @@ class ContinuousModel:
             logits = self.talker.codec_head(hidden)[:, -1]
             cache = output.past_key_values
         self.ensure_capacity(longest)
+        reset_in_batch = (self.incremental_codec and getattr(self, "codec_streams", 1) == 2
+                          and len(submissions) > 1)
+        if reset_in_batch:
+            self.codec.reset_range(len(self.states), len(submissions))
         for row, ((identifier, payload), prompt, length) in enumerate(zip(submissions, prompts, lengths)):
             # Crop padded KV entries; subsequent decode uses each original length
             # and the unpadded rotary origin, rather than the padded batch width.
-            self.arena.load(len(self.states), cache, row=row, length=length)
-            self.add_state(identifier, payload, prompt, hidden[row:row + 1], logits[row:row + 1], length, 0)
+            if self.packed_kv_load:
+                self.arena.load_packed(len(self.states), self.prefills[key].packed_cache, row=row, length=length)
+            else:
+                self.arena.load(len(self.states), cache, row=row, length=length)
+            self.add_state(identifier, payload, prompt, hidden[row:row + 1], logits[row:row + 1], length, 0,
+                           reset_codec=not reset_in_batch)
 
     def emit_audio(self, selected, emit):
         groups = {}
@@ -451,6 +483,9 @@ class ContinuousModel:
             codes = None if self.codec_codes is not None else torch.stack(state.codes[start:]).transpose(0, 1)
             groups.setdefault(length, []).append((state, codes, (state.emitted - start) * 1920))
         pending = []
+        parallel = []
+        parallel_codec = (getattr(self, "codec_streams", 1) == 2
+                          and (len(groups) > 1 or any(len(entries) > self.codec_batch_size for entries in groups.values())))
         for length, entries in groups.items():
             for offset in range(0, len(entries), self.codec_batch_size):
                 group = entries[offset:offset + self.codec_batch_size]
@@ -460,6 +495,9 @@ class ContinuousModel:
                     indices = [slots[entry[0].identifier] for entry in group]
                     packed = (self.codec_codes.read(indices, [entry[0].emitted for entry in group], length)
                               if self.codec_codes is not None else torch.stack(codes))
+                    if parallel_codec:
+                        parallel.append((group, indices, packed))
+                        continue
                     waves = self.codec.decode(indices, packed)
                 else:
                     codes += [codes[-1]] * (batch - len(codes))
@@ -470,6 +508,16 @@ class ContinuousModel:
                     pending.append((group, waves[:len(group), 0]))
                 else:
                     self.deliver_audio(group, waves[:, 0].float().cpu().numpy(), emit)
+        if parallel:
+            batches = [(indices, packed) for _, indices, packed in parallel]
+            if self.batch_audio_transfer:
+                outputs = self.codec.decode_groups(batches)
+                for (group, _, _), waves in zip(parallel, outputs):
+                    pending.append((group, waves[:len(group), 0]))
+            else:
+                def deliver(index, waves):
+                    self.deliver_audio(parallel[index][0], waves[:, 0].float().cpu().numpy(), emit)
+                self.codec.decode_groups(batches, on_output=deliver)
         if pending:
             lengths = [waves.numel() for _, waves in pending]
             audio = torch.cat([waves.reshape(-1) for _, waves in pending]).float().cpu().numpy()
@@ -522,9 +570,13 @@ class ContinuousModel:
         count = len(self.states)
         batch = decode_batch_size(count, self.max_slots, self.decode_bucket_step)
         self.ensure_capacity(max(state.position for state in self.states))
-        tokens = torch.cat([state.token for state in self.states])
-        hidden = torch.cat([state.hidden for state in self.states])
-        draws = torch.stack([state.uniforms[state.frames] for state in self.states])
+        prepared = None
+        if getattr(self, "single_request_views", False) and count == batch == 1:
+            from qwen3_tts_engine.request_views import single_request_inputs
+            prepared = single_request_inputs(self.states[0])
+        tokens = prepared.tokens if prepared is not None else torch.cat([state.token for state in self.states])
+        hidden = prepared.hidden if prepared is not None else torch.cat([state.hidden for state in self.states])
+        draws = prepared.draws if prepared is not None else torch.stack([state.uniforms[state.frames] for state in self.states])
         if batch > count:
             tokens = torch.cat((tokens, torch.zeros(batch - count, 1, device=self.device, dtype=tokens.dtype)))
             hidden = torch.cat((hidden, torch.zeros(batch - count, 1, hidden.shape[-1], device=self.device, dtype=hidden.dtype)))
@@ -538,14 +590,18 @@ class ContinuousModel:
             embeds = torch.cat([first] + [self.talker.code_predictor.get_input_embeddings()[i](subcodes[:, i:i+1])
                                          for i in range(15)], dim=1).sum(1, keepdim=True)
         codes = torch.cat((tokens, subcodes), dim=-1)
-        text = [state.trailing[:, state.frames:state.frames + 1] if state.frames < state.trailing.shape[1]
-                else state.pad for state in self.states]
-        if batch > count:
-            text += [torch.zeros_like(text[0])] * (batch - count)
-        embeds = embeds + torch.cat(text)
-        positions = torch.tensor([s.position for s in self.states] + [0] * (batch - count), device=self.device)
-        rotary = torch.tensor([s.position + s.rope_delta for s in self.states] + [0] * (batch - count),
-                              device=self.device).view(1, batch, 1).expand(3, -1, -1)
+        if prepared is not None:
+            embeds = embeds + prepared.text
+            positions, rotary = prepared.positions, prepared.rotary
+        else:
+            text = [state.trailing[:, state.frames:state.frames + 1] if state.frames < state.trailing.shape[1]
+                    else state.pad for state in self.states]
+            if batch > count:
+                text += [torch.zeros_like(text[0])] * (batch - count)
+            embeds = embeds + torch.cat(text)
+            positions = torch.tensor([s.position for s in self.states] + [0] * (batch - count), device=self.device)
+            rotary = torch.tensor([s.position + s.rope_delta for s in self.states] + [0] * (batch - count),
+                                  device=self.device).view(1, batch, 1).expand(3, -1, -1)
         required_context = max(s.position for s in self.states) + 1
         context = min(self.arena.capacity, max(64, 1 << (required_context - 1).bit_length())) if self.bucket_kv else self.arena.capacity
         graph_key = (batch, context)
@@ -555,9 +611,9 @@ class ContinuousModel:
             self.graphs[graph_key] = graph
         hidden = self.graphs[graph_key].run(embeds, positions, rotary)[:count]
         logits = self.talker.codec_head(hidden)[:, -1]
-        steps = torch.tensor([s.frames + 1 for s in self.states], device=self.device)
-        uniforms = torch.stack([s.uniforms[s.frames + 1, 0] for s in self.states])
-        seen = torch.cat([s.seen for s in self.states])
+        steps = prepared.steps if prepared is not None else torch.tensor([s.frames + 1 for s in self.states], device=self.device)
+        uniforms = prepared.uniforms if prepared is not None else torch.stack([s.uniforms[s.frames + 1, 0] for s in self.states])
+        seen = prepared.seen if prepared is not None else torch.cat([s.seen for s in self.states])
         if self.graph_sampling:
             next_tokens, updated_seen = self.samplers[count].run(logits, uniforms, seen, steps)
         else:

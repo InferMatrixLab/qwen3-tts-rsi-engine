@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "scope": "component only; no service qualification",
+  "prefill_cases": [
+    {
+      "prefill_batch": 1,
+      "admitted_rows": 1,
+      "changed_replays": 3,
+      "default_path_exact": true,
+      "hidden_logits_cache_exact": true,
+      "packed_refresh_exact": true,
+      "all_arena_state_exact": true,
+      "owned_after_replay_exact": true
+    },
+    {
+      "prefill_batch": 4,
+      "admitted_rows": 1,
+      "changed_replays": 3,
+      "default_path_exact": true,
+      "hidden_logits_cache_exact": true,
+      "packed_refresh_exact": true,
+      "all_arena_state_exact": true,
+      "owned_after_replay_exact": true
+    },
+    {
+      "prefill_batch": 4,
+      "admitted_rows": 3,
+      "changed_replays": 3,
+      "default_path_exact": true,
+      "hidden_logits_cache_exact": true,
+      "packed_refresh_exact": true,
+      "all_arena_state_exact": true,
+      "owned_after_replay_exact": true
+    },
+    {
+      "prefill_batch": 4,
+      "admitted_rows": 4,
+      "changed_replays": 3,
+      "default_path_exact": true,
+      "hidden_logits_cache_exact": true,
+      "packed_refresh_exact": true,
+      "all_arena_state_exact": true,
+      "owned_after_replay_exact": true
+    }
+  ],
+  "admission_state_pairs": 81,
+  "timings": [
+    {
+      "prefill_batch": 1,
+      "arm": "control",
+      "prefill_and_load_wall_ms": 9.182100009638816
+    },
+    {
+      "prefill_batch": 1,
+      "arm": "packed",
+      "prefill_and_load_wall_ms": 8.929217502009124
+    },
+    {
+      "prefill_batch": 1,
+      "arm": "packed",
+      "prefill_and_load_wall_ms": 8.934526005759835
+    },
+    {
+      "prefill_batch": 1,
+      "arm": "control",
+      "prefill_and_load_wall_ms": 9.179244993720204
+    },
+    {
+      "prefill_batch": 4,
+      "arm": "control",
+      "prefill_and_load_wall_ms": 17.58027150062844
+    },
+    {
+      "prefill_batch": 4,
+      "arm": "packed",
+      "prefill_and_load_wall_ms": 15.894750994630158
+    },
+    {
+      "prefill_batch": 4,
+      "arm": "packed",
+      "prefill_and_load_wall_ms": 15.895225503481925
+    },
+    {
+      "prefill_batch": 4,
+      "arm": "control",
+      "prefill_and_load_wall_ms": 17.56937849568203
+    }
+  ],
+  "model_options": {
+    "rms_norm": "native",
+    "pack_qkv": true,
+    "pack_mlp": true,
+    "fused_swiglu": true,
+    "native_gqa": true,
+    "text_only_rope": true,
+    "native_rope": true,
+    "native_rope_scope": "predictor",
+    "triton_talker_rope": true
+  },
+  "control_prefill_sha256": "7d2941dcf74e73168b3f6d4ecbda913532572a2b710c65053d08f1a32304fd2e",
+  "admission_uniforms_and_owned_seen_exact": true,
+  "immutable_initial_inputs_exact": true,
+  "packed_moves_and_capacity_growth_exact": true,
+  "packed_target_storage_not_duplicated": true,
+  "fair_timing_input_binding": true,
+  "actual_process_exit": 0
+}

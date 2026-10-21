@@ -1,0 +1,7 @@
+{
+  "archive_label": "U005_PRIVATE_ORIGINALS",
+  "bytes": 7833815040,
+  "sha256": "1137350d90dd1588ea47cc0cd8cf9c053d61bf8699e6b421c4476a59c1f4a36d",
+  "access": "access-controlled outside Git; resolve at runtime",
+  "contents": "measured source snapshots, commands, original WAVs, all attempts, logs and diagnostics"
+}

@@ -1,0 +1,699 @@
+{
+  "status": "FAIL",
+  "accepted": false,
+  "source_snapshot": "646520ace810ee85b77fa44a513b75e6f1adb85644e885ee375be83b50736630",
+  "accuracy": "PASS_EXACT_PCM",
+  "collector_literal_pairs_equal": 2688,
+  "timed_requests": 5376,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "control": [
+        {
+          "throughput_frames_s": 63.23530339838956,
+          "ttfa_p95_ms": 50.314028875436634,
+          "wall_seconds": 123.26974935014732
+        },
+        {
+          "throughput_frames_s": 62.8316146980238,
+          "ttfa_p95_ms": 50.69981336127966,
+          "wall_seconds": 124.06174881011248
+        },
+        {
+          "throughput_frames_s": 62.63650942198771,
+          "ttfa_p95_ms": 50.4976469790563,
+          "wall_seconds": 124.44818640011363
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 62.4626557306262,
+          "ttfa_p95_ms": 49.84418955864385,
+          "wall_seconds": 124.79456579010002
+        },
+        {
+          "throughput_frames_s": 62.034314247168446,
+          "ttfa_p95_ms": 53.07854100828989,
+          "wall_seconds": 125.65626129019074
+        },
+        {
+          "throughput_frames_s": 62.356140050102425,
+          "ttfa_p95_ms": 49.88928752718493,
+          "wall_seconds": 125.00773771014065
+        }
+      ],
+      "paired_throughput_ratios": [
+        0.9877813875123586,
+        0.9873105210698901,
+        0.9955238665999663
+      ],
+      "strict_throughput_ratio": 0.9810076162099713,
+      "conservative_p95_ratio": 1.054945155350159,
+      "throughput_spread": {
+        "control": 0.009530138279586249,
+        "candidate": 0.006869275152592666
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "FAIL"
+    },
+    {
+      "concurrency": 2,
+      "control": [
+        {
+          "throughput_frames_s": 97.52583015642404,
+          "ttfa_p95_ms": 76.49118253029883,
+          "wall_seconds": 79.92754316981882
+        },
+        {
+          "throughput_frames_s": 98.86809871070402,
+          "ttfa_p95_ms": 76.21756346197799,
+          "wall_seconds": 78.84241834981367
+        },
+        {
+          "throughput_frames_s": 98.57716466011728,
+          "ttfa_p95_ms": 75.27184003265575,
+          "wall_seconds": 79.07510859007016
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 97.95797226970582,
+          "ttfa_p95_ms": 75.84459088975564,
+          "wall_seconds": 79.57494238996878
+        },
+        {
+          "throughput_frames_s": 96.38979341777265,
+          "ttfa_p95_ms": 76.56452840892598,
+          "wall_seconds": 80.86955810990185
+        },
+        {
+          "throughput_frames_s": 96.98739697224431,
+          "ttfa_p95_ms": 77.13040648959577,
+          "wall_seconds": 80.37126723001711
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.0044310529076108,
+        0.9749332158173377,
+        0.9838728604808801
+      ],
+      "strict_throughput_ratio": 0.9749332158173377,
+      "conservative_p95_ratio": 1.02469139131093,
+      "throughput_spread": {
+        "control": 0.013616424847559474,
+        "candidate": 0.01616889308187071
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 4,
+      "control": [
+        {
+          "throughput_frames_s": 158.43785289989867,
+          "ttfa_p95_ms": 102.95658748364075,
+          "wall_seconds": 49.34426878998056
+        },
+        {
+          "throughput_frames_s": 157.1747942592369,
+          "ttfa_p95_ms": 102.55746558541432,
+          "wall_seconds": 49.740799959981814
+        },
+        {
+          "throughput_frames_s": 158.53445046879955,
+          "ttfa_p95_ms": 101.51144443079829,
+          "wall_seconds": 49.314202540088445
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 161.98725298913902,
+          "ttfa_p95_ms": 97.61380394920707,
+          "wall_seconds": 48.26305685006082
+        },
+        {
+          "throughput_frames_s": 158.90657434180534,
+          "ttfa_p95_ms": 98.73667602660134,
+          "wall_seconds": 49.198719640029594
+        },
+        {
+          "throughput_frames_s": 160.77035134467584,
+          "ttfa_p95_ms": 100.3126755123958,
+          "wall_seconds": 48.62836919003166
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.0224024753193472,
+        1.011018179414392,
+        1.01410356467799
+      ],
+      "strict_throughput_ratio": 1.0023472745003081,
+      "conservative_p95_ratio": 0.988190800307056,
+      "throughput_spread": {
+        "control": 0.008581637434973808,
+        "candidate": 0.01916198242752491
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 8,
+      "control": [
+        {
+          "throughput_frames_s": 244.99205857469653,
+          "ttfa_p95_ms": 155.4917924688197,
+          "wall_seconds": 31.596942550037056
+        },
+        {
+          "throughput_frames_s": 246.16993676828332,
+          "ttfa_p95_ms": 152.83890140708533,
+          "wall_seconds": 31.44575694995001
+        },
+        {
+          "throughput_frames_s": 244.1444881611388,
+          "ttfa_p95_ms": 153.55915302643547,
+          "wall_seconds": 31.706634289817885
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 259.33067679495247,
+          "ttfa_p95_ms": 124.20791136100888,
+          "wall_seconds": 29.849920170148835
+        },
+        {
+          "throughput_frames_s": 255.47419728935503,
+          "ttfa_p95_ms": 124.03612007619813,
+          "wall_seconds": 30.300515990005806
+        },
+        {
+          "throughput_frames_s": 255.8591886408741,
+          "ttfa_p95_ms": 125.55980351753533,
+          "wall_seconds": 30.254922799998894
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.0585268694163985,
+        1.0377960877076136,
+        1.0479826539110866
+      ],
+      "strict_throughput_ratio": 1.0377960877076136,
+      "conservative_p95_ratio": 0.8215173124223635,
+      "throughput_spread": {
+        "control": 0.008267405151530514,
+        "candidate": 0.01507266370257438
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 16,
+      "control": [
+        {
+          "throughput_frames_s": 356.73222405628985,
+          "ttfa_p95_ms": 263.8535455334931,
+          "wall_seconds": 22.07538166991435
+        },
+        {
+          "throughput_frames_s": 357.02590905561345,
+          "ttfa_p95_ms": 259.9730939487926,
+          "wall_seconds": 22.05722274002619
+        },
+        {
+          "throughput_frames_s": 357.64073018248945,
+          "ttfa_p95_ms": 257.3598654940724,
+          "wall_seconds": 22.019304109970108
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 396.0694874804082,
+          "ttfa_p95_ms": 174.19558553956443,
+          "wall_seconds": 19.882874720031396
+        },
+        {
+          "throughput_frames_s": 393.9662837431221,
+          "ttfa_p95_ms": 171.7621575226076,
+          "wall_seconds": 19.9890201902017
+        },
+        {
+          "throughput_frames_s": 392.40131061487244,
+          "ttfa_p95_ms": 174.5618385495618,
+          "wall_seconds": 20.068740309914574
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.1102711243095078,
+        1.103466929851734,
+        1.097194132264091
+      ],
+      "strict_throughput_ratio": 1.097194132264091,
+      "conservative_p95_ratio": 0.6782791800673458,
+      "throughput_spread": {
+        "control": 0.0025446504109540146,
+        "candidate": 0.00931089033986353
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 32,
+      "control": [
+        {
+          "throughput_frames_s": 456.7588610929365,
+          "ttfa_p95_ms": 471.83425989933306,
+          "wall_seconds": 17.440274680033326
+        },
+        {
+          "throughput_frames_s": 459.16313991265366,
+          "ttfa_p95_ms": 463.37685656035313,
+          "wall_seconds": 17.348953580018133
+        },
+        {
+          "throughput_frames_s": 457.4492775719595,
+          "ttfa_p95_ms": 469.5248256553895,
+          "wall_seconds": 17.413952520117164
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 527.5017318892155,
+          "ttfa_p95_ms": 272.852893162053,
+          "wall_seconds": 15.101372220087796
+        },
+        {
+          "throughput_frames_s": 524.0836861874341,
+          "ttfa_p95_ms": 264.81891653966153,
+          "wall_seconds": 15.199862560024485
+        },
+        {
+          "throughput_frames_s": 520.8455362227534,
+          "ttfa_p95_ms": 273.0874101049266,
+          "wall_seconds": 15.294361660024151
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.1548801278359546,
+        1.1413888455574421,
+        1.138586422055987
+      ],
+      "strict_throughput_ratio": 1.1343365591624657,
+      "conservative_p95_ratio": 0.5893419281490551,
+      "throughput_spread": {
+        "control": 0.005255836958533488,
+        "candidate": 0.012700635112083294
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 64,
+      "control": [
+        {
+          "throughput_frames_s": 579.7653179541289,
+          "ttfa_p95_ms": 876.488952920772,
+          "wall_seconds": 13.37610194995068
+        },
+        {
+          "throughput_frames_s": 580.3866727754178,
+          "ttfa_p95_ms": 855.310046521481,
+          "wall_seconds": 13.361781660001725
+        },
+        {
+          "throughput_frames_s": 579.1009708981599,
+          "ttfa_p95_ms": 847.2413398907519,
+          "wall_seconds": 13.39144707005471
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 708.9329978647089,
+          "ttfa_p95_ms": 449.9496845994144,
+          "wall_seconds": 10.93897451995872
+        },
+        {
+          "throughput_frames_s": 708.9565070895258,
+          "ttfa_p95_ms": 442.4948189291171,
+          "wall_seconds": 10.938611780060455
+        },
+        {
+          "throughput_frames_s": 703.147495915292,
+          "ttfa_p95_ms": 449.39718195237214,
+          "wall_seconds": 11.028980470029637
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.2227930438584802,
+        1.2215244428327154,
+        1.2142053480323844
+      ],
+      "strict_throughput_ratio": 1.2115155790067165,
+      "conservative_p95_ratio": 0.5310761685182094,
+      "throughput_spread": {
+        "control": 0.0022176246792320743,
+        "candidate": 0.00819402001561557
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    }
+  ],
+  "lifecycles": [
+    {
+      "repeat": 1,
+      "arm": "control",
+      "server_exit": 0,
+      "forced_kill": false,
+      "cohorts": [
+        {
+          "concurrency": 1,
+          "exit": 0
+        },
+        {
+          "concurrency": 2,
+          "exit": 0
+        },
+        {
+          "concurrency": 4,
+          "exit": 0
+        },
+        {
+          "concurrency": 8,
+          "exit": 0
+        },
+        {
+          "concurrency": 16,
+          "exit": 0
+        },
+        {
+          "concurrency": 32,
+          "exit": 0
+        },
+        {
+          "concurrency": 64,
+          "exit": 0
+        }
+      ],
+      "device_monitor": {
+        "samples": 178,
+        "interval_seconds": 1.0,
+        "max_gap_seconds": 2.34730524988845,
+        "unexpected_samples": 0,
+        "query_errors": 0,
+        "thread_stopped": true,
+        "scope": "sampled shared-device context telemetry; context creation is not compute-load attribution"
+      },
+      "readiness_seconds": 25.530987540027127,
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 28,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 31,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    {
+      "repeat": 1,
+      "arm": "candidate",
+      "server_exit": 0,
+      "forced_kill": false,
+      "cohorts": [
+        {
+          "concurrency": 1,
+          "exit": 0
+        },
+        {
+          "concurrency": 2,
+          "exit": 0
+        },
+        {
+          "concurrency": 4,
+          "exit": 0
+        },
+        {
+          "concurrency": 8,
+          "exit": 0
+        },
+        {
+          "concurrency": 16,
+          "exit": 0
+        },
+        {
+          "concurrency": 32,
+          "exit": 0
+        },
+        {
+          "concurrency": 64,
+          "exit": 0
+        }
+      ],
+      "device_monitor": {
+        "samples": 175,
+        "interval_seconds": 1.0,
+        "max_gap_seconds": 2.2143420199863613,
+        "unexpected_samples": 0,
+        "query_errors": 0,
+        "thread_stopped": true,
+        "scope": "sampled shared-device context telemetry; context creation is not compute-load attribution"
+      },
+      "readiness_seconds": 33.53173075988889,
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 32,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 38,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    {
+      "repeat": 2,
+      "arm": "control",
+      "server_exit": 0,
+      "forced_kill": false,
+      "cohorts": [
+        {
+          "concurrency": 1,
+          "exit": 0
+        },
+        {
+          "concurrency": 2,
+          "exit": 0
+        },
+        {
+          "concurrency": 4,
+          "exit": 0
+        },
+        {
+          "concurrency": 8,
+          "exit": 0
+        },
+        {
+          "concurrency": 16,
+          "exit": 0
+        },
+        {
+          "concurrency": 32,
+          "exit": 0
+        },
+        {
+          "concurrency": 64,
+          "exit": 0
+        }
+      ],
+      "device_monitor": {
+        "samples": 179,
+        "interval_seconds": 1.0,
+        "max_gap_seconds": 2.284746610093862,
+        "unexpected_samples": 86,
+        "query_errors": 0,
+        "thread_stopped": true,
+        "scope": "sampled shared-device context telemetry; context creation is not compute-load attribution"
+      },
+      "readiness_seconds": 26.027707310160622,
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 28,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 31,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    {
+      "repeat": 2,
+      "arm": "candidate",
+      "server_exit": 0,
+      "forced_kill": false,
+      "cohorts": [
+        {
+          "concurrency": 1,
+          "exit": 0
+        },
+        {
+          "concurrency": 2,
+          "exit": 0
+        },
+        {
+          "concurrency": 4,
+          "exit": 0
+        },
+        {
+          "concurrency": 8,
+          "exit": 0
+        },
+        {
+          "concurrency": 16,
+          "exit": 0
+        },
+        {
+          "concurrency": 32,
+          "exit": 0
+        },
+        {
+          "concurrency": 64,
+          "exit": 0
+        }
+      ],
+      "device_monitor": {
+        "samples": 176,
+        "interval_seconds": 1.0,
+        "max_gap_seconds": 2.2747863600961864,
+        "unexpected_samples": 0,
+        "query_errors": 0,
+        "thread_stopped": true,
+        "scope": "sampled shared-device context telemetry; context creation is not compute-load attribution"
+      },
+      "readiness_seconds": 32.54110635002144,
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 32,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 38,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    {
+      "repeat": 3,
+      "arm": "control",
+      "server_exit": 0,
+      "forced_kill": false,
+      "cohorts": [
+        {
+          "concurrency": 1,
+          "exit": 0
+        },
+        {
+          "concurrency": 2,
+          "exit": 0
+        },
+        {
+          "concurrency": 4,
+          "exit": 0
+        },
+        {
+          "concurrency": 8,
+          "exit": 0
+        },
+        {
+          "concurrency": 16,
+          "exit": 0
+        },
+        {
+          "concurrency": 32,
+          "exit": 0
+        },
+        {
+          "concurrency": 64,
+          "exit": 0
+        }
+      ],
+      "device_monitor": {
+        "samples": 179,
+        "interval_seconds": 1.0,
+        "max_gap_seconds": 2.3018401600420475,
+        "unexpected_samples": 0,
+        "query_errors": 0,
+        "thread_stopped": true,
+        "scope": "sampled shared-device context telemetry; context creation is not compute-load attribution"
+      },
+      "readiness_seconds": 26.53461173013784,
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 28,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 31,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    {
+      "repeat": 3,
+      "arm": "candidate",
+      "server_exit": 0,
+      "forced_kill": false,
+      "cohorts": [
+        {
+          "concurrency": 1,
+          "exit": 0
+        },
+        {
+          "concurrency": 2,
+          "exit": 0
+        },
+        {
+          "concurrency": 4,
+          "exit": 0
+        },
+        {
+          "concurrency": 8,
+          "exit": 0
+        },
+        {
+          "concurrency": 16,
+          "exit": 0
+        },
+        {
+          "concurrency": 32,
+          "exit": 0
+        },
+        {
+          "concurrency": 64,
+          "exit": 0
+        }
+      ],
+      "device_monitor": {
+        "samples": 176,
+        "interval_seconds": 1.0,
+        "max_gap_seconds": 2.234278819989413,
+        "unexpected_samples": 88,
+        "query_errors": 0,
+        "thread_stopped": true,
+        "scope": "sampled shared-device context telemetry; context creation is not compute-load attribution"
+      },
+      "readiness_seconds": 34.02803649986163,
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 32,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 38,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    }
+  ],
+  "scope": "completed rejected candidate; independent original PCM reread; shared contexts are not compute attribution"
+}

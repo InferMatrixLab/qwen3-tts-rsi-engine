@@ -1,0 +1,10 @@
+{
+  "status": "INCONCLUSIVE",
+  "actual_runner_exit": 1,
+  "service_starts": 0,
+  "benchmark_starts": 0,
+  "timed_requests": 0,
+  "stale_prerequisite_snapshot": "646520ace810ee85b77fa44a513b75e6f1adb85644e885ee375be83b50736630",
+  "current_snapshot": "8a15df152059328216fe9f28a23950a9a788be47ee936f0c2a80847a074e6812",
+  "scope": "source identity guard rejected a stale global prerequisite before any service; subsequent controllers bind campaign checks"
+}
