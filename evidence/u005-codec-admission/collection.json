@@ -1,0 +1,16 @@
+{
+  "literal_formal_pairs": 2688,
+  "literal_regression_pairs": 64,
+  "literal_calibration_pairs": 256,
+  "runner_sha256": "43e27cf21b7095592ffdc3be176fe3d946c7a60702afe4e7570a3ac0614d68ce",
+  "collector_sha256": "f24275d194e83b01878029cc3178933667f6ddb64f864b7c9b3e7a339befe730",
+  "image_digest_before": "sha256:e78fc581345117b32007a0ba7c337e06ac71df8200bbe609142f294c18f42dc3",
+  "image_digest_after": "sha256:e78fc581345117b32007a0ba7c337e06ac71df8200bbe609142f294c18f42dc3",
+  "scope": "fresh original-WAV reads; metadata replay is a separate check",
+  "redactions": [
+    "connection identifiers",
+    "absolute paths",
+    "service endpoints",
+    "raw exception text"
+  ]
+}

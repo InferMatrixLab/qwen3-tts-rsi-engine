@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "readiness and actual service shutdown only",
+  "source_snapshot": "8a15df152059328216fe9f28a23950a9a788be47ee936f0c2a80847a074e6812",
+  "server_exit": 0,
+  "forced_kill": false,
+  "estimated_free_hbm_mb": 62259.2,
+  "readiness_seconds": 33.03948311996646,
+  "benchmark_exit": 0,
+  "smoke_generated_requests": 2,
+  "source_unchanged": true,
+  "controller_sha256": "d3a0fbcd81b73513d59d42bc6aa8a164a0ea70a70586520484831fc5b77789d8"
+}

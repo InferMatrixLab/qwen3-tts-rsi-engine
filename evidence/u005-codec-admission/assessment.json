@@ -1,0 +1,364 @@
+{
+  "status": "PASS",
+  "accuracy": "PASS_EXACT_PCM",
+  "paired_wavs": 2688,
+  "timed_requests": 5376,
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "control": [
+        {
+          "throughput_frames_s": 62.261052300002376,
+          "ttfa_p95_ms": 50.214854639489204,
+          "wall_seconds": 125.19865489006042
+        },
+        {
+          "throughput_frames_s": 62.312185970365064,
+          "ttfa_p95_ms": 51.9091910449788,
+          "wall_seconds": 125.095916290069
+        },
+        {
+          "throughput_frames_s": 62.69989943024377,
+          "ttfa_p95_ms": 49.997775617521256,
+          "wall_seconds": 124.32236847002059
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 64.55958404838694,
+          "ttfa_p95_ms": 48.37175742723048,
+          "wall_seconds": 120.74117444991134
+        },
+        {
+          "throughput_frames_s": 65.08851066380974,
+          "ttfa_p95_ms": 47.87989804754034,
+          "wall_seconds": 119.7599994300399
+        },
+        {
+          "throughput_frames_s": 64.45573313151556,
+          "ttfa_p95_ms": 48.33264249609783,
+          "wall_seconds": 120.93571232981049
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.036917650175734,
+        1.044555084213625,
+        1.0280037722105955
+      ],
+      "strict_throughput_ratio": 1.0280037722105955,
+      "conservative_p95_ratio": 0.9674781893752699,
+      "throughput_spread": {
+        "control": 0.007042717622683024,
+        "candidate": 0.00980144995698737
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 2,
+      "control": [
+        {
+          "throughput_frames_s": 97.8199960052687,
+          "ttfa_p95_ms": 76.08710406348109,
+          "wall_seconds": 79.68718378990889
+        },
+        {
+          "throughput_frames_s": 97.14862357669597,
+          "ttfa_p95_ms": 76.84078589081764,
+          "wall_seconds": 80.23788411007263
+        },
+        {
+          "throughput_frames_s": 97.42183403329042,
+          "ttfa_p95_ms": 77.2701924899593,
+          "wall_seconds": 80.01286443998106
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 96.74640487585515,
+          "ttfa_p95_ms": 75.74419898446648,
+          "wall_seconds": 80.57146939984523
+        },
+        {
+          "throughput_frames_s": 96.30849348040181,
+          "ttfa_p95_ms": 76.33864904055372,
+          "wall_seconds": 80.93782509001903
+        },
+        {
+          "throughput_frames_s": 97.2883615384116,
+          "ttfa_p95_ms": 75.61826858436689,
+          "wall_seconds": 80.12263622018509
+        }
+      ],
+      "paired_throughput_ratios": [
+        0.989024829551662,
+        0.9913521152913618,
+        0.998629952964823
+      ],
+      "strict_throughput_ratio": 0.984548123220272,
+      "conservative_p95_ratio": 1.0033060132879121,
+      "throughput_spread": {
+        "control": 0.0068913959097025475,
+        "candidate": 0.010128211578168353
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 4,
+      "control": [
+        {
+          "throughput_frames_s": 157.90703036735778,
+          "ttfa_p95_ms": 102.38149963552131,
+          "wall_seconds": 49.51014518993907
+        },
+        {
+          "throughput_frames_s": 157.8740334515145,
+          "ttfa_p95_ms": 102.02379905385897,
+          "wall_seconds": 49.520493200048804
+        },
+        {
+          "throughput_frames_s": 158.17729556405644,
+          "ttfa_p95_ms": 102.55439257016405,
+          "wall_seconds": 49.42555106990039
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 160.93541052282586,
+          "ttfa_p95_ms": 97.77337552513927,
+          "wall_seconds": 48.57849477999844
+        },
+        {
+          "throughput_frames_s": 161.55737119998776,
+          "ttfa_p95_ms": 97.27233799640089,
+          "wall_seconds": 48.39147815993056
+        },
+        {
+          "throughput_frames_s": 161.557430825646,
+          "ttfa_p95_ms": 97.47506901621819,
+          "wall_seconds": 48.391460300190374
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.019178247785566,
+        1.0233308649177224,
+        1.0213692821686962
+      ],
+      "strict_throughput_ratio": 1.0174368574765047,
+      "conservative_p95_ratio": 0.9583389016274931,
+      "throughput_spread": {
+        "control": 0.0019205105170835614,
+        "candidate": 0.003850151176637825
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 8,
+      "control": [
+        {
+          "throughput_frames_s": 246.20703346955113,
+          "ttfa_p95_ms": 153.1262455740943,
+          "wall_seconds": 31.441018929937854
+        },
+        {
+          "throughput_frames_s": 246.24729398814722,
+          "ttfa_p95_ms": 156.4997259527444,
+          "wall_seconds": 31.435878440039232
+        },
+        {
+          "throughput_frames_s": 246.38168687694386,
+          "ttfa_p95_ms": 155.99354295991358,
+          "wall_seconds": 31.418731230078265
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 256.1397662353441,
+          "ttfa_p95_ms": 124.24963911762461,
+          "wall_seconds": 30.221781310159713
+        },
+        {
+          "throughput_frames_s": 256.9655287538245,
+          "ttfa_p95_ms": 125.228401995264,
+          "wall_seconds": 30.124663169961423
+        },
+        {
+          "throughput_frames_s": 255.08002143718824,
+          "ttfa_p95_ms": 121.6074493713677,
+          "wall_seconds": 30.347339459927753
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.0403430098069126,
+        1.04352630476497,
+        1.0353043063812968
+      ],
+      "strict_throughput_ratio": 1.0353043063812968,
+      "conservative_p95_ratio": 0.8178114831050881,
+      "throughput_spread": {
+        "control": 0.0007092602097837947,
+        "candidate": 0.007361243997169316
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 16,
+      "control": [
+        {
+          "throughput_frames_s": 359.72710468904273,
+          "ttfa_p95_ms": 256.48249797523016,
+          "wall_seconds": 21.891594759887084
+        },
+        {
+          "throughput_frames_s": 358.4936772515065,
+          "ttfa_p95_ms": 260.43320199241856,
+          "wall_seconds": 21.966914620017633
+        },
+        {
+          "throughput_frames_s": 357.8072037035848,
+          "ttfa_p95_ms": 261.3823949010111,
+          "wall_seconds": 22.00905939983204
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 392.15198653774934,
+          "ttfa_p95_ms": 171.80501355323938,
+          "wall_seconds": 20.081499699968845
+        },
+        {
+          "throughput_frames_s": 393.08536163819133,
+          "ttfa_p95_ms": 172.05142002785576,
+          "wall_seconds": 20.03381649008952
+        },
+        {
+          "throughput_frames_s": 389.90798899033797,
+          "ttfa_p95_ms": 173.19234859896824,
+          "wall_seconds": 20.197072700131685
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.0901374442627432,
+        1.0964917558710987,
+        1.089715313035861
+      ],
+      "strict_throughput_ratio": 1.0838993890309832,
+      "conservative_p95_ratio": 0.6752599103884832,
+      "throughput_spread": {
+        "control": 0.005355466797008592,
+        "candidate": 0.008102400999943679
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 32,
+      "control": [
+        {
+          "throughput_frames_s": 458.41415117646534,
+          "ttfa_p95_ms": 465.38564944639796,
+          "wall_seconds": 17.377299499930814
+        },
+        {
+          "throughput_frames_s": 456.54409032266796,
+          "ttfa_p95_ms": 471.76356554264197,
+          "wall_seconds": 17.448479060083628
+        },
+        {
+          "throughput_frames_s": 457.50281138501316,
+          "ttfa_p95_ms": 469.41408102866257,
+          "wall_seconds": 17.41191485989839
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 525.810072907271,
+          "ttfa_p95_ms": 268.9451344427652,
+          "wall_seconds": 15.149957010056823
+        },
+        {
+          "throughput_frames_s": 527.7759669755368,
+          "ttfa_p95_ms": 266.9221678981557,
+          "wall_seconds": 15.093525470001623
+        },
+        {
+          "throughput_frames_s": 527.2839247658047,
+          "ttfa_p95_ms": 263.3432114031165,
+          "wall_seconds": 15.107610199833289
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.147019723448419,
+        1.1560240909098722,
+        1.152526086494509
+      ],
+      "strict_throughput_ratio": 1.147019723448419,
+      "conservative_p95_ratio": 0.5778973519331556,
+      "throughput_spread": {
+        "control": 0.00408753958939856,
+        "candidate": 0.003728340607271445
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 64,
+      "control": [
+        {
+          "throughput_frames_s": 579.7697151678676,
+          "ttfa_p95_ms": 862.2965908260084,
+          "wall_seconds": 13.376000500051305
+        },
+        {
+          "throughput_frames_s": 576.7962049357454,
+          "ttfa_p95_ms": 907.2371225920505,
+          "wall_seconds": 13.4449566998519
+        },
+        {
+          "throughput_frames_s": 577.7501166315045,
+          "ttfa_p95_ms": 862.3193470179102,
+          "wall_seconds": 13.422757999971509
+        }
+      ],
+      "candidate": [
+        {
+          "throughput_frames_s": 706.2072342933105,
+          "ttfa_p95_ms": 452.51801859121764,
+          "wall_seconds": 10.981195920147002
+        },
+        {
+          "throughput_frames_s": 712.4120698894643,
+          "ttfa_p95_ms": 441.8916563270613,
+          "wall_seconds": 10.88555391994305
+        },
+        {
+          "throughput_frames_s": 711.0831665146359,
+          "ttfa_p95_ms": 433.027021610178,
+          "wall_seconds": 10.905897320015356
+        }
+      ],
+      "paired_throughput_ratios": [
+        1.2180823106443806,
+        1.2351192046570874,
+        1.2307797887787753
+      ],
+      "strict_throughput_ratio": 1.2180823106443806,
+      "conservative_p95_ratio": 0.5247823352261466,
+      "throughput_spread": {
+        "control": 0.005146706416017425,
+        "candidate": 0.008725892959281662
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    }
+  ],
+  "source_unchanged": true,
+  "model_unchanged": true,
+  "redacted": true,
+  "scope": "U005 incremental strict C32/C64 >2%; not historical C++ or cross-framework acceptance",
+  "formal_coverage": true,
+  "collector_literal_pcm_pairs_equal": 2688
+}

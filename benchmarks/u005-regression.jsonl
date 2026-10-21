@@ -1,0 +1,32 @@
+{"input":"At dawn, the research team checked every cable before starting the experiment.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"Please place the blue folder beside the closed window.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"The next train will arrive in twelve minutes at platform four.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"A quiet melody drifted from the room at the end of the hall.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"We measured the first response and then waited for the complete recording.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"Can you read this sentence slowly, with a short pause after the comma?","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"The thermometer showed nineteen degrees when the rain stopped.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"Three small boats crossed the lake while the lighthouse flashed twice.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"A careful comparison uses the same inputs and records unsuccessful attempts.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"Her new appointment is scheduled for Thursday afternoon at half past three.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"The package contains a notebook, two pencils, and a folded paper map.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"After the final bell, everyone returned the equipment to its original shelf.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"The display briefly showed an error, so the operator restarted the demonstration.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"Fresh bread and warm tea were waiting on the kitchen table.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"Although the path was narrow, the hikers reached the shelter before sunset.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"Keep the final audio intact and report the time when its first sample arrives.","voice":"Ryan","language":"English","seed":17,"max_new_tokens":2048}
+{"input":"清晨的实验室很安静，研究人员逐一检查设备连接。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"请把蓝色文件夹放在窗边，稍后再交给值班人员。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"下一班列车将在十二分钟后到达四号站台。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"走廊尽头传来轻柔的音乐，随后又恢复了安静。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"我们先记录首次响应时间，再等待完整录音结束。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"请缓慢朗读这句话，并在逗号之后稍作停顿。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"雨停的时候，温度计显示室外只有十九摄氏度。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"三艘小船穿过湖面，远处的灯塔闪烁了两次。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"可靠的比较应当使用相同输入，并保留失败记录。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"她的新预约安排在星期四下午三点半。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"包裹里有一本笔记本、两支铅笔和一张折叠地图。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"最后一声铃响之后，大家把器材放回原来的架子。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"屏幕短暂显示错误，操作人员重新启动了演示。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"厨房的桌上摆着刚出炉的面包和一壶热茶。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"虽然山路狭窄，徒步者仍在日落之前抵达了营地。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}
+{"input":"请保留完整音频，并报告第一个采样点到达的时间。","voice":"Vivian","language":"Chinese","seed":43,"max_new_tokens":2048}

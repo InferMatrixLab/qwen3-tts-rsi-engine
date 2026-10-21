@@ -1,0 +1,234 @@
+{
+  "status": "PASS",
+  "shared_context_change_samples": 0,
+  "calibration_noise_ratio": 0.025794542676382815,
+  "memory_observations": {
+    "r1-control": {
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 28,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 31,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    "r1-candidate": {
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 32,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 38,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    "r2-control": {
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 28,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 31,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    "r2-candidate": {
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 32,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 38,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    "r3-control": {
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 28,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 31,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    },
+    "r3-candidate": {
+      "hbm_after_ready": {
+        "capacity_mb": 65536,
+        "used_percent": 32,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      },
+      "hbm_after_cohorts": {
+        "capacity_mb": 65536,
+        "used_percent": 38,
+        "scope": "driver aggregate observation; not an allocation-peak measurement"
+      }
+    }
+  },
+  "cohorts": [
+    {
+      "concurrency": 1,
+      "strict_throughput_ratio": 1.0280037722105955,
+      "conservative_p95_ratio": 0.9674781893752699,
+      "throughput_spread": {
+        "control": 0.007042717622683024,
+        "candidate": 0.00980144995698737
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 2,
+      "strict_throughput_ratio": 0.984548123220272,
+      "conservative_p95_ratio": 1.0033060132879121,
+      "throughput_spread": {
+        "control": 0.0068913959097025475,
+        "candidate": 0.010128211578168353
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 4,
+      "strict_throughput_ratio": 1.0174368574765047,
+      "conservative_p95_ratio": 0.9583389016274931,
+      "throughput_spread": {
+        "control": 0.0019205105170835614,
+        "candidate": 0.003850151176637825
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 8,
+      "strict_throughput_ratio": 1.0353043063812968,
+      "conservative_p95_ratio": 0.8178114831050881,
+      "throughput_spread": {
+        "control": 0.0007092602097837947,
+        "candidate": 0.007361243997169316
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 16,
+      "strict_throughput_ratio": 1.0838993890309832,
+      "conservative_p95_ratio": 0.6752599103884832,
+      "throughput_spread": {
+        "control": 0.005355466797008592,
+        "candidate": 0.008102400999943679
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 32,
+      "strict_throughput_ratio": 1.147019723448419,
+      "conservative_p95_ratio": 0.5778973519331556,
+      "throughput_spread": {
+        "control": 0.00408753958939856,
+        "candidate": 0.003728340607271445
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    },
+    {
+      "concurrency": 64,
+      "strict_throughput_ratio": 1.2180823106443806,
+      "conservative_p95_ratio": 0.5247823352261466,
+      "throughput_spread": {
+        "control": 0.005146706416017425,
+        "candidate": 0.008725892959281662
+      },
+      "calibration_noise_ratio": 0.025794542676382815,
+      "gate": "PASS"
+    }
+  ],
+  "timed_requests": 5376,
+  "paired_requests": 2688,
+  "regression_pairs": 64,
+  "scope": "recorded metadata only; no fresh NPU run or independent WAV reads",
+  "evidence_sha256": {
+    "aa-first-c32.json": "074563b181c72b246e56f0a64709c550a4b923c10fd83fa9f9ce679f23549630",
+    "aa-first-c64.json": "c87fd22b4bbd41f419291c6155a4d37a2f2e74ec1ae70b4c9dffee4008b42982",
+    "aa-first-lifecycle.json": "eae468dd8b8935cdd0c0dcdb65ba243d96e432ea8418a033f24a403b07e5db03",
+    "aa-second-c32.json": "345d450c7902a38f8e57c41399381c7941970e6667372dd5d191cef3b82ec512",
+    "aa-second-c64.json": "187b3cedc6468ae764d62e38cbe5d22dc517f15934b404928e5135bcd6a3d302",
+    "aa-second-lifecycle.json": "51b575df1665f2c18f28422a50ec06c042e2537626ef6b459d5b4745bb793ba7",
+    "assessment.json": "d1dc89d03c9e37a102994f83d1bcff11b3ac31398eac289a69c8e25654f8856a",
+    "calibration.json": "26b950984b33652a45669a5c1a3e6ab31914aa489c7b5ec8c5500ec3408e60a9",
+    "checks.json": "b81f49ff37b0f6c3060232751ed98ca92da4c37435906689d175ed333d24eaa7",
+    "collection.json": "6cb805ea6e94d26e2a5d03ddb2bec919062eb61d99a47bb61c471613471c2f69",
+    "identity.json": "abb57e16b479b47edd3d301b4301f532911df4a2cc61025a2f2055830ba639b8",
+    "input-discriminator.json": "c165b3e94bf99b07e337e9ca15cf479bbb03f317d3d5e88152303e8e8a59d4e4",
+    "operator.json": "2f30eabd41f7a33a7fe7e43263612e433ad4381c70310cc24632e41817fc0312",
+    "packed-operator.json": "f3f7dba9cac46c78e695953747d078ad0d4750ef1ab5a34b66a557ac601613d2",
+    "private-archive.json": "ee21107dcc11270679896ea51ac9e979fdbe1c4d29e52097cce3e4a9eeb41ba3",
+    "r1-candidate-c1.json": "8690ccb4000dc2cbde51d08feaf28c6b48dcacde61bf0d627d91111af53fe25c",
+    "r1-candidate-c16.json": "45555bc0b3b5331b507486a78a424afd4ac14f79490b89cc0fdeaa1c849695c1",
+    "r1-candidate-c2.json": "73df2faaeb04107ef5452a05c8412831337cc8e676f7f9f1cf507554cbe53380",
+    "r1-candidate-c32.json": "930e67a96e69d201f08510ff2d2a87cddc7ce7bce560111bb81095347a2c5506",
+    "r1-candidate-c4.json": "43b3f51cf852df7e3541da0cc0eb2145d2282623356354782d32c61f1fe8ca5a",
+    "r1-candidate-c64.json": "8dffde6f7a4267f388a09d031f0c62fa7e15b4784288cfa28c0cf0b6153ee9df",
+    "r1-candidate-c8.json": "62a256f0f4495c359569ea6014893d9b80386079224fdeb8e5e008a2a4217145",
+    "r1-candidate-lifecycle.json": "3312733dab941c22f0a1d2666502c5de58cf913dce06768515be8f9651ebef83",
+    "r1-control-c1.json": "6fc00531c21083ac6a3471a620255e5121bfd82ee0c849fede58b150b027b9d2",
+    "r1-control-c16.json": "345cbbd96a28b478b015effac1035b873bd6695d2599d4ade026946d443092ec",
+    "r1-control-c2.json": "2d8aacf0cf624805030cacd5d759bca0c5a85dea516c75dd2d336d708d458b3f",
+    "r1-control-c32.json": "dd39927a70b8d391d954278d2851f6da4f9bc94eb2e775f9507bbca0defade30",
+    "r1-control-c4.json": "dfe7f010179b856ec25c9fd96da5584c7c8efb22bdc559523101d65f05afa361",
+    "r1-control-c64.json": "031264241aab56a6d6867318713735cd130d3a2213aeed326e255285b0b387b0",
+    "r1-control-c8.json": "b809aa49397c117493d53787db962815aa05a070af0deb09717d2feb35630dd2",
+    "r1-control-lifecycle.json": "b5abcb5aab6c07e6335132d7ab40b691d4fd0eee7c8dbc7208e1d478e218b3af",
+    "r2-candidate-c1.json": "440cd54a38ebb109fb92ac49553da668a215696f5540f23368f855735fcfd4b7",
+    "r2-candidate-c16.json": "feb67a72e82a07cf11301f3af8fec4d9be7ab72b9eb3afd17544fea0072da174",
+    "r2-candidate-c2.json": "c8b34be07b324ec70a81d32c410f834a4389031c47be85b0096c351c6a680f26",
+    "r2-candidate-c32.json": "b337b34e2e8001783409a07a6d95b2f1cbb34018708ffb9af3407bb0160cacdc",
+    "r2-candidate-c4.json": "6e3054bb33e7db4984c7c74f7665dde36716c1287def14f61b3c29f179041929",
+    "r2-candidate-c64.json": "9e7594c79a32d620f7234cd0063a8b8a3346a1af7b7fee6b4e6f54192e178786",
+    "r2-candidate-c8.json": "37753650d51fb79d1ad5668529efcc4290b5a208eeda8dd5c27d90bdeeb4fbbd",
+    "r2-candidate-lifecycle.json": "33cefef06c3d115e5bbca9ecb2c93b4d6b34dda62f24b31dbc1b23efc6dd9ccd",
+    "r2-control-c1.json": "9b9a374e1d9ca8acf52812ba0c76b7ebb15fcdee33d598c5b42b775f45851b79",
+    "r2-control-c16.json": "c10c4b55034f28c93a1e4d5b0547ec84127b763793b9857d3f5c0146d960f514",
+    "r2-control-c2.json": "626f453a0597c061750df6ab9f06ab9f4f0a117a0cee3ce2459c352a778095dd",
+    "r2-control-c32.json": "352ec223739d2a05cf702be3cc6909b0fb73e99e9d97285bb09edf10f28ff14b",
+    "r2-control-c4.json": "c5e7faca9ed156731b3d212799d6e56d46449163330461fe92bc2732dbf27ce1",
+    "r2-control-c64.json": "269ea5124191c2d7fbd44e305d89302284691395847eee8070842b3e56fa2008",
+    "r2-control-c8.json": "ca72c7a0de3abf139800fb4faa50cdf7e4239c55c108cee84dc8c099517de1a0",
+    "r2-control-lifecycle.json": "aca2bcc348736a275188ddfb55d2bacc201bf129378cce8710cb77239e1eb051",
+    "r3-candidate-c1.json": "1824aa30e358ae28944dd9cf22089c814396b735fec488a728e594f3beb37359",
+    "r3-candidate-c16.json": "ec43fc5f7b3bb7691d82d4c7f0cd6c04a6b8d8fd64fafbe32c188e2e8629c96d",
+    "r3-candidate-c2.json": "088c25a0127ac5f44c0060514d80013b169fb7e231079f2d91b85d9e225aecf8",
+    "r3-candidate-c32.json": "8d66934b33294d03aa6e8e980d2d80f6e87fd7cb8378a37dd2f17dacc8f7005f",
+    "r3-candidate-c4.json": "4f7bec8c094c8a93d6d7f68dae805006662b00b25defbc33abeacb1f3ad17ac8",
+    "r3-candidate-c64.json": "6658105ee200b458ce49f46dd37b6b72d98d391dec9221ca939c789af0ee07fe",
+    "r3-candidate-c8.json": "2141640f4f0e2d1e61007786e3d89ad4fc753c661174f3febbeeb2b93bebf0a6",
+    "r3-candidate-lifecycle.json": "ec6c5cf7198b6f2748b8ef8100686e2f2de594a6507a319ccfce0f43ce80504c",
+    "r3-control-c1.json": "77591bdb3f76aac9dac76946aa5e71cdf6a8c3e26a8b49c3560f7da60eea1f0b",
+    "r3-control-c16.json": "0e3aedb1aafb64028082d62ef3bebee9ea62a0371cd14f4ff3f3be05310607d0",
+    "r3-control-c2.json": "eda0cc059698736469cd424b22b29b56fcb5bfaf3916755b6e0831203f78f47d",
+    "r3-control-c32.json": "df7ec001014e5113fe4352a22a49e42b9837c395e35464dd1d50a3688138cf50",
+    "r3-control-c4.json": "7ec9b061f89fd9d152c4c041202c5f44d4d311777bc6feab37fc4a9f8f7a5365",
+    "r3-control-c64.json": "e307be44ff04e10729d44f4fbc5c52e36818192297b70f8a272ad0eb4c0e2cee",
+    "r3-control-c8.json": "1d48d0941158990b874c4207d3a09e50590852e965a15103a85e2f52138f7e09",
+    "r3-control-lifecycle.json": "5b7b7bd52058a2aa0dcc2e7ae0946fa69bc2c0625885d28a0e9a5230ae9a20de",
+    "regression.json": "187d11179e1903ae21d508d6ebcfec52741676b810bd7f2a0f52217b10ba3d84",
+    "rejected-admission.json": "140a5743aa2e82b1f70f62576c2b6b17d4b5626dd6b776fc0423da4f87e7bcb1",
+    "rejected-harness.json": "4ba015763509a297c14e1fba3bf129046f644d01e6876fff99f00372f07b9076",
+    "rejected-owner-native.json": "02da502c5497a116638cb65e23d5b1c3be84c852d6681f511ea3432c7837b356",
+    "rejected-screen-harness.json": "74c83d83e9ad866f9d4031dea625cdfda8f58531c1dc9cd809d78b1822887251",
+    "service-smoke.json": "38b70f8b0675057f430530eb2526474690fc57b851e4ebe1ec7d45905a9a97c4",
+    "views-operator.json": "d9c1327b70fa7b0d249ca1170308a67e4de953b62ddc5c0599b4d368edc0c6f3"
+  }
+}

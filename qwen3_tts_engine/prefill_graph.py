@@ -16,8 +16,10 @@ def pad_prefill_batch(embeddings, mask, batch):
 
 
 class PrefillGraph:
-    def __init__(self, talker, batch, length):
+    def __init__(self, talker, batch, length, packed_kv=False):
         self.talker = talker
+        self.packed_kv = packed_kv
+        self.packed_cache = None
         weight = next(talker.parameters())
         self.inputs = weight.new_zeros(batch, length, talker.config.hidden_size)
         self.mask = torch.ones(batch, length, device=weight.device, dtype=torch.long)
@@ -41,7 +43,11 @@ class PrefillGraph:
                            position_embeddings=rotary)[0]
         hidden = model.norm(hidden)
         hidden = hidden[self.rows, self.mask.sum(-1) - 1].unsqueeze(1)
-        return hidden, self.talker.codec_head(hidden)[:, -1], cache
+        logits = self.talker.codec_head(hidden)[:, -1]
+        if self.packed_kv:
+            self.packed_cache = torch.stack(
+                [layer.keys for layer in cache.layers] + [layer.values for layer in cache.layers])
+        return hidden, logits, cache
 
     @torch.inference_mode()
     def capture(self):
@@ -69,3 +75,4 @@ class PrefillGraph:
         torch.npu.synchronize()
         if self.graph is not None:
             self.graph.reset()
+        self.packed_cache = None
